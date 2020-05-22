@@ -3,7 +3,10 @@ package com.example.hotfix;
 import android.app.Application;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Hotfix {
 
@@ -20,8 +23,11 @@ public class Hotfix {
         if (!file.exists()) {
             return;
         }
+        List<File> files=new ArrayList<>();
+        files.add(file);
         ClassLoader classLoader = application.getClassLoader();
         Field pathList=ShareReflectUtils.findFiled(classLoader,"pathList");
+        "dexElements"
 
 
     }
