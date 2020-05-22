@@ -26,8 +26,8 @@ public class Hotfix {
         List<File> files=new ArrayList<>();
         files.add(file);
         ClassLoader classLoader = application.getClassLoader();
-        Field pathList=ShareReflectUtils.findFiled(classLoader,"pathList");
-        "dexElements"
+//        Field pathList=ShareReflectUtils.findFiled(classLoader,"pathList");
+//        "dexElements"
 
 
     }
