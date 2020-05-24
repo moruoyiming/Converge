@@ -19,7 +19,7 @@ public class ShareReflectUtils {
                 clas = clas.getSuperclass();
             }
         }
-        throw new NoSuchFieldException("");
+        throw new NoSuchFieldException("no such field exception");
 
     }
 
@@ -37,7 +37,7 @@ public class ShareReflectUtils {
                 clas = clas.getSuperclass();
             }
         }
-        throw new NoSuchMethodException("");
+        throw new NoSuchMethodException("no such method exception");
 
     }
 }
