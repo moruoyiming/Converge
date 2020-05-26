@@ -1,2 +1,3 @@
+include ':basewebview'
 rootProject.name='Hotfix'
 include ':app'

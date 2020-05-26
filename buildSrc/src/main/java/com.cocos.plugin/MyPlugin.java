@@ -10,11 +10,10 @@ public class MyPlugin implements Plugin<Project> {
 
     @Override
     public void apply(Project project) {
-//        def extension  = project.extensions.create('greeting',GreetingPluginExtension)
-//
-//        project.task('hello'){
+        // Register a task
+//        project.tasks.register("greeting") {
 //            doLast {
-//                println extension.message
+//                println("Hello from plugin 'gradle.plugin.greeting'");
 //            }
 //        }
     }
