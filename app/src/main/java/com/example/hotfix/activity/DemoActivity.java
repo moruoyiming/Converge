@@ -1,10 +1,12 @@
-package com.example.hotfix;
+package com.example.hotfix.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+
+import com.example.hotfix.R;
 
 /**
  * <pre>
@@ -13,7 +15,7 @@ import androidx.annotation.Nullable;
  *     Description:
  * </pre>
  */
-public class AActivity extends Activity {
+public class DemoActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -1,7 +1,8 @@
 package com.example.hotfix;
 
 import android.app.Application;
-import android.renderscript.Element;
+
+import com.example.hotfix.utils.ShareReflectUtils;
 
 import java.io.File;
 import java.io.IOException;

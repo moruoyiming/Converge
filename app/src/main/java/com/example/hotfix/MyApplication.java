@@ -2,8 +2,9 @@ package com.example.hotfix;
 
 import android.app.Application;
 
-import com.cocos.basewebview.command.ToastCommand;
 import com.cocos.basewebview.mainprocess.CommandsManager;
+import com.example.hotfix.command.AccountLevelCommands;
+import com.example.hotfix.command.BaseLevelCommands;
 
 public class MyApplication extends Application {
 

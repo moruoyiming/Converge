@@ -1,4 +1,4 @@
-package com.example.hotfix;
+package com.example.hotfix.command;
 
 import android.content.Context;
 import android.text.TextUtils;

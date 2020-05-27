@@ -1,12 +1,13 @@
-package com.example.hotfix;
+package com.example.hotfix.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.cocos.basewebview.WebviewActivity;
-import com.cocos.basewebview.utils.WebConstants;
+import com.example.hotfix.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
                 // for account level
                 WebviewActivity.startCommonWeb(MainActivity.this, "AIDL测试", "file:///android_asset/"+ "aidl.html");
+            }
+        });
+        findViewById(R.id.network).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NetworkActivity.class);
+                startActivity(intent);
             }
         });
     }
