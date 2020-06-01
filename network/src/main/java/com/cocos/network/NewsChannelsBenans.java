@@ -1,4 +1,6 @@
 package com.cocos.network;
 
-public class NewsChannelsBenans {
+import java.io.Serializable;
+
+public class NewsChannelsBenans implements Serializable {
 }
