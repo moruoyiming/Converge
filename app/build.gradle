@@ -1,17 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
 
+    compileSdkVersion(rootProject.compileSdkVersion)
+    buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
         applicationId "com.example.hotfix"
-        minSdkVersion 19
-        targetSdkVersion 29
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -28,3 +31,24 @@ dependencies {
     implementation project(':basewebview')
     implementation project(':network')
 }
+
+
+
+//// gradle 插件开发代码
+//apply plugin: 'com.cocos.plugin'
+//
+//releaseHelper{
+//    //FirUpload
+//    appName = "COCOS"
+//    pgyApiKey = "sss"
+//    changeLog = "Update gradle. "
+//    iconFilePath = rootProject.projectDir.getAbsolutePath()+"/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+//
+//    //For SendMsgToDingTalk
+//    apiToken = ""
+//    msgTitle = "新版 "+project.android.defaultConfig.versionName + "_" +project.android.defaultConfig.versionCode
+//    msgContent = "Android打包完成，欢迎下载使用"
+//    singleButtonTitle = "了解详情"
+//    singleButtonUrl = "https://www.pgyer.com/gradle"
+//
+//}
