@@ -11,9 +11,9 @@ import androidx.databinding.ObservableList;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
+import com.example.news.R;
+import com.example.news.databinding.FragmentHomeBinding;
 import com.google.android.material.tabs.TabLayout;
-import com.xiangxue.news.R;
-import com.xiangxue.news.databinding.FragmentHomeBinding;
 
 public class HeadlineNewsFragment extends Fragment {
     public HeadlineNewsFragmentAdapter adapter;

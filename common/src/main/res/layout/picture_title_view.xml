@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.arch.demo.common.views.picturetitleview.PictureTitleViewViewModel" />
+            type="com.example.common.views.picturetitleview.PictureTitleViewViewModel" />
 
         <import type="android.view.View" />
         <import type="android.text.TextUtils" />

@@ -28,8 +28,11 @@ android {
 
 dependencies {
 
-    implementation project(':basewebview')
-    implementation project(':network')
+    api project(':basewebview')
+    api project(':network')
+    api project(':base')
+    api project(':common')
+    api project(':news')
 }
 
 

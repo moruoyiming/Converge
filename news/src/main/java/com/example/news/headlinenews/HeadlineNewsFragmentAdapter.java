@@ -8,14 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.xiangxue.news.homefragment.newslist.NewsListFragment;
+
+import com.example.news.newslist.NewsListFragment;
 
 import java.util.HashMap;
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
+
 public class HeadlineNewsFragmentAdapter extends FragmentPagerAdapter {
     private ObservableList<ChannelsModel.Channel> mChannels = new ObservableArrayList<>();
     private HashMap<String, Fragment> fragmentHashMap = new HashMap<>();

@@ -5,12 +5,12 @@ import android.view.ViewGroup;
 import androidx.databinding.ObservableList;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.arch.demo.common.views.picturetitleview.PictureTitleView;
-import com.arch.demo.common.views.picturetitleview.PictureTitleViewViewModel;
-import com.arch.demo.common.views.titleview.TitleView;
-import com.arch.demo.common.views.titleview.TitleViewViewModel;
-import com.arch.demo.core.customview.BaseCustomViewModel;
-import com.arch.demo.core.recyclerview.BaseViewHolder;
+import com.cocos.base.customview.BaseCustomViewModel;
+import com.cocos.base.recyclerview.BaseViewHolder;
+import com.example.common.views.picturetitleview.PictureTitleView;
+import com.example.common.views.picturetitleview.PictureTitleViewViewModel;
+import com.example.common.views.titleview.TitleView;
+import com.example.common.views.titleview.TitleViewViewModel;
 
 
 /**

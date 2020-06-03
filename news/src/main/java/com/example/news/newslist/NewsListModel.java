@@ -1,13 +1,14 @@
 package com.example.news.newslist;
 
-import com.arch.demo.common.views.picturetitleview.PictureTitleViewViewModel;
-import com.arch.demo.common.views.titleview.TitleViewViewModel;
-import com.arch.demo.core.customview.BaseCustomViewModel;
-import com.arch.demo.core.model.MvvmBaseModel;
-import com.xiangxue.network.TecentNetworkApi;
-import com.xiangxue.network.observer.BaseObserver;
-import com.xiangxue.news.homefragment.api.NewsApiInterface;
-import com.xiangxue.news.homefragment.api.NewsListBean;
+
+import com.cocos.base.customview.BaseCustomViewModel;
+import com.cocos.base.model.MvvmBaseModel;
+import com.cocos.network.TecentNetworkApi;
+import com.cocos.network.observer.BaseObserver;
+import com.example.common.views.picturetitleview.PictureTitleViewViewModel;
+import com.example.common.views.titleview.TitleViewViewModel;
+import com.example.news.api.NewsApiInterface;
+import com.example.news.api.NewsListBean;
 
 import java.util.ArrayList;
 

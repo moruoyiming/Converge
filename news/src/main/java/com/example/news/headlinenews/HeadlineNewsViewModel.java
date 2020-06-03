@@ -1,6 +1,7 @@
 package com.example.news.headlinenews;
 
-import com.arch.demo.core.viewmodel.MvvmBaseViewModel;
+
+import com.cocos.base.viewmodel.MvvmBaseViewModel;
 
 /**
  * Created by plout on 2017/7/20.

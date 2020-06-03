@@ -1,4 +1,4 @@
-package com.arch.demo.common.arouter;
+package com.example.common.arouter;
 
 import android.text.TextUtils;
 

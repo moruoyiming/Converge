@@ -1,18 +1,14 @@
-package com.arch.demo.common.views.picturetitleview;
+package com.example.common.views.picturetitleview;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import android.view.View;
 
-import com.arch.demo.common.databinding.PictureTitleViewBinding;
-import com.arch.demo.common.R;
-import com.arch.demo.core.customview.BaseCustomView;
-import com.xiangxue.webview.WebviewActivity;
+import com.cocos.base.customview.BaseCustomView;
+import com.cocos.basewebview.WebviewActivity;
+import com.example.common.R;
+import com.example.common.databinding.PictureTitleViewBinding;
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
+
 public class PictureTitleView extends BaseCustomView<PictureTitleViewBinding, PictureTitleViewViewModel> {
     public PictureTitleView(Context context) {
         super(context);

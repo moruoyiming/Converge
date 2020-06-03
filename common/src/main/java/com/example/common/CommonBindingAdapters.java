@@ -1,4 +1,4 @@
-package com.arch.demo.common;
+package com.example.common;
 
 import androidx.databinding.BindingAdapter;
 import android.text.TextUtils;
@@ -9,10 +9,6 @@ import com.bumptech.glide.Glide;
 
 import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
 public class CommonBindingAdapters {
 
     @BindingAdapter("imageUrl")

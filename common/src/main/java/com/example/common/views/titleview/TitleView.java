@@ -1,13 +1,13 @@
-package com.arch.demo.common.views.titleview;
+package com.example.common.views.titleview;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import android.view.View;
 
-import com.arch.demo.common.R;
-import com.arch.demo.common.databinding.TitleViewBinding;
-import com.arch.demo.core.customview.BaseCustomView;
-import com.xiangxue.webview.WebviewActivity;
+import com.cocos.base.customview.BaseCustomView;
+import com.cocos.basewebview.WebviewActivity;
+import com.example.common.R;
+import com.example.common.databinding.TitleViewBinding;
+
 
 /**
  * Created by plout on 2017/7/20.

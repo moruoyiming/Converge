@@ -1,4 +1,4 @@
-package com.arch.demo.common.arouter.news;
+package com.example.common.arouter.news;
 
 import androidx.fragment.app.Fragment;
 

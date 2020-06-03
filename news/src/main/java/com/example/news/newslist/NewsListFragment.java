@@ -9,21 +9,18 @@ import androidx.databinding.ObservableList;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.arch.demo.core.customview.BaseCustomViewModel;
-import com.arch.demo.core.fragment.MvvmFragment;
+import com.cocos.base.customview.BaseCustomViewModel;
+import com.cocos.base.fragment.MvvmFragment;
+import com.example.news.R;
+import com.example.news.databinding.FragmentNewsBinding;
 import com.scwang.smartrefresh.header.WaterDropHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
 import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-import com.xiangxue.news.R;
-import com.xiangxue.news.databinding.FragmentNewsBinding;
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
+
 public class NewsListFragment extends MvvmFragment<FragmentNewsBinding, NewsListViewModel, BaseCustomViewModel> {
     private NewsListRecyclerViewAdapter mAdapter;
     private String mChannelId = "";
