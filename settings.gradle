@@ -1,3 +1,5 @@
+include ':common'
+include ':news'
 include ':base'
 include ':basewebview'
 rootProject.name='Hotfix'
