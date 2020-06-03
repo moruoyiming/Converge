@@ -8,11 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cocos.base.customview.BaseCustomViewModel;
 import com.cocos.base.customview.ICustomView;
 
-
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
 public class BaseViewHolder extends RecyclerView.ViewHolder {
     ICustomView view;
 

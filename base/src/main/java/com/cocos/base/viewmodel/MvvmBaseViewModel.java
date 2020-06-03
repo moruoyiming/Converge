@@ -1,5 +1,7 @@
 package com.cocos.base.viewmodel;
 
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableList;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.MutableLiveData;
@@ -12,10 +14,6 @@ import com.cocos.base.model.PagingResult;
 
 import java.util.List;
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
 public abstract class MvvmBaseViewModel<M extends MvvmBaseModel, D> extends ViewModel implements LifecycleObserver, IBaseModelListener<List<D>> {
     protected M model;
     public MutableLiveData<ObservableList<D>> dataList = new MutableLiveData();
@@ -72,7 +70,7 @@ public abstract class MvvmBaseViewModel<M extends MvvmBaseModel, D> extends View
     @Override
     public void onLoadFail(MvvmBaseModel model, String prompt, PagingResult... pagingResult) {
         errorMessage.setValue(prompt);
-        if(model.isPaging() && !pagingResult[0].isFirstPage) {
+        if (model.isPaging() && !pagingResult[0].isFirstPage) {
             viewStatusLiveData.setValue(ViewStatus.LOAD_MORE_FAILED);
         } else {
             viewStatusLiveData.setValue(ViewStatus.REFRESH_ERROR);

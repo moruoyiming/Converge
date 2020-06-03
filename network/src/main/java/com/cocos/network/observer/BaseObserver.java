@@ -1,5 +1,7 @@
 package com.cocos.network.observer;
 
+import com.cocos.base.model.MvvmBaseModel;
+import com.cocos.base.model.MvvmNetworkObserver;
 import com.cocos.network.errorhandler.ExceptionHandle;
 
 import io.reactivex.Observer;

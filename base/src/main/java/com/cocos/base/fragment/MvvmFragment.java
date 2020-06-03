@@ -28,10 +28,7 @@ import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
+
 public abstract class MvvmFragment<V extends ViewDataBinding, VM extends MvvmBaseViewModel, D> extends Fragment implements Observer {
     protected VM viewModel;
     protected V viewDataBinding;

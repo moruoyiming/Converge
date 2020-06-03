@@ -19,10 +19,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
+
 public abstract class MvvmBaseModel<F, T extends ArrayList> implements MvvmNetworkObserver<F>{
     private CompositeDisposable compositeDisposable;
     protected ReferenceQueue<IBaseModelListener> mReferenceQueue;

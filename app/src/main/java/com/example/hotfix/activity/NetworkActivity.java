@@ -11,7 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cocos.network.NetWorkApi;
+import com.cocos.network.TecentNetworkApi;
+import com.cocos.network.base.NetworkApi;
 import com.example.hotfix.R;
 
 public class NetworkActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class NetworkActivity extends AppCompatActivity {
         findViewById(R.id.get_data).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NetWorkApi.getTencentNewsChannel();
+//                TecentNetwork  applySchedulers(new BaseObserver<NewsListBean>(this, this)));
             }
         });
 

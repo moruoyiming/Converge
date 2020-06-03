@@ -54,7 +54,7 @@ public class TecentNetworkApi extends NetworkApi {
                 if (response instanceof TecentBaseResponse && ((TecentBaseResponse) response).showapiResCode != 0) {
                     ExceptionHandle.ServerException exception = new ExceptionHandle.ServerException();
                     exception.code = ((TecentBaseResponse) response).showapiResCode;
-                    exception.message = ((TecentBaseResponse) response).showapiResError != null ? ((TecentBaseResponse) response).showapiResError : "";
+                    exception.message = ((TecentBaseResponse) response).showapiResError != null ?String.valueOf( ((TecentBaseResponse) response).showapiResError ): "";
                     throw exception;
                 }
                 return response;
