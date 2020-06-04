@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#666666"
+            android:padding="15dp"
+            android:text="banner"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/interstitial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#666666"
+            android:padding="15dp"
+            android:text="Interstitial"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/rewardedvideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#666666"
+            android:padding="15dp"
+            android:text="RewardedVideo"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/nativead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="#666666"
+            android:padding="15dp"
+            android:text="Native"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

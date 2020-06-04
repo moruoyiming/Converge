@@ -22,10 +22,7 @@ import com.kingja.loadsir.core.LoadSir;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableArrayList;
 import androidx.databinding.ViewDataBinding;
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
+
 public abstract class MvvmActivity<V extends ViewDataBinding, VM extends MvvmBaseViewModel> extends AppCompatActivity implements Observer {
     protected VM viewModel;
     private LoadService mLoadService;

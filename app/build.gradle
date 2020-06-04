@@ -38,21 +38,21 @@ dependencies {
 
 
 
-// gradle 插件开发代码
-apply plugin: 'com.cocos.plugin'
-
-releaseHelper{
-    //FirUpload
-    appName = "COCOS"
-    pgyApiKey = "sss"
-    changeLog = "Update gradle. "
-    iconFilePath = rootProject.projectDir.getAbsolutePath()+"/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
-
-    //For SendMsgToDingTalk
-    apiToken = ""
-    msgTitle = "新版 "+project.android.defaultConfig.versionName + "_" +project.android.defaultConfig.versionCode
-    msgContent = "Android打包完成，欢迎下载使用"
-    singleButtonTitle = "了解详情"
-    singleButtonUrl = "https://www.pgyer.com/gradle"
-
-}
+//// gradle 插件开发代码
+//apply plugin: 'com.cocos.plugin'
+//
+//releaseHelper{
+//    //FirUpload
+//    appName = "COCOS"
+//    pgyApiKey = "sss"
+//    changeLog = "Update gradle. "
+//    iconFilePath = rootProject.projectDir.getAbsolutePath()+"/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+//
+//    //For SendMsgToDingTalk
+//    apiToken = ""
+//    msgTitle = "新版 "+project.android.defaultConfig.versionName + "_" +project.android.defaultConfig.versionCode
+//    msgContent = "Android打包完成，欢迎下载使用"
+//    singleButtonTitle = "了解详情"
+//    singleButtonUrl = "https://www.pgyer.com/gradle"
+//
+//}
