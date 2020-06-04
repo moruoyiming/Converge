@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.lf:
-                Intent intent2 = new Intent(MainActivity.this, AActivity.class);
+                Intent intent2 = new Intent(MainActivity.this, MopubActivity.class);
                 startActivity(intent2);
                 break;
         }
