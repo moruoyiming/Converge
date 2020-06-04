@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    api 'com.android.support:multidex:1.0.2'
     api "androidx.appcompat:appcompat:$rootProject.androidXVersion"
     api "androidx.recyclerview:recyclerview:$rootProject.androidXVersion"
     api "androidx.cardview:cardview:$rootProject.androidXVersion"

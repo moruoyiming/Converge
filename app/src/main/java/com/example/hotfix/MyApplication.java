@@ -1,12 +1,12 @@
 package com.example.hotfix;
 
-import android.app.Application;
+import androidx.multidex.MultiDexApplication;
 
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.example.hotfix.command.AccountLevelCommands;
 import com.example.hotfix.command.BaseLevelCommands;
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {

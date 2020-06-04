@@ -52,4 +52,14 @@
             android:text="Native"
             android:textColor="#ffffff" />
     </LinearLayout>
+
+    <com.mopub.mobileads.MoPubView
+        android:id="@+id/mb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:moPubAdSize="height_50">
+
+    </com.mopub.mobileads.MoPubView>
 </androidx.constraintlayout.widget.ConstraintLayout>
