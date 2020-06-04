@@ -23,6 +23,17 @@
         <activity android:name=".activity.NetworkActivity">
 
         </activity>
+        <activity
+            android:name=".activity.AActivity"
+            android:launchMode="singleTask">
+
+        </activity>
+        <activity android:name=".activity.BActivity">
+
+        </activity>
+        <activity android:name=".activity.CActivity">
+
+        </activity>
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>
