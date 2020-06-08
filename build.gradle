@@ -12,6 +12,9 @@ buildscript {
         maven {
             url 'https://maven.aliyun.com/repository/public'
         }
+        maven {
+            url 'https://s3.amazonaws.com/moat-sdk-builds'
+        }
         jcenter()
         google()
         

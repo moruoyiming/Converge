@@ -36,8 +36,11 @@ dependencies {
     api project(':news')
     androidTestImplementation 'junit:junit:4.12'
     implementation 'com.google.android.gms:play-services-ads:19.1.0'
+    implementation('com.google.ads.mediation:mopub:5.12.0.1') {
+        transitive = true
+        exclude module: 'moat-mobile-app-kit' // To exclude Moat
+    }
 }
-
 
 
 //// gradle 插件开发代码

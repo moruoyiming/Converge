@@ -18,6 +18,7 @@ import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.mopub.mobileads.dfp.adapters.MoPubAdapter;
 
 
 /**
@@ -125,7 +126,13 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.banner:
-                AdRequest adRequest = new AdRequest.Builder().build();
+                Bundle bundle = new MoPubAdapter.BundleBuilder()
+                        .setPrivacyIconSize(15)
+                        .build();
+                AdRequest adRequest = new AdRequest.Builder()
+                        .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
+                        .build();
+//                AdRequest adRequest = new AdRequest.Builder().build();
                 adView.loadAd(adRequest);
                 break;
             case R.id.interstitial:
