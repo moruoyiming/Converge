@@ -7,7 +7,11 @@ import android.view.View;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
+
 
 import com.cocos.base.R;
 import com.cocos.base.loadsir.EmptyCallback;
@@ -19,9 +23,6 @@ import com.cocos.base.viewmodel.ViewStatus;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
-import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ViewDataBinding;
 
 public abstract class MvvmActivity<V extends ViewDataBinding, VM extends MvvmBaseViewModel> extends AppCompatActivity implements Observer {
     protected VM viewModel;
