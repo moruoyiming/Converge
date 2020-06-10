@@ -31,9 +31,13 @@ import com.mopub.mobileads.dfp.adapters.MoPubAdapter;
 public class MopubActivity extends AppCompatActivity implements View.OnClickListener {
     public String TAG = MopubActivity.class.getSimpleName();
     TextView banner, interstitial, rewardedvideo, nativead;
-    public static final String bannerId = "ca-app-pub-3940256099942544/6300978111";
-    public static final String interstitialId = "ca-app-pub-3940256099942544/1033173712";
-    public static final String rewardedvideoId = "ca-app-pub-3940256099942544/5224354917";
+    //    public static final String bannerId = "ca-app-pub-3940256099942544/6300978111";
+//    public static final String interstitialId = "ca-app-pub-3940256099942544/1033173712";
+//    public static final String rewardedvideoId = "ca-app-pub-3940256099942544/5224354917";
+    public static final String bannerId = "ca-app-pub-8241795889030186/7863074195";
+    public static final String interstitialId = "ca-app-pub-8241795889030186/6482791336";
+    public static final String rewardedvideoId = "ca-app-pub-8241795889030186/6285202985";
+
     private AdView adView;
     private InterstitialAd mInterstitialAd;
     private RewardedAd rewardedAd;
@@ -87,7 +91,7 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
-                Log.i(TAG, "InterstitialAd - Code to be executed when an ad finishes loading.");
+                Log.i(TAG, "InterstitialAd - Code to be executed when an ad finishes loading. "+mInterstitialAd.getResponseInfo().getMediationAdapterClassName());
                 if (mInterstitialAd.isLoaded()) {
                     mInterstitialAd.show();
                 }
@@ -131,13 +135,21 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
                         .build();
                 AdRequest adRequest = new AdRequest.Builder()
                         .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
+                        .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
                         .build();
 //                AdRequest adRequest = new AdRequest.Builder().build();
                 adView.loadAd(adRequest);
                 break;
             case R.id.interstitial:
                 mInterstitialAd.setAdUnitId(interstitialId);
-                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                Bundle bundle2 = new MoPubAdapter.BundleBuilder()
+                        .setPrivacyIconSize(15)
+                        .build();
+                AdRequest adRequest2 = new AdRequest.Builder()
+                        .addNetworkExtrasBundle(MoPubAdapter.class, bundle2)
+                        .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
+                        .build();
+                mInterstitialAd.loadAd(adRequest2);
                 break;
             case R.id.rewardedvideo:
                 if (rewardedAd.isLoaded()) {
@@ -150,12 +162,14 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
                         @Override
                         public void onRewardedAdClosed() {
                             Log.i(TAG, "RewardedAd - Ad closed.");
+                            //TODO onCLose 通知游戏
                             rewardedAd = createAndLoadRewardedAd();
                         }
 
                         @Override
                         public void onUserEarnedReward(@NonNull RewardItem reward) {
                             Log.i(TAG, "RewardedAd - User earned reward.");
+                            //TODO onShow 通知游戏
                         }
 
                         @Override
@@ -178,15 +192,24 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
         RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
             @Override
             public void onRewardedAdLoaded() {
-                Log.i(TAG, "RewardedAd - Ad successfully loaded.");
+                //TODO onLoad 通知游戏
+                Log.i(TAG, "RewardedAd - Ad successfully loaded.  "+rewardedAd.getResponseInfo().getMediationAdapterClassName());
             }
 
             @Override
             public void onRewardedAdFailedToLoad(int errorCode) {
+                //TODO onError 通知游戏
                 Log.i(TAG, "RewardedAd - Ad failed to load.");
             }
         };
-        rewardedAd.loadAd(new AdRequest.Builder().build(), adLoadCallback);
+        Bundle bundle = new MoPubAdapter.BundleBuilder()
+                .setPrivacyIconSize(15)
+                .build();
+        AdRequest adRequest2 = new AdRequest.Builder()
+                .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
+                .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
+                .build();
+        rewardedAd.loadAd(adRequest2, adLoadCallback);
         return rewardedAd;
     }
 

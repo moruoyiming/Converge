@@ -27,7 +27,7 @@ public class MyApplication extends Application {
                 Toast.makeText(MyApplication.this, "广告初始化完成，" + initializationStatus.getAdapterStatusMap(), Toast.LENGTH_LONG).show();
             }
         });
-        SdkConfiguration sdkConfiguration = new SdkConfiguration.Builder("YOUR_MOPUB_AD_UNIT_ID").build();
-        MoPub.initializeSdk(this, sdkConfiguration, null);
+//        SdkConfiguration sdkConfiguration = new SdkConfiguration.Builder("YOUR_MOPUB_AD_UNIT_ID").build();
+//        MoPub.initializeSdk(this, sdkConfiguration, null);
     }
 }
