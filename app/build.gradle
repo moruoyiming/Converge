@@ -27,7 +27,10 @@ android {
 }
 
 dependencies {
-
+    implementation "com.google.android.material:material:$rootProject.androidXVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.androidXVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraint_version"
+    implementation 'q.rorbin:badgeview:1.1.3'
     api project(':basewebview')
     api project(':network')
     api project(':base')
