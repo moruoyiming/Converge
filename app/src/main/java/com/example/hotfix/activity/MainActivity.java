@@ -18,7 +18,6 @@ import com.cocos.base.viewmodel.MvvmBaseViewModel;
 import com.example.common.arouter.RouteServiceManager;
 import com.example.common.arouter.news.INewsService;
 import com.example.hotfix.R;
-import com.example.hotfix.databinding.ActivityMainBinding;
 import com.example.hotfix.fragments.AccountFragment;
 import com.example.hotfix.fragments.CategoryFragment;
 import com.example.hotfix.fragments.ServiceFragment;
@@ -31,7 +30,7 @@ import java.lang.reflect.Field;
 
 import q.rorbin.badgeview.QBadgeView;
 
-public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseViewModel> {
+public class MainActivity extends MvvmActivity<com.example.hotfix.databinding.ActivityMainBinding, MvvmBaseViewModel> {
 
     private INewsService iNewsService;
     private Fragment mHomeFragment;

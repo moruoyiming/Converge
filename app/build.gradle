@@ -36,6 +36,7 @@ dependencies {
     api project(':base')
     api project(':common')
     api project(':news')
+    api project(':aop')
     androidTestImplementation 'junit:junit:4.12'
 }
 
