@@ -11,10 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- HotFix  android:value="ca-app-pub-8241795889030186~9750870930"  -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8241795889030186~9750870930"/>
-        <activity android:name=".activity.MainActivity">
+            android:value="ca-app-pub-1498325132484748~2718337224" />
+
+        <activity android:name=".activity.MopubActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,9 +40,9 @@
         <activity android:name=".activity.CActivity">
 
         </activity>
-        <activity android:name=".activity.MopubActivity">
+<!--        <activity android:name=".activity.MopubActivity">-->
 
-        </activity>
+<!--        </activity>-->
     </application>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 </manifest>

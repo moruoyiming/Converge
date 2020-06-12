@@ -34,13 +34,42 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
     //    public static final String bannerId = "ca-app-pub-3940256099942544/6300978111";
 //    public static final String interstitialId = "ca-app-pub-3940256099942544/1033173712";
 //    public static final String rewardedvideoId = "ca-app-pub-3940256099942544/5224354917";
-    public static final String bannerId = "ca-app-pub-8241795889030186/7863074195";
-    public static final String interstitialId = "ca-app-pub-8241795889030186/6482791336";
-    public static final String rewardedvideoId = "ca-app-pub-8241795889030186/6285202985";
+//    public static final String bannerId = "ca-app-pub-8241795889030186/7863074195";
+//    public static final String interstitialId = "ca-app-pub-8241795889030186/6482791336";
+//    public static final String rewardedvideoId = "ca-app-pub-8241795889030186/6285202985";
+    public static final String bannerId = "ca-app-pub-1498325132484748/1213683867";
+    public static final String interstitialId = "ca-app-pub-1498325132484748/4961357181";
+    public static final String rewardedvideoId = "ca-app-pub-1498325132484748/1022112177";
+
+
 
     private AdView adView;
     private InterstitialAd mInterstitialAd;
     private RewardedAd rewardedAd;
+    RewardedAdCallback adCallback = new RewardedAdCallback() {
+        @Override
+        public void onRewardedAdOpened() {
+            Log.i(TAG, "RewardedAd - Ad opened.");
+        }
+
+        @Override
+        public void onRewardedAdClosed() {
+            Log.i(TAG, "RewardedAd - Ad closed.");
+            //TODO onCLose 通知游戏
+            rewardedAd = createAndLoadRewardedAd();
+        }
+
+        @Override
+        public void onUserEarnedReward(@NonNull RewardItem reward) {
+            Log.i(TAG, "RewardedAd - User earned reward.");
+            //TODO onShow 通知游戏
+        }
+
+        @Override
+        public void onRewardedAdFailedToShow(int errorCode) {
+            Log.i(TAG, "RewardedAd - Ad failed to display.");
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,14 +116,75 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
                 Log.i(TAG, "Banner - Code to be executed when the user is about to return to the app after tapping on an ad.");
             }
         });
+        mInterstitialAd = crateInterstitialAd();
+        rewardedAd = createAndLoadRewardedAd();
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.banner:
+                Bundle bundle = new MoPubAdapter.BundleBuilder()
+                        .setPrivacyIconSize(15)
+                        .build();
+                AdRequest adRequest = new AdRequest.Builder()
+                        .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
+//                        .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
+                        .build();
+//                AdRequest adRequest = new AdRequest.Builder().build();
+                adView.loadAd(adRequest);
+                break;
+            case R.id.interstitial:
+                if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
+                break;
+            case R.id.rewardedvideo:
+                if (rewardedAd.isLoaded()) {
+                    rewardedAd.show(MopubActivity.this, adCallback);
+                }
+                break;
+            case R.id.nativead:
+//                Intent intent= new Intent(MopubActivity.this,NativeActivity.class);
+//                startActivity(intent);
+                break;
+        }
+    }
+
+    public RewardedAd createAndLoadRewardedAd() {
+        RewardedAd rewardedAd = new RewardedAd(this, rewardedvideoId);
+        RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
+            @Override
+            public void onRewardedAdLoaded() {
+                //TODO onLoad 通知游戏
+                Log.i(TAG, "RewardedAd - Ad successfully loaded.  " + rewardedAd.getResponseInfo().getMediationAdapterClassName());
+            }
+
+            @Override
+            public void onRewardedAdFailedToLoad(int errorCode) {
+                //TODO onError 通知游戏
+                Log.i(TAG, "RewardedAd - Ad failed to load.  "+errorCode);
+            }
+        };
+        Bundle bundle = new MoPubAdapter.BundleBuilder()
+                .setPrivacyIconSize(15)
+                .build();
+        AdRequest adRequest2 = new AdRequest.Builder()
+                .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
+//                .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
+                .build();
+        rewardedAd.loadAd(adRequest2, adLoadCallback);
+        return rewardedAd;
+    }
+
+    public InterstitialAd crateInterstitialAd() {
         mInterstitialAd = new InterstitialAd(this);
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
-                Log.i(TAG, "InterstitialAd - Code to be executed when an ad finishes loading. "+mInterstitialAd.getResponseInfo().getMediationAdapterClassName());
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                }
+                Log.i(TAG, "InterstitialAd - Code to be executed when an ad finishes loading. " + mInterstitialAd.getResponseInfo().getMediationAdapterClassName());
+
             }
 
             @Override
@@ -120,97 +210,20 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onAdClosed() {
                 Log.i(TAG, "InterstitialAd - Code to be executed when the user is about to return.");
+                mInterstitialAd = null;
+                mInterstitialAd = crateInterstitialAd();
             }
         });
-        rewardedAd = createAndLoadRewardedAd();
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.banner:
-                Bundle bundle = new MoPubAdapter.BundleBuilder()
-                        .setPrivacyIconSize(15)
-                        .build();
-                AdRequest adRequest = new AdRequest.Builder()
-                        .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
-                        .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
-                        .build();
-//                AdRequest adRequest = new AdRequest.Builder().build();
-                adView.loadAd(adRequest);
-                break;
-            case R.id.interstitial:
-                mInterstitialAd.setAdUnitId(interstitialId);
-                Bundle bundle2 = new MoPubAdapter.BundleBuilder()
-                        .setPrivacyIconSize(15)
-                        .build();
-                AdRequest adRequest2 = new AdRequest.Builder()
-                        .addNetworkExtrasBundle(MoPubAdapter.class, bundle2)
-                        .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
-                        .build();
-                mInterstitialAd.loadAd(adRequest2);
-                break;
-            case R.id.rewardedvideo:
-                if (rewardedAd.isLoaded()) {
-                    RewardedAdCallback adCallback = new RewardedAdCallback() {
-                        @Override
-                        public void onRewardedAdOpened() {
-                            Log.i(TAG, "RewardedAd - Ad opened.");
-                        }
-
-                        @Override
-                        public void onRewardedAdClosed() {
-                            Log.i(TAG, "RewardedAd - Ad closed.");
-                            //TODO onCLose 通知游戏
-                            rewardedAd = createAndLoadRewardedAd();
-                        }
-
-                        @Override
-                        public void onUserEarnedReward(@NonNull RewardItem reward) {
-                            Log.i(TAG, "RewardedAd - User earned reward.");
-                            //TODO onShow 通知游戏
-                        }
-
-                        @Override
-                        public void onRewardedAdFailedToShow(int errorCode) {
-                            Log.i(TAG, "RewardedAd - Ad failed to display.");
-                        }
-                    };
-                    rewardedAd.show(MopubActivity.this, adCallback);
-                }
-                break;
-            case R.id.nativead:
-//                Intent intent= new Intent(MopubActivity.this,NativeActivity.class);
-//                startActivity(intent);
-                break;
-        }
-    }
-
-    public RewardedAd createAndLoadRewardedAd() {
-        RewardedAd rewardedAd = new RewardedAd(this, rewardedvideoId);
-        RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
-            @Override
-            public void onRewardedAdLoaded() {
-                //TODO onLoad 通知游戏
-                Log.i(TAG, "RewardedAd - Ad successfully loaded.  "+rewardedAd.getResponseInfo().getMediationAdapterClassName());
-            }
-
-            @Override
-            public void onRewardedAdFailedToLoad(int errorCode) {
-                //TODO onError 通知游戏
-                Log.i(TAG, "RewardedAd - Ad failed to load.");
-            }
-        };
-        Bundle bundle = new MoPubAdapter.BundleBuilder()
+        mInterstitialAd.setAdUnitId(interstitialId);
+        Bundle bundle2 = new MoPubAdapter.BundleBuilder()
                 .setPrivacyIconSize(15)
                 .build();
         AdRequest adRequest2 = new AdRequest.Builder()
-                .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
-                .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
+                .addNetworkExtrasBundle(MoPubAdapter.class, bundle2)
+//                .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
                 .build();
-        rewardedAd.loadAd(adRequest2, adLoadCallback);
-        return rewardedAd;
+        mInterstitialAd.loadAd(adRequest2);
+        return mInterstitialAd;
     }
 
 

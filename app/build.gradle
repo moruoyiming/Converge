@@ -5,11 +5,11 @@ android {
     compileSdkVersion(rootProject.compileSdkVersion)
     buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
-        applicationId "com.example.hotfix"
+        applicationId "com.cocos.game.test"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 323
+        versionName "1.0.323"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -20,6 +20,8 @@ android {
 
     buildTypes {
         release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
