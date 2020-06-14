@@ -8,11 +8,13 @@ import com.cocos.base.loadsir.EmptyCallback;
 import com.cocos.base.loadsir.ErrorCallback;
 import com.cocos.base.loadsir.LoadingCallback;
 import com.cocos.base.loadsir.TimeoutCallback;
+import com.cocos.base.preference.PreferencesUtil;
 import com.cocos.base.utils.ToastUtil;
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.cocos.network.base.NetworkApi;
 import com.example.hotfix.command.AccountLevelCommands;
 import com.example.hotfix.command.BaseLevelCommands;
+import com.example.hotfix.utils.NetworkRequestInfo;
 import com.kingja.loadsir.core.LoadSir;
 
 public class MyApplication extends Application {
@@ -23,8 +25,8 @@ public class MyApplication extends Application {
         CommandsManager.getInstance().registerCommand(new AccountLevelCommands());
         CommandsManager.getInstance().registerCommand(new BaseLevelCommands());
 //        Hotfix.fix(this,"/sdcard/patch.jar");
-
-//        NetworkApi.init(new NetworkRequestInfo(this));
+        PreferencesUtil.init(this);
+        NetworkApi.init(new NetworkRequestInfo(this));
         ToastUtil.init(this);
         ARouter.init(this);
         ARouter.openDebug();

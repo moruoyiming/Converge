@@ -13,11 +13,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.cocos.aop.aspectj.PermissionAspect;
 import com.cocos.base.activity.MvvmActivity;
 import com.cocos.base.viewmodel.MvvmBaseViewModel;
 import com.example.common.arouter.RouteServiceManager;
 import com.example.common.arouter.news.INewsService;
 import com.example.hotfix.R;
+import com.example.hotfix.databinding.ActivityMainBinding;
 import com.example.hotfix.fragments.AccountFragment;
 import com.example.hotfix.fragments.CategoryFragment;
 import com.example.hotfix.fragments.ServiceFragment;
@@ -30,7 +32,7 @@ import java.lang.reflect.Field;
 
 import q.rorbin.badgeview.QBadgeView;
 
-public class MainActivity extends MvvmActivity<com.example.hotfix.databinding.ActivityMainBinding, MvvmBaseViewModel> {
+public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseViewModel> {
 
     private INewsService iNewsService;
     private Fragment mHomeFragment;
@@ -51,7 +53,6 @@ public class MainActivity extends MvvmActivity<com.example.hotfix.databinding.Ac
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getString(R.string.menu_home));
-
         /**
          * Disable shift method require for to prevent shifting icon.
          * When you select any icon then remain all icon shift
@@ -60,7 +61,6 @@ public class MainActivity extends MvvmActivity<com.example.hotfix.databinding.Ac
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             disableShiftMode(viewDataBinding.bottomView);
         }
-
         viewDataBinding.bottomView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

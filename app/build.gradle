@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.alibaba.arouter'
 android {
 
     compileSdkVersion(rootProject.compileSdkVersion)
@@ -16,7 +16,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
+    dataBinding {
+        enabled true
+    }
     buildTypes {
         release {
             minifyEnabled false

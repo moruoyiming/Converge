@@ -13,10 +13,6 @@ import com.example.common.views.titleview.TitleView;
 import com.example.common.views.titleview.TitleViewViewModel;
 
 
-/**
- * Created by plout on 2017/7/20.
- * 保留所有版权，未经允许请不要分享到互联网和其他人
- */
 public class NewsListRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private ObservableList<BaseCustomViewModel> mItems;

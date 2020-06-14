@@ -1,4 +1,4 @@
-package com.example.hotfix;
+package com.example.hotfix.utils;
 
 import android.app.Application;
 
