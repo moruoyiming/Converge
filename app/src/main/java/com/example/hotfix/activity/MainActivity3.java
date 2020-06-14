@@ -20,6 +20,7 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.openWeb2).setOnClickListener(this);
         findViewById(R.id.network).setOnClickListener(this);
         findViewById(R.id.lf).setOnClickListener(this);
+        findViewById(R.id.permission).setOnClickListener(this);
     }
 
     @Override
@@ -36,8 +37,12 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 break;
             case R.id.lf:
-                Intent intent2 = new Intent(MainActivity3.this, MopubActivity.class);
+                Intent intent2 = new Intent(MainActivity3.this, AActivity.class);
                 startActivity(intent2);
+                break;
+            case R.id.permission:
+                Intent per = new Intent(MainActivity3.this, PermissionActivity.class);
+                startActivity(per);
                 break;
         }
     }

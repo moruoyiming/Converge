@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hotfix">
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -19,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.MainActivity3"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity android:name=".activity.DemoActivity">
 
@@ -38,9 +40,9 @@
         <activity android:name=".activity.CActivity">
 
         </activity>
-        <activity android:name=".activity.MopubActivity">
+        <activity android:name=".activity.PermissionActivity">
 
         </activity>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 </manifest>

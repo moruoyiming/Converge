@@ -1,0 +1,114 @@
+aop三剑客
+APT           注解解析器   编译器通过注解生成java文件
+AspectJ       编译时 修改class文件
+ASM           AspectJ框架得底层原理，字节码插桩
+（Java注解存在3个阶段，一个是源码期，一个是编译期，一个运行期）
+
+APT
+Java的注解解析技术(AnnotationProcessingTool), Apt的作用时期，是 通过
+自定义注解解析类（extends AbastractProcessor），对自定义注解进行解析，然后通过JavaPoet这种java类生成工具，
+来生成编译期才会有的.java（源码中并没有）,然而我们源码中却可以使用这个类。
+
+ASM
+Asm是Java的字节码操作框架，它可以动态生成类或者增强既有类的功能。理论上，它可以对class文件做任何他想做的事。
+包括，改变class文件的内容，或者生成新的class。严格来说AspectJ底层就是ASM，只不过AspectJ帮我们做了ASM框架做
+起来很麻烦，容易出错的事情，让我们可以简单的通过 @Aspect @PointCut @Around 这样的注解，就能完成AOP面向切面
+编程。但是，ASM作为AspectJ的祖宗，某些时候依然可以完成AspectJ所无法触及到的功能, 就像是c/c++作为Java的祖宗，
+ 现在依然有自己不可替代的作用。
+
+
+入口  ->  动态权限申请功能  ->   出口
+
+
+利用aop三剑客中的aspectJ框架
+
+aspectJ：面向切面编程
+
+1、
+在project的build.gradle中加入 classpath 'org.aspectj:aspectjtools:1.9.2'
+
+2、
+引入依赖： api 'org.aspectj:aspectjrt:1.9.2'
+
+3、
+
+如果在module中使用aop框架、需要在build.gradle配置
+
+//在构建工程时，执行编织
+import org.aspectj.tools.ajc.Main
+//在library中必须使用 libraryVariants
+project.android.libraryVariants.all { variant ->
+    JavaCompile javaCompile = variant.javaCompile
+    //在编译后 增加行为
+    javaCompile.doLast {
+        println "执行AspectJ编译器......"
+        String[] args = [
+                "-1.7",
+                //aspectJ 处理的源文件
+                "-inpath", javaCompile.destinationDir.toString(),
+                //输出目录，aspectJ处理完成后的输出目录
+                "-d", javaCompile.destinationDir.toString(),
+                //aspectJ 编译器的classpath aspectjtools
+                "-aspectpath", javaCompile.classpath.asPath,
+                //java的类查找路径
+                "-classpath", javaCompile.classpath.asPath,
+                //覆盖引导类的位置  android中使用android.jar 而不是jdk
+                "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
+        new Main().runMain(args, false)
+    }
+}
+
+如果在app主module中使用aop框架、配置如下代码
+
+//在构建工程时，执行编织
+import org.aspectj.tools.ajc.Main
+//在library中必须使用 libraryVariants
+project.android.applicationVariants.all { variant ->
+    JavaCompile javaCompile = variant.javaCompile
+    //在编译后 增加行为
+    javaCompile.doLast {
+        println "执行AspectJ编译器......"
+        String[] args = [
+                "-1.7",
+                //aspectJ 处理的源文件
+                "-inpath", javaCompile.destinationDir.toString(),
+                //输出目录，aspectJ处理完成后的输出目录
+                "-d", javaCompile.destinationDir.toString(),
+                //aspectJ 编译器的classpath aspectjtools
+                "-aspectpath", javaCompile.classpath.asPath,
+                //java的类查找路径
+                "-classpath", javaCompile.classpath.asPath,
+                //覆盖引导类的位置  android中使用android.jar 而不是jdk
+                "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
+        new Main().runMain(args, false)
+    }
+}
+
+注意：如果aspectj框架是另写在module的、那么必须在 .build中加入编译配置。 在APP中也要加入编译配置
+
+4、使用步骤
+    a、定义注解、必须是runntime因为用到了反射了
+            @Retention(RetentionPolicy.RUNTIME)
+            @Target(ElementType.METHOD)
+            public @interface IoThread {
+            }
+    b、定义Aspect方法、执行切面方法
+            @Aspect
+            public class IoThreadAspect {
+                /**
+                 * 执行的切面方法
+                 */
+                @Around("execution(@com.yisan.aop.annotation.IoThread void *(..))")
+                public void ioAspect(final ProceedingJoinPoint joinPoint) {
+                    Observable.create(new ObservableOnSubscribe<Void>() {
+                        @Override
+                        public void subscribe(ObservableEmitter<Void> emitter) throws Exception {
+                            try {
+                                joinPoint.proceed();
+                            } catch (Throwable e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).subscribeOn(Schedulers.io()).subscribe();
+                }
+            }

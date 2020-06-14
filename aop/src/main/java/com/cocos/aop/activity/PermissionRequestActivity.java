@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +19,7 @@ public class PermissionRequestActivity extends AppCompatActivity {
     private static IPermissionCallback mPermissionCallback;
 
     public static void startPermissionRequest(Context context, String[] permission, int requestCode, IPermissionCallback callback) {
-
+        Log.i("Permission","startPermissionRequest");
         if (context == null) {
             return;
         }
