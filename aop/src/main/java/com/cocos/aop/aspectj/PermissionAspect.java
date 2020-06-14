@@ -14,48 +14,20 @@ import com.cocos.aop.util.PermissionUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 
 
 @Aspect
 public class PermissionAspect {
 
-    @Pointcut("execution(@com.cocos.aop.annotation.PermissionNeed * *(..)) && @annotation(permissionNeed)")
-    public void requestLocation(PermissionNeed permissionNeed) {
-        Log.i("Permission","requestLocation");
-    }
-
-
-    @Around("requestPermission(permissionNeed)")
-    public void aroundJoinPoint(final ProceedingJoinPoint joinPoint, PermissionNeed permissionNeed) {
-        Log.i("Permission","aroundJoinPoint");
-        PermissionRequestActivity.startPermissionRequest(getContext(joinPoint), permissionNeed.permissions(), permissionNeed.requestCode(), new IPermissionCallback() {
-            @Override
-            public void granted(int requestCode) {
-                try {
-                    joinPoint.proceed();
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-            @Override
-            public void denied(int requestCode) {
-                PermissionUtil.invokeAnnotation(joinPoint.getThis(), PermissionDenied.class, requestCode);
-            }
-
-            @Override
-            public void deniedForever(int requestCode) {
-                PermissionUtil.invokeAnnotation(joinPoint.getThis(), PermissionDeniedForever.class, requestCode);
-            }
-        });
-    }
-
-//    //@注解 访问权限 返回值类型 类名 函数名 (参数)
-//    @Around("execution(@com.cocos.aop.annotation.PermissionNeed * *(..)) && @annotation(permissionNeed)")
-//    public void doPermission(final ProceedingJoinPoint joinPoint, PermissionNeed permissionNeed) {
-//        Log.i("Permission", "startPermissionRequest");
+//    @Pointcut("execution(@com.cocos.aop.annotation.PermissionNeed * *(..)) && @annotation(permissionNeed)")
+//    public void requestLocation(PermissionNeed permissionNeed) {
+//        Log.i("Permission","requestLocation");
+//    }
+//
+//
+//    @Around("requestPermission(permissionNeed)")
+//    public void aroundJoinPoint(final ProceedingJoinPoint joinPoint, PermissionNeed permissionNeed) {
+//        Log.i("Permission","aroundJoinPoint");
 //        PermissionRequestActivity.startPermissionRequest(getContext(joinPoint), permissionNeed.permissions(), permissionNeed.requestCode(), new IPermissionCallback() {
 //            @Override
 //            public void granted(int requestCode) {
@@ -78,6 +50,33 @@ public class PermissionAspect {
 //            }
 //        });
 //    }
+
+    //@注解 访问权限 返回值类型 类名 函数名 (参数)
+    @Around("execution(@com.cocos.aop.annotation.PermissionNeed * *(..)) && @annotation(permissionNeed)")
+    public void doPermission(final ProceedingJoinPoint joinPoint, PermissionNeed permissionNeed) {
+        Log.i("Permission", "startPermissionRequest");
+        PermissionRequestActivity.startPermissionRequest(getContext(joinPoint), permissionNeed.permissions(), permissionNeed.requestCode(), new IPermissionCallback() {
+            @Override
+            public void granted(int requestCode) {
+                try {
+                    joinPoint.proceed();
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void denied(int requestCode) {
+                PermissionUtil.invokeAnnotation(joinPoint.getThis(), PermissionDenied.class, requestCode);
+            }
+
+            @Override
+            public void deniedForever(int requestCode) {
+                PermissionUtil.invokeAnnotation(joinPoint.getThis(), PermissionDeniedForever.class, requestCode);
+            }
+        });
+    }
 
     private Context getContext(ProceedingJoinPoint joinPoint) {
         Object obj = joinPoint.getThis();

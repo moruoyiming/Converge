@@ -25,12 +25,12 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.openWeb1:
                 WebviewActivity.startCommonWeb(MainActivity3.this, "腾讯网", "https://xw.qq.com/?f=qqcom");
                 break;
             case R.id.openWeb2:
-                WebviewActivity.startCommonWeb(MainActivity3.this, "AIDL测试", "file:///android_asset/"+ "aidl.html");
+                WebviewActivity.startCommonWeb(MainActivity3.this, "AIDL测试", "file:///android_asset/" + "aidl.html");
                 break;
             case R.id.network:
                 Intent intent = new Intent(MainActivity3.this, NetworkActivity.class);
@@ -46,4 +46,6 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
+
+
 }
