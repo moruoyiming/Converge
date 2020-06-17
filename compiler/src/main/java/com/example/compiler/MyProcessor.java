@@ -14,13 +14,13 @@ import javax.tools.Diagnostic;
  * 并且需要注册信息，在main中手动创建
  * resources/META-INF.services/javax.annotation.processing.Processor
  */
-@SupportedAnnotationTypes("@com.example.hotfix.utils.Jian")
+@SupportedAnnotationTypes("com.example.hotfix.utils.Jian")
 public class MyProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         // 日志打印
-       Messager messager= processingEnv.getMessager();
-        messager.printMessage(Diagnostic.Kind.NOTE,"xxxx");
+        Messager messager= processingEnv.getMessager();
+        messager.printMessage(Diagnostic.Kind.NOTE,"xxxx帆帆帆帆帆帆帆帆帆帆");
         return false;
     }
 }
