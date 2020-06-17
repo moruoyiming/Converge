@@ -19,7 +19,7 @@ public class PermissionRequestActivity extends AppCompatActivity {
     private static IPermissionCallback mPermissionCallback;
 
     public static void startPermissionRequest(Context context, String[] permission, int requestCode, IPermissionCallback callback) {
-        Log.i("Permission","startPermissionRequest");
+        Log.i("Permission", "startPermissionRequest");
         if (context == null) {
             return;
         }
@@ -67,7 +67,7 @@ public class PermissionRequestActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         //获取权限的申请结果，本Activity只做申请操作，需要将申请结果通知外界，结果的处理需外界传递
-        boolean granted = PermissionUtil.verifyPermissions();
+        boolean granted = PermissionUtil.verifyPermissions(grantResults);
         if (granted) {
             mPermissionCallback.granted(requestCode);
         } else {

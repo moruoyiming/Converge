@@ -69,7 +69,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         Log.i("Permission", "权限请求成功");
     }
 
-    @PermissionNeed(permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.SEND_SMS}, requestCode = 2)
+    @PermissionNeed(permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, requestCode = 2)
     public void requestLocation2() {
         Log.i("Permission", "权限请求成功");
     }

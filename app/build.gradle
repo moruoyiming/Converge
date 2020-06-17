@@ -39,7 +39,11 @@ dependencies {
     api project(':common')
     api project(':news')
     api project(':aop')
+    //引入自定义注解处理程序
+    annotationProcessor project(':compiler')
     androidTestImplementation 'junit:junit:4.12'
+    //aop中的 aspectj框架
+    implementation 'org.aspectj:aspectjrt:1.9.1'
 }
 
 //Aspect如果在appModule中使用必须有如下声明。在构建工程时，执行编织
