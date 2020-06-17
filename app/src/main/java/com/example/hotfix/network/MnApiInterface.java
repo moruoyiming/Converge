@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 
 public interface MnApiInterface {
 
-    @POST("api/tts/v2")
+    @POST("api/tts/v1")
     Observable<What> getNewsList(@Body() VoiceRequest voiceRequest);
 
 }
