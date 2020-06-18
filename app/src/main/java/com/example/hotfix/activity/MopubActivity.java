@@ -31,15 +31,15 @@ import com.mopub.mobileads.dfp.adapters.MoPubAdapter;
 public class MopubActivity extends AppCompatActivity implements View.OnClickListener {
     public String TAG = MopubActivity.class.getSimpleName();
     TextView banner, interstitial, rewardedvideo, nativead;
-    //    public static final String bannerId = "ca-app-pub-3940256099942544/6300978111";
-//    public static final String interstitialId = "ca-app-pub-3940256099942544/1033173712";
-//    public static final String rewardedvideoId = "ca-app-pub-3940256099942544/5224354917";
+        public static final String bannerId = "ca-app-pub-3940256099942544/6300978111";
+    public static final String interstitialId = "ca-app-pub-3940256099942544/1033173712";
+    public static final String rewardedvideoId = "ca-app-pub-3940256099942544/5224354917";
 //    public static final String bannerId = "ca-app-pub-8241795889030186/7863074195";
 //    public static final String interstitialId = "ca-app-pub-8241795889030186/6482791336";
 //    public static final String rewardedvideoId = "ca-app-pub-8241795889030186/6285202985";
-    public static final String bannerId = "ca-app-pub-1498325132484748/1213683867";
-    public static final String interstitialId = "ca-app-pub-1498325132484748/4961357181";
-    public static final String rewardedvideoId = "ca-app-pub-1498325132484748/1022112177";
+//    public static final String bannerId = "ca-app-pub-1498325132484748/1213683867";
+//    public static final String interstitialId = "ca-app-pub-1498325132484748/4961357181";
+//    public static final String rewardedvideoId = "ca-app-pub-1498325132484748/1022112177";
 
 
 
@@ -129,7 +129,7 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
                         .setPrivacyIconSize(15)
                         .build();
                 AdRequest adRequest = new AdRequest.Builder()
-                        .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
+//                        .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
 //                        .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
                         .build();
 //                AdRequest adRequest = new AdRequest.Builder().build();
@@ -171,7 +171,7 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
                 .setPrivacyIconSize(15)
                 .build();
         AdRequest adRequest2 = new AdRequest.Builder()
-                .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
+//                .addNetworkExtrasBundle(MoPubAdapter.class, bundle)
 //                .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
                 .build();
         rewardedAd.loadAd(adRequest2, adLoadCallback);
@@ -219,7 +219,7 @@ public class MopubActivity extends AppCompatActivity implements View.OnClickList
                 .setPrivacyIconSize(15)
                 .build();
         AdRequest adRequest2 = new AdRequest.Builder()
-                .addNetworkExtrasBundle(MoPubAdapter.class, bundle2)
+//                .addNetworkExtrasBundle(MoPubAdapter.class, bundle2)
 //                .addTestDevice("FA4B13F3B07E1C7D96F15E14E3B7A390")
                 .build();
         mInterstitialAd.loadAd(adRequest2);
