@@ -20,7 +20,7 @@ public class MyProcessor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         // 日志打印
         Messager messager= processingEnv.getMessager();
-        messager.printMessage(Diagnostic.Kind.NOTE,"xxxx帆帆帆帆帆帆帆帆帆帆");
+        messager.printMessage(Diagnostic.Kind.NOTE,"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
         return false;
     }
 }

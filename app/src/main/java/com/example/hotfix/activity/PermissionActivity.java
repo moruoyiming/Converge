@@ -9,11 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cocos.aop.activity.PermissionRequestActivity;
 import com.cocos.aop.annotation.PermissionDenied;
 import com.cocos.aop.annotation.PermissionDeniedForever;
 import com.cocos.aop.annotation.PermissionNeed;
-import com.cocos.aop.interfaces.IPermissionCallback;
 import com.example.hotfix.R;
 
 /**

@@ -7,10 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.cocos.aop.annotation.OnClickGap;
 import com.cocos.basewebview.WebviewActivity;
 import com.example.hotfix.R;
-import com.example.hotfix.utils.Jian;
-
 public class MainActivity3 extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -24,10 +23,11 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.lf).setOnClickListener(this);
         findViewById(R.id.permission).setOnClickListener(this);
     }
-    @Jian
+
     public void testAnnotation(){
         Log.i("what","test custom annotation !");
     }
+    @OnClickGap
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
