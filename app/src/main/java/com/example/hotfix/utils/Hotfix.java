@@ -2,8 +2,6 @@ package com.example.hotfix.utils;
 
 import android.app.Application;
 
-import com.example.hotfix.utils.ShareReflectUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -35,7 +33,7 @@ public class Hotfix {
 //            1. 获取当前应用pathclassloader
             ClassLoader classLoader = application.getClassLoader();
 //            2. 反射获取DexPathlist属性对象的pathList
-            Field pathListField = ShareReflectUtils.findFiled(classLoader, "pathList");
+            Field pathListField = ShareReflectUtils.findField(classLoader, "pathList");
             Object pathList = pathListField.get(classLoader);
 //            3. 反射修改pathlist的dexElements
 //            3.1.把补丁包中的patch.jar转化为Element[](patch)
@@ -43,7 +41,7 @@ public class Hotfix {
             ArrayList<IOException> suppressedExceptions = new ArrayList<>();
             Object[] patchElements = (Object[]) makePathElementsMethod.invoke(null,files,output,suppressedExceptions);
 //            3.2.获得pathlist的dexElements属性(old)
-            Field dexElementsField = ShareReflectUtils.findFiled(pathList, "dexElements");
+            Field dexElementsField = ShareReflectUtils.findField(pathList, "dexElements");
             Object[] dexElments = (Object[]) dexElementsField.get(pathList);
             //创建新的 Element 数组
             Object newElments = Array.newInstance(dexElments.getClass().getComponentType(), dexElments.length + patchElements.length);

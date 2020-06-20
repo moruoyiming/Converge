@@ -43,6 +43,9 @@
         <activity android:name=".activity.PermissionActivity">
 
         </activity>
+        <activity android:name=".note.class02.InjectActivity">
+
+        </activity>
     </application>
 
 </manifest>

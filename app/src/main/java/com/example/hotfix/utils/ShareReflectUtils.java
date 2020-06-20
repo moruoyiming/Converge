@@ -5,7 +5,7 @@ import java.lang.reflect.Method;
 
 public class ShareReflectUtils {
 
-    public static Field findFiled(Object instance, String name) throws NoSuchFieldException {
+    public static Field findField(Object instance, String name) throws NoSuchFieldException {
         Class clas = instance.getClass();
         while (clas != null) {
             try {
@@ -20,7 +20,6 @@ public class ShareReflectUtils {
             }
         }
         throw new NoSuchFieldException("no such field exception");
-
     }
 
     public static Method findMethod(Object instance, String name, Class<?>... parameterTypes) throws NoSuchMethodException {

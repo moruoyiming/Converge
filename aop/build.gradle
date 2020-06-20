@@ -24,29 +24,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-////在构建工程时，执行编织
-//import org.aspectj.tools.ajc.Main
-////在library中必须使用 libraryVariants
-//project.android.libraryVariants.all { variant ->
-//    JavaCompile javaCompile = variant.javaCompile
-//    //在编译后 增加行为
-//    javaCompile.doLast {
-//        println "执行AspectJ编译器......"
-//        String[] args = [
-//                "-1.7",
-//                //aspectJ 处理的源文件
-//                "-inpath", javaCompile.destinationDir.toString(),
-//                //输出目录，aspectJ处理完成后的输出目录
-//                "-d", javaCompile.destinationDir.toString(),
-//                //aspectJ 编译器的classpath aspectjtools
-//                "-aspectpath", javaCompile.classpath.asPath,
-//                //java的类查找路径
-//                "-classpath", javaCompile.classpath.asPath,
-//                //覆盖引导类的位置  android中使用android.jar 而不是jdk
-//                "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
-//        new Main().runMain(args, false)
-//    }
-//}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.1.0'

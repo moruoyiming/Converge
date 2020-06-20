@@ -10,6 +10,8 @@ import android.view.View;
 import com.cocos.aop.annotation.OnClickGap;
 import com.cocos.basewebview.WebviewActivity;
 import com.example.hotfix.R;
+import com.example.hotfix.note.class02.InjectActivity;
+
 public class MainActivity3 extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -46,7 +48,13 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 startActivity(intent2);
                 break;
             case R.id.permission:
-                Intent per = new Intent(MainActivity3.this, PermissionActivity.class);
+//                Intent per = new Intent(MainActivity3.this, PermissionActivity.class);
+//                startActivity(per);
+                Intent per = new Intent(MainActivity3.this, InjectActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name","jianruilin");
+                bundle.putString("pwd","123456");
+                per.putExtras(bundle);
                 startActivity(per);
                 break;
         }
