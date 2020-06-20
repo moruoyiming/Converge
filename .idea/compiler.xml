@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.7">
+    <bytecodeTargetLevel target="1.8">
       <module name="compiler" target="1.7" />
-      <module name="Hotfix.aop" target="1.8" />
-      <module name="Hotfix.app" target="1.8" />
-      <module name="Hotfix.base" target="1.8" />
-      <module name="Hotfix.basewebview" target="1.8" />
-      <module name="Hotfix.common" target="1.8" />
-      <module name="Hotfix.network" target="1.8" />
-      <module name="Hotfix.news" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

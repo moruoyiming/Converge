@@ -32,5 +32,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //aop中的 aspectj框架
-    implementation 'org.aspectj:aspectjrt:1.9.2'
+    implementation 'org.aspectj:aspectjrt:1.9.1'
 }

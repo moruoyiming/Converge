@@ -24,11 +24,13 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
         findViewById(R.id.network).setOnClickListener(this);
         findViewById(R.id.lf).setOnClickListener(this);
         findViewById(R.id.permission).setOnClickListener(this);
+        findViewById(R.id.annotions).setOnClickListener(this);
     }
 
-    public void testAnnotation(){
-        Log.i("what","test custom annotation !");
+    public void testAnnotation() {
+        Log.i("what", "test custom annotation !");
     }
+
     @OnClickGap
     @Override
     public void onClick(View v) {
@@ -48,14 +50,16 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 startActivity(intent2);
                 break;
             case R.id.permission:
-//                Intent per = new Intent(MainActivity3.this, PermissionActivity.class);
-//                startActivity(per);
-                Intent per = new Intent(MainActivity3.this, InjectActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("name","jianruilin");
-                bundle.putString("pwd","123456");
-                per.putExtras(bundle);
+                Intent per = new Intent(MainActivity3.this, PermissionActivity.class);
                 startActivity(per);
+                break;
+            case R.id.annotions:
+                Intent intent1 = new Intent(MainActivity3.this, InjectActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("name", "jianruilin");
+                bundle.putString("pwd", "123456");
+                intent1.putExtras(bundle);
+                startActivity(intent1);
                 break;
         }
     }
