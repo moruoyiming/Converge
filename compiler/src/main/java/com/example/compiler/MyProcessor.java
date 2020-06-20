@@ -8,7 +8,11 @@ import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
-
+/**
+ * 继承 AbstractProcessor 变成注解处理程序
+ * 并且需要注册信息，在main中手动创建
+ * resources/META-INF.services/javax.annotation.processing.Processor
+ */
 @SupportedAnnotationTypes("com.example.hotfix.utils.Jian")
 public class MyProcessor extends AbstractProcessor {
     @Override

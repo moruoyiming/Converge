@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.cocos.aop.aspectj.PermissionAspect;
 import com.cocos.base.activity.MvvmActivity;
 import com.cocos.base.viewmodel.MvvmBaseViewModel;
 import com.example.common.arouter.RouteServiceManager;
