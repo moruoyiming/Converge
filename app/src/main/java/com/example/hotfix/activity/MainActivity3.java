@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 
@@ -11,6 +12,11 @@ import com.cocos.aop.annotation.OnClickGap;
 import com.cocos.basewebview.WebviewActivity;
 import com.example.hotfix.R;
 import com.example.hotfix.note.class02.InjectActivity;
+import com.example.hotfix.note.class02.User;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity3 extends AppCompatActivity implements View.OnClickListener {
 
@@ -54,10 +60,18 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 startActivity(per);
                 break;
             case R.id.annotions:
+                List<User> users = new ArrayList<>();
+                for (int i = 0; i < 10; i++) {
+                    User user = new User();
+                    user.setName("张三" + i);
+                    user.setSex("男");
+                    users.add(user);
+                }
                 Intent intent1 = new Intent(MainActivity3.this, InjectActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("name", "jianruilin");
                 bundle.putString("pwd", "123456");
+                intent1.putExtra("user", (Serializable) users);
                 intent1.putExtras(bundle);
                 startActivity(intent1);
                 break;

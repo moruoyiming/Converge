@@ -11,12 +11,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotfix.R;
 
+import java.util.List;
+
 public class InjectActivity extends AppCompatActivity {
 
     @Autowired("name")
     String name;
     @Autowired("pwd")
     String pwd;
+    @Autowired("")
+    List<User> user;
 
     @SuppressLint("NonConstantResourceId")
     @InjectView(R.id.inject_tv)
@@ -31,6 +35,6 @@ public class InjectActivity extends AppCompatActivity {
         InjectUtils.injectView(this);
         InjectUtils.JumpActivity(this);
         textView2.setText(name + "    " + pwd);
-        textView.setText(name + "    " + pwd);
+        textView.setText(user.toString());
     }
 }

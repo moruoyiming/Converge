@@ -1,5 +1,6 @@
 package com.example.hotfix.activity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -59,8 +60,8 @@ public class NetworkActivity extends AppCompatActivity {
         voiceRequest.setPid("cbjt");
         voiceRequest.setSign(sign);
         voiceRequest.setNonce(String.valueOf(curenttime));
-//        voiceRequest.setInputStr("ᠪᠠᠲᠤᠡᠮᠨᠡᠭᠦᠯᠬᠦᠲᠠᠰᠤᠭ ᠲᠤ᠋ᠣᠴᠢᠵᠤᠨᠢᠭᠡᠡᠮᠴᠢᠯᠡᠭᠦᠯᠬᠦᠪᠣᠯᠪᠠᠤ᠃");
-        voiceRequest.setInputStr("ᠲᠤᠩᠭᠠᠯᠠᠭ ᠰᠠᠢᠬᠠᠨ ᠨᠢᠭᠡᠨ ᠥᠷᠯᠥᠭᠡ᠂ ᠠᠩᠭ᠌ᠯᠢ ᠶᠢᠨ ᠬᠠᠭᠠᠨ ᠣᠷᠳᠣᠨ ᠤ ᠡᠷᠳᠡᠮ ᠱᠢᠨᠵᠢᠯᠡᠭᠡᠨ ᠦ ᠨᠡᠢᠭᠡᠮᠯᠢᠭ ᠦᠨ ᠨᠢᠭᠡᠨ ᠡᠷᠳᠡᠮᠲᠡᠨ ᠯᠠᠢᠰᠲᠠᠨᠹᠢᠷᠳ᠋ ᠳ᠋ᠤ᠌ ᠬᠥᠭᠱᠢᠨ ᠬᠠᠲᠤᠭᠲᠠᠢ ᠳᠤ ᠪᠠᠷᠠᠯᠬᠠᠬᠤ ᠪᠠᠷ ᠬᠦᠷᠪᠡ᠃ ᠬᠥᠭᠱᠢᠨ ᠬᠠᠲᠤᠭᠲᠠᠢ ᠵᠣᠴᠢᠨ ᠢᠶᠠᠨ ᠬᠠᠯᠠᠭᠤᠮᠰᠤᠭ ᠢᠶᠠᠷ ᠤᠭᠲᠤᠬᠤ ᠶᠢᠨ ᠳᠠᠭᠠᠤ᠄ 《ᠰᠠᠢᠨ ᠪᠣᠯᠤᠯ᠎ᠠ᠂ ᠪᠢ ᠴᠢᠮ᠎ᠠ ᠳᠤ ᠭᠠᠢᠬᠠᠯᠲᠠᠢ ᠵᠦᠢᠯ ᠬᠠᠷᠠᠭᠤᠯᠤᠶ᠎ᠠ᠂ ᠵᠡᠷᠭᠡᠯᠡᠳᠡᠭᠡ ᠠᠢᠯ ᠳᠤ ᠮᠢᠨᠢ ᠨᠢᠭᠡᠨ ᠰᠣᠯᠢᠶᠠᠲᠤ ᠪᠣᠢ᠂ ᠬᠣᠶᠠᠭᠤᠯᠠ ᠪᠠᠨ ᠰᠡᠮᠬᠡᠨ ᠱᠠᠭᠠᠢᠶ᠎ᠠ᠃ ᠲᠡᠷᠡ ᠢᠷᠡᠬᠦ ᠠᠶᠠᠳᠠᠯ᠎ᠠ ᠱᠢᠦ》 ᠭᠡᠵᠦ ᠨᠢᠭᠤᠴᠠᠭᠠᠢᠯᠠᠨ ᠬᠡᠯᠡᠨ᠎ᠡ᠃ ᠲᠡᠳᠡ ᠬᠣᠶᠠᠳᠤᠭᠠᠷ ᠳᠠᠪᠬᠤᠷᠯᠢᠭ ᠲᠤ ᠭᠠᠷᠴᠤ᠂ ᠵᠡᠷᠭᠡᠯᠡᠳᠡᠭᠡ ᠠᠢᠯ ᠤᠨ ᠬᠠᠱᠢᠶ᠎ᠠ ᠤᠷᠤᠭᠤ ᠱᠠᠭᠠᠢᠪᠠ᠃ ᠴᠡᠯ ᠪᠤᠭᠤᠷᠤᠯ ᠦᠰᠦ ᠲᠡᠢ᠂ ᠡᠨᠡᠷᠢᠩᠭᠦᠢ ᠲᠥᠷᠬᠦ ᠲᠡᠢ ᠲᠣᠮᠣᠭᠠᠲᠠᠨ ᠰᠠᠪᠤᠩ ᠤᠨ ᠬᠥᠭᠡᠰᠦ ᠪᠡᠷ ᠳᠦᠭᠦᠷᠦᠭᠰᠡᠨ ᠭᠠᠳᠤᠷ᠎ᠠ ᠶᠢᠨ ᠳᠡᠷᠭᠡᠳᠡ ᠰᠠᠭᠤᠵᠤ᠂ ᠬᠥᠭᠡᠰᠦ ᠶᠢ ᠦᠯᠢᠶᠡᠨ᠂ ᠲᠣᠯᠣᠭᠠᠢ ᠪᠠᠨ ᠬᠡᠯᠵᠡᠢᠯᠭᠡᠨ ᠭᠢᠯᠲᠦᠭᠡᠨᠡᠮ᠎ᠡ ᠥᠩᠭᠡ ᠶᠢ ᠨᠢ ᠠᠩᠬᠠᠷᠤᠯ ᠢᠶᠠᠨ ᠲᠥᠪᠯᠡᠷᠡᠭᠦᠯᠦᠨ ᠱᠢᠷᠲᠡᠨ᠎ᠡ᠃ ᠭᠡᠨᠡᠳᠲᠡ ᠲᠣᠯᠣᠭᠠᠢ ᠪᠠᠨ ᠳᠣᠬᠢᠯᠵᠠᠭᠤᠯᠤᠨ ᠬᠥᠭᠰᠡᠵᠦ᠂ ᠭᠠᠷ ᠢᠶᠠᠨ ᠰᠠᠪᠠᠴᠢᠨ ᠶᠠᠭᠤ ᠨᠢᠭᠡ ᠶᠢ ᠳᠦᠳᠦᠨᠡᠵᠦ ᠪᠠᠢᠯ᠎ᠠ᠃ ᠲᠡᠷᠡ ᠰᠡᠳᠭᠢᠯ ᠪᠤᠯᠢᠶᠠᠮ᠎ᠠ ᠭᠢᠯᠲᠦᠭᠡᠨᠡᠮ᠎ᠡ ᠬᠥᠭᠡᠰᠦ ᠨᠦᠭᠦᠳ ᠢ ᠬᠠᠷᠠᠭᠰᠠᠭᠠᠷ ᠭᠠᠳᠠᠨᠠᠬᠢ ᠶᠢᠨ ᠶᠢᠷᠲᠢᠨᠴᠦ ᠶᠢ ᠮᠠᠷᠲᠠᠵᠠᠢ᠃");
+        voiceRequest.setInputStr("ᠪᠠᠲᠤᠡᠮᠨᠡᠭᠦᠯᠬᠦᠲᠠᠰᠤᠭ ᠲᠤ᠋ᠣᠴᠢᠵᠤᠨᠢᠭᠡᠡᠮᠴᠢᠯᠡᠭᠦᠯᠬᠦᠪᠣᠯᠪᠠᠤ᠃");
+//        voiceRequest.setInputStr("ᠲᠤᠩᠭᠠᠯᠠᠭ ᠰᠠᠢᠬᠠᠨ ᠨᠢᠭᠡᠨ ᠥᠷᠯᠥᠭᠡ᠂ ᠠᠩᠭ᠌ᠯᠢ ᠶᠢᠨ ᠬᠠᠭᠠᠨ ᠣᠷᠳᠣᠨ ᠤ ᠡᠷᠳᠡᠮ ᠱᠢᠨᠵᠢᠯᠡᠭᠡᠨ ᠦ ᠨᠡᠢᠭᠡᠮᠯᠢᠭ ᠦᠨ ᠨᠢᠭᠡᠨ ᠡᠷᠳᠡᠮᠲᠡᠨ ᠯᠠᠢᠰᠲᠠᠨᠹᠢᠷᠳ᠋ ᠳ᠋ᠤ᠌ ᠬᠥᠭᠱᠢᠨ ᠬᠠᠲᠤᠭᠲᠠᠢ ᠳᠤ ᠪᠠᠷᠠᠯᠬᠠᠬᠤ ᠪᠠᠷ ᠬᠦᠷᠪᠡ᠃ ᠬᠥᠭᠱᠢᠨ ᠬᠠᠲᠤᠭᠲᠠᠢ ᠵᠣᠴᠢᠨ ᠢᠶᠠᠨ ᠬᠠᠯᠠᠭᠤᠮᠰᠤᠭ ᠢᠶᠠᠷ ᠤᠭᠲᠤᠬᠤ ᠶᠢᠨ ᠳᠠᠭᠠᠤ᠄ 《ᠰᠠᠢᠨ ᠪᠣᠯᠤᠯ᠎ᠠ᠂ ᠪᠢ ᠴᠢᠮ᠎ᠠ ᠳᠤ ᠭᠠᠢᠬᠠᠯᠲᠠᠢ ᠵᠦᠢᠯ ᠬᠠᠷᠠᠭᠤᠯᠤᠶ᠎ᠠ᠂ ᠵᠡᠷᠭᠡᠯᠡᠳᠡᠭᠡ ᠠᠢᠯ ᠳᠤ ᠮᠢᠨᠢ ᠨᠢᠭᠡᠨ ᠰᠣᠯᠢᠶᠠᠲᠤ ᠪᠣᠢ᠂ ᠬᠣᠶᠠᠭᠤᠯᠠ ᠪᠠᠨ ᠰᠡᠮᠬᠡᠨ ᠱᠠᠭᠠᠢᠶ᠎ᠠ᠃ ᠲᠡᠷᠡ ᠢᠷᠡᠬᠦ ᠠᠶᠠᠳᠠᠯ᠎ᠠ ᠱᠢᠦ》 ᠭᠡᠵᠦ ᠨᠢᠭᠤᠴᠠᠭᠠᠢᠯᠠᠨ ᠬᠡᠯᠡᠨ᠎ᠡ᠃ ᠲᠡᠳᠡ ᠬᠣᠶᠠᠳᠤᠭᠠᠷ ᠳᠠᠪᠬᠤᠷᠯᠢᠭ ᠲᠤ ᠭᠠᠷᠴᠤ᠂ ᠵᠡᠷᠭᠡᠯᠡᠳᠡᠭᠡ ᠠᠢᠯ ᠤᠨ ᠬᠠᠱᠢᠶ᠎ᠠ ᠤᠷᠤᠭᠤ ᠱᠠᠭᠠᠢᠪᠠ᠃ ᠴᠡᠯ ᠪᠤᠭᠤᠷᠤᠯ ᠦᠰᠦ ᠲᠡᠢ᠂ ᠡᠨᠡᠷᠢᠩᠭᠦᠢ ᠲᠥᠷᠬᠦ ᠲᠡᠢ ᠲᠣᠮᠣᠭᠠᠲᠠᠨ ᠰᠠᠪᠤᠩ ᠤᠨ ᠬᠥᠭᠡᠰᠦ ᠪᠡᠷ ᠳᠦᠭᠦᠷᠦᠭᠰᠡᠨ ᠭᠠᠳᠤᠷ᠎ᠠ ᠶᠢᠨ ᠳᠡᠷᠭᠡᠳᠡ ᠰᠠᠭᠤᠵᠤ᠂ ᠬᠥᠭᠡᠰᠦ ᠶᠢ ᠦᠯᠢᠶᠡᠨ᠂ ᠲᠣᠯᠣᠭᠠᠢ ᠪᠠᠨ ᠬᠡᠯᠵᠡᠢᠯᠭᠡᠨ ᠭᠢᠯᠲᠦᠭᠡᠨᠡᠮ᠎ᠡ ᠥᠩᠭᠡ ᠶᠢ ᠨᠢ ᠠᠩᠬᠠᠷᠤᠯ ᠢᠶᠠᠨ ᠲᠥᠪᠯᠡᠷᠡᠭᠦᠯᠦᠨ ᠱᠢᠷᠲᠡᠨ᠎ᠡ᠃ ᠭᠡᠨᠡᠳᠲᠡ ᠲᠣᠯᠣᠭᠠᠢ ᠪᠠᠨ ᠳᠣᠬᠢᠯᠵᠠᠭᠤᠯᠤᠨ ᠬᠥᠭᠰᠡᠵᠦ᠂ ᠭᠠᠷ ᠢᠶᠠᠨ ᠰᠠᠪᠠᠴᠢᠨ ᠶᠠᠭᠤ ᠨᠢᠭᠡ ᠶᠢ ᠳᠦᠳᠦᠨᠡᠵᠦ ᠪᠠᠢᠯ᠎ᠠ᠃ ᠲᠡᠷᠡ ᠰᠡᠳᠭᠢᠯ ᠪᠤᠯᠢᠶᠠᠮ᠎ᠠ ᠭᠢᠯᠲᠦᠭᠡᠨᠡᠮ᠎ᠡ ᠬᠥᠭᠡᠰᠦ ᠨᠦᠭᠦᠳ ᠢ ᠬᠠᠷᠠᠭᠰᠠᠭᠠᠷ ᠭᠠᠳᠠᠨᠠᠬᠢ ᠶᠢᠨ ᠶᠢᠷᠲᠢᠨᠴᠦ ᠶᠢ ᠮᠠᠷᠲᠠᠵᠠᠢ᠃");
         voiceRequest.setFormat(1);
         MNetworkApi.getService(MnApiInterface.class)
                 .getNewsList(voiceRequest)
@@ -75,7 +76,27 @@ public class NetworkActivity extends AppCompatActivity {
 
                     @Override
                     public void onNext(What what) {
+                        try {
+                            MediaPlayer mediaPlayer = new MediaPlayer();
+                            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    Log.i("MEDIA", "onCompletion");
+                                }
+                            });
+                            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                                @Override
+                                public void onPrepared(MediaPlayer mp) {
+                                    Log.i("MEDIA", "onPrepared");
+                                    mediaPlayer.start();
+                                }
+                            });
+                            mediaPlayer.setDataSource(what.getData());
+                            mediaPlayer.prepareAsync();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
