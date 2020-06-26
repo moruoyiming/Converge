@@ -1,0 +1,11 @@
+ButterKnife 的执行流程
+总的来说，大概可以分为以下几步：
+
+在编译的时候扫描注解，并做相应的处理，生成 java 代码,生成 Java 代码是调用 javapoet 库生成的。
+当我们调用 ButterKnife.bind(this); 方法的时候，他会根据类的全限定类型，找到相应的代码，并执行。完成 findViewById 和 setOnClick ，setOnLongClick 等操作。
+第一步：在编译的时候扫描注解，并做相应的处理，生成 java 代码。这一步，可以拆分为几个小步骤：
+
+定义我们的注解，声明我们的注解是否保存到 java doc 中，可以作用于哪些区域（Filed ，Class等），以及是源码时注解，编译时注解还是运行时注解等）
+继承 AbstractProcessor，表示支持哪些类型的注解，支持哪些版本，
+重写 process 方法，处理相关的注解，存进 Map 集合中
+根据扫描到的注解信息（即 Map 集合），调用 javapoet 库生成 Java 代码。

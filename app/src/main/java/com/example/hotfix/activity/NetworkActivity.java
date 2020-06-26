@@ -51,6 +51,7 @@ public class NetworkActivity extends AppCompatActivity {
 //        setContentView();
         setTitle("网络请求");
         initMedia();
+//        button=findViewById(R.id.button)
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -63,15 +64,16 @@ public class NetworkActivity extends AppCompatActivity {
 //                return false;
 //            }
 //        });
-
+        button2.setText("onLongClick");
     }
     @OnClick({R.id.get_data,R.id.get_data2})
-    public void click(View view){
+    public void onClick(){//View view
+        Log.e("Inject","依赖注入实现 onClick");
         testNetWorkApi();
     }
     @OnLongClick(R.id.get_data)
     public void onLongClick(View view){
-        Log.e("Inject","依赖注入实现");
+        Log.e("Inject","依赖注入实现 onLongClick");
     }
 
     public void initMedia(){

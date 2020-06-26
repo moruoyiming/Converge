@@ -103,7 +103,7 @@ public class InjectManage {
             Method[] methods = clazz.getDeclaredMethods();
             for (Method method : methods) {
 //                3.是否是自定义注解修饰
-                if (method.isAnnotationPresent(OnClick.class)) {
+                if (method.isAnnotationPresent(OnClick.class)) {//TODO OnLongClick事件处理
                     OnClick onClick = method.getAnnotation(OnClick.class);
                     int[] value = onClick.value();
 //                    4.获取注解上的注解 元注解
