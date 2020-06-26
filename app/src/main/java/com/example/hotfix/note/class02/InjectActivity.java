@@ -1,10 +1,7 @@
 package com.example.hotfix.note.class02;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +19,6 @@ public class InjectActivity extends AppCompatActivity {
     @Autowired("")
     List<User> user;
 
-    @SuppressLint("NonConstantResourceId")
     @InjectView(R.id.inject_tv)
     TextView textView;
     @InjectView(R.id.inject_tv2)

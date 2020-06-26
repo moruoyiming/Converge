@@ -39,6 +39,7 @@ dependencies {
     implementation project(':common')
     implementation project(':news')
     implementation project(':aop')
+    implementation project(':inject')
     //引入自定义注解处理程序
     annotationProcessor project(':compiler')
     androidTestImplementation 'junit:junit:4.12'

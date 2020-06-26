@@ -1,4 +1,4 @@
-package com.example.hotfix.note.class02;
+package com.example.inject;
 
 import androidx.annotation.IdRes;
 
@@ -7,8 +7,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface InjectView {
-   @IdRes int value();
+    @IdRes int value();
 }

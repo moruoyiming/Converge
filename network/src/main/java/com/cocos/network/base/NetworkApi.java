@@ -7,6 +7,7 @@ import com.cocos.network.environment.IEnvironment;
 import com.cocos.network.errorhandler.HttpErrorHandler;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
@@ -63,6 +64,9 @@ public abstract class NetworkApi implements IEnvironment {
                 okHttpClientBuilder.addInterceptor(getInterceptor());
             }
             int cacheSize = 100 * 1024 * 1024; // 10MB
+            okHttpClientBuilder.connectTimeout(30, TimeUnit.SECONDS);
+            okHttpClientBuilder.readTimeout(30, TimeUnit.SECONDS);
+            okHttpClientBuilder.writeTimeout(30,TimeUnit.SECONDS);
             okHttpClientBuilder.cache(new Cache(iNetworkRequiredInfo.getApplicationContext().getCacheDir(), cacheSize));
             okHttpClientBuilder.addInterceptor(new CommonRequestInterceptor(iNetworkRequiredInfo));
             okHttpClientBuilder.addInterceptor(new CommonResponseInterceptor());

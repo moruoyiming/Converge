@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/basewebview" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/compiler" />
+            <option value="$PROJECT_DIR$/inject" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/news" />
           </set>
