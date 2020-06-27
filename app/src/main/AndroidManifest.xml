@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hotfix">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -13,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashActivity">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,23 +25,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity3"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
-        <activity android:name=".activity.DemoActivity">
+            android:name=".activity.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <activity android:name=".note.class01.DemoActivity">
 
         </activity>
         <activity android:name=".activity.NetworkActivity">
 
         </activity>
+        <activity android:name=".note.class02.retrofitdemo.RetrofitActivity">
+
+        </activity>
         <activity
-            android:name=".activity.AActivity"
+            android:name=".note.class01.AActivity"
             android:launchMode="singleTask">
 
         </activity>
-        <activity android:name=".activity.BActivity">
+        <activity android:name=".note.class01.BActivity">
 
         </activity>
-        <activity android:name=".activity.CActivity">
+        <activity android:name=".note.class01.CActivity">
 
         </activity>
         <activity android:name=".activity.PermissionActivity">

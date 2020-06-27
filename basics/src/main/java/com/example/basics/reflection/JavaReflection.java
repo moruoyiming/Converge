@@ -66,7 +66,7 @@ public class JavaReflection {
                 System.out.println(method);
             }
             //调用方法
-            Method method1=clazz.getMethod("toString",null);
+            Method method1=clazz.getMethod("toString",String.class);
             Object obj2=clazz.newInstance();
             method1.invoke(obj2,null);
             System.out.println(method1.invoke(obj2,null));

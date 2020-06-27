@@ -5,7 +5,7 @@ import android.content.Intent;
 
 import com.cocos.basewebview.WebviewCallBack;
 import com.cocos.basewebview.command.Command;
-import com.example.hotfix.activity.DemoActivity;
+import com.example.hotfix.note.class01.DemoActivity;
 
 import java.util.Map;
 

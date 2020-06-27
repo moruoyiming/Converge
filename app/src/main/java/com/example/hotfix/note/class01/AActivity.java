@@ -1,4 +1,4 @@
-package com.example.hotfix.activity;
+package com.example.hotfix.note.class01;
 
 import android.content.Intent;
 import android.os.Bundle;

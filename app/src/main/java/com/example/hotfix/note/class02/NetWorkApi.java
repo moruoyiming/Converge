@@ -1,8 +1,7 @@
-package com.example.hotfix.note.class02.retrofitdemo;//package com.cocos.network;
+package com.example.hotfix.note.class02;//package com.cocos.network;
 
 import com.cocos.network.beans.NewsListBean;
 import com.cocos.network.utils.TencentUtil;
-import com.example.hotfix.note.NewApiInterface;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
@@ -27,7 +26,6 @@ public class NetWorkApi {
     }
 
     public static void getTencentNewsChannel() {
-
 
         Retrofit.Builder build = new Retrofit.Builder();
         build.baseUrl(TENCENT_BASE_URL);

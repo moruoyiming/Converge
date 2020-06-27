@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/openWeb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="打开网页"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/openWeb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="打开定制网页"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/network"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="网络请求"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/lf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="RetrofitDemo"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/permission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="aop动态权限申请"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/annotions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="自定义注解"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

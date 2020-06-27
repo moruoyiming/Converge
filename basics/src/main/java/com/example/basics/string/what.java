@@ -1,8 +1,8 @@
 package com.example.basics.string;
 
 
-import what.com.zhikang.designpattern.singleton.Singleton;
-import what.com.zhikang.reflection.Person;
+import com.example.basics.designpattern.singleton.Singleton;
+import com.example.basics.reflection.Person;
 
 public class what {
 
@@ -34,7 +34,7 @@ public class what {
         System.out.println(x);
         System.out.println(sb.toString());
         System.out.println(person.toString());
-        Singleton.getSingleton().what();
+//        Singleton.getSingleton().what();
 
 //        String url="http://131312312312313/{userCode}/{fuck}/sdfsfasdfsd/{scxx}";
 //        String [] what=url.split("\\{");

@@ -2,6 +2,7 @@ package com.example.hotfix.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,11 +13,19 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(this, MainActivity3.class));
+        //TODO scheme 拦截  统一入口
+        if(getIntent().getData()!=null&&!TextUtils.isEmpty(getIntent().getData().getScheme())){
+
+            return ;
+        }
+//        else if(){
+//            return
+//        }
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
-    protected void onStop() {
+    protected void onStop() {//  1. A ，onpause  2.B  oncreate 3. B onresume  4. A onStop
         super.onStop();
         finish();
     }

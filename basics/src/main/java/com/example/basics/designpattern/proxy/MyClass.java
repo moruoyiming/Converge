@@ -15,7 +15,7 @@ public class MyClass {
 
         //动态代理  一个代理类实现全部的代理功能
         GnPurchase gn = new GnPurchase();
-        GwPurchase gw = new GwPurchase();
+        final GwPurchase gw = new GwPurchase();
         //动态代理生成的Object对象，去调用方法时，由InvocationHandle监听，当方法被调用，会传递invoke 方法中Method
         Object o = Proxy.newProxyInstance(MyClass.class.getClassLoader(), new Class[]{Purchase.class, Purchase2.class}, new InvocationHandler() {//作用，回调作用
             @Override//proxy 就之当前代理对象，method 为代理调用的方法 buy/sell   args 为调用方式时传入的参数

@@ -1,4 +1,4 @@
-package com.example.hotfix.note;
+package com.example.hotfix.note.class02;
 
 import com.cocos.network.beans.NewsListBean;
 

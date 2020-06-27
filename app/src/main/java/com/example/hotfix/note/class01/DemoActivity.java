@@ -1,4 +1,4 @@
-package com.example.hotfix.activity;
+package com.example.hotfix.note.class01;
 
 import android.os.Bundle;
 import android.widget.TextView;
