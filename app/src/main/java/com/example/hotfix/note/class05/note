@@ -2,3 +2,19 @@
 
 
 锁概念  有一个线程进入，加锁后，其他线程无法进入。
+synchronized 隐式锁 可重入锁 内部会完成 锁定解锁底层逻辑。JDK内置锁 无法修改。需要关键字 synchronized
+lock 显式锁 可以手动控制锁定解锁
+
+唤醒机制
+等待区域:wait()
+获取对象的锁🔒
+synchronized(对象锁){
+    wait() //释放锁
+}
+
+通知区域:notify()
+获取对象的锁🔒
+synchronized(对象锁){
+    notify()
+}
+
