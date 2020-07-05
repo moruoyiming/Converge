@@ -68,8 +68,8 @@ public class JavaReflection {
             //调用方法
             Method method1=clazz.getMethod("toString",String.class);
             Object obj2=clazz.newInstance();
-            method1.invoke(obj2,null);
-            System.out.println(method1.invoke(obj2,null));
+//            method1.invoke(obj2,null);
+//            System.out.println(method1.invoke(obj2,null));
             //调用带参方法
             Method method2=clazz.getMethod("what",String.class,Integer.class);
             Object obj3=clazz.newInstance();

@@ -1,0 +1,63 @@
+ActivityThread
+
+window  -> Activity 中的成员mWindow
+
+perfomLaunchActivity
+
+DecorView 继承自 FrameLayout
+
+
+Activity种setContentView ->  getWindow().setContentView(layoutResID) -> PhoneWindow -> LayoutInflater(createView()反射获取view对象) -> createViewFromTag
+
+getWindow() 为Activity种phonewindow成员变量
+
+布局的view  最后在LayoutInflater中 会通过反射拿到View对象。
+
+换肤两种方案
+一种是 重写LayoutInflater   二种是 实现Factory 自己实现view
+
+
+资源加载
+
+
+
+ActivityThread 中 HandlerBindApplication -> LoadedApk  ->ResourcesManager -> getResources()
+
+Resource -> ResourcesImpl -> AssetManager
+
+AssetManager 通过资源表 获取资源 读流。
+
+
+换肤功能思路
+
+1.收集XML数据  利用view生产对象的过程中Factory2接口
+2.记录需要换肤的属性 Factory2生产对象的时候。
+3.读取皮肤包内容(先加载资源文件 反射获取) assets.addassetpath(x.apk);
+4.执行换肤
+
+Factory2.setFactory(Factory factory)
+
+工厂中有个标记 当设置过皮肤后，标记为true 下次无法使用。
+需要反射修改该标记解决。
+
+反射创建AssetManager 与Resource
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -71,6 +71,16 @@
                 android:padding="15dp"
                 android:text="自定义注解"
                 android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/views"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="自定义View"
+                android:textColor="#ffffff" />
         </LinearLayout>
     </RelativeLayout>
 </layout>

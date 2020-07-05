@@ -15,6 +15,7 @@ import com.example.hotfix.R;
 import com.example.hotfix.activity.NetworkActivity;
 import com.example.hotfix.activity.PermissionActivity;
 import com.example.hotfix.databinding.FragmentCategoryBinding;
+import com.example.hotfix.note.class01.DemoActivity;
 import com.example.hotfix.note.class02.InjectActivity;
 import com.example.hotfix.note.class02.User;
 import com.example.hotfix.note.class02.retrofitdemo.RetrofitActivity;
@@ -44,6 +45,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.lf.setOnClickListener(this);
         mBinding.permission.setOnClickListener(this);
         mBinding.annotions.setOnClickListener(this);
+        mBinding.views.setOnClickListener(this);
     }
 
     @Override
@@ -82,6 +84,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 intent1.putExtra("user", (Serializable) users);
                 intent1.putExtras(bundle);
                 startActivity(intent1);
+                break;
+            case R.id.views:
+                Intent view = new Intent(getActivity(), DemoActivity.class);
+                startActivity(view);
                 break;
         }
     }

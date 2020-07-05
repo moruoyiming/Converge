@@ -23,7 +23,7 @@ public class DemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_a);
         TextView tv = findViewById(R.id.title);
         String title=getIntent().getStringExtra("title");
-        tv.setText(title);
-        setTitle(title);
+//        tv.setText(title);
+//        setTitle(title);
     }
 }
