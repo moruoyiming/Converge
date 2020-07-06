@@ -1,0 +1,87 @@
+死锁
+    死锁是指 两个或两个以上的进程在执行过程中，由于竞争资源或者用于彼此通信造成的一种阻塞的现象，若无外力作用，他们
+    都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁。
+  条件
+  1.多个操作者(M>=2)争夺多个资源(N>=2) (N<=M)
+  2.争夺资源的顺序不对
+  3.拿到资源不放手
+  规范
+  1.互斥条件
+  2.请求和保持
+  3.不剥夺
+  4.循环
+
+ 死锁解决，规定争夺资源的顺序，lock.try尝试拿锁。
+
+
+活锁
+ 线程A、B  锁 1、2
+ 线程A 持有锁1 想 获取锁2 发现线程B持有锁2  释放所有锁  重复 持有锁1 想 获取锁2
+ 线程B 持有锁2 想 获取锁1 发现线程A持有锁1  释放所有锁  重复 持有锁2 想 获取锁1
+ 两个线程都在不停工作。
+
+ 锁饥饿
+
+ThreadLocal 自定义存在问题。 map存在竞争。
+ThreadLocal 实现原理？ thread 变量
+class Thread{//持有ThreadLocal.ThreadLocalMap 成员变量
+
+}
+
+
+class ThreadLocalMap{//持有一个Entry[]数组
+    Entry[] table
+}
+
+class Entry{//每个元素，持有ThreadLocal Object value
+    ThreadLocal<?> k ,
+    Object v
+}
+
+
+CAS基本原理
+ Compare And Swap 比较和交换
+
+ CAS原理
+ 利用现代处理器都支持CAS的指令
+ 循环这个指令，知道成功为止
+
+ 执行流程
+ 1.get变量值(旧值)
+ 2.计算后得到新值
+ 3.compare内存中变量值和旧值
+ 4.相等 旧值swap为新值
+ 5.不相等 重复操作
+
+
+CAS问题
+ ABA问题
+ 开销问题
+ 只能保证一个共享变量的原子操作
+
+Atomic 原子变量类。cas 操作
+
+如何实现原子操作？
+1.synchronized
+2.compare and swap(轻量级)
+
+悲观锁(synchronized)
+乐观锁(cas)
+
+synchronized执行时，阻塞时会上下文切换，非常耗时。
+cas 不会进入阻塞
+
+ABA问题
+线程1 A-->B          线程执行A-->B
+线程2 A-->C-->A
+
+解决ABA问题  版本戳
+AtomicReference AtomicMarkableReference(是否改动) AtomicStampedReference(是否改动，改动次数)
+AtomicReference 解决只能保证一个共享变量的原子操作，可以支持改两个变量。
+
+CAS 比较交换操作 为原子操作， 由CPU保证。
+
+线程池
+
+
+
