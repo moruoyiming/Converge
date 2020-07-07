@@ -80,6 +80,7 @@ AtomicReference AtomicMarkableReference(是否改动) AtomicStampedReference(是
 AtomicReference 解决只能保证一个共享变量的原子操作，可以支持改两个变量。
 
 CAS 比较交换操作 为原子操作， 由CPU保证。
+CAS 三个参数 值的内存地址，期望的值，新值
 
 线程池
 

@@ -10,6 +10,8 @@ DecorView 继承自 FrameLayout
 Activity中 setContentView ->  getWindow().setContentView(layoutResID) -> PhoneWindow -> .setContentView(layoutResID)
 -> LayoutInflater-> inflate() 获取XmlResourceParsser解析器  -> createViewFromTag  ->  (createView()反射获取view对象)
 
+布局中所有view 都会执行createViewFromTag方法
+
 换肤功能 可以在createView修改Factory2实现换肤。调用LayoutInflater.setFactory2()
 
 getWindow() 为Activity种phonewindow成员变量
@@ -17,10 +19,11 @@ getWindow() 为Activity种phonewindow成员变量
 布局的view  最后在LayoutInflater中 会通过反射拿到View对象。
 
 换肤两种方案
-一种是 重写LayoutInflater   二种是 实现Factory 自己实现view
+一种是 重写LayoutInflater   二种是 实现Factory 自己实现setContextView
 
 
 资源加载
+Resource ResourceImpl AsstsManager
 
 
 
