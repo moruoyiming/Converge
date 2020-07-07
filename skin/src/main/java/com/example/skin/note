@@ -7,7 +7,10 @@ perfomLaunchActivity
 DecorView 继承自 FrameLayout
 
 
-Activity种setContentView ->  getWindow().setContentView(layoutResID) -> PhoneWindow -> LayoutInflater(createView()反射获取view对象) -> createViewFromTag
+Activity中 setContentView ->  getWindow().setContentView(layoutResID) -> PhoneWindow -> .setContentView(layoutResID)
+-> LayoutInflater-> inflate() 获取XmlResourceParsser解析器  -> createViewFromTag  ->  (createView()反射获取view对象)
+
+换肤功能 可以在createView修改Factory2实现换肤。调用LayoutInflater.setFactory2()
 
 getWindow() 为Activity种phonewindow成员变量
 
