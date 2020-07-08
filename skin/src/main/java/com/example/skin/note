@@ -6,6 +6,11 @@ perfomLaunchActivity
 
 DecorView 继承自 FrameLayout
 
+Activity
+PhoneWindow
+DecoreView
+titilebar
+layout
 
 Activity中 setContentView ->  getWindow().setContentView(layoutResID) -> PhoneWindow -> .setContentView(layoutResID)
 -> LayoutInflater-> inflate() 获取XmlResourceParsser解析器  -> createViewFromTag  ->  (createView()反射获取view对象)
