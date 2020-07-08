@@ -1,3 +1,211 @@
 阻塞队列
 
 队列  先进先出
+
+阻塞队列 两种情况  一种是队列数据满了，这个时候放数据阻塞。一种是队列数据为空，这个时候取数据阻塞。
+
+•	ArrayBlockingQueue ：由数组结构组成的有界阻塞队列。
+•	LinkedBlockingQueue ：由链表结构组成的有界阻塞队列。
+•	PriorityBlockingQueue ：支持优先级排序的无界阻塞队列。
+•	DelayQueue：使用优先级队列实现的无界阻塞队列。
+•	SynchronousQueue：不存储元素的阻塞队列。
+•	LinkedTransferQueue：由链表结构组成的无界阻塞队列。
+•	LinkedBlockingDeque：由链表结构组成的双向阻塞队列。
+
+
+ArrayBlockingQueue
+用数组实现的有界阻塞队列。此队列按照先进先出（FIFO）的原则对元素进行排序。默认情况下不保证访问者公平的访问队列，所谓公平访问队列是指阻塞的所有生产者线程或消费者线程，当队列可用时，可以按照阻塞的先后顺序访问队列，即先阻塞的生产者线程，可以先往队列里插入元素，先阻塞的消费者线程，可以先从队列里获取元素。通常情况下为了保证公平性会降低吞吐量。我们可以使用以下代码创建一个公平的阻塞队列：
+ArrayBlockingQueue fairQueue = new  ArrayBlockingQueue(1000,true);
+LinkedBlockingQueue
+基于链表的阻塞队列，同ArrayListBlockingQueue类似，此队列按照先进先出（FIFO）的原则对元素进行排序，其内部也维持着一个数据缓冲队列（该队列由一个链表构成），当生产者往队列中放入一个数据时，队列会从生产者手中获取数据，并缓存在队列内部，而生产者立即返回；只有当队列缓冲区达到最大值缓存容量时（LinkedBlockingQueue可以通过构造函数指定该值），才会阻塞生产者队列，直到消费者从队列中消费掉一份数据，生产者线程会被唤醒，反之对于消费者这端的处理也基于同样的原理。而LinkedBlockingQueue之所以能够高效的处理并发数据，还因为其对于生产者端和消费者端分别采用了独立的锁来控制数据同步，这也意味着在高并发的情况下生产者和消费者可以并行地操作队列中的数据，以此来提高整个队列的并发性能。
+作为开发者，我们需要注意的是，如果构造一个LinkedBlockingQueue对象，而没有指定其容量大小，LinkedBlockingQueue会默认一个类似无限大小的容量（Integer.MAX_VALUE），这样的话，如果生产者的速度一旦大于消费者的速度，也许还没有等到队列满阻塞产生，系统内存就有可能已被消耗殆尽了。
+ArrayBlockingQueue和LinkedBlockingQueue是两个最普通也是最常用的阻塞队列，一般情况下，在处理多线程间的生产者消费者问题，使用这两个类足以。
+PriorityBlockingQueue
+是一个支持优先级的无界队列。默认情况下元素采取自然顺序升序排列。可以自定义实现compareTo()方法来指定元素进行排序规则，或者初始化PriorityBlockingQueue时，指定构造参数Comparator来对元素进行排序。需要注意的是不能保证同优先级元素的顺序。
+DelayQueue
+是一个支持延时获取元素的无界阻塞队列。队列使用PriorityQueue来实现。队列中的元素必须实现Delayed接口，在创建元素时可以指定多久才能从队列中获取当前元素。只有在延迟期满时才能从队列中提取元素。我们可以将DelayQueue运用在以下应用场景：
+•	缓存系统的设计：可以用DelayQueue保存缓存元素的有效期，使用一个线程循环查询DelayQueue，一旦能从DelayQueue中获取元素时，表示缓存有效期到了。
+•	定时任务调度：使用DelayQueue保存当天将会执行的任务和执行时间，一旦从DelayQueue中获取到任务就开始执行，从比如TimerQueue就是使用DelayQueue实现的。
+SynchronousQueue
+是一个不存储元素的阻塞队列。每一个put操作必须等待一个take操作，否则不能继续添加元素。SynchronousQueue可以看成是一个传球手，负责把生产者线程处理的数据直接传递给消费者线程。队列本身并不存储任何元素，非常适合于传递性场景,比如在一个线程中使用的数据，传递给另外一个线程使用，SynchronousQueue的吞吐量高于LinkedBlockingQueue 和 ArrayBlockingQueue。
+LinkedTransferQueue
+是一个由链表结构组成的无界阻塞TransferQueue队列。相对于其他阻塞队列，LinkedTransferQueue多了tryTransfer和transfer方法。
+transfer方法。如果当前有消费者正在等待接收元素（消费者使用take()方法或带时间限制的poll()方法时），transfer方法可以把生产者传入的元素立刻transfer（传输）给消费者。如果没有消费者在等待接收元素，transfer方法会将元素存放在队列的tail节点，并等到该元素被消费者消费了才返回。transfer方法的关键代码如下：
+Node pred = tryAppend(s, haveData);return awaitMatch(s, pred, e, (how == TIMED), nanos);
+第一行代码是试图把存放当前元素的s节点作为tail节点。第二行代码是让CPU自旋等待消费者消费元素。因为自旋会消耗CPU，所以自旋一定的次数后使用Thread.yield()方法来暂停当前正在执行的线程，并执行其他线程。
+tryTransfer方法。则是用来试探下生产者传入的元素是否能直接传给消费者。如果没有消费者等待接收元素，则返回false。和transfer方法的区别是tryTransfer方法无论消费者是否接收，方法立即返回。而transfer方法是必须等到消费者消费了才返回。
+对于带有时间限制的tryTransfer(E e, long timeout, TimeUnit unit)方法，则是试图把生产者传入的元素直接传给消费者，但是如果没有消费者消费该元素则等待指定的时间再返回，如果超时还没消费元素，则返回false，如果在超时时间内消费了元素，则返回true。
+LinkedBlockingDeque
+是一个由链表结构组成的双向阻塞队列。所谓双向队列指的你可以从队列的两端插入和移出元素。双端队列因为多了一个操作队列的入口，在多线程同时入队时，也就减少了一半的竞争。相比其他的阻塞队列，LinkedBlockingDeque多了addFirst，addLast，offerFirst，offerLast，peekFirst，peekLast等方法，以First单词结尾的方法，表示插入，获取（peek）或移除双端队列的第一个元素。以Last单词结尾的方法，表示插入，获取或移除双端队列的最后一个元素。另外插入方法add等同于addLast，移除方法remove等效于removeFirst。但是take方法却等同于takeFirst，不知道是不是Jdk的bug，使用时还是用带有First和Last后缀的方法更清楚。
+在初始化LinkedBlockingDeque时可以设置容量防止其过渡膨胀。另外双向阻塞队列可以运用在“工作窃取”模式中。
+
+
+
+
+3.阻塞队列的实现原理（JDK1.7）
+以ArrayBlockingQueue为例，我们先来看看代码：
+public class ArrayBlockingQueue<E> extends AbstractQueue<E>
+        implements BlockingQueue<E>, java.io.Serializable {
+
+    private static final long serialVersionUID = -817911632652898426L;
+    /** The queued items */
+    final Object[] items;
+    /** items index for next take, poll, peek or remove */
+    int takeIndex;
+    /** items index for next put, offer, or add */
+    int putIndex;
+    /** Number of elements in the queue */
+    int count;
+    final ReentrantLock lock;
+    /** Condition for waiting takes */
+    private final Condition notEmpty;
+    /** Condition for waiting puts */
+    private final Condition notFull;
+ ...省略
+ }
+从上面代码可以看出ArrayBlockingQueue是维护一个Object类型的数组，takeIndex和putIndex分别表示队首元素和队尾元素的下标，count表示队列中元素的个数，lock则是一个可重入锁，notEmpty和notFull是等待条件。接下来我们看看关键方法put：
+    public void put(E e) throws InterruptedException {
+        if (e == null) throw new NullPointerException();
+        final ReentrantLock lock = this.lock;
+        lock.lockInterruptibly();
+        try {
+            while (count == items.length)
+                notFull.await();
+            enqueue(e);
+        } finally {
+            lock.unlock();
+        }
+    }
+从put方法的实现可以看出，它先获取了锁，并且获取的是可中断锁，然后判断当前元素个数是否等于数组的长度，如果相等，则调用notFull.await()进行等待，当被其他线程唤醒时，通过enqueue(e)方法插入元素，最后解锁。
+   /**
+     * Inserts element at current put position, advances, and signals.
+     * Call only when holding lock.
+     */
+    private void enqueue(E x) {
+        // assert lock.getHoldCount() == 1;
+        // assert items[putIndex] == null;
+        final Object[] items = this.items;
+        items[putIndex] = x;
+        if (++putIndex == items.length) putIndex = 0;
+        count++;
+        notEmpty.signal();
+    }
+插入成功后，通过notEmpty唤醒正在等待取元素的线程。再来看看take方法：
+   public E take() throws InterruptedException {
+        final ReentrantLock lock = this.lock;
+        lock.lockInterruptibly();
+        try {
+            while (count == 0)
+                notEmpty.await();
+            return dequeue();
+        } finally {
+            lock.unlock();
+        }
+    }
+跟put方法实现类似，put方法等待的是notFull信号，而take方法等待的是notEmpty信号。在take方法中，如果可以取元素，则通过dequeue方法取得元素，下面是dequeue方法的实现：
+ private E dequeue() {
+        // assert lock.getHoldCount() == 1;
+        // assert items[takeIndex] != null;
+        final Object[] items = this.items;
+        @SuppressWarnings("unchecked")
+        E x = (E) items[takeIndex];
+        items[takeIndex] = null;
+        if (++takeIndex == items.length) takeIndex = 0;
+        count--;
+        if (itrs != null)
+            itrs.elementDequeued();
+        notFull.signal();
+        return x;
+    }
+4.阻塞队列的使用场景
+除了线程池的实现使用阻塞队列之外，我们可以在生产者-消费者模式来使用阻塞队列，首先使用Object.wait()、Object.notify()和非阻塞队列实现生产者-消费者模式：
+public class Test {
+    private int queueSize = 10;
+    private PriorityQueue<Integer> queue = new PriorityQueue<Integer>(queueSize);
+    public static void main(String[] args)  {
+        Test test = new Test();
+        Producer producer = test.new Producer();
+        Consumer consumer = test.new Consumer();
+        producer.start();
+        consumer.start();
+    }
+
+    class Consumer extends Thread{
+        @Override
+        public void run() {
+            while(true){
+                synchronized (queue) {
+                    while(queue.size() == 0){
+                        try {
+                            System.out.println("队列空，等待数据");
+                            queue.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            queue.notify();
+                        }
+                    }
+                    queue.poll();          //每次移走队首元素
+                    queue.notify();
+                }
+            }
+        }
+    }
+
+    class Producer extends Thread{
+        @Override
+        public void run() {
+            while(true){
+                synchronized (queue) {
+                    while(queue.size() == queueSize){
+                        try {
+                            System.out.println("队列满，等待有空余空间");
+                            queue.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            queue.notify();
+                        }
+                    }
+                    queue.offer(1);        //每次插入一个元素
+                    queue.notify();
+                }
+            }
+        }
+    }       }
+下面是使用阻塞队列实现的生产者-消费者模式：
+public class Test {
+    private int queueSize = 10;
+    private ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(queueSize);
+    public static void main(String[] args)  {
+        Test test = new Test();
+        Producer producer = test.new Producer();
+        Consumer consumer = test.new Consumer();
+        producer.start();
+        consumer.start();
+    }
+
+    class Consumer extends Thread{
+        @Override
+        public void run() {
+            while(true){
+                try {
+                    queue.take();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    class Producer extends Thread{
+        @Override
+        public void run() {
+            while(true){
+                try {
+                    queue.put(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }}
+很显然使用阻塞队列实现不需要单独考虑同步和线程间通信的问题，实现起来很简单
