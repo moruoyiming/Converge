@@ -19,6 +19,7 @@ import com.example.hotfix.note.class01.DemoActivity;
 import com.example.hotfix.note.class02.InjectActivity;
 import com.example.hotfix.note.class02.User;
 import com.example.hotfix.note.class02.retrofitdemo.RetrofitActivity;
+import com.example.skin.SkinManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,6 +47,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.permission.setOnClickListener(this);
         mBinding.annotions.setOnClickListener(this);
         mBinding.views.setOnClickListener(this);
+        mBinding.skin.setOnClickListener(this);
     }
 
     @Override
@@ -89,6 +91,17 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 Intent view = new Intent(getActivity(), DemoActivity.class);
                 startActivity(view);
                 break;
+            case R.id.skin:
+                if (!change) {
+                    change = true;
+                    SkinManager.getInstance().loadSkin("/data/data/com.example.hotfix/skin/skins-debug.apk");
+                } else {
+                    change = false;
+                    SkinManager.getInstance().loadSkin(null);
+                }
+                break;
         }
     }
+
+    boolean change = false;
 }

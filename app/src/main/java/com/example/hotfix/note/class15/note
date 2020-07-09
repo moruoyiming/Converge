@@ -1,0 +1,26 @@
+android 四大组件 + 自定义view
+viewpager2 问题
+
+滑动冲突，内部拦截 外部拦截。
+
+一个move事件 有多少个信息？
+
+DecorView FrameLayout ；
+
+嵌套滑动  两个角色  一个是父亲 一个是孩子
+
+Activity -> dispatchTouchEvent -> PhoneWindow -> superDispatchTouchEvent -> DecorView
+
+ViewGroup dispatchTouchEvent判断是否是一个新事件得开始，需要清除所有事件 是否拦截手势。  是否拦截事件 intercepted。如果是一个手势 或者没分发。
+ViewGroup onInterceptTouchEvent;
+TouchTarget 链表 记录哪几个view。
+disallowIntercept 内部拦截、外部拦截 。子类有权利请求父类不拦截事件。这个变量只有requestDisallowInterceptTouchEvent函数修改
+如果子类请求父类不拦截 -> 走父类得 onInterceptTouchEvent  - > 走父类的onTouchEvent
+
+
+touch non_touch 惯性滑动
+嵌套滑动  孩子是主动的，孩子触发
+
+
+事件分发
+1、Activity事件分发流程

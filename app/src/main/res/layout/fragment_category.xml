@@ -81,6 +81,15 @@
                 android:padding="15dp"
                 android:text="自定义View"
                 android:textColor="#ffffff" />
+            <TextView
+                android:id="@+id/skin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="#666666"
+                android:padding="15dp"
+                android:text="换肤"
+                android:textColor="#ffffff" />
         </LinearLayout>
     </RelativeLayout>
 </layout>

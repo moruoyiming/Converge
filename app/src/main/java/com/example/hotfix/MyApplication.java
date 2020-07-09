@@ -15,6 +15,7 @@ import com.cocos.network.base.NetworkApi;
 import com.example.hotfix.command.AccountLevelCommands;
 import com.example.hotfix.command.BaseLevelCommands;
 import com.example.hotfix.utils.NetworkRequestInfo;
+import com.example.skin.SkinManager;
 import com.kingja.loadsir.core.LoadSir;
 
 public class MyApplication extends Application {
@@ -25,6 +26,7 @@ public class MyApplication extends Application {
         CommandsManager.getInstance().registerCommand(new AccountLevelCommands());
         CommandsManager.getInstance().registerCommand(new BaseLevelCommands());
 //        Hotfix.fix(this,"/sdcard/patch.jar");
+        SkinManager.init(this);
         PreferencesUtil.init(this);
         NetworkApi.init(new NetworkRequestInfo(this));
         ToastUtil.init(this);

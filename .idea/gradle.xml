@@ -21,6 +21,8 @@
             <option value="$PROJECT_DIR$/inject" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/news" />
+            <option value="$PROJECT_DIR$/skin" />
+            <option value="$PROJECT_DIR$/skins" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

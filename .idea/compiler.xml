@@ -12,6 +12,8 @@
       <module name="Hotfix.inject" target="1.8" />
       <module name="Hotfix.network" target="1.8" />
       <module name="Hotfix.news" target="1.8" />
+      <module name="Hotfix.skin" target="1.8" />
+      <module name="Hotfix.skins" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

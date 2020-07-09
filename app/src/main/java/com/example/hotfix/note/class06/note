@@ -25,9 +25,9 @@
 ThreadLocal 自定义存在问题。 map存在竞争。
 ThreadLocal 实现原理？ thread 变量
 class Thread{//持有ThreadLocal.ThreadLocalMap 成员变量
-
-}
-
+ThreadLocal和Synchonized都用于解决多线程并发訪问。可是ThreadLocal与synchronized有本质的差别。
+synchronized是利用锁的机制，使变量或代码块在某一时该仅仅能被一个线程訪问。而ThreadLocal为每个线程都提供了变量的副本，
+使得每个线程在某一时间訪问到的并非同一个对象，这样就隔离了多个线程对数据的数据共享。
 
 class ThreadLocalMap{//持有一个Entry[]数组
     Entry[] table

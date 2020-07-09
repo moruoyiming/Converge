@@ -9,7 +9,7 @@ DecorView 继承自 FrameLayout
 Activity
 PhoneWindow
 DecoreView
-titilebar
+titlebar
 layout
 
 Activity中 setContentView ->  getWindow().setContentView(layoutResID) -> PhoneWindow -> .setContentView(layoutResID)
