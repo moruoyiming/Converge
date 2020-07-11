@@ -1,4 +1,4 @@
-package com.example.hotfix.note.class07.theory.aqs;
+package com.example.hotfix.note.class08.theory.aqs;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
@@ -6,41 +6,39 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 /**
- *类说明：实现我们自己独占锁,可重入
+ *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
+ *类说明：实现我们自己独占锁,不可重入
  */
-public class ReenterSelfLock implements Lock {
+public class SelfLock implements Lock {
     // 静态内部类，自定义同步器
     private static class Sync extends AbstractQueuedSynchronizer {
 
-        // 是否处于占用状态
+        /*判断处于占用状态*/
+        @Override
         protected boolean isHeldExclusively() {
-            return getState() > 0;
+            return getState()==1;
         }
 
-        // 当状态为0的时候获取锁
-        public boolean tryAcquire(int acquires) {
-            if (compareAndSetState(0, 1)) {
+        /*获得锁*/
+        @Override
+        protected boolean tryAcquire(int arg) {
+            if(compareAndSetState(0,1)){
                 setExclusiveOwnerThread(Thread.currentThread());
                 return true;
-            }else if(getExclusiveOwnerThread()==Thread.currentThread()){
-                setState(getState()+1);
-                return  true;
             }
             return false;
         }
 
-        // 释放锁，将状态设置为0
-        protected boolean tryRelease(int releases) {
-            if(getExclusiveOwnerThread()!=Thread.currentThread()){
-                throw new IllegalMonitorStateException();
-            }
-            if (getState() == 0)
-                throw new IllegalMonitorStateException();
-
-            setState(getState()-1);
+        /*释放锁*/
+        @Override
+        protected boolean tryRelease(int arg) {
             if(getState()==0){
-                setExclusiveOwnerThread(null);
+                throw new IllegalMonitorStateException();
             }
+            setExclusiveOwnerThread(null);
+            setState(0);
+            //compareAndSetState(1,0);
             return true;
         }
 

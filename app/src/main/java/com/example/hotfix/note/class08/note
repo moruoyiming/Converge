@@ -1,0 +1,83 @@
+
+AQS
+AbstractQueuedSynchronized
+FutureTask 令牌，获取执行结果。
+
+AQS 原理
+
+同步工具类的内部，包含一个内部类，继承AQS。
+AbstractQueuedSynchronizer
+private volatile int state; 保存状态
+1.模板方法设计模式 定义抽象方法，让子类实现，调用顺序固定
+2.实现 其中方法 tryAcquire(获得锁)  lock unlock 等方法
+
+其中 tryAcquire 中 修改标记会涉及到CAS操作。compareAndSetState(0,1) 返回true获取到锁。将当前线程记录。
+
+lock 中调用 sync.acquire   其中 acquire中调用了模板的方法tryAcquire
+
+CLH队列锁 CLH队列锁即Craig, Landin, and Hagersten (CLH) locks。
+CLH队列锁也是一种基于链表的可扩展、高性能、公平的自旋锁，申请线程仅仅在本地变量上自旋，它不断轮询前驱的状态，假设发现前驱释放了锁就结束自旋。
+当一个线程需要获取锁时：
+
+AQS的基本思想 CLH队列锁概念
+代码块中间有一把琐，当多个线程竞争，有一个线程获取到锁，其他线程排队阻塞。当线程执行完，释放锁后，会唤醒其他线程，
+竞争这把锁。谁获取到这把锁，就继续执行代码。凡是没有拿到锁的线程都会在一个队列当中排队。CLH概念就是所有排队的线程都会
+打包成一个QNode，里边封装了 myPred(前驱节点) 和 locked(boolean) 及当前线程本身。该队列是一个链表结构。
+当线程A需要获取锁时，会执行类似CAS操作，将自己挂在链表的尾巴上。同时myPred 会设置成链表最后一位的引用，locked设置成true。
+自己成为一个新的尾节点。线程A也变成等锁状态。
+每个QNode线程节点都会在前驱节点的locked字段上自旋，判断前一个节点(myPred)的locked锁值是否变成false，认为该线程
+锁已经释放。
+当一个线程需要释放锁时，将当前节点的locked域设置为false，同时回收前驱节点。
+
+CLH队列锁的优点是空间复杂度低（如果有n个线程，L个锁，每个线程每次只获取一个锁，那么需要的存储空间是O（L+n），
+n个线程有n个myNode，L个锁有L个tail）。CLH队列锁常用在SMP体系结构下。
+
+AQS是一个双向链表。AQS节点自旋两次就会进入阻塞状态。
+
+Synchronized 底层也用到了CLH队列锁思想。AQS队列比较多，包括拿锁队列、等待队列，凡是调用了wait等待方法的线程，
+都会进入这个等待队列中。当调用notify/notifyall时，会唤醒等待队列中的线程，并将其添加到拿锁队列中。
+
+  自旋
+  private Node enq(Node node) {
+        for (;;) {
+            Node oldTail = tail;
+            if (oldTail != null) {
+                U.putObject(node, Node.PREV, oldTail);
+                if (compareAndSetTail(oldTail, node)) {
+                    oldTail.next = node;
+                    return oldTail;
+                }
+            } else {
+                initializeSyncQueue();
+            }
+        }
+    }
+    入队
+     private Node addWaiter(Node mode) {
+            Node node = new Node(mode);
+
+            for (;;) {
+                Node oldTail = tail;
+                if (oldTail != null) {
+                    U.putObject(node, Node.PREV, oldTail);
+                    if (compareAndSetTail(oldTail, node)) {
+                        oldTail.next = node;
+                        return node;
+                    }
+                } else {
+                    initializeSyncQueue();
+                }
+            }
+        }
+
+  Lock 的实现
+  1.锁的可重入
+  2.公平锁和非公平锁
+
+  公平锁：就是当来了线程要拿锁时，他会封装成QNode挂在到链表队列的尾部。
+  非公平锁：就是当来了线程要拿锁时，直接抢占锁。
+  公平/非公平代码大致一样，再tryAcquire拿锁时会多一层判断
+  !hasQueuedPredecessors()  如果有队列去排队。
+
+
+

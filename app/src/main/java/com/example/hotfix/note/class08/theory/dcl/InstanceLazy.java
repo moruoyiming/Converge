@@ -1,4 +1,4 @@
-package com.example.hotfix.note.class07.theory.dcl;
+package com.example.hotfix.note.class08.theory.dcl;
 
 /**
  * 在域上运用延迟初始化占位类模式

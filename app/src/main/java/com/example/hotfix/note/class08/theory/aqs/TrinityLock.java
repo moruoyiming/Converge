@@ -1,4 +1,4 @@
-package com.example.hotfix.note.class07.theory.aqs;
+package com.example.hotfix.note.class08.theory.aqs;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;

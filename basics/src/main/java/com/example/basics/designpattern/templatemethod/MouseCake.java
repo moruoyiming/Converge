@@ -1,4 +1,4 @@
-package com.example.hotfix.note.class07.theory.aqs.templatepattern;
+package com.example.basics.designpattern.templatemethod;
 
 /**
  * 类说明：
