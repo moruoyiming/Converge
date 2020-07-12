@@ -161,6 +161,7 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseView
         }
     }
 
+
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         return super.dispatchTouchEvent(ev);

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <com.example.hotfix.widget.FlowLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/openWeb1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
                 android:text="打开网页"
                 android:textColor="#ffffff" />
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
                 android:text="打开定制网页"
                 android:textColor="#ffffff" />
@@ -37,9 +37,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
                 android:text="网络请求"
+                android:textColor="#ffffff" />
+
+
+            <TextView
+                android:id="@+id/annotions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="自定义注解"
                 android:textColor="#ffffff" />
 
             <TextView
@@ -47,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
                 android:text="RetrofitDemo"
                 android:textColor="#ffffff" />
@@ -57,19 +68,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
                 android:text="aop动态权限申请"
                 android:textColor="#ffffff" />
 
             <TextView
-                android:id="@+id/annotions"
+                android:id="@+id/skin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
-                android:text="自定义注解"
+                android:text="换肤"
                 android:textColor="#ffffff" />
 
             <TextView
@@ -77,19 +88,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
                 android:text="自定义View"
                 android:textColor="#ffffff" />
+
+
             <TextView
-                android:id="@+id/skin"
+                android:id="@+id/scroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:background="#666666"
+                android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
-                android:text="换肤"
+                android:text="滑动冲突"
                 android:textColor="#ffffff" />
-        </LinearLayout>
+        </com.example.hotfix.widget.FlowLayout>
     </RelativeLayout>
 </layout>

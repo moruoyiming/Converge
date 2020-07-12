@@ -53,6 +53,25 @@
         <activity android:name=".note.class02.InjectActivity">
 
         </activity>
+        <activity android:name=".note.class15.ScrollActivity">
+
+        </activity>
+        <activity android:name=".note.class15.nestedscroll.a_scrollview_recyclerview.NestedViewPagerActivityTest1">
+
+        </activity>
+
+        <activity android:name=".note.class15.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2">
+
+        </activity>
+        <activity android:name=".note.class15.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3">
+
+        </activity>
+        <activity android:name=".note.class15.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity">
+
+        </activity>
+        <activity android:name=".note.class15.nestedscroll.d_nestedscroll_log.NestedViewPagerActivityTest4">
+
+        </activity>
     </application>
 
 </manifest>

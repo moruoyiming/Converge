@@ -1,26 +1,88 @@
-android 四大组件 + 自定义view
-viewpager2 问题
+android 四大组件 + 自定义view(创建流程 + 事件分发 + 滑动冲突 + 嵌套冲突)
+创建流程 -> onMeasure onLayout onDraw
+事件分发 -> dispatchEvent onInterceptTouchEvent onTouchEvent
+滑动冲突 -> 内部拦截 外部拦截。
+嵌套冲突 -> 几个版本 ？ 三个版本
 
-滑动冲突，内部拦截 外部拦截。
 
-一个move事件 有多少个信息？
+事件分发流程
 
-DecorView FrameLayout ；
+MyActivity -> dispatchTouchEvent -> super.dispatchTouchEvent(ev) -> Activity -> getWindow().superDispatchTouchEvent(ev)
+-> PhoneWindow -> superDispatchTouchEvent(MotionEvent event) -> mDecor.superDispatchTouchEvent(event) ->  DecorView ->
+super.dispatchTouchEvent(event) -> ViewGroup -> dispatchTouchEvent(MotionEvent ev)
 
-嵌套滑动  两个角色  一个是父亲 一个是孩子
+从ACTION_DOWN开始。
 
-Activity -> dispatchTouchEvent -> PhoneWindow -> superDispatchTouchEvent -> DecorView
+Activity 接受事件，传递到 DecorView，DecorView 传递到 LinearLayout dispatchEvent
 
 ViewGroup dispatchTouchEvent判断是否是一个新事件得开始，需要清除所有事件 是否拦截手势。  是否拦截事件 intercepted。如果是一个手势 或者没分发。
 ViewGroup onInterceptTouchEvent;
-TouchTarget 链表 记录哪几个view。
+
 disallowIntercept 内部拦截、外部拦截 。子类有权利请求父类不拦截事件。这个变量只有requestDisallowInterceptTouchEvent函数修改
 如果子类请求父类不拦截 -> 走父类得 onInterceptTouchEvent  - > 走父类的onTouchEvent
 
+viewpager2 问题
+
+一个move事件 有多少个手指信息？ 有几个手指，就有几个手指信息。最多32个再多放不下。
+
+嵌套滑动  两个角色  一个是父类View 一个是子类View
+父类View 实现 NestedScrollingParent3 NestedScrollingChild3 接口
+子类View 实现 NestedScrollingChild2  NestedScrollingChild3 接口
 
 touch non_touch 惯性滑动
 嵌套滑动  孩子是主动的，孩子触发
 
+TouchTarget 是一个链表，本质记录view。，多个手指触摸会记录多个view，单个手指记录一个view。
+内部拦截关键点： 就是ViewGroup 中 dispatchTouchEvent方法中的变量 disallowIntercept 。
+    final boolean disallowIntercept = (mGroupFlags & FLAG_DISALLOW_INTERCEPT) != 0;
+    if (!disallowIntercept) {//根据标志，允不允许拦截
+        intercepted = onInterceptTouchEvent(ev);
+        ev.setAction(action); // restore action in case it was changed
+    } else {
+        intercepted = false;
+    }
 
-事件分发
-1、Activity事件分发流程
+如果子类 view 通知父类 view 能拦截事件，disallowIntercept = true 进入 onTouchEvent
+如果子类 view 没有通知父类 view 不能拦截事件，那么 disallowIntercept = false，进入 onInterceptTouchEvent(ev) 拦截器。
+      if (!canceled && !intercepted) { // 如果没有拦截事件进入
+         if (actionMasked == MotionEvent.ACTION_DOWN... ) {//事件
+             final int childrenCount = mChildrenCount;
+             if (newTouchTarget == null && childrenCount != 0) {
+                 final View[] children = mChildren;
+                 for (int i = childrenCount - 1; i >= 0; i--) {//循环子view
+                      ...
+                     //如果遇到view处理事件，将view记录到链表中
+                     if (dispatchTransformedTouchEvent(ev, false, child, idBitsToAssign)) {
+                         ...
+                         newTouchTarget = addTouchTarget(child, idBitsToAssign);//向链表中加入数据 会改变mFirstTouchTarget
+                         break;
+                     }
+                 }
+             }
+             ...
+     }
+                }
+不允许拦截的话，继续传递给子view的dispatchEvent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

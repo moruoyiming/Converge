@@ -1,6 +1,6 @@
 package com.example.hotfix.note.class09.threadpool;
 
-import cn.enjoyedu.concurrent.tools.SleepTools;
+import com.example.hotfix.note.class09.tools.SleepTools;
 
 import java.util.Random;
 import java.util.concurrent.*;

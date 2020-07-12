@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.cocos.base.customview.BaseCustomViewModel;
 import com.cocos.base.customview.ICustomView;
 
+
 public class BaseViewHolder extends RecyclerView.ViewHolder {
     ICustomView view;
 

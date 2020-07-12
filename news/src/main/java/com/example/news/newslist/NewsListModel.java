@@ -53,7 +53,7 @@ public class NewsListModel extends MvvmBaseModel<NewsListBean, ArrayList<BaseCus
                 viewModel.title = source.title;
                 baseViewModels.add(viewModel);
             } else {
-                TitleViewViewModel viewModel = new TitleViewViewModel();
+                TitleViewViewModel viewModel = new TitleViewViewModel("xxxx");
                 viewModel.jumpUri = source.link;
                 viewModel.title = source.title;
                 baseViewModels.add(viewModel);
