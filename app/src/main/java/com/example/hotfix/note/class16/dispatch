@@ -1,0 +1,76 @@
+
+View
+事件处理 dispatchTouchEvent(MotionEvent event)
+onTouchEvent(MotionEvent event)
+
+ViewGroup 分发事件 拦截事件 处理事件
+分发事件 dispatchTouchEvent(ev)
+onInterceptTouchEvent(MotionEvent ev)
+onTouchEvent(MotionEvent event)
+
+ViewGroup 重写了 dispatchTouchEvent(MotionEvent event) 实现了事件分发逻辑。
+
+View  dispatchTouchEvent(MotionEvent event)事件处理
+        public boolean dispatchTouchEvent(MotionEvent event) {
+            boolean result = false;
+            final int actionMasked = event.getActionMasked();
+            if (actionMasked == MotionEvent.ACTION_DOWN) {
+                stopNestedScroll();
+            }
+            if (onFilterTouchEventForSecurity(event)) {
+                if ((mViewFlags & ENABLED_MASK) == ENABLED && handleScrollBarDragging(event)) {
+                    result = true;
+                }
+                ListenerInfo li = mListenerInfo;
+                if (li != null && li.mOnTouchListener != null
+                        && (mViewFlags & ENABLED_MASK) == ENABLED
+                        && li.mOnTouchListener.onTouch(this, event)) {
+                    result = true;
+                }
+
+                if (!result && onTouchEvent(event)) {
+                    result = true;
+                }
+            }
+
+            return result;
+        }
+dispatchTouchEvent 中首先判断onTouch 是否存在，存在执行。如果返回false。直接影响 result = false，接着执行onClick方法。
+当onTouch return = true 直接影响 result = true; 会拦截onClick事件。
+onClick处理再MotionEvent.Up中处理。
+
+
+ViewGroup dispatchTouchEvent(MotionEvent event) 事件分发
+
+三个层级
+ViewGroup
+ViewGroup
+View
+
+
+三个事件
+DOWN
+
+MOVE
+
+UP
+
+down 事件触发，首先进入第一层级ViewGroup 中的 dispatchToucheEvent 方法。
+1.判断事件是否禁止拦截 final boolean disallowIntercept = (mGroupFlags & FLAG_DISALLOW_INTERCEPT) != 0;
+  如果 false ，说明子类未请求不拦截事件。询问自己是否拦截事件
+   if (!disallowIntercept) {
+       intercepted = onInterceptTouchEvent(ev);
+       ev.setAction(action); // restore action in case it was changed
+   } else {
+       intercepted = false;
+   }
+
+2.如果拦截(事件分发或者处理)
+  1.
+
+3.如果不拦截(事件分发)
+  1.子View不拦截
+
+
+
+
