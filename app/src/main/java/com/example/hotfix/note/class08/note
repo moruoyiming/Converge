@@ -74,6 +74,45 @@ Synchronized 底层也用到了CLH队列锁思想。AQS队列比较多，包括�
   1.锁的可重入
   2.公平锁和非公平锁
 
+  锁的可重入：递归调用和计数
+  执行A方法时需要获取一次锁，执行B方法时也需要获取一次锁。
+  如果没有可重入，会导致死锁。自己把自己锁住。
+  解决可重入，尝试tryAcquire拿锁时，cas 操作因为自己已经持有锁，这时候获取的值为1，将会执行下面对吗，判断当前的线程
+  是否是自己持有，如果自己持有，则state+1 ，当释放锁时state-1
+
+  A{
+    B
+  }
+  B{
+
+  }
+
+    // 当状态为0的时候获取锁
+        public boolean tryAcquire(int acquires) {
+            if (compareAndSetState(0, 1)) {
+                setExclusiveOwnerThread(Thread.currentThread());
+                return true;
+            }else if(getExclusiveOwnerThread()==Thread.currentThread()){
+                setState(getState()+1);
+                return  true;
+            }
+            return false;
+        }
+    // 释放锁，将状态设置为0
+        protected boolean tryRelease(int releases) {
+            if(getExclusiveOwnerThread()!=Thread.currentThread()){
+                throw new IllegalMonitorStateException();
+            }
+            if (getState() == 0)
+                throw new IllegalMonitorStateException();
+
+            setState(getState()-1);
+            if(getState()==0){
+                setExclusiveOwnerThread(null);
+            }
+            return true;
+        }
+
   公平锁：就是当来了线程要拿锁时，他会封装成QNode挂在到链表队列的尾部。
   非公平锁：就是当来了线程要拿锁时，直接抢占锁。
   公平/非公平代码大致一样，再tryAcquire拿锁时会多一层判断
