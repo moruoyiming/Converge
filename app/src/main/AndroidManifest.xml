@@ -72,6 +72,14 @@
         <activity android:name=".note.class15.nestedscroll.d_nestedscroll_log.NestedViewPagerActivityTest4">
 
         </activity>
+
+        <activity android:name=".note.class16.inner.InnerInterceptActivity">
+
+        </activity>
+
+        <activity android:name=".note.class16.outer.OuterInterceptActivity">
+
+        </activity>
     </application>
 
 </manifest>

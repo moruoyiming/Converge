@@ -10,6 +10,8 @@ import com.example.hotfix.note.class15.nestedscroll.a_scrollview_recyclerview.Ne
 import com.example.hotfix.note.class15.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2;
 import com.example.hotfix.note.class15.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3;
 import com.example.hotfix.note.class15.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity;
+import com.example.hotfix.note.class16.inner.InnerInterceptActivity;
+import com.example.hotfix.note.class16.outer.OuterInterceptActivity;
 
 public class ScrollActivity extends Activity {
 
@@ -33,6 +35,12 @@ public class ScrollActivity extends Activity {
             startActivity(intent);
         } else if (v.getId() == R.id.nested_scroll) {
             Intent intent = new Intent(this, NestedViewPagerActivity.class);
+            startActivity(intent);
+        }else if(v.getId() == R.id.inner_intercept){
+            Intent intent = new Intent(this, InnerInterceptActivity.class);
+            startActivity(intent);
+        }else if(v.getId() == R.id.outer_intercept){
+            Intent intent = new Intent(this, OuterInterceptActivity.class);
             startActivity(intent);
         }
     }

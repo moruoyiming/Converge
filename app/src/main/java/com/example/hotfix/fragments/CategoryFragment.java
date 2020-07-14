@@ -50,6 +50,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.views.setOnClickListener(this);
         mBinding.skin.setOnClickListener(this);
         mBinding.scroll.setOnClickListener(this);
+        mBinding.drawtext.setOnClickListener(this);
     }
 
     @Override
@@ -105,6 +106,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.scroll:
                 Intent scroll = new Intent(getActivity(), ScrollActivity.class);
                 startActivity(scroll);
+                break;
+            case R.id.drawtext:
+//                Intent dispatch = new Intent(getActivity(), MainActivity.class);
+//                startActivity(dispatch);
                 break;
         }
     }

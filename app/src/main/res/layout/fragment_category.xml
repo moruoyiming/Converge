@@ -103,6 +103,16 @@
                 android:padding="15dp"
                 android:text="滑动冲突"
                 android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/drawtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="绘制渐变字"
+                android:textColor="#ffffff" />
         </com.example.hotfix.widget.FlowLayout>
     </RelativeLayout>
 </layout>

@@ -34,6 +34,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$rootProject.androidXVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraint_version"
     implementation 'q.rorbin:badgeview:1.1.3'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation project(':basewebview')
     implementation project(':network')
     implementation project(':base')
