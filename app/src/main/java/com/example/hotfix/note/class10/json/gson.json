@@ -1,0 +1,15 @@
+{
+  "key": "value",
+  "simpleArray": [1,2,3],
+  "arrays": [
+    [{
+      "arrInnerClsKey": "arrInnerClsValue",
+      "arrInnerClsKeyNub": 1
+    }]
+  ],
+  "innerclass": {
+    "name": null,
+    "age": 25,
+    "sax": "男"
+  }
+}

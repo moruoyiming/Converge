@@ -1,0 +1,2 @@
+1. 阅读ObjectOutputStream源码，弄懂writeObject的流程
+2. 自己写demo重现Serializable的细节问题

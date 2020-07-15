@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+
+option java_package = "com.zero.serializabledemo.protobuf";
+option java_outer_classname = "_StudentSerializable";
+
+// message 确定消息命名
+message _Student{
+     string name = 1;//指定字段的类型 定义字段的编号，在Protocol Buffers中，字段的编号非常重要，字段名仅仅是作为参考和生成代码用。需要注意的是字段的编号区间范围，其中19000 ～ 19999被Protocol Buffers作为保留字段
+     string sax = 2;
+     int32 age = 3;
+//required指定该字段必须赋值，禁止为空（在v3中该约束被移除）；optional指定字段为可选字段，可以为空，对于optional字段还可以使用[default]指定默认值，如果没有指定，则会使用字段类型的默认值
+    repeated _Course courses = 4;//使用repeated指定字段为集合
+}
+//在一个proto文件中可以同时定义多个message类型，生成代码时根据生成代码的目标语言不同，处理的方式不太一样，如Java会针对每个message类型生成一个.java文件
+message _Course{
+     string name = 1;
+     float score = 2;
+}
