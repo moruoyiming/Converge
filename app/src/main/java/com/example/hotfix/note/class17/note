@@ -2,8 +2,8 @@
 top/bottom 无论什么文字，不会超出上界下届。
 accent/decent 正常的文字的上界 下届
 文字的高度 : top + bottom  - > bottom - top 最大高度
-                          -> decent - accent 正常高度
-baseline - > 文字头部尺寸   =   accent
-baseline - > 文字底部尺寸   =   decent
+                          -> descent - ascent 正常高度
+baseline - > 文字头部尺寸   =   ascent
+baseline - > 文字底部尺寸   =   descent
 
-getHeight() / 2
+getHeight() / 2 + (descent - ascent)/2

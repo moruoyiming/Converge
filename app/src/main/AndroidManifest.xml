@@ -80,6 +80,10 @@
         <activity android:name=".note.class16.outer.OuterInterceptActivity">
 
         </activity>
+
+        <activity android:name=".note.class17.DrawTextActivity">
+
+        </activity>
     </application>
 
 </manifest>

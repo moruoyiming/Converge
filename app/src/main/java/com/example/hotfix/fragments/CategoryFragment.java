@@ -20,6 +20,7 @@ import com.example.hotfix.note.class02.InjectActivity;
 import com.example.hotfix.note.class02.User;
 import com.example.hotfix.note.class02.retrofitdemo.RetrofitActivity;
 import com.example.hotfix.note.class15.ScrollActivity;
+import com.example.hotfix.note.class17.DrawTextActivity;
 import com.example.skin.SkinManager;
 
 import java.io.Serializable;
@@ -108,8 +109,8 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 startActivity(scroll);
                 break;
             case R.id.drawtext:
-//                Intent dispatch = new Intent(getActivity(), MainActivity.class);
-//                startActivity(dispatch);
+                Intent dispatch = new Intent(getActivity(), DrawTextActivity.class);
+                startActivity(dispatch);
                 break;
         }
     }
