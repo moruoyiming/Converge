@@ -81,9 +81,37 @@
 
         </activity>
 
-        <activity android:name=".note.class17.DrawTextActivity">
+        <activity android:name=".note.class17.activity.DrawTextActivity">
 
         </activity>
+
+        <activity android:name=".note.class17.activity.OtherActivity">
+
+        </activity>
+
+        <activity android:name=".note.class17.activity.OverDrawActivity">
+
+        </activity>
+
+        <activity android:name=".note.class17.activity.SimpleActivity">
+
+        </activity>
+
+        <activity android:name=".note.class17.activity.TextMeasureActivity">
+
+        </activity>
+        <activity android:name=".note.class17.activity.ViewPagerActivity">
+
+        </activity>
+        <activity android:name=".note.class17.MainActivity">
+
+        </activity>
+
+
+
+
+
+
     </application>
 
 </manifest>

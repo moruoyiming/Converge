@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.hotfix.note.class17.CustomText
+    <com.example.hotfix.note.class17.view.CustomTextView
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.example.hotfix.note.class17.CustomText>
+    </com.example.hotfix.note.class17.view.CustomTextView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

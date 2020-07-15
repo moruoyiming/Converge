@@ -1,0 +1,122 @@
+同学们晚上好
+20：05分发车
+
+稍微等下其他同学
+
+高级 UI 
+从高级 UI的第一节课开始听
+
+文字绘制
+
+自定义View  自己多练习
+
+歌词 QQ音乐 
+
+自定义view 
+extends view 
+extends viewGroup 
+
+绘制
+extends AppCompatTextView
+
+onmeasure(控件大小) -> onlayout（摆放的位置） -> ondraw (显示什么)
+
+
+canvas 画布
+
+paint 画笔
+
+绘制文字  1
+/**
+     * Draw the text, with origin at (x,y), using the specified paint. The origin is interpreted
+     * based on the Align setting in the paint.
+     *
+     * @param text The text to be drawn
+     * @param x The x-coordinate of the origin of the text being drawn
+     * @param y The y-coordinate of the baseline of the text being drawn
+     * @param paint The paint used for the text (e.g. color, size, style)
+     */
+    public void drawText(@NonNull String text, float x, float y, @NonNull Paint paint) {
+        super.drawText(text, x, y, paint);
+    }
+	
+	
+baseline：？ 	
+getFontSpacing
+
+然后把文字绘制在view中心？ 
+
+top/bottom  无论什么文字，不会超出上界 下届
+
+accent/decent  正常的文字的上界 下届
+
+文字的高度： top + bottom  ->  bottom  - top  最大高度
+                               decent - accent 正常高度
+							   
+							   
+Height/2  + (decent - accent)/2 - decent
+= Height/2 + decent/2  -accent/2 -decent
+
+= Height/2 - (decent + accent)/2
+
+文字本身是没办法只绘制一半
+
+文字如何绘制在中心点 x,y 
+canvas  图层
+canvas 剪裁
+
+补充点： 
+setPercent -> invalidate() -> onDraw().............
+new ->GC
+
+
+过渡绘制
+同一个像素点 绘制了多次 2
+
+真彩色：没有过度绘制
+ 蓝色：过度绘制 1 次
+ 绿色：过度绘制 2 次
+ 粉色：过度绘制 3 次
+ 红色：过度绘制 4 次或更多次
+
+
+ProcessOn
+
+https://www.processon.com/diagraming/5edf5ee7e0b34d2a6bda8af7
+
+							   
+							   
+							   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
