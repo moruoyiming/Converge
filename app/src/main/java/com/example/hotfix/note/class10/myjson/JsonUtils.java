@@ -1,7 +1,8 @@
 package com.example.hotfix.note.class10.myjson;
 
-import com.zero.serializabledemo.myjson.model.JsonArray;
-import com.zero.serializabledemo.myjson.model.JsonObject;
+
+import com.example.hotfix.note.class10.myjson.model.JsonArray;
+import com.example.hotfix.note.class10.myjson.model.JsonObject;
 
 import java.util.List;
 import java.util.Map;

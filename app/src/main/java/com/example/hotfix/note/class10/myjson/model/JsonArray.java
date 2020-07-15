@@ -1,7 +1,8 @@
 package com.example.hotfix.note.class10.myjson.model;
 
-import com.zero.serializabledemo.myjson.JsonUtils;
-import com.zero.serializabledemo.myjson.exception.JsonTypeException;
+
+import com.example.hotfix.note.class10.myjson.JsonUtils;
+import com.example.hotfix.note.class10.myjson.exception.JsonTypeException;
 
 import java.util.ArrayList;
 import java.util.Iterator;

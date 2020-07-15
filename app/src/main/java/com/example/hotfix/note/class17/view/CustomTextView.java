@@ -16,13 +16,13 @@ public class CustomTextView extends AppCompatTextView {
 
     private Paint paint;
 
-    private int percent;
+    private float percent = 0.0f;
 
-    public int getPercent() {
+    public float getPercent() {
         return percent;
     }
 
-    public void setPercent(int percent) {
+    public void setPercent(float percent) {
         this.percent = percent;
         invalidate();
     }
@@ -59,25 +59,7 @@ public class CustomTextView extends AppCompatTextView {
 
         canvas.drawText(text, getWidth() / 2, 100, paint);
 
-        drawXCenterLine(canvas);
-        drawYCenterLine(canvas);
-        drawCenterText(canvas);
-        drawCenterText2(canvas);
-    }
-
-    private void drawCenterText(Canvas canvas) {
-        canvas.save();
-        float textwidth = paint.measureText(text);
-        paint.setColor(Color.BLACK);
-        Paint.FontMetrics metrics = paint.getFontMetrics();
-        // 横坐标
-        int x = (int) (getWidth() / 2 - textwidth / 2);
-//        int y = (int) getHeight() / 2;//
-//        int y = (int) (getHeight() / 2 + (metrics.descent - metrics.ascent) / 2);
-        // 纵坐标
         int y = (int) (getHeight() / 2 + (metrics.descent - metrics.ascent) / 2) - (int) metrics.descent;
-        //画文字
-        canvas.drawText(text, x, y, paint);
         //画文字的上边线
         paint.setColor(Color.BLUE);
         canvas.drawLine(0, y + metrics.ascent, getWidth(), y + metrics.ascent, paint);
@@ -92,6 +74,28 @@ public class CustomTextView extends AppCompatTextView {
         canvas.drawLine(0, y + metrics.bottom, getWidth(), y + metrics.bottom, paint);
         //top =-50.695312,bottom =13.0078125,ascent=-44.53125,descent=11.71875
         Log.i("xxxxx", " top =" + metrics.top + ",bottom =" + metrics.bottom + ",ascent=" + metrics.ascent + ",descent=" + metrics.descent);
+        drawXCenterLine(canvas);
+        drawYCenterLine(canvas);
+        drawCenterText(canvas);
+        drawCenterText2(canvas);
+    }
+
+    private void drawCenterText(Canvas canvas) {
+        canvas.save();
+        float textwidth = paint.measureText(text);
+        paint.setColor(Color.BLACK);
+        Paint.FontMetrics metrics = paint.getFontMetrics();
+        // 横坐标
+
+        int x = (int) (getWidth() / 2 - textwidth / 2);
+        float left_x = x + textwidth * percent;
+//        int y = (int) getHeight() / 2;//
+//        int y = (int) (getHeight() / 2 + (metrics.descent - metrics.ascent) / 2);
+        // 纵坐标
+        int y = (int) (getHeight() / 2 + (metrics.descent - metrics.ascent) / 2) - (int) metrics.descent;
+        //画文字
+        canvas.clipRect(left_x, 0, getWidth(), getHeight());
+        canvas.drawText(text, x, y, paint);
         canvas.restore();
     }
 
@@ -101,12 +105,13 @@ public class CustomTextView extends AppCompatTextView {
         paint.setColor(Color.RED);
         Paint.FontMetrics metrics = paint.getFontMetrics();
         // 横坐标
-        int x = (int) (getWidth() / 2 - textwidth / 2);
+        float left = getWidth() / 2 - textwidth / 2;
+        float right = left + textwidth * percent;
         // 纵坐标
-        int y = (int) (getHeight() / 2 + (metrics.descent - metrics.ascent) / 2) - (int) metrics.descent;
+        float baseline = (getHeight() / 2 + (metrics.descent - metrics.ascent) / 2) - (int) metrics.descent;
         //画文字
-        canvas.clipRect(x, 0, x + textwidth-20, getHeight());
-        canvas.drawText(text, x, y, paint);
+        canvas.clipRect(left, 0, right, getHeight());
+        canvas.drawText(text, left, baseline, paint);
         canvas.restore();
     }
 

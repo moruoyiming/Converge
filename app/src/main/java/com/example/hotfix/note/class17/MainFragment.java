@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.ListFragment;
 
+import com.example.hotfix.note.class17.activity.DrawTextActivity;
 import com.example.hotfix.note.class17.activity.OtherActivity;
 import com.example.hotfix.note.class17.activity.OverDrawActivity;
 import com.example.hotfix.note.class17.activity.SimpleActivity;
@@ -68,7 +69,7 @@ public class MainFragment extends ListFragment {
                 startActivity(gotoAct);
                 break;
             case 4://文字绘制补充说明
-                gotoAct = new Intent(getActivity(), OtherActivity.class);
+                gotoAct = new Intent(getActivity(), DrawTextActivity.class);
                 startActivity(gotoAct);
                 break;
             default:

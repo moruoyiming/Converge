@@ -1,6 +1,7 @@
 package com.example.hotfix.note.class10.myjson.tokenizer;
 
-import com.zero.serializabledemo.myjson.exception.JsonParseException;
+
+import com.example.hotfix.note.class10.myjson.exception.JsonParseException;
 
 import java.io.IOException;
 
