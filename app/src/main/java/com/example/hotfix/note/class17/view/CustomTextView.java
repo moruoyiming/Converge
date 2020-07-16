@@ -12,7 +12,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 public class CustomTextView extends AppCompatTextView {
 
-    private String text = "波多野结衣";
+    private String text = "السلام عليكم";
 
     private Paint paint;
 
@@ -44,7 +44,7 @@ public class CustomTextView extends AppCompatTextView {
 
     public void init() {
         paint = new Paint();
-        paint.setTextSize(48);
+        paint.setTextSize(80);
         paint.setAntiAlias(true);
     }
 
@@ -79,6 +79,11 @@ public class CustomTextView extends AppCompatTextView {
         drawCenterText(canvas);
         drawCenterText2(canvas);
     }
+
+    //base line 基准线
+    // base line 坐标为0
+    //base line 以上到 文字顶部 为 ascent  ， ascent为负值
+    //base line 以下到 文字底部 为 descent ， descent为正值
 
     private void drawCenterText(Canvas canvas) {
         canvas.save();
