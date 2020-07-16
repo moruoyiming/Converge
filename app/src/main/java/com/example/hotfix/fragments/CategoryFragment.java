@@ -21,6 +21,7 @@ import com.example.hotfix.note.class02.User;
 import com.example.hotfix.note.class02.retrofitdemo.RetrofitActivity;
 import com.example.hotfix.note.class15.ScrollActivity;
 import com.example.hotfix.note.class17.MainActivity;
+import com.example.hotfix.note.class18.FishActivity;
 import com.example.skin.SkinManager;
 
 import java.io.Serializable;
@@ -52,6 +53,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.skin.setOnClickListener(this);
         mBinding.scroll.setOnClickListener(this);
         mBinding.drawtext.setOnClickListener(this);
+        mBinding.fish.setOnClickListener(this);
     }
 
     @Override
@@ -111,6 +113,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.drawtext:
                 Intent dispatch = new Intent(getActivity(), MainActivity.class);
                 startActivity(dispatch);
+                break;
+            case R.id.fish:
+                Intent fish = new Intent(getActivity(), FishActivity.class);
+                startActivity(fish);
                 break;
         }
     }

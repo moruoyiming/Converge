@@ -105,10 +105,9 @@
         <activity android:name=".note.class17.MainActivity">
 
         </activity>
+        <activity android:name=".note.class18.FishActivity">
 
-
-
-
+        </activity>
 
 
     </application>
