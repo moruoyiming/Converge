@@ -1,0 +1,6 @@
+Gson 解析数据使用反射typeadapter解析。
+
+面试题
+如何解决Caused by ： java.lang.IllegalStateExcetion: Expected BEGIN_ARRAY but was STRING at line 3 column 17 path ...
+1.自定义TypeAdapter
+2.自定义JsonDeserializer
