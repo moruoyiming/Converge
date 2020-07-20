@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 public class FileChannelTest {
-	
+
 	public static void main(String[] args) {
 		File sourceFile = new File("D://alvin//IOtest//file1.mp4");
 		File targetFile = new File("D://file1-1.mp4");
@@ -26,25 +26,25 @@ public class FileChannelTest {
 		copyFileByStream(sourceFile, targetFile);
 		copyFileByFileChannel(sourceFile, targetFile);
 	}
-	
+
 	private static void copyFileByFileChannel(File sourceFile,File targetFile){
 		Instant begin = Instant.now();
-		
+
 		RandomAccessFile randomAccessSourceFile;
 		RandomAccessFile randomAccessTargetFile;
-		
+
 		try {
 			randomAccessSourceFile = new RandomAccessFile(sourceFile, "r");
 			randomAccessTargetFile = new RandomAccessFile(targetFile, "rw");
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;
 		}
-		
+
 		FileChannel sourceFileChannel = randomAccessSourceFile.getChannel();
 		FileChannel targetFileChannel = randomAccessTargetFile.getChannel();
-		
+
 		ByteBuffer byteBuffer = ByteBuffer.allocate(1024*1024);
 		try {
 			while(sourceFileChannel.read(byteBuffer) != -1) {
@@ -60,7 +60,7 @@ public class FileChannelTest {
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
-			
+
 			try {
 				targetFileChannel.close();
 			}catch (Exception e) {
@@ -69,13 +69,13 @@ public class FileChannelTest {
 		}
 		System.out.println("total spent: " + Duration.between(begin, Instant.now()).toMillis());
 	}
-	
+
 	private static void copyFileByStream(File sourceFile,File targetFile) {
 		Instant begin = Instant.now();
-		
+
 		FileInputStream fis;
 		FileOutputStream fos;
-		
+
 		try {
 			fis = new FileInputStream(sourceFile);
 			fos = new FileOutputStream(targetFile);
@@ -106,7 +106,7 @@ public class FileChannelTest {
 			}
 		}
 		System.out.println("total spent: " + Duration.between(begin, Instant.now()).toMillis());
-		
+
 	}
 
 }

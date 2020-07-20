@@ -19,8 +19,8 @@ public class WriterAndStream {
 					new OutputStreamWriter(
 							new FileOutputStream(
 									new File("src/testtxt/writerAndStream.txt")),"GBK"));
-			
-			bufferedWriter.write("�� �����й����װ���ĸ��");
+
+			bufferedWriter.write("我 爱你中国，亲爱的母亲");
 			bufferedWriter.flush();
 			bufferedWriter.close();
 			System.out.println("end");

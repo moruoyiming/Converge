@@ -13,24 +13,24 @@ public class OutputStreamWriterTest {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		testOutputStreamWriter();
-		
+
 	}
-	
+
 	public static void testOutputStreamWriter() throws IOException {
 		File file = new File("src/testtxt/OutputStreamWriter.txt");
-		
-		// true, �������ݿ���׷��
+
+		// true, 设置内容可以追加
 		FileOutputStream fos = new FileOutputStream(file, true);
-		//todo �Ƿ���һ����װ�õ�writer��
+		//todo 是否有一个封装好的writer？
 		OutputStreamWriter oswDef = new OutputStreamWriter(fos);
 		BufferedWriter bwdef = new BufferedWriter(oswDef);
-		
+
 		bwdef.write(STRING);
 		bwdef.newLine();
 		bwdef.flush();
-//		bwdef.close();  //Ϊʲô��������д
+//		bwdef.close();  //为什么不能在这写
 		System.out.println("oswDef encoding: " + oswDef.getEncoding());
-		
+
 		OutputStreamWriter oswGBK = new OutputStreamWriter(fos, "GBK");
 		BufferedWriter bwGBK = new BufferedWriter(oswGBK);
 		bwGBK.write(STRING + "GBK");
@@ -38,7 +38,7 @@ public class OutputStreamWriterTest {
 		bwGBK.flush();
 //		bwGBK.close();
 		System.out.println("oswDef encoding: " + oswGBK.getEncoding());
-		
+
 		OutputStreamWriter oswUTF8 = new OutputStreamWriter(fos, "UTF-8");
 		BufferedWriter bwUTF8 = new BufferedWriter(oswUTF8);
 		bwUTF8.write(STRING + "UTF-8");
@@ -46,11 +46,11 @@ public class OutputStreamWriterTest {
 		bwUTF8.flush();
 //		bwUTF8.close();
 		System.out.println("oswDef encoding: " + oswUTF8.getEncoding());
-		
+
 		bwdef.close();
 		bwGBK.close();
 		bwUTF8.close();
-		
+
 	}
 
 }

@@ -14,29 +14,29 @@ public class DataStreamTest {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		
+
 		testDataOutPutStream();
 		testDataInputStreamI();
 	}
-	
+
 	private static void testDataOutPutStream() {
-		
+
 		try {
 //			File file = new File("src/testtxt/tataStreamTest.txt");
 			DataOutputStream out = new DataOutputStream(
 					new	BufferedOutputStream(
-					new FileOutputStream(
-					new File("src/testtxt/tataStreamTest.txt"))));
-			
-			out.writeBoolean(true);
-            out.writeByte((byte)0x41);
-            out.writeChar((char)0x4243);
-            out.writeShort((short)0x4445);
-            out.writeInt(0x12345678);
-            out.writeLong(0x987654321L);
+							new FileOutputStream(
+									new File("src/testtxt/tataStreamTest.txt"))));
 
-            out.writeUTF("abcdefghijklmnopqrstuvwxyz��12");
-            out.writeLong(0x023433L);
+			out.writeBoolean(true);
+			out.writeByte((byte)0x41);
+			out.writeChar((char)0x4243);
+			out.writeShort((short)0x4445);
+			out.writeInt(0x12345678);
+			out.writeLong(0x987654321L);
+
+			out.writeUTF("abcdefghijklmnopqrstuvwxyz严12");
+			out.writeLong(0x023433L);
 			out.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -46,14 +46,14 @@ public class DataStreamTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void testDataInputStreamI() {
 		try {
 			File file = new File("src/testtxt/tataStreamTest.txt");
 			DataInputStream in = new DataInputStream(
 					new BufferedInputStream(
-					new FileInputStream(file)));
-			
+							new FileInputStream(file)));
+
 			System.out.println(Long.toHexString(in.readLong()));
 			System.out.println(in.readBoolean());
 			System.out.println(byteToHexString(in.readByte()));
@@ -68,20 +68,20 @@ public class DataStreamTest {
 			// TODO: handle exception
 		}
 	}
-	
-    // ��ӡbyte��Ӧ��16���Ƶ��ַ���
-    private static String byteToHexString(byte val) {
-        return Integer.toHexString(val & 0xff);
-    }
 
-    // ��ӡchar��Ӧ��16���Ƶ��ַ���
-    private static String charToHexString(char val) {
-        return Integer.toHexString(val);
-    }
+	// 打印byte对应的16进制的字符串
+	private static String byteToHexString(byte val) {
+		return Integer.toHexString(val & 0xff);
+	}
 
-    // ��ӡshort��Ӧ��16���Ƶ��ַ���
-    private static String shortToHexString(short val) {
-        return Integer.toHexString(val & 0xffff);
-    }
+	// 打印char对应的16进制的字符串
+	private static String charToHexString(char val) {
+		return Integer.toHexString(val);
+	}
+
+	// 打印short对应的16进制的字符串
+	private static String shortToHexString(short val) {
+		return Integer.toHexString(val & 0xffff);
+	}
 
 }

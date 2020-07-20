@@ -3,7 +3,6 @@ package com.example.hotfix.note.class13.classTop;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,12 +11,12 @@ public class InputStreamReaderTest {
 
 	public static void testISRDefaultEncoder(InputStream is){
 		try{
-			
-		
+
+
 //			InputStreamReader isr = new InputStreamReader(is);
 			BufferedReader br = new BufferedReader(
 					new InputStreamReader(is));
-			
+
 			String string;
 			while ((string = br.readLine()) != null) {
 //				System.out.println("code: " + isr.getEncoding());
@@ -28,7 +27,7 @@ public class InputStreamReaderTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void testISRGBK(InputStream is){
 		try {
 			InputStreamReader inputStreamReader = new InputStreamReader(is,"GBK");
@@ -43,7 +42,7 @@ public class InputStreamReaderTest {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public static void testISRUTF8(InputStream is){
 		try {
 			InputStreamReader inputStreamReader = new InputStreamReader(is,"UTF-8");
@@ -59,8 +58,8 @@ public class InputStreamReaderTest {
 		}
 	}
 	public static void main(String[] args) throws IOException {
-		//����������������������������
-		//���������Ƿ�����鷳����������
+		//？？？？？？？？？？？？？？
+		//创建过程是否过于麻烦？？？？？
 		testISRDefaultEncoder(
 				new FileInputStream(
 						new File("src/testtxt/OutputStreamWriter.txt")));

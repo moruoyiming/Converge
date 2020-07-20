@@ -1,5 +1,7 @@
 package com.example.hotfix.note.class13.classTop;
 
+import com.example.hotfix.note.class13.classTop.Person;
+
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,13 +26,13 @@ public class ObjectStream {
 		}
 		return file;
 	}
-	
+
 	private static void writeObject(){
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(
 					new FileOutputStream("src/testtxt/object.txt"));
 			for(int i = 0; i < 10; i++){
-				oos.writeObject(new Person("ŷ����[" + i +"]", i));
+				oos.writeObject(new Person("欧阳锋[" + i +"]", i));
 			}
 			oos.writeObject(null);
 			oos.close();
@@ -38,7 +40,7 @@ public class ObjectStream {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void readObject() {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(
@@ -53,7 +55,7 @@ public class ObjectStream {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				
+
 			}
 			ois.close();
 		} catch (FileNotFoundException e) {
@@ -64,25 +66,25 @@ public class ObjectStream {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static void writeObjectByArray(){
 		try {
-			ObjectOutputStream oos = new ObjectOutputStream( 
+			ObjectOutputStream oos = new ObjectOutputStream(
 					new FileOutputStream(newFile("src/testtxt/objectArrays.txt")));
 			Person[] persons = new Person[10];
 			for(int i = 0; i < 10; i++){
-				Person person = new Person("���߹�[" + i + "]", i);
+				Person person = new Person("洪七公[" + i + "]", i);
 				persons[i] = person;
 			}
 			oos.writeObject(persons);
 			oos.close();
-			
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
 	/**
-	 * ͨ������д�����
+	 * 通过集合写入对象
 	 */
 	private static void writeObjectByList() {
 		try {
@@ -90,10 +92,10 @@ public class ObjectStream {
 					new FileOutputStream("src/testtxt/objectByList.txt"));
 			List<Person> persons=new ArrayList<Person>();
 			for (int i = 1; i < 10; i++) {
-				Person person = new Person("ŷ���� List[" + (20+i)+"]", 20+i);
+				Person person = new Person("欧阳鹏 List[" + (20+i)+"]", 20+i);
 				persons.add(person);
 			}
-			//д��List
+			//写入List
 			oos.writeObject(persons);
 			oos.close();
 		} catch (Exception e) {
@@ -101,14 +103,14 @@ public class ObjectStream {
 		}
 	}
 
-	
+
 
 
 	public static void main(String[] args) {
 //		writeObject();
 //		writeObjectByArray();
 //		writeObjectByList();
-		
+
 		readObject();
 	}
 
