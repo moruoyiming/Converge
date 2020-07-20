@@ -29,7 +29,7 @@ public class FishRelativeLayout extends RelativeLayout {
 
     private float touchX;
     private float touchY;
-    private final float[] tan = new float[2];
+
 
     public FishRelativeLayout(Context context) {
         super(context);
@@ -85,29 +85,40 @@ public class FishRelativeLayout extends RelativeLayout {
         PointF fishHead = new PointF(imageView.getX() + fishDrawable.getHeadPoint().x, imageView.getY() + fishDrawable.getHeadPoint().y);
         //终点坐标
         PointF touch = new PointF(touchX, touchY);
-        // 计算控制点
-        final float angle = includedAngle(fishMiddle, fishHead, touch);
+        // 计算控制点 控制点角度
+        final float angle = includedAngle(fishMiddle, fishHead, touch) / 2;
         float delta = calcultatAngle(fishMiddle, fishHead);
-        PointF controlF = fishDrawable.calculatPoint(fishMiddle,
-                1.6f * fishDrawable.getHeadRadius(), angle / 2 + delta);
+        PointF controlPoint = FishDrawable.calculatePoint(fishMiddle,1.6f * FishDrawable.getHeadRadius(), angle + delta);
+
+        // 鱼游动路径
         Path path = new Path();
-        path.cubicTo(fishMiddle.x - fishRelativeMiddle.x, fishMiddle.y - fishRelativeMiddle.y,
-                controlF.x - fishRelativeMiddle.x, controlF.y - fishRelativeMiddle.y,
+        // 移动鱼到七点坐标
+        path.moveTo(fishMiddle.x - fishRelativeMiddle.x, fishMiddle.y - fishRelativeMiddle.y);
+        // 三阶贝塞尔曲线
+        path.cubicTo(fishHead.x - fishRelativeMiddle.x, fishHead.y - fishRelativeMiddle.y,
+                controlPoint.x - fishRelativeMiddle.x, controlPoint.y - fishRelativeMiddle.y,
                 touch.x - fishRelativeMiddle.x, touch.y - fishRelativeMiddle.y);
-        PathMeasure pathMeasure = new PathMeasure();
+
+        //鱼尾加速摇摆
         ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "x", "y", path);
         animator.setDuration(2000);
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
+                fishDrawable.setFrequence(1f);
             }
 
             @Override
             public void onAnimationStart(Animator animation) {
                 super.onAnimationStart(animation);
+                fishDrawable.setFrequence(2f);
             }
         });
+
+        //鱼头转向
+        PathMeasure pathMeasure = new PathMeasure(path, false);
+        float[] tan = new float[2];
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -120,7 +131,6 @@ public class FishRelativeLayout extends RelativeLayout {
         });
         animator.start();
     }
-
 
 
     @Override
