@@ -14,6 +14,8 @@ import android.view.animation.LinearInterpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import retrofit2.http.HEAD;
+
 public class FishDrawable extends Drawable {
 
     private Path mPath;
@@ -53,6 +55,8 @@ public class FishDrawable extends Drawable {
     private final float SMALL_CIRCLE_RADIUS = MIDDLE_CIRCLE_RADIUS * 0.4f;
     // --寻找大三角形底边中心点的线长
     private final float FIND_TRIANGLE_LENGTH = FIND_SMALL_CIRCLE_LENGTH;
+
+    private final float EYE_CIRCLE = HEAD_RADIUS * 0.2f;
 
     private final float CHANGE_VALUE = 3600f;
     // 动画持续时间
@@ -132,11 +136,16 @@ public class FishDrawable extends Drawable {
      */
     private void makeFish(Canvas canvas) {
         // 鱼的摆动角度
-        float fishAngle = (float) (fishStartAngle + Math.sin(Math.toRadians(currentValue * 1.2*frequence)) * 8);
+        float fishAngle = (float) (fishStartAngle + Math.sin(Math.toRadians(currentValue * 1.2 * frequence)) * 8);
         // 画鱼头的圆心坐标
         headPoint = calculatePoint(middlePoint, BODY_LENGHT / 2, fishAngle); // 画鱼头
-        //画鱼鳍
+        //画鱼头
         canvas.drawCircle(headPoint.x, headPoint.y, HEAD_RADIUS, mPaint);
+        PointF leftEye = calculatePoint(headPoint, HEAD_RADIUS, fishAngle - 25);
+        makeEye(canvas, leftEye, true);
+        PointF rightEye = calculatePoint(headPoint, HEAD_RADIUS, fishAngle + 25);
+        makeEye(canvas, rightEye, true);
+
         // 画右鳍的起点坐标
         PointF rightFinsPoint = calculatePoint(headPoint, FIND_FINS_LENGTH, fishAngle - 110);
         // 画右鳍
@@ -160,6 +169,12 @@ public class FishDrawable extends Drawable {
                 triangleHalfLength - 20, fishAngle);
         // 鱼身
         makeBody(canvas, bodyBottomCenterPoint, fishAngle);
+    }
+
+    private void makeEye(Canvas canvas, PointF leftEye, boolean isLeftEye) {
+        //画鱼眼
+        canvas.drawCircle(leftEye.x, leftEye.y, EYE_CIRCLE, mPaint);
+
     }
 
     /**
