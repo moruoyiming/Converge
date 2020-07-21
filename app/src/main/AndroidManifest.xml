@@ -109,6 +109,10 @@
 
         </activity>
 
+        <activity android:name=".note.class19.RecyclerViewActivity">
+
+        </activity>
+
 
     </application>
 

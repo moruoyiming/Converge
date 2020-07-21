@@ -22,6 +22,7 @@ import com.example.hotfix.note.class02.retrofitdemo.RetrofitActivity;
 import com.example.hotfix.note.class15.ScrollActivity;
 import com.example.hotfix.note.class17.MainActivity;
 import com.example.hotfix.note.class18.FishActivity;
+import com.example.hotfix.note.class19.RecyclerViewActivity;
 import com.example.skin.SkinManager;
 
 import java.io.Serializable;
@@ -54,6 +55,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.scroll.setOnClickListener(this);
         mBinding.drawtext.setOnClickListener(this);
         mBinding.fish.setOnClickListener(this);
+        mBinding.recyclerview.setOnClickListener(this);
     }
 
     @Override
@@ -117,6 +119,11 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.fish:
                 Intent fish = new Intent(getActivity(), FishActivity.class);
                 startActivity(fish);
+                break;
+
+            case R.id.recyclerview:
+                Intent recyclerview = new Intent(getActivity(), RecyclerViewActivity.class);
+                startActivity(recyclerview);
                 break;
         }
     }
