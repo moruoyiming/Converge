@@ -51,6 +51,6 @@ public class RecyclerViewActivity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(starAdapter);
-        recyclerView.addItemDecoration(new StarItemDecoration());
+        recyclerView.addItemDecoration(new StarItemDecoration(RecyclerViewActivity.this));
     }
 }

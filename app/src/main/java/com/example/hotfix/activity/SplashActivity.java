@@ -22,13 +22,13 @@ public class SplashActivity extends AppCompatActivity {
 //            return
 //        }
         startActivity(new Intent(this, MainActivity.class));
-
+        overridePendingTransition(0,0);
     }
 
     @Override
     protected void onStop() {//  1. A ，onpause  2.B  oncreate 3. B onresume  4. A onStop
         super.onStop();
         finish();
-//        overridePendingTransition(0,0);
+
     }
 }

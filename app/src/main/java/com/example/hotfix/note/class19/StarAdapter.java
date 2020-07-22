@@ -55,8 +55,8 @@ public class StarAdapter extends RecyclerView.Adapter<StarAdapter.StarViewHolder
         return false;
     }
 
-    public void getGroupName(int position) {
-        stars.get(position).getGroudName();
+    public String getGroupName(int position) {
+        return stars.get(position).getGroudName();
     }
 
 
