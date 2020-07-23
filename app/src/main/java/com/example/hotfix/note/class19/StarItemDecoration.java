@@ -9,7 +9,11 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hotfix.note.class05.SynTest;
+import com.example.hotfix.note.class11.Main;
 
 public class StarItemDecoration extends RecyclerView.ItemDecoration {
     private Paint textPaint;
@@ -18,7 +22,7 @@ public class StarItemDecoration extends RecyclerView.ItemDecoration {
     private int groupHeaderHeight;
 
     public StarItemDecoration(Context context) {
-        groupHeaderHeight = dp2px(context, 180);
+        groupHeaderHeight = dp2px(context, 100);
         headPaint = new Paint();
         headPaint.setStyle(Paint.Style.FILL);
         headPaint.setColor(Color.BLUE);
@@ -43,11 +47,11 @@ public class StarItemDecoration extends RecyclerView.ItemDecoration {
                 if (isGroupHead && view.getTop() - groupHeaderHeight - parent.getPaddingTop() >= 0) {//如何判断itemview 是头部
                     Log.i("Tokyo", "onDraw " + starAdapter.isGroupHead(position) + " position  " + position + "  child.getTop() " + view.getTop());
                     canvas.drawRect(left, view.getTop() - groupHeaderHeight, right, view.getTop(), headPaint);
-                    String groupName=starAdapter.getGroupName(position);
-                    textPaint.getTextBounds(groupName,0,groupName.length(), textRect);
-                    canvas.drawText(groupName, 0, view.getTop() - view.getHeight() / 2, textPaint);
+                    String groupName = starAdapter.getGroupName(position);
+                    textPaint.getTextBounds(groupName, 0, groupName.length(), textRect);
+                    canvas.drawText(groupName, left + 20, view.getTop() - groupHeaderHeight / 2 + textRect.height() / 2, textPaint);
                 } else if (view.getTop() - groupHeaderHeight - parent.getPaddingTop() >= 0) {
-                    canvas.drawRect(left, view.getTop() - 4, right, view.getTop(), headPaint);
+                    canvas.drawRect(left, view.getTop() - 1, right, view.getTop(), headPaint);
                 }
             }
         }
@@ -58,16 +62,23 @@ public class StarItemDecoration extends RecyclerView.ItemDecoration {
         super.onDrawOver(canvas, parent, state);
         if (parent.getAdapter() instanceof StarAdapter) {
             StarAdapter starAdapter = (StarAdapter) parent.getAdapter();
-            final int childCount = parent.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                final View child = parent.getChildAt(i);
-                int position = parent.getChildAdapterPosition(child);
-//                if (starAdapter.isGroupHead(position)) {
-//                    canvas.drawRect(parent.getPaddingLeft(), parent.getTop(), parent.getWidth() - parent.getPaddingRight(), 180, headPaint);
-//                    canvas.drawText(starAdapter.getGroupName(position), 0, parent.getTop() - child.getHeight() / 2, textPaint);
-//                } else {
-//
-//                }
+            int position = ((LinearLayoutManager) parent.getLayoutManager()).findFirstVisibleItemPosition();
+            View itemView = parent.findViewHolderForAdapterPosition(position).itemView;
+            int left = parent.getPaddingLeft();
+            int right = parent.getWidth() - parent.getPaddingRight();
+            int top = parent.getPaddingTop();
+            boolean isGroupHead = starAdapter.isGroupHead(position + 1);
+            if (isGroupHead) {
+                int bottom = Math.min(groupHeaderHeight, itemView.getBottom() - parent.getPaddingTop());
+                canvas.drawRect(left, top, right, top + bottom, headPaint);
+                String groupName = starAdapter.getGroupName(position);
+                textPaint.getTextBounds(groupName, 0, groupName.length(), textRect);
+                canvas.drawText(groupName, left + 20, top + bottom - groupHeaderHeight / 2 + textRect.height() / 2, textPaint);
+            } else {
+                canvas.drawRect(left, top, right, top + groupHeaderHeight, headPaint);
+                String groupName = starAdapter.getGroupName(position);
+                textPaint.getTextBounds(groupName, 0, groupName.length(), textRect);
+                canvas.drawText(groupName, left + 20, top + groupHeaderHeight - groupHeaderHeight / 2 + textRect.height() / 2, textPaint);
             }
         }
     }

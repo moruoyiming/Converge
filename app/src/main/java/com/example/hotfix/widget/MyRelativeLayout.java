@@ -1,4 +1,4 @@
-package com.example.hotfix.layout;
+package com.example.hotfix.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
