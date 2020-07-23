@@ -131,6 +131,15 @@
                 android:padding="15dp"
                 android:text="recyclerview吸顶"
                 android:textColor="#ffffff" />
+            <TextView
+                android:id="@+id/recyclerview2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="recyclerview回收复用"
+                android:textColor="#ffffff" />
         </com.example.hotfix.widget.FlowLayout>
     </RelativeLayout>
 </layout>
