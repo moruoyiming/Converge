@@ -14,11 +14,11 @@ import com.example.hotfix.R;
 import java.util.List;
 
 public class RecyclerReuse extends RecyclerView.Adapter<RecyclerReuse.StarViewHolder> {
-    private List<Star> stars;
+    private List<Woman> stars;
 
     private Context context;
 
-    public RecyclerReuse(List<Star> stars, Context context) {
+    public RecyclerReuse(List<Woman> stars, Context context) {
         this.stars = stars;
         this.context = context;
     }
@@ -33,7 +33,6 @@ public class RecyclerReuse extends RecyclerView.Adapter<RecyclerReuse.StarViewHo
 
     @Override
     public void onBindViewHolder(@NonNull StarViewHolder holder, int position) {
-        holder.tv.setText(stars.get(position).getName());
     }
 
     @Override
@@ -41,23 +40,6 @@ public class RecyclerReuse extends RecyclerView.Adapter<RecyclerReuse.StarViewHo
         return stars == null ? 0 : stars.size();
     }
 
-
-    public boolean isGroupHead(int position) {
-        if (position == 0) {
-            return true;
-        } else {
-            String groupName = stars.get(position).getGroudName();
-            String preGroupName = stars.get(position - 1).getGroudName();
-            if (!groupName.equals(preGroupName)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public String getGroupName(int position) {
-        return stars.get(position).getGroudName();
-    }
 
 
     public class StarViewHolder extends RecyclerView.ViewHolder {
