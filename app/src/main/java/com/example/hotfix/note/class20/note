@@ -8,9 +8,8 @@ RecyclerView回收复用原理
   2.mCachedViews 用来缓存移除屏幕之外的 ViewHolder
   3.mViewCacheExtension 开发给用户的自定义扩展缓存，需要用户自己管理 View 的创建和缓存
   4.RecycledViewPool  ViewHolder缓存池
-五个容器
-  mChangeScrap、mAttachedScrap、mUnmodifiableAttachedScrap、mCachedViews、
-  RecycledViewPool中内部静态类 ScrapData ,属性ArrayList<ViewHolder> mScrapHeap。
+
+  RecycledViewPool中包含内部静态类 ScrapData ,属性ArrayList<ViewHolder> mScrapHeap。
 
 复用：从集合中去获取
 
