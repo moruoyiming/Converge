@@ -23,7 +23,7 @@ import com.example.hotfix.note.class15.ScrollActivity;
 import com.example.hotfix.note.class17.MainActivity;
 import com.example.hotfix.note.class18.FishActivity;
 import com.example.hotfix.note.class19.RecyclerViewActivity;
-import com.example.hotfix.note.class20.RecyclerReuseActivity;
+import com.example.hotfix.note.class20.SlideCardActivity;
 import com.example.skin.SkinManager;
 
 import java.io.Serializable;
@@ -129,7 +129,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.recyclerview2:
-                Intent recyclerview2 = new Intent(getActivity(), RecyclerReuseActivity.class);
+                Intent recyclerview2 = new Intent(getActivity(), SlideCardActivity.class);
                 startActivity(recyclerview2);
                 break;
         }

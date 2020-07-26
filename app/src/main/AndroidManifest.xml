@@ -114,7 +114,7 @@
 
         </activity>
 
-        <activity android:name=".note.class20.RecyclerReuseActivity">
+        <activity android:name=".note.class20.SlideCardActivity">
 
         </activity>
     </application>
