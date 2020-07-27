@@ -1,7 +1,7 @@
 package com.example.basics.designpattern.create.fatory.fatoryMethod;
 
-import com.enjoy.entity.Fruit;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.basics.designpattern.entity.Fruit;
+//import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * 工厂方法模式测试
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class FactoryTest {
 
-    @Autowired
+//    @Autowired
     private static FruitFactory fruitFactory;
 
     public static void main(String[] args) {

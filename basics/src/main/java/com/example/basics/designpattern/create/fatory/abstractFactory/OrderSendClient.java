@@ -1,7 +1,7 @@
 package com.example.basics.designpattern.create.fatory.abstractFactory;
 
-import com.enjoy.entity.Bag;
-import com.enjoy.entity.Fruit;
+import com.example.basics.designpattern.entity.Bag;
+import com.example.basics.designpattern.entity.Fruit;
 
 /**
  * 抽象工厂模式测试

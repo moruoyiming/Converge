@@ -1,9 +1,9 @@
 package com.example.basics.designpattern.structure.decorator;
 
-import com.enjoy.create.fatory.abstractFactory.AbstractFactory;
-import com.enjoy.create.fatory.abstractFactory.AppleFactory;
-import com.enjoy.entity.Bag;
-import com.enjoy.entity.Fruit;
+import com.example.basics.designpattern.create.fatory.abstractFactory.AbstractFactory;
+import com.example.basics.designpattern.create.fatory.abstractFactory.AppleFactory;
+import com.example.basics.designpattern.entity.Bag;
+import com.example.basics.designpattern.entity.Fruit;
 
 /**
  * 装饰器模式测试

@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.structure.decorator;
 
-import com.enjoy.entity.Bag;
+import com.example.basics.designpattern.entity.Bag;
 
 public class BagDecorator implements Bag {
     private Bag bag;  //维持一个对抽象构件对象的引用

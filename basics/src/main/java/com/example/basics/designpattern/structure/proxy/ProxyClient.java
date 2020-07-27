@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.structure.proxy;
 
-import com.enjoy.service.OrderService;
+import com.example.basics.designpattern.service.OrderService;
 
 /**
  * 代理模式

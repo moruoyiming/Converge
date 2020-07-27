@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.entity.bag;
 
-import com.enjoy.entity.Bag;
+import com.example.basics.designpattern.entity.Bag;
 
 /**
  * 香蕉包装

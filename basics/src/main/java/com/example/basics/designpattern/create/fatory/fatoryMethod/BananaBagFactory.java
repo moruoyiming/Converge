@@ -1,7 +1,7 @@
 package com.example.basics.designpattern.create.fatory.fatoryMethod;
 
-import com.enjoy.entity.Bag;
-import com.enjoy.entity.bag.BananaBag;
+import com.example.basics.designpattern.entity.Bag;
+import com.example.basics.designpattern.entity.bag.BananaBag;
 
 /**
  * 工厂方法模式

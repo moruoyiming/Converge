@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.entity;
 
-import com.enjoy.action.visit.Visit;
+import com.example.basics.designpattern.action.visit.Visit;
 
 /**
  * 水果接口

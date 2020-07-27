@@ -1,8 +1,8 @@
 package com.example.basics.designpattern.entity.fruit;
 
-import com.enjoy.action.visit.Visit;
-import com.enjoy.entity.Fruit;
-import com.enjoy.entity.bag.BananaBag;
+import com.example.basics.designpattern.action.visit.Visit;
+import com.example.basics.designpattern.entity.Fruit;
+import com.example.basics.designpattern.entity.bag.BananaBag;
 
 /**
  * 桔子

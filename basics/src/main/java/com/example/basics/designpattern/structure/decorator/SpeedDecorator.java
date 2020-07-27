@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.structure.decorator;
 
-import com.enjoy.entity.Bag;
+import com.example.basics.designpattern.entity.Bag;
 
 public class SpeedDecorator extends BagDecorator {
     public SpeedDecorator(Bag bag) {

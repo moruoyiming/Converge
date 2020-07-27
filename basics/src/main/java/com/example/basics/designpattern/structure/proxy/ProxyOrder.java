@@ -1,7 +1,7 @@
 package com.example.basics.designpattern.structure.proxy;
 
-import com.enjoy.service.OrderService;
-import com.enjoy.service.impl.OutOrderServiceImpl;
+import com.example.basics.designpattern.service.OrderService;
+import com.example.basics.designpattern.service.impl.OutOrderServiceImpl;
 
 public class ProxyOrder implements OrderService {
 

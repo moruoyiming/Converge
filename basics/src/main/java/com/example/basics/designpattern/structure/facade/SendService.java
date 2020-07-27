@@ -1,8 +1,8 @@
 package com.example.basics.designpattern.structure.facade;
 
 import com.alibaba.fastjson.JSON;
-import com.enjoy.structure.composite.DistrictNode;
-import com.enjoy.structure.composite.LeafNode;
+import com.example.basics.designpattern.structure.composite.DistrictNode;
+import com.example.basics.designpattern.structure.composite.LeafNode;
 
 /**
  * 快递服务

@@ -1,9 +1,9 @@
 package com.example.basics.designpattern.action.visit;
 
-import com.enjoy.entity.Fruit;
-import com.enjoy.entity.fruit.Apple;
-import com.enjoy.entity.fruit.Banana;
-import com.enjoy.entity.fruit.Orange;
+import com.example.basics.designpattern.entity.Fruit;
+import com.example.basics.designpattern.entity.fruit.Apple;
+import com.example.basics.designpattern.entity.fruit.Banana;
+import com.example.basics.designpattern.entity.fruit.Orange;
 
 public class Visit {
 

@@ -1,7 +1,7 @@
 package com.example.basics.designpattern.structure.adapter;
 
-import com.enjoy.entity.bag.AppleBag;
-import com.enjoy.entity.bag.OrangeBag;
+import com.example.basics.designpattern.entity.bag.AppleBag;
+import com.example.basics.designpattern.entity.bag.OrangeBag;
 
 /**
  * 桔子包装适配器

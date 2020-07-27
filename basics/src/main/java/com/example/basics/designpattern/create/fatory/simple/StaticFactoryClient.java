@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.create.fatory.simple;
 
-import com.enjoy.entity.Fruit;
+import com.example.basics.designpattern.entity.Fruit;
 
 /**
  * Peter吃苹果

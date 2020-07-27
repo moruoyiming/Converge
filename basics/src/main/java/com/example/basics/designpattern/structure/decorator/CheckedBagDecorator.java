@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.structure.decorator;
 
-import com.enjoy.entity.Bag;
+import com.example.basics.designpattern.entity.Bag;
 
 public class CheckedBagDecorator extends BagDecorator {
     public CheckedBagDecorator(Bag bag) {

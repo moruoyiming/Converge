@@ -1,7 +1,7 @@
 package com.example.basics.designpattern.structure.bridge.bag;
 
 
-import com.enjoy.structure.bridge.material.Material;
+import com.example.basics.designpattern.structure.bridge.material.Material;
 
 /**
  * 采摘容器

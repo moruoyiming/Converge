@@ -1,9 +1,9 @@
 package com.example.basics.designpattern.create.fatory.abstractFactory;
 
-import com.enjoy.entity.Bag;
-import com.enjoy.entity.Fruit;
-import com.enjoy.entity.bag.AppleBag;
-import com.enjoy.entity.fruit.Apple;
+import com.example.basics.designpattern.entity.Bag;
+import com.example.basics.designpattern.entity.Fruit;
+import com.example.basics.designpattern.entity.bag.AppleBag;
+import com.example.basics.designpattern.entity.fruit.Apple;
 
 /**
  * 水果工厂
