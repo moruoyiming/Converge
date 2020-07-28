@@ -1,4 +1,4 @@
-package com.example.basics.designpattern.singleton;
+package com.example.basics.designpattern.my.singleton;
 
 /**
  * 懒汉式:用的时候创建对象

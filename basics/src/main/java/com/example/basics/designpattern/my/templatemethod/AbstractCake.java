@@ -1,4 +1,4 @@
-package com.example.basics.designpattern.templatemethod;
+package com.example.basics.designpattern.my.templatemethod;
 
 /**
  * 类说明：抽象蛋糕模型

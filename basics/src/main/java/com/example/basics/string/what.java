@@ -1,7 +1,6 @@
 package com.example.basics.string;
 
 
-import com.example.basics.designpattern.singleton.Singleton;
 import com.example.basics.reflection.Person;
 
 public class what {
