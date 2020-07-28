@@ -1,7 +1,7 @@
 package com.example.basics.designpattern.action.template;
 
-import com.enjoy.action.strategy.Discount;
-import com.enjoy.entity.Fruit;
+import com.example.basics.designpattern.action.strategy.Discount;
+import com.example.basics.designpattern.entity.Fruit;
 
 import java.util.ArrayList;
 import java.util.List;

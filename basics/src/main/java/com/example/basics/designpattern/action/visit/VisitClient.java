@@ -1,8 +1,8 @@
 package com.example.basics.designpattern.action.visit;
 
-import com.enjoy.create.fatory.simple.StaticFactory;
-import com.enjoy.entity.Fruit;
-import com.enjoy.entity.fruit.Apple;
+import com.example.basics.designpattern.create.fatory.simple.StaticFactory;
+import com.example.basics.designpattern.entity.Fruit;
+import com.example.basics.designpattern.entity.fruit.Apple;
 
 import java.util.ArrayList;
 import java.util.List;

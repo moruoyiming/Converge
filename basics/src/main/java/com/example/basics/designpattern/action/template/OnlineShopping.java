@@ -1,8 +1,8 @@
 package com.example.basics.designpattern.action.template;
 
-import com.enjoy.entity.Fruit;
-import com.enjoy.service.OrderService;
-import com.enjoy.service.impl.OrderServiceImpl;
+import com.example.basics.designpattern.entity.Fruit;
+import com.example.basics.designpattern.service.OrderService;
+import com.example.basics.designpattern.service.impl.OrderServiceImpl;
 
 import java.util.List;
 

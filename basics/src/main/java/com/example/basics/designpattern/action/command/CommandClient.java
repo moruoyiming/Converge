@@ -1,8 +1,8 @@
 package com.example.basics.designpattern.action.command;
 
-import com.enjoy.action.command.command.DiscountCommand;
-import com.enjoy.action.command.command.HotCommand;
-import com.enjoy.action.command.command.NewerCommand;
+import com.example.basics.designpattern.action.command.command.DiscountCommand;
+import com.example.basics.designpattern.action.command.command.HotCommand;
+import com.example.basics.designpattern.action.command.command.NewerCommand;
 
 /**
  * 命令模式：将不符合抽象编程的调用，改造成符合的抽象编程

@@ -1,11 +1,11 @@
 package com.example.basics.designpattern.action.template;
 
-import com.enjoy.action.strategy.Discount;
-import com.enjoy.action.strategy.FullDiscount;
-import com.enjoy.action.strategy.NewerDiscount;
-import com.enjoy.action.strategy.SecondDiscount;
-import com.enjoy.create.fatory.simple.StaticFactory;
-import com.enjoy.entity.Fruit;
+import com.example.basics.designpattern.action.strategy.Discount;
+import com.example.basics.designpattern.action.strategy.FullDiscount;
+import com.example.basics.designpattern.action.strategy.NewerDiscount;
+import com.example.basics.designpattern.action.strategy.SecondDiscount;
+import com.example.basics.designpattern.create.fatory.simple.StaticFactory;
+import com.example.basics.designpattern.entity.Fruit;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.action.template;
 
-import com.enjoy.entity.Fruit;
+import com.example.basics.designpattern.entity.Fruit;
 
 import java.util.List;
 

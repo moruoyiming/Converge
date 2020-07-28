@@ -1,9 +1,9 @@
 package com.example.basics.designpattern.action.chain;
 
-import com.enjoy.action.template.OtherPayShopping;
-import com.enjoy.action.template.ShoppingCart;
-import com.enjoy.create.fatory.simple.StaticFactory;
-import com.enjoy.entity.Fruit;
+import com.example.basics.designpattern.action.template.OtherPayShopping;
+import com.example.basics.designpattern.action.template.ShoppingCart;
+import com.example.basics.designpattern.create.fatory.simple.StaticFactory;
+import com.example.basics.designpattern.entity.Fruit;
 
 import java.util.ArrayList;
 import java.util.List;
