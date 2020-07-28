@@ -1,6 +1,5 @@
 package com.example.basics.designpattern.structure.facade;
 
-import com.alibaba.fastjson.JSON;
 import com.example.basics.designpattern.structure.composite.DistrictNode;
 import com.example.basics.designpattern.structure.composite.LeafNode;
 
@@ -32,7 +31,7 @@ public class SendService {
         districtNode2.addChild(new LeafNode("三里屯"));
         districtNode2.addChild(new LeafNode("朝阳外街"));
 
-        System.out.println("请选定目的地："+JSON.toJSON(root));
+//        System.out.println("请选定目的地："+JSON.toJSON(root));
         //以下物流运输业务。。。。
         System.out.println("本次快递目的地：北京-朝阳区-三里屯");
     }

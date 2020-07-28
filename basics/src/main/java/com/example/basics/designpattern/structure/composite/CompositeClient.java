@@ -1,6 +1,6 @@
 package com.example.basics.designpattern.structure.composite;
 
-import com.alibaba.fastjson.JSON;
+//import com.alibaba.fastjson.JSON;
 
 /**
  * 组合模式
@@ -32,7 +32,7 @@ public class CompositeClient {
         districtNode2.addChild(new LeafNode("三里屯"));
         districtNode2.addChild(new LeafNode("朝阳外街"));
 
-        System.out.println(JSON.toJSON(root));
+//        System.out.println(JSON.toJSON(root));
         //以下物流运输业务。。。。
 
     }
