@@ -1,4 +1,4 @@
-package com.example.basics.designpattern.proxy;
+package com.example.basics.designpattern.my.proxy;
 
 /**
  * 国外代购,不光能买，也能卖

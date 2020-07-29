@@ -1,4 +1,4 @@
-package com.example.basics.designpattern.singleton;
+package com.example.basics.designpattern.my.singleton;
 
 /**
  * 饿汉式：一上来就初始化对象，线程安全， 容易产生垃圾对象，类加载是就初始化，浪费内存

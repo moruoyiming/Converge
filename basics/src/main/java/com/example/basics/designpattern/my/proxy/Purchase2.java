@@ -1,4 +1,4 @@
-package com.example.basics.designpattern.proxy;
+package com.example.basics.designpattern.my.proxy;
 /**
  * 代购接口  sell
  */
