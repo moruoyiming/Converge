@@ -24,6 +24,7 @@ import com.example.hotfix.note.class17.MainActivity;
 import com.example.hotfix.note.class18.FishActivity;
 import com.example.hotfix.note.class19.RecyclerViewActivity;
 import com.example.hotfix.note.class20.SlideCardActivity;
+import com.example.hotfix.note.class21.ViewPagerLazyActivity;
 import com.example.skin.SkinManager;
 
 import java.io.Serializable;
@@ -58,6 +59,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.fish.setOnClickListener(this);
         mBinding.recyclerview.setOnClickListener(this);
         mBinding.recyclerview2.setOnClickListener(this);
+        mBinding.viewpager.setOnClickListener(this);
     }
 
     @Override
@@ -131,6 +133,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.recyclerview2:
                 Intent recyclerview2 = new Intent(getActivity(), SlideCardActivity.class);
                 startActivity(recyclerview2);
+                break;
+            case R.id.viewpager:
+                Intent viewpager = new Intent(getActivity(), ViewPagerLazyActivity.class);
+                startActivity(viewpager);
                 break;
         }
     }

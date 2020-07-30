@@ -117,6 +117,14 @@
         <activity android:name=".note.class20.SlideCardActivity">
 
         </activity>
+
+        <activity android:name=".note.class21.ViewPagerLazyActivity">
+
+        </activity>
+
+        <activity android:name=".note.class21.Main2Activity">
+
+        </activity>
     </application>
 
 </manifest>
