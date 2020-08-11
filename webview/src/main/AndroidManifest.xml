@@ -8,11 +8,11 @@
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-    <application>
+    <application android:usesCleartextTraffic="true">//9.0 打开
         <service android:name="com.cocos.basewebview.mainprocess.MainProHandleRemoteService"/>
         <service android:name="com.cocos.basewebview.remoteprocessservice.OptimizationService"
             android:process=":remoteweb"/>
-        <activity android:name="com.cocos.basewebview.WebviewActivity"
+        <activity android:name="com.cocos.basewebview.WebViewActivity"
             android:theme="@style/WebviewTheme"
             android:hardwareAccelerated="true"
             android:process=":remoteweb"/>
