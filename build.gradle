@@ -55,4 +55,6 @@ ext {
     xiangxuePackageName = 'com.xiangxue.libraries'
 
     xiangxueBaseVersion = '1.0.3'
+
+    googleAutoServiceDependency = 'com.google.auto.service:auto-service:1.0-rc7'
 }

@@ -1,9 +1,10 @@
 package com.example.basics.designpattern.structure.bridge;
 
-import com.enjoy.structure.bridge.bag.BagAbstraction;
-import com.enjoy.structure.bridge.bag.SmallBag;
-import com.enjoy.structure.bridge.material.Material;
-import com.enjoy.structure.bridge.material.Paper;
+
+import com.example.basics.designpattern.structure.bridge.bag.BagAbstraction;
+import com.example.basics.designpattern.structure.bridge.bag.SmallBag;
+import com.example.basics.designpattern.structure.bridge.material.Material;
+import com.example.basics.designpattern.structure.bridge.material.Paper;
 
 /**
  * 园丁采摘水果　　　　　　　　　　　　　　　　　　　　　　 　

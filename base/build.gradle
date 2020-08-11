@@ -27,8 +27,8 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    dataBinding {
-        enabled true
+    buildFeatures {
+        dataBinding true
     }
 }
 
@@ -60,6 +60,8 @@ dependencies {
     api 'com.youth.banner:banner:1.4.10'  //最新版本
     api 'com.alibaba:arouter-api:1.4.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    annotationProcessor rootProject.googleAutoServiceDependency
+    api rootProject.googleAutoServiceDependency
 }
 
 

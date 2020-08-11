@@ -10,7 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.cocos.basewebview.WebviewActivity;
+import com.cocos.base.autoservice.XiangxueServiceLoader;
+import com.cocos.basewebview.WebViewActivity;
+import com.example.common.autoservice.IWebViewService;
 import com.example.hotfix.R;
 import com.example.hotfix.activity.NetworkActivity;
 import com.example.hotfix.activity.PermissionActivity;
@@ -64,10 +66,14 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.openWeb1:
-                WebviewActivity.startCommonWeb(getActivity(), "腾讯网", "https://xw.qq.com/?f=qqcom");
+//                WebviewActivity.startCommonWeb(getActivity(), "腾讯网", "https://xw.qq.com/?f=qqcom");
+                IWebViewService webviewService = XiangxueServiceLoader.load(IWebViewService.class);
+                if(webviewService != null) {
+                    webviewService.startWebViewActivity(getActivity(), "https://www.baidu.com", "百度");
+                }
                 break;
             case R.id.openWeb2:
-                WebviewActivity.startCommonWeb(getActivity(), "AIDL测试", "file:///android_asset/" + "aidl.html");
+                WebViewActivity.startCommonWeb(getActivity(), "AIDL测试", "file:///android_asset/" + "aidl.html");
                 break;
             case R.id.network:
                 Intent intent = new Intent(getActivity(), NetworkActivity.class);

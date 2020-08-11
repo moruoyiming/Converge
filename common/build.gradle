@@ -22,8 +22,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding {
-        enabled = true
+    buildFeatures{
+        dataBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -34,6 +34,6 @@ android {
 dependencies {
 
     api project(':base')
-    api project(":basewebview")
+//    api project(":basewebview")
 
 }

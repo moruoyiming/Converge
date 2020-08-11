@@ -5,16 +5,15 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="testRunner" value="PLATFORM" />
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$USER_HOME$/develop/gradle-6.4.1" />
+        <option name="gradleHome" value="$USER_HOME$/gradle-6.6" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/aop" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base" />
-            <option value="$PROJECT_DIR$/basewebview" />
             <option value="$PROJECT_DIR$/basics" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/compiler" />
@@ -23,11 +22,11 @@
             <option value="$PROJECT_DIR$/news" />
             <option value="$PROJECT_DIR$/skin" />
             <option value="$PROJECT_DIR$/skins" />
+            <option value="$PROJECT_DIR$/webview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
         <option name="useQualifiedModuleNames" value="true" />
-        <option name="delegatedBuild" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
