@@ -13,7 +13,7 @@ import android.webkit.WebView;
 
 import com.cocos.basewebview.command.CommandDispatcher;
 import com.cocos.basewebview.settings.WebviewDefaultSetting;
-import com.cocos.basewebview.webviewclient.WebViewCallBack;
+import com.cocos.basewebview.WebViewCallBack;
 import com.cocos.basewebview.webviewclient.XiangxueWebviewClient;
 import com.google.gson.Gson;
 

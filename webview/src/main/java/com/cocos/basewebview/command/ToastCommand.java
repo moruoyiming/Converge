@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 
-import com.cocos.basewebview.WebviewCallBack;
+import com.cocos.basewebview.CommandCallBack;
 
 import java.util.Map;
 
@@ -15,7 +15,7 @@ public class ToastCommand implements Command {
     }
 
     @Override
-    public void exec(Context context, Map params, WebviewCallBack resultBack) {
+    public void exec(Context context, Map params, CommandCallBack resultBack) {
         Toast.makeText(context, String.valueOf(params.get("message")), Toast.LENGTH_SHORT).show();
     }
 }

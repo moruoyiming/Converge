@@ -23,7 +23,6 @@ import com.cocos.basewebview.command.ShowDialogCommand;
 import com.cocos.basewebview.command.ToastCommand;
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.cocos.basewebview.utils.WebConstants;
-import com.cocos.basewebview.webviewclient.WebViewCallBack;
 import com.cocos.basewebview.widget.BaseWebView;
 
 import java.util.HashMap;

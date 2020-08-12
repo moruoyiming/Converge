@@ -1,4 +1,4 @@
-package com.cocos.basewebview.webviewclient;
+package com.cocos.basewebview;
 
 import android.content.Intent;
 import android.net.Uri;

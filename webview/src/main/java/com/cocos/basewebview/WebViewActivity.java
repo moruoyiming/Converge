@@ -4,12 +4,9 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -20,11 +17,9 @@ import com.cocos.basewebview.command.Command;
 import com.cocos.basewebview.databinding.ActivityCommonWebBinding;
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.cocos.basewebview.utils.WebConstants;
-import com.example.common.autoservice.IWebViewService;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.ServiceLoader;
 
 /**
  * <pre>
@@ -100,7 +95,7 @@ public class WebViewActivity extends AppCompatActivity {
         }
 
         @Override
-        public void exec(Context context, Map params, WebviewCallBack resultBack) {
+        public void exec(Context context, Map params, CommandCallBack resultBack) {
             if (params.containsKey(Command.COMMAND_UPDATE_TITLE_PARAMS_TITLE)) {
                 setTitle((String) params.get(Command.COMMAND_UPDATE_TITLE_PARAMS_TITLE));
             }

@@ -2,7 +2,7 @@ package com.cocos.basewebview.mainprocess;
 
 import android.content.Context;
 
-import com.cocos.basewebview.WebviewCallBack;
+import com.cocos.basewebview.CommandCallBack;
 import com.google.gson.Gson;
 import com.weblib.webview.ICallbackFromMainToWeb;
 import com.weblib.webview.IWebToMain;
@@ -18,7 +18,7 @@ public class MainProAidlInterface extends IWebToMain.Stub {
 
     @Override
     public void handleWebAction(final String actionName, String jsonParams, final ICallbackFromMainToWeb callback) {
-        CommandsManager.getInstance().execMainProcessCommand(context, actionName, new Gson().fromJson(jsonParams, Map.class), new WebviewCallBack() {
+        CommandsManager.getInstance().execMainProcessCommand(context, actionName, new Gson().fromJson(jsonParams, Map.class), new CommandCallBack() {
             @Override
             public void onResult(int status, String action, Object result) {
                 try {

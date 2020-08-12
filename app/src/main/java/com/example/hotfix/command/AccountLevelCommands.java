@@ -3,7 +3,7 @@ package com.example.hotfix.command;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.cocos.basewebview.WebviewCallBack;
+import com.cocos.basewebview.CommandCallBack;
 import com.cocos.basewebview.command.Command;
 import com.cocos.basewebview.utils.AidlError;
 import com.cocos.basewebview.utils.WebConstants;
@@ -20,7 +20,7 @@ public class AccountLevelCommands implements Command {
     }
 
     @Override
-    public void exec(Context context, Map params, WebviewCallBack callBack) {
+    public void exec(Context context, Map params, CommandCallBack callBack) {
         try {
             String callbackName = "";
             if (params.get("type") == null) {

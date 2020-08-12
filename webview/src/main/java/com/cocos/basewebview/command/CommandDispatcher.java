@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.webkit.WebView;
 
+import com.cocos.basewebview.CommandCallBack;
 import com.cocos.basewebview.widget.BaseWebView;
-import com.cocos.basewebview.WebviewCallBack;
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.cocos.basewebview.mainprocess.MainProcessConnector;
 import com.cocos.basewebview.utils.MainLooper;
@@ -61,7 +61,7 @@ public class CommandDispatcher {
         try {
             if (CommandsManager.getInstance().isWebviewProcessCommand(cmd)) {
                 Map mapParams = gson.fromJson(params, Map.class);
-                CommandsManager.getInstance().execWebviewProcessCommand(context, cmd, mapParams, new WebviewCallBack() {
+                CommandsManager.getInstance().execWebviewProcessCommand(context, cmd, mapParams, new CommandCallBack() {
                     @Override
                     public void onResult(int status, String action, Object result) {
                         handleCallback(status, action, gson.toJson(result), webView);

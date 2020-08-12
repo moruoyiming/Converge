@@ -7,6 +7,6 @@ package com.cocos.basewebview;
  *     Description:
  * </pre>
  */
-public interface WebviewCallBack {
+public interface CommandCallBack {
     void onResult(int status, String action, Object result);
 }

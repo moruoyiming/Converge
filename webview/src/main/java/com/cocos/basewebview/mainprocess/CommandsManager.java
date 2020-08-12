@@ -3,7 +3,7 @@ package com.cocos.basewebview.mainprocess;
 import android.content.Context;
 import android.util.Log;
 
-import com.cocos.basewebview.WebviewCallBack;
+import com.cocos.basewebview.CommandCallBack;
 import com.cocos.basewebview.command.Command;
 import com.cocos.basewebview.utils.AidlError;
 import com.cocos.basewebview.utils.WebConstants;
@@ -49,7 +49,7 @@ public class CommandsManager {
     /**
      * 非UI Command 的执行
      */
-    public void execMainProcessCommand(Context context, String action, Map params, WebviewCallBack resultBack) {
+    public void execMainProcessCommand(Context context, String action, Map params, CommandCallBack resultBack) {
         if (getCommands().get(action) != null) {
             getCommands().get(action).exec(context, params, resultBack);
         } else {
@@ -61,7 +61,7 @@ public class CommandsManager {
     /**
      * CommandsManager handled by Webview itself, these command does not require aidl.
      */
-    public void execWebviewProcessCommand(Context context, String action, Map params, WebviewCallBack resultBack) {
+    public void execWebviewProcessCommand(Context context, String action, Map params, CommandCallBack resultBack) {
         if (getCommands().get(action) != null) {
             getCommands().get(action).exec(context, params, resultBack);
         }

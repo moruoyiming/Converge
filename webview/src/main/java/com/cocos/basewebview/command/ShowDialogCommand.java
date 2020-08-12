@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import androidx.appcompat.app.AlertDialog;
 
 
-import com.cocos.basewebview.WebviewCallBack;
+import com.cocos.basewebview.CommandCallBack;
 import com.cocos.basewebview.utils.WebConstants;
 import com.cocos.basewebview.utils.WebUtils;
 
@@ -21,7 +21,7 @@ public class ShowDialogCommand implements Command {
     }
 
     @Override
-    public void exec(Context context, Map params, final WebviewCallBack resultBack) {
+    public void exec(Context context, Map params, final CommandCallBack resultBack) {
         if (WebUtils.isNotNull(params)) {
             String title = (String) params.get("title");
             String content = (String) params.get("content");
