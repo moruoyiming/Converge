@@ -71,7 +71,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
 //                WebviewActivity.startCommonWeb(getActivity(), "腾讯网", "https://xw.qq.com/?f=qqcom");
                 IWebViewService webviewService = XiangxueServiceLoader.load(IWebViewService.class);
                 if(webviewService != null) {
-                    webviewService.startWebViewActivity(getActivity(), "https://www.baidu.com", "百度");
+                    webviewService.startWebViewActivity(getActivity(), "https://www.baidu.com", "百度",false);
                 }
                 break;
             case R.id.openWeb2:

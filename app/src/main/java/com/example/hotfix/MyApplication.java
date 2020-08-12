@@ -1,8 +1,8 @@
 package com.example.hotfix;
 
-import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.cocos.base.BaseApplication;
 import com.cocos.base.loadsir.CustomCallback;
 import com.cocos.base.loadsir.EmptyCallback;
 import com.cocos.base.loadsir.ErrorCallback;
@@ -18,7 +18,7 @@ import com.example.hotfix.utils.NetworkRequestInfo;
 import com.example.skin.SkinManager;
 import com.kingja.loadsir.core.LoadSir;
 
-public class MyApplication extends Application {
+public class MyApplication extends BaseApplication {
 
     @Override
     public void onCreate() {
@@ -26,7 +26,7 @@ public class MyApplication extends Application {
         CommandsManager.getInstance().registerCommand(new AccountLevelCommands());
         CommandsManager.getInstance().registerCommand(new BaseLevelCommands());
 //        Hotfix.fix(this,"/sdcard/patch.jar");
-        SkinManager.init(this);
+//        SkinManager.init(this);
         PreferencesUtil.init(this);
         NetworkApi.init(new NetworkRequestInfo(this));
         ToastUtil.init(this);

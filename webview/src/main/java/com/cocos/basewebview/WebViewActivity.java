@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,9 +32,10 @@ import java.util.Map;
 public class WebViewActivity extends AppCompatActivity {
     private String title;
     private String url;
+    private boolean showBar;
+    private ActivityCommonWebBinding binding;
+    private BaseWebFragment webviewFragment;
 
-    BaseFragment webviewFragment;
-    ActivityCommonWebBinding activityCommonWebBinding;
 
     public static void startCommonWeb(Context context, String title, String url) {
         Intent intent = new Intent(context, WebViewActivity.class);
@@ -48,17 +50,18 @@ public class WebViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityCommonWebBinding=DataBindingUtil.setContentView(this,R.layout.activity_common_web);
-//        setContentView(R.layout.activity_common_web);
+//        CommandsManager.getInstance().registerCommand(titleUpdateCommand);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_common_web);
         title = getIntent().getStringExtra(WebConstants.INTENT_TAG_TITLE);
         url = getIntent().getStringExtra(WebConstants.INTENT_TAG_URL);
-        setTitle(title);
+        showBar = getIntent().getBooleanExtra(WebConstants.INTENT_TAG_IS_SHOW_ACTION_BAR, false);
+        binding.actionBars.setVisibility(showBar?View.VISIBLE:View.GONE);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        CommandsManager.getInstance().registerCommand(titleUpdateCommand);
         webviewFragment = null;
-        webviewFragment = WebviewFragment.newInstance(url, (HashMap<String, String>) getIntent().getExtras().getSerializable(WebConstants.INTENT_TAG_HEADERS), true);
+        webviewFragment = WebViewFragment.newInstance(url, (HashMap<String, String>) getIntent().getExtras().getSerializable(WebConstants.INTENT_TAG_HEADERS), true);
         transaction.replace(R.id.web_view_fragment, webviewFragment).commit();
+        setTitle(title);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
@@ -67,7 +70,7 @@ public class WebViewActivity extends AppCompatActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (webviewFragment != null && webviewFragment instanceof BaseFragment) {
+        if (webviewFragment != null && webviewFragment instanceof BaseWebFragment) {
             boolean flag = webviewFragment.onKeyDown(keyCode, event);
             if (flag) {
                 return flag;

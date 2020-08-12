@@ -16,24 +16,36 @@ import android.webkit.WebView;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 
+import com.cocos.base.loadsir.ErrorCallback;
+import com.cocos.base.loadsir.LoadingCallback;
 import com.cocos.basewebview.command.ShowDialogCommand;
 import com.cocos.basewebview.command.ToastCommand;
+import com.cocos.basewebview.databinding.FragmentCommonWebviewBinding;
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.cocos.basewebview.utils.WebConstants;
 import com.cocos.basewebview.widget.BaseWebView;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.HashMap;
 
-public abstract class BaseFragment extends Fragment implements WebViewCallBack {
+public abstract class BaseWebFragment extends Fragment implements WebViewCallBack , OnRefreshListener {
     public static final String ACCOUNT_INFO_HEADERS = "account_header";
-    protected BaseWebView webView;
+    //    protected BaseWebView webView;
     protected HashMap<String, String> accountInfoHeaders;
     public static final int REQUEST_CODE_LOLIPOP = 1;
-
-    public String webUrl;
+    private LoadService loadService;
+    private String webUrl;
+    private boolean mIsError = false;
+    private boolean mCanNativeRefresh = false;
+    FragmentCommonWebviewBinding binding;
 
     @LayoutRes
     protected abstract int getLayoutRes();
@@ -44,6 +56,7 @@ public abstract class BaseFragment extends Fragment implements WebViewCallBack {
         Bundle bundle = getArguments();
         if (bundle != null) {
             webUrl = bundle.getString(WebConstants.INTENT_TAG_URL);
+            mCanNativeRefresh = bundle.getBoolean(WebConstants.INTENT_TAG_CAN_NATIVE_REFRESH);
             if (bundle.containsKey(ACCOUNT_INFO_HEADERS)) {
                 accountInfoHeaders = (HashMap<String, String>) bundle.getSerializable(ACCOUNT_INFO_HEADERS);
             }
@@ -55,65 +68,92 @@ public abstract class BaseFragment extends Fragment implements WebViewCallBack {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutRes(), container, false);
-        webView = view.findViewById(R.id.web_view);
+//        View view = inflater.inflate(getLayoutRes(), container, false);
+        binding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false);
+//        webView = view.findViewById(R.id.web_view);
         if (accountInfoHeaders != null) {
-            webView.setHeaders(accountInfoHeaders);
+            binding.webView.setHeaders(accountInfoHeaders);
         }
-        return view;
+        binding.smartrefreshlayout.setOnRefreshListener(this);
+        binding.smartrefreshlayout.setEnableRefresh(mCanNativeRefresh);
+        binding.smartrefreshlayout.setEnableLoadMore(false);
+        loadService = LoadSir.getDefault().register(binding.smartrefreshlayout, new Callback.OnReloadListener() {
+            @Override
+            public void onReload(View v) {
+                loadService.showCallback(LoadingCallback.class);
+                binding.webView.reload();
+            }
+        });
+        return loadService.getLoadLayout();
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        webView.registerdWebViewCallBack(this);
+        binding.webView.registerdWebViewCallBack(this);
         loadUrl();
     }
 
     protected void loadUrl() {
-        webView.loadUrl(webUrl);
+        binding.webView.loadUrl(webUrl);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        webView.dispatchEvent("pageResume");
-        webView.onResume();
+        binding.webView.dispatchEvent("pageResume");
+        binding.webView.onResume();
     }
 
     @Override
     public void pageStarted(String url) {
-
+        if (loadService != null) {
+            loadService.showCallback(LoadingCallback.class);
+        }
     }
 
     @Override
     public void pageFinished(String url) {
-
+        if(mIsError) {
+            binding.smartrefreshlayout.setEnableRefresh(true);
+        } else {
+            binding.smartrefreshlayout.setEnableRefresh(mCanNativeRefresh);
+        }
+        binding.smartrefreshlayout.finishRefresh();
+        if (loadService != null) {
+            if(mIsError){
+                loadService.showCallback(ErrorCallback.class);
+            }   else {
+                loadService.showSuccess();
+            }
+        }
+        mIsError = false;
     }
 
     @Override
     public void onError() {
-
+        mIsError = true;
+        binding .smartrefreshlayout.finishRefresh();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        webView.dispatchEvent("pagePause");
-        webView.onPause();
+        binding.webView.dispatchEvent("pagePause");
+        binding.webView.onPause();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        webView.dispatchEvent("pageStop");
+        binding.webView.dispatchEvent("pageStop");
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        webView.dispatchEvent("pageDestroy");
-        clearWebView(webView);
+        binding.webView.dispatchEvent("pageDestroy");
+        clearWebView(binding.webView);
     }
 
 
@@ -125,9 +165,9 @@ public abstract class BaseFragment extends Fragment implements WebViewCallBack {
     }
 
     protected boolean onBackHandle() {
-        if (webView != null) {
-            if (webView.canGoBack()) {
-                webView.goBack();
+        if (binding.webView != null) {
+            if (binding.webView.canGoBack()) {
+                binding.webView.goBack();
                 return true;
             } else {
                 return false;
@@ -219,5 +259,11 @@ public abstract class BaseFragment extends Fragment implements WebViewCallBack {
                 mFilePathCallback = null;
                 break;
         }
+    }
+
+
+    @Override
+    public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+        binding.webView.reload();
     }
 }

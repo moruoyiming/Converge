@@ -20,6 +20,7 @@ public class WebConstants {
     public static final String INTENT_TAG_HEADERS = "headers";
     public static final String INTENT_TAG_IS_SHOW_ACTION_BAR = "is_show_action_bar";
     public static final String INTENT_TAG_CAN_NATIVE_REFRESH = "can_native_refresh";
+    
     public static class ERRORCODE {
         public static final int NO_METHOD = -1000;
         public static final int NO_AUTH = -1001;

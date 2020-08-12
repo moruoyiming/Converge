@@ -18,13 +18,14 @@ import java.util.Map;
  *     Description:
  * </pre>
  */
-public class WebviewFragment extends BaseFragment {
-    public static WebviewFragment newInstance(@NonNull String keyUrl, @NonNull HashMap<String, String> headers, boolean isSyncToCookie) {
-        WebviewFragment fragment = new WebviewFragment();
+public class WebViewFragment extends BaseWebFragment {
+
+    public static WebViewFragment newInstance(@NonNull String keyUrl, @NonNull HashMap<String, String> headers, boolean isSyncToCookie) {
+        WebViewFragment fragment = new WebViewFragment();
         fragment.setArguments(getBundle(keyUrl, headers));
-        if (isSyncToCookie && headers != null) {
-            syncCookie(keyUrl, (headers));
-        }
+//        if (isSyncToCookie && headers != null) {
+//            syncCookie(keyUrl, (headers));
+//        }
         return fragment;
     }
 
