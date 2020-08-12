@@ -25,6 +25,7 @@ android {
 }
 
 dependencies {
-
+    annotationProcessor rootProject.googleAutoServiceDependency
+    implementation rootProject.googleAutoServiceDependency
     api project(":common")
 }

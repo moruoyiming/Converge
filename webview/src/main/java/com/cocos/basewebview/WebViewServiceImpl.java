@@ -8,7 +8,7 @@ import com.cocos.basewebview.utils.WebConstants;
 import com.example.common.autoservice.IWebViewService;
 import com.google.auto.service.AutoService;
 
-@AutoService({IWebViewService.class})
+@AutoService(IWebViewService.class)
 public class WebViewServiceImpl implements IWebViewService {
     @Override
     public void startWebViewActivity(Context context, String url, String title) {

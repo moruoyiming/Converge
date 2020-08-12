@@ -6,6 +6,7 @@
       <module name="Hotfix.aop" target="1.8" />
       <module name="Hotfix.app" target="1.8" />
       <module name="Hotfix.base" target="1.8" />
+      <module name="Hotfix.basewebview" target="1.8" />
       <module name="Hotfix.common" target="1.8" />
       <module name="Hotfix.compiler" target="1.8" />
       <module name="Hotfix.inject" target="1.8" />
