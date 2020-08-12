@@ -1,5 +1,6 @@
 package com.example.basics.designpattern.structure.bridge;
 
+
 import com.example.basics.designpattern.structure.bridge.bag.BagAbstraction;
 import com.example.basics.designpattern.structure.bridge.bag.SmallBag;
 import com.example.basics.designpattern.structure.bridge.material.Material;

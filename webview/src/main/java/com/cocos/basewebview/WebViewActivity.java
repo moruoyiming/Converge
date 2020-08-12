@@ -12,15 +12,19 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.cocos.basewebview.command.Command;
+import com.cocos.basewebview.databinding.ActivityCommonWebBinding;
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.cocos.basewebview.utils.WebConstants;
+import com.example.common.autoservice.IWebViewService;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ServiceLoader;
 
 /**
  * <pre>
@@ -29,14 +33,15 @@ import java.util.Map;
  *     Description:
  * </pre>
  */
-public class WebviewActivity extends AppCompatActivity {
+public class WebViewActivity extends AppCompatActivity {
     private String title;
     private String url;
 
     BaseFragment webviewFragment;
+    ActivityCommonWebBinding activityCommonWebBinding;
 
     public static void startCommonWeb(Context context, String title, String url) {
-        Intent intent = new Intent(context, WebviewActivity.class);
+        Intent intent = new Intent(context, WebViewActivity.class);
         intent.putExtra(WebConstants.INTENT_TAG_TITLE, title);
         intent.putExtra(WebConstants.INTENT_TAG_URL, url);
         if (context instanceof Service) {
@@ -48,7 +53,8 @@ public class WebviewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_common_web);
+        activityCommonWebBinding=DataBindingUtil.setContentView(this,R.layout.activity_common_web);
+//        setContentView(R.layout.activity_common_web);
         title = getIntent().getStringExtra(WebConstants.INTENT_TAG_TITLE);
         url = getIntent().getStringExtra(WebConstants.INTENT_TAG_URL);
         setTitle(title);

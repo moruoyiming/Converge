@@ -6,7 +6,6 @@
       <module name="Hotfix.aop" target="1.8" />
       <module name="Hotfix.app" target="1.8" />
       <module name="Hotfix.base" target="1.8" />
-      <module name="Hotfix.basewebview" target="1.8" />
       <module name="Hotfix.common" target="1.8" />
       <module name="Hotfix.compiler" target="1.8" />
       <module name="Hotfix.inject" target="1.8" />
@@ -14,6 +13,8 @@
       <module name="Hotfix.news" target="1.8" />
       <module name="Hotfix.skin" target="1.8" />
       <module name="Hotfix.skins" target="1.8" />
+      <module name="Hotfix.webview" target="1.8" />
+      <module name="Hotfix.webviewcommon" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

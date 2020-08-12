@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.View;
 
 import com.cocos.base.customview.BaseCustomView;
-import com.cocos.basewebview.WebviewActivity;
 import com.example.common.R;
 import com.example.common.databinding.TitleViewBinding;
 
@@ -26,6 +25,6 @@ public class TitleView extends BaseCustomView<TitleViewBinding, TitleViewViewMod
 
     @Override
     public void onRootClick(View view) {
-        WebviewActivity.startCommonWeb(view.getContext(), "", getViewModel().jumpUri);
+//        WebviewActivity.startCommonWeb(view.getContext(), "", getViewModel().jumpUri);
     }
 }

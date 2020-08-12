@@ -19,8 +19,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures{
+        dataBinding true
+    }
 }
 
 dependencies {
-    api project(':base')
+
+    api project(":common")
 }
