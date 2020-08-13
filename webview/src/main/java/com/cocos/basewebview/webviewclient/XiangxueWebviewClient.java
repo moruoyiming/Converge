@@ -30,7 +30,7 @@ import static com.cocos.basewebview.widget.BaseWebView.CONTENT_SCHEME;
 public class XiangxueWebviewClient extends WebViewClient {
 
     private static final String TAG = "XXWebviewCallBack";
-    public static final String SCHEME_SMS = "sms:";
+    private static final String SCHEME_SMS = "sms:";
     private WebViewCallBack webViewCallBack;
     private WebView webView;
     boolean isReady;

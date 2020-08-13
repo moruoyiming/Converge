@@ -11,13 +11,7 @@ import com.cocos.basewebview.utils.WebConstants;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * <pre>
- *     author: jian
- *     Date  : 2020/5/25 2:18 PM
- *     Description:
- * </pre>
- */
+
 public class CommandsManager {
     private static final String TAG = "CommandsManager";
     private static CommandsManager instance;

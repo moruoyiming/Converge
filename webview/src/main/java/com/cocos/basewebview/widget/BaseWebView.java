@@ -12,7 +12,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 
 import com.cocos.basewebview.command.CommandDispatcher;
-import com.cocos.basewebview.settings.WebviewDefaultSetting;
+import com.cocos.basewebview.settings.WebViewDefaultSetting;
 import com.cocos.basewebview.WebViewCallBack;
 import com.cocos.basewebview.webviewclient.XiangxueWebviewClient;
 import com.google.gson.Gson;
@@ -50,7 +50,7 @@ public class BaseWebView extends WebView implements XiangxueWebviewClient.Webvie
 
     protected void init(Context context) {
         this.context = context;
-        WebviewDefaultSetting.getInstance().toSetting(this);
+        WebViewDefaultSetting.getInstance().toSetting(this);
         addJavascriptInterface(this, "webview");
         CommandDispatcher.getInstance().initAidlConnect(getContext());
     }

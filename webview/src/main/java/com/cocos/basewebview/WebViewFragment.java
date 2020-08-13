@@ -11,21 +11,15 @@ import com.cocos.basewebview.utils.WebConstants;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * <pre>
- *     author: jian
- *     Date  : 2020/5/25 2:14 PM
- *     Description:
- * </pre>
- */
+
 public class WebViewFragment extends BaseWebFragment {
 
     public static WebViewFragment newInstance(@NonNull String keyUrl, @NonNull HashMap<String, String> headers, boolean isSyncToCookie) {
         WebViewFragment fragment = new WebViewFragment();
         fragment.setArguments(getBundle(keyUrl, headers));
-//        if (isSyncToCookie && headers != null) {
-//            syncCookie(keyUrl, (headers));
-//        }
+        if (isSyncToCookie && headers != null) {
+            syncCookie(keyUrl, (headers));
+        }
         return fragment;
     }
 

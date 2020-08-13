@@ -1,20 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.cocos.basewebview">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <application android:usesCleartextTraffic="true">//9.0 打开
+        <activity
+            android:name="com.cocos.basewebview.WebViewActivity"
+            android:hardwareAccelerated="true"
+            android:process=":remoteweb"
+            android:theme="@style/WebviewTheme" />
+
+        <service
+            android:name="com.cocos.basewebview.remoteprocessservice.OptimizationService"
+            android:process=":remoteweb" />
+
+        <service android:name="com.cocos.basewebview.mainprocess.MainProHandleRemoteService" />
+    </application>
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application android:usesCleartextTraffic="true">//9.0 打开
-        <service android:name="com.cocos.basewebview.mainprocess.MainProHandleRemoteService"/>
-        <service android:name="com.cocos.basewebview.remoteprocessservice.OptimizationService"
-            android:process=":remoteweb"/>
-        <activity android:name="com.cocos.basewebview.WebViewActivity"
-            android:theme="@style/WebviewTheme"
-            android:hardwareAccelerated="true"
-            android:process=":remoteweb"/>
-    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

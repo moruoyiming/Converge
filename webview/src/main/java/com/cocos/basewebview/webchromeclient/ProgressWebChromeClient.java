@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.webkit.ConsoleMessage;
 import android.webkit.JsResult;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -16,9 +17,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.cocos.basewebview.utils.WebConstants;
 import com.cocos.basewebview.widget.BaseWebView;
 import com.cocos.basewebview.widget.ProgressWebView;
-import com.cocos.basewebview.command.Command;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -26,8 +27,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-
-import static com.cocos.basewebview.command.Command.COMMAND_UPDATE_TITLE_PARAMS_TITLE;
 
 public class ProgressWebChromeClient extends WebChromeClient {
 
@@ -45,8 +44,8 @@ public class ProgressWebChromeClient extends WebChromeClient {
         if (view instanceof ProgressWebView) {
             if (!TextUtils.isEmpty(title)) {
                 HashMap<String, String> params = new HashMap<String, String>();
-                params.put(COMMAND_UPDATE_TITLE_PARAMS_TITLE, title);
-                ((BaseWebView) view).post(Command.COMMAND_UPDATE_TITLE, new Gson().toJson(params));
+                params.put(WebConstants.COMMAND_UPDATE_TITLE_PARAMS_TITLE, title);
+                ((BaseWebView) view).post(WebConstants.COMMAND_UPDATE_TITLE, new Gson().toJson(params));
             }
         }
     }
@@ -129,5 +128,10 @@ public class ProgressWebChromeClient extends WebChromeClient {
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File imageFile = File.createTempFile(imageFileName, ".jpg", storageDir);
         return imageFile;
+    }
+
+    @Override
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        return super.onConsoleMessage(consoleMessage);
     }
 }

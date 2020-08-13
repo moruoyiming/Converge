@@ -17,13 +17,6 @@ import com.weblib.webview.IWebToMain;
 
 import java.util.Map;
 
-/**
- * <pre>
- *     author: jian
- *     Date  : 2020/5/25 2:18 PM
- *     Description:
- * </pre>
- */
 public class CommandDispatcher {
     private static CommandDispatcher instance;
     private Gson gson = new Gson();

@@ -8,13 +8,6 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-/**
- * <pre>
- *     author: jian
- *     Date  : 2020/5/25 2:19 PM
- *     Description:
- * </pre>
- */
 public class MainProHandleRemoteService extends Service {
 
     private Context context;

@@ -50,7 +50,7 @@ public class WebViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        CommandsManager.getInstance().registerCommand(titleUpdateCommand);
+        CommandsManager.getInstance().registerCommand(titleUpdateCommand);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_common_web);
         title = getIntent().getStringExtra(WebConstants.INTENT_TAG_TITLE);
         url = getIntent().getStringExtra(WebConstants.INTENT_TAG_URL);
@@ -94,13 +94,13 @@ public class WebViewActivity extends AppCompatActivity {
     private final Command titleUpdateCommand = new Command() {
         @Override
         public String name() {
-            return Command.COMMAND_UPDATE_TITLE;
+            return WebConstants.COMMAND_UPDATE_TITLE;
         }
 
         @Override
         public void exec(Context context, Map params, CommandCallBack resultBack) {
-            if (params.containsKey(Command.COMMAND_UPDATE_TITLE_PARAMS_TITLE)) {
-                setTitle((String) params.get(Command.COMMAND_UPDATE_TITLE_PARAMS_TITLE));
+            if (params.containsKey(WebConstants.COMMAND_UPDATE_TITLE_PARAMS_TITLE)) {
+                setTitle((String) params.get(WebConstants.COMMAND_UPDATE_TITLE_PARAMS_TITLE));
             }
         }
     };
