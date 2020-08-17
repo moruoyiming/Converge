@@ -10,10 +10,12 @@ import androidx.appcompat.app.AlertDialog;
 import com.cocos.basewebview.CommandCallBack;
 import com.cocos.basewebview.utils.WebConstants;
 import com.cocos.basewebview.utils.WebUtils;
+import com.google.auto.service.AutoService;
 
 import java.util.List;
 import java.util.Map;
 
+@AutoService({Command.class})
 public class ShowDialogCommand implements Command {
     @Override
     public String name() {

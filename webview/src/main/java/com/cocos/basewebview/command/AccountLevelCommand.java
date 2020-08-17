@@ -1,4 +1,4 @@
-package com.example.hotfix.command;
+package com.cocos.basewebview.command;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -7,12 +7,13 @@ import com.cocos.basewebview.CommandCallBack;
 import com.cocos.basewebview.command.Command;
 import com.cocos.basewebview.utils.AidlError;
 import com.cocos.basewebview.utils.WebConstants;
+import com.google.auto.service.AutoService;
 
 import java.util.HashMap;
 import java.util.Map;
 
-
-public class AccountLevelCommands implements Command {
+@AutoService({Command.class})
+public class AccountLevelCommand implements Command {
 
     @Override
     public String name() {

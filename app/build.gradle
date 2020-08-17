@@ -44,7 +44,7 @@ dependencies {
     implementation project(':inject')
     implementation project(':skin')
     //引入自定义注解处理程序
-    annotationProcessor project(':compiler')
+//    annotationProcessor project(':compiler')
     androidTestImplementation 'junit:junit:4.12'
 //    implementation "androidx.core:core-ktx:+"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"

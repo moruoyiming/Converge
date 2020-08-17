@@ -12,10 +12,9 @@ import com.cocos.base.preference.PreferencesUtil;
 import com.cocos.base.utils.ToastUtil;
 import com.cocos.basewebview.mainprocess.CommandsManager;
 import com.cocos.network.base.NetworkApi;
-import com.example.hotfix.command.AccountLevelCommands;
-import com.example.hotfix.command.BaseLevelCommands;
+import com.cocos.basewebview.command.AccountLevelCommand;
+import com.cocos.basewebview.command.OpenActivityCommand;
 import com.example.hotfix.utils.NetworkRequestInfo;
-import com.example.skin.SkinManager;
 import com.kingja.loadsir.core.LoadSir;
 
 public class MyApplication extends BaseApplication {
@@ -23,8 +22,8 @@ public class MyApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        CommandsManager.getInstance().registerCommand(new AccountLevelCommands());
-        CommandsManager.getInstance().registerCommand(new BaseLevelCommands());
+//        CommandsManager.getInstance().registerCommand(new AccountLevelCommand());
+//        CommandsManager.getInstance().registerCommand(new OpenActivityCommand());
 //        Hotfix.fix(this,"/sdcard/patch.jar");
 //        SkinManager.init(this);
         PreferencesUtil.init(this);

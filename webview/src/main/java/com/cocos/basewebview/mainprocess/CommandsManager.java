@@ -9,7 +9,9 @@ import com.cocos.basewebview.utils.AidlError;
 import com.cocos.basewebview.utils.WebConstants;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.ServiceLoader;
 
 
 public class CommandsManager {
@@ -24,6 +26,14 @@ public class CommandsManager {
 
     public CommandsManager() {
         commands = new HashMap<>();
+        ServiceLoader<Command> load = ServiceLoader.load(Command.class);
+        Iterator<Command> iterator = load.iterator();
+        while(iterator.hasNext()){
+            Command command = iterator.next();
+            if(!commands.containsKey(command.name())){
+                commands.put(command.name(), iterator.next());
+            }
+        }
     }
 
     public void registerCommand(Command command) {
@@ -55,7 +65,7 @@ public class CommandsManager {
     /**
      * CommandsManager handled by Webview itself, these command does not require aidl.
      */
-    public void execWebviewProcessCommand(Context context, String action, Map params, CommandCallBack resultBack) {
+    public void execWebViewProcessCommand(Context context, String action, Map params, CommandCallBack resultBack) {
         if (getCommands().get(action) != null) {
             getCommands().get(action).exec(context, params, resultBack);
         }

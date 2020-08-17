@@ -14,8 +14,8 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    compileSdkVersion compileSdkVersion
+    buildToolsVersion buildToolsVersion
 
 
     buildTypes {

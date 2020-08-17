@@ -5,9 +5,11 @@ import android.widget.Toast;
 
 
 import com.cocos.basewebview.CommandCallBack;
+import com.google.auto.service.AutoService;
 
 import java.util.Map;
 
+@AutoService({Command.class})
 public class ToastCommand implements Command {
     @Override
     public String name() {

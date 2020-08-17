@@ -54,7 +54,7 @@ public class CommandDispatcher {
         try {
             if (CommandsManager.getInstance().isWebviewProcessCommand(cmd)) {
                 Map mapParams = gson.fromJson(params, Map.class);
-                CommandsManager.getInstance().execWebviewProcessCommand(context, cmd, mapParams, new CommandCallBack() {
+                CommandsManager.getInstance().execWebViewProcessCommand(context, cmd, mapParams, new CommandCallBack() {
                     @Override
                     public void onResult(int status, String action, Object result) {
                         handleCallback(status, action, gson.toJson(result), webView);
