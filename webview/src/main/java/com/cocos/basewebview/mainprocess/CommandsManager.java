@@ -28,10 +28,12 @@ public class CommandsManager {
         commands = new HashMap<>();
         ServiceLoader<Command> load = ServiceLoader.load(Command.class);
         Iterator<Command> iterator = load.iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             Command command = iterator.next();
-            if(!commands.containsKey(command.name())){
-                commands.put(command.name(), iterator.next());
+            Log.i("command", "command  name = " + command.name() + "   " + command);
+            if (!commands.containsKey(command.name())) {
+                commands.put(command.name(), command);
+                Log.i("command", "commands size " + commands.size() );
             }
         }
     }

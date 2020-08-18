@@ -28,27 +28,47 @@ android {
     }
 
 }
+//Aspect如果在appModule中使用必须有如下声明。在构建工程时，执行编织
+import org.aspectj.tools.ajc.Main
+project.android.applicationVariants.all { variant ->
+    JavaCompile javaCompile = variant.javaCompile
+    //在编译后 增加行为
+    javaCompile.doLast {
+        println "执行AspectJ编译器......"
+        String[] args = [
+                "-1.7",
+                //aspectJ 处理的源文件
+                "-inpath", javaCompile.destinationDir.toString(),
+                //输出目录，aspectJ处理完成后的输出目录
+                "-d", javaCompile.destinationDir.toString(),
+                //aspectJ 编译器的classpath aspectjtools
+                "-aspectpath", javaCompile.classpath.asPath,
+                //java的类查找路径
+                "-classpath", javaCompile.classpath.asPath,
+                //覆盖引导类的位置  android中使用android.jar 而不是jdk
+                "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
+        new Main().runMain(args, false)
+    }
+}
 
 dependencies {
-    implementation "com.google.android.material:material:$rootProject.androidXVersion"
-    implementation "androidx.appcompat:appcompat:$rootProject.androidXVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraint_version"
-    implementation 'q.rorbin:badgeview:1.1.3'
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-//    implementation 'com.alibaba:fastjson:1.2.57'
-//    implementation 'com.google.protobuf:protobuf-java:3.4.0'
+    api "com.google.android.material:material:$rootProject.androidXVersion"
+    api "androidx.appcompat:appcompat:$rootProject.androidXVersion"
+    api "androidx.constraintlayout:constraintlayout:$rootProject.constraint_version"
+    api 'q.rorbin:badgeview:1.1.3'
+    api 'com.android.support:appcompat-v7:28.0.0'
     api project(':webview')
-    implementation project(':network')
-    implementation project(':news')
-    implementation project(':aop')
-    implementation project(':inject')
-    implementation project(':skin')
+    api project(':network')
+    api project(':news')
+    api project(':aop')
+    api project(':inject')
+    api project(':skin')
     //引入自定义注解处理程序
 //    annotationProcessor project(':compiler')
     androidTestImplementation 'junit:junit:4.12'
 //    implementation "androidx.core:core-ktx:+"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"

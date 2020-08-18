@@ -13,9 +13,12 @@ buildscript {
         maven {
             url 'https://maven.aliyun.com/repository/public'
         }
+        maven { url "http://jcenter.bintray.com/" }
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+        maven { url "https://jitpack.io" }
         jcenter()
         google()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.1'
@@ -30,9 +33,12 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url "http://jcenter.bintray.com/" }
+        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
+        maven { url "https://jitpack.io" }
         google()
         jcenter()
-        
+
     }
 }
 
