@@ -15,7 +15,6 @@ import java.util.concurrent.locks.LockSupport;
 
 public class ThreadDemo4 {
 
-
     volatile List list = new ArrayList<>();
 
     public void add(Object object) {
