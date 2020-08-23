@@ -24,13 +24,6 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about encrypt
- * </pre>
- */
 public final class EncryptUtils {
 
     private EncryptUtils() {

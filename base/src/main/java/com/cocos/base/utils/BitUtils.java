@@ -2,13 +2,6 @@ package com.cocos.base.utils;
 
 import android.util.Log;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : 位运算工具类
- * </pre>
- */
 public final class BitUtils {
 
     private BitUtils() {

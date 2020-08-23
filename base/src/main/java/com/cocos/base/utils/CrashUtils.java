@@ -5,8 +5,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresPermission;
 import android.util.Log;
 
 import java.io.BufferedWriter;
@@ -26,13 +26,6 @@ import java.util.concurrent.Future;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about crash
- * </pre>
- */
 public final class CrashUtils {
 
     private static String defaultDir;

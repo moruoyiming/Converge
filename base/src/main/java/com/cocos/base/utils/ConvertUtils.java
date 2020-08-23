@@ -10,8 +10,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
-import com.github.calypso.utils.constant.MemoryConstants;
-import com.github.calypso.utils.constant.TimeConstants;
+import com.cocos.base.utils.constant.MemoryConstants;
+import com.cocos.base.utils.constant.TimeConstants;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,13 +20,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about convert
- * </pre>
- */
+
 public final class ConvertUtils {
 
     private ConvertUtils() {

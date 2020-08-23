@@ -6,20 +6,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresPermission;
-import android.support.v4.content.FileProvider;
+
+import androidx.annotation.RequiresPermission;
+import androidx.core.content.FileProvider;
 
 import java.io.File;
 
 import static android.Manifest.permission.CALL_PHONE;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  :  utils about intent
- * </pre>
- */
 public final class IntentUtils {
 
     private IntentUtils() {

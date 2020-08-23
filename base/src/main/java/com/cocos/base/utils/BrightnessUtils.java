@@ -5,18 +5,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
 import android.view.Window;
 import android.view.WindowManager;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : 亮度相关工具类
- * </pre>
- */
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+
 public final class BrightnessUtils {
 
     private BrightnessUtils() {

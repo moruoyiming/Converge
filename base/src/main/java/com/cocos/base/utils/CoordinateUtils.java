@@ -2,13 +2,6 @@ package com.cocos.base.utils;
 
 import static java.lang.Math.PI;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : 坐标相关工具类
- * </pre>
- */
 public final class CoordinateUtils {
 
     private final static double X_PI = 3.14159265358979324 * 3000.0 / 180.0;

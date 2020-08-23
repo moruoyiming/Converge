@@ -20,14 +20,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.cocos.base.utils.Utils.getActivityList;
+import static com.cocos.base.utils.Utils.getApp;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about app
- * </pre>
- */
 public final class AppUtils {
 
     private AppUtils() {

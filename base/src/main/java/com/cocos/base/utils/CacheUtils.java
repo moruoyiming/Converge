@@ -8,10 +8,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.v4.util.SimpleArrayMap;
 
-import com.github.calypso.utils.constant.CacheConstants;
+import androidx.annotation.NonNull;
+import androidx.collection.SimpleArrayMap;
+
+import com.cocos.base.utils.constant.CacheConstants;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -36,14 +37,6 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  :  utils about cache
- *     @deprecated Use {@link CacheDiskUtils} instead.
- * </pre>
- */
 @Deprecated
 public class CacheUtils implements CacheConstants {
 
@@ -51,7 +44,7 @@ public class CacheUtils implements CacheConstants {
     private static final int  DEFAULT_MAX_COUNT = Integer.MAX_VALUE;
 
     private static final SimpleArrayMap<String, CacheUtils> CACHE_MAP = new SimpleArrayMap<>();
-    private final String           mCacheKey;
+    private final String mCacheKey;
     private final DiskCacheManager mDiskCacheManager;
 
     /**

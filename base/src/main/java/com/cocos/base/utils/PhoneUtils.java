@@ -5,7 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.RequiresPermission;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 
@@ -15,13 +15,6 @@ import static android.Manifest.permission.CALL_PHONE;
 import static android.Manifest.permission.READ_PHONE_STATE;
 import static android.Manifest.permission.SEND_SMS;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/08/02
- *     desc  : utils about phone
- * </pre>
- */
 public final class PhoneUtils {
 
     private PhoneUtils() {

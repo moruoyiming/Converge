@@ -10,13 +10,6 @@ import java.io.IOException;
 import static android.hardware.Camera.Parameters.FLASH_MODE_OFF;
 import static android.hardware.Camera.Parameters.FLASH_MODE_TORCH;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about flashlight
- * </pre>
- */
 public final class FlashlightUtils {
 
     private static final String TAG = "FlashlightUtils";

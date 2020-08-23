@@ -6,13 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/08/07
- *     desc  : utils about shell
- * </pre>
- */
 public final class ShellUtils {
 
     private static final String LINE_SEP = System.getProperty("line.separator");

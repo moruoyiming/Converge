@@ -5,13 +5,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/08/02
- *     desc  : utils about size
- * </pre>
- */
 public final class SizeUtils {
 
     private SizeUtils() {

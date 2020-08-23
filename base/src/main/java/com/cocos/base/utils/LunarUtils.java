@@ -1,12 +1,5 @@
 package com.cocos.base.utils;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : 日历相关工具类
- * </pre>
- */
 public final class LunarUtils {
 
     private LunarUtils() {

@@ -11,8 +11,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Process;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresPermission;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -23,13 +23,6 @@ import java.util.Set;
 
 import static android.Manifest.permission.KILL_BACKGROUND_PROCESSES;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/10/18
- *     desc  : utils about process
- * </pre>
- */
 public final class ProcessUtils {
 
     private ProcessUtils() {

@@ -11,13 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/08/11
- *     desc  : utils about sdcard
- * </pre>
- */
+
 public final class SDCardUtils {
 
     private SDCardUtils() {

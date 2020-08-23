@@ -11,11 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
 
-/**
- * Created by Jian on 2017/01/02.
- * Email: 798774875@qq.com
- * Github: https://github.com/moruoyiming
- */
 public class CpuUtil {
     private static final String TAG = CpuUtil.class.getSimpleName();
     private static final String CPU_INFO_PATH = "/proc/cpuinfo";

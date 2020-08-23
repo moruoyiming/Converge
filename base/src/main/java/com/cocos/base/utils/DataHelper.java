@@ -28,11 +28,6 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-/**
- * @Author: jian
- * @Date: 6/23/18 9:08 AM
- * @Description: 处理数据或本地文件的工具类
- */
 public class DataHelper {
     private static SharedPreferences mSharedPreferences;
     public static final String SP_NAME = "config";

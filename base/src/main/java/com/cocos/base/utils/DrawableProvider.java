@@ -24,11 +24,6 @@ import android.widget.TextView;
 
 import java.io.IOException;
 
-/**
- * @Author: jian
- * @Date: 6/23/18 9:08 AM
- * @Description: 处理 {@link Drawable} 和 {@link Bitmap} 的工具类
- */
 public class DrawableProvider {
 
     private DrawableProvider() {

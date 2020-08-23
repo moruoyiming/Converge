@@ -8,13 +8,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about encode
- * </pre>
- */
 public final class EncodeUtils {
 
     private EncodeUtils() {

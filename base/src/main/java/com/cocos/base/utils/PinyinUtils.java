@@ -1,14 +1,8 @@
 package com.cocos.base.utils;
 
-import android.support.v4.util.SimpleArrayMap;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 16/11/16
- *     desc  : 拼音相关工具类
- * </pre>
- */
+import androidx.collection.SimpleArrayMap;
+
 public final class PinyinUtils {
 
     private PinyinUtils() {

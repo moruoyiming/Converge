@@ -15,7 +15,7 @@
  */
 package com.cocos.base.utils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
  * @Author: jian

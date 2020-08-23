@@ -11,13 +11,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/08/02
- *     desc  : utils about service
- * </pre>
- */
 public final class ServiceUtils {
 
     private ServiceUtils() {

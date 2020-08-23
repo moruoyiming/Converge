@@ -4,13 +4,6 @@ import android.os.Environment;
 
 import java.io.File;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about clean
- * </pre>
- */
 public final class CleanUtils {
 
     private CleanUtils() {

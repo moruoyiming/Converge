@@ -6,13 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : 剪贴板相关工具类
- * </pre>
- */
 public final class ClipboardUtils {
 
     private ClipboardUtils() {

@@ -161,10 +161,10 @@ public final class ObjectUtils {
         return !isEmpty(obj);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    public static boolean isNotEmpty(final android.util.LongSparseArray obj) {
-        return !isEmpty(obj);
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+//    public static boolean isNotEmpty(final android.util.LongSparseArray obj) {
+//        return !isEmpty(obj);
+//    }
 
     /**
      * Return whether object1 is equals to object2.

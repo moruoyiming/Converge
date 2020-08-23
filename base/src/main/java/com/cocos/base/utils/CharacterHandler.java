@@ -36,11 +36,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-/**
- * @Author: jian
- * @Date: 6/23/18 9:08 AM
- * @Description: 处理字符串的工具类
- */
 public class CharacterHandler {
 
     private CharacterHandler() {

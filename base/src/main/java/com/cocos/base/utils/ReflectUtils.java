@@ -15,13 +15,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2017/12/15
- *     desc  : utils about reflect
- * </pre>
- */
+
 public final class ReflectUtils {
 
     private final Class<?> type;

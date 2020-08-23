@@ -12,12 +12,18 @@ package com.cocos.base.utils;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.util.SparseArray;
+
+import androidx.annotation.NonNull;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -178,7 +184,7 @@ public class Utils {
         return false;
     }
 
-    static class ActivityLifecycleImpl implements ActivityLifecycleCallbacks {
+    static class ActivityLifecycleImpl implements Application.ActivityLifecycleCallbacks {
 
         final LinkedList<Activity>                        mActivityList      = new LinkedList<>();
         final HashMap<Object, OnAppStatusChangedListener> mStatusListenerMap = new HashMap<>();
@@ -257,7 +263,6 @@ public class Utils {
         }
 
         private void setTopActivity(final Activity activity) {
-            if (activity.getClass() == PermissionUtils.PermissionActivity.class) return;
             if (mActivityList.contains(activity)) {
                 if (!mActivityList.getLast().equals(activity)) {
                     mActivityList.remove(activity);

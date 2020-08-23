@@ -9,15 +9,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/04/15
- *     desc  : 路径相关工具类
- * </pre>
- */
 public class PathUtils {
 
     private PathUtils() {

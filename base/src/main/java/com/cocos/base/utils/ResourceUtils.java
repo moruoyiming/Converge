@@ -1,6 +1,6 @@
 package com.cocos.base.utils;
 
-import android.support.annotation.RawRes;
+import androidx.annotation.RawRes;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;

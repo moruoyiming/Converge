@@ -17,13 +17,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about file
- * </pre>
- */
 public final class FileUtils {
 
     private static final String LINE_SEP = System.getProperty("line.separator");

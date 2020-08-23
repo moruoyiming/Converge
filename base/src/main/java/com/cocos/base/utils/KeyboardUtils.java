@@ -13,13 +13,6 @@ import android.view.inputmethod.InputMethodManager;
 
 import java.lang.reflect.Field;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about keyboard
- * </pre>
- */
 public final class KeyboardUtils {
 
     private static int                        sContentViewInvisibleHeightPre;

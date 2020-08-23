@@ -10,8 +10,8 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Build;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresPermission;
 import android.util.DisplayMetrics;
 import android.view.Surface;
 import android.view.View;
@@ -19,13 +19,6 @@ import android.view.WindowManager;
 
 import static android.Manifest.permission.WRITE_SETTINGS;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/08/02
- *     desc  : utils about screen
- * </pre>
- */
 public final class ScreenUtils {
 
     private ScreenUtils() {

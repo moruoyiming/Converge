@@ -8,7 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.PowerManager;
 import android.provider.Settings;
-import android.support.annotation.RequiresPermission;
+import androidx.annotation.RequiresPermission;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -20,13 +20,7 @@ import java.util.Enumeration;
 import static android.Manifest.permission.ACCESS_WIFI_STATE;
 import static android.Manifest.permission.INTERNET;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about device
- * </pre>
- */
+
 public final class DeviceUtils {
 
     private DeviceUtils() {

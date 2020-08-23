@@ -1,6 +1,6 @@
 package com.cocos.base.utils;
 
-import com.github.calypso.utils.constant.RegexConstants;
+import com.cocos.base.utils.constant.RegexConstants;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,13 +8,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2016/08/02
- *     desc  : utils about regex
- * </pre>
- */
 public final class RegexUtils {
 
     private RegexUtils() {

@@ -1,10 +1,10 @@
 package com.cocos.base.utils;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.LruCache;
-import android.support.v4.util.SimpleArrayMap;
+import androidx.annotation.NonNull;
+import androidx.collection.LruCache;
+import androidx.collection.SimpleArrayMap;
 
-import com.github.calypso.utils.constant.CacheConstants;
+import com.cocos.base.utils.constant.CacheConstants;
 
 import java.lang.reflect.Array;
 

@@ -8,10 +8,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.v4.util.SimpleArrayMap;
 
-import com.github.calypso.utils.constant.CacheConstants;
+import androidx.annotation.NonNull;
+import androidx.collection.SimpleArrayMap;
+
+import com.cocos.base.utils.constant.CacheConstants;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

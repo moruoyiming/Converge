@@ -3,13 +3,6 @@ package com.cocos.base.utils;
 import java.io.Closeable;
 import java.io.IOException;
 
-/**
- * <pre>
- *     author: Jian
- *     time  : 2018/06/24
- *     desc  : utils about close
- * </pre>
- */
 public final class CloseUtils {
 
     private CloseUtils() {
