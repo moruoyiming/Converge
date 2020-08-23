@@ -1,25 +1,25 @@
 package com.example.basics.algorithm;
 
-//������
+//单链表
 public class LinkedList<T> {
-	
+
 	Node list;
-	int size; //�����ж��ٸ��ڵ�
-	
+	int size; //链表有多少个节点
+
 	public LinkedList() {
 		size = 0;
 	}
-	
-	//��ӽڵ�
-	//��ͷ����ӽڵ�
+
+	//添加节点
+	//在头部添加节点
 	public void put(T data) {
 		Node head = list;
 		Node curNode = new Node(data, list);
 		list = curNode;
 		size++;
 	}
-	
-	//�������index λ�ò���һ���µ�����data
+
+	//在链表的index 位置插入一个新的数据data
 	public void put(int index,T data) {
 		checkPositionIndex(index);
 		Node cur = list;
@@ -34,19 +34,19 @@ public class LinkedList<T> {
 
 	}
 
-	//ɾ���ڵ�
-	//ɾ��ͷ���ڵ�
+	//删除节点
+	//删除头部节点
 	public T remove() {
 		if (list != null) {
 			Node node = list;
 			list = list.next;
-			node.next = null; // GC ����
+			node.next = null; // GC 回收
 			size--;
 			return node.data;
 		}
 		return null;
 	}
-	
+
 	public T remove(int index) {
 		checkPositionIndex(index);
 		Node head = list;
@@ -59,7 +59,7 @@ public class LinkedList<T> {
 		cur.next = null;//GC
 		return cur.data;
 	}
-	
+
 	public T removeLast() {
 		if (list != null) {
 			Node node = list;
@@ -71,11 +71,11 @@ public class LinkedList<T> {
 			node.next = null;
 			size--;
 			return cur.data;
-			
+
 		}
 		return null;
 	}
-	//�޸Ľڵ�
+	//修改节点
 	public void set(int index,T newData) {
 		checkPositionIndex(index);
 		Node head = list;
@@ -84,9 +84,9 @@ public class LinkedList<T> {
 		}
 		head.data = newData;
 	}
-	
-	//��ѯ�ڵ�
-	//get ͷ���ڵ�
+
+	//查询节点
+	//get 头部节点
 	public T get() {
 		Node node = list;
 		if (node != null) {
@@ -95,7 +95,7 @@ public class LinkedList<T> {
 			return null;
 		}
 	}
-	
+
 	public T get(int index) {
 		checkPositionIndex(index);
 		Node node = list;
@@ -104,15 +104,15 @@ public class LinkedList<T> {
 		}
 		return node.data;
 	}
-	
-	//���index�Ƿ�������Χ����
+
+	//检测index是否在链表范围以内
 	public void checkPositionIndex(int index) {
 		if(!(index >=0 && index <=size)) {
 			throw new IndexOutOfBoundsException("index: " + index + ", size: " + size);
 		}
-		
+
 	}
-		
+
 	@Override
 	public String toString() {
 		Node node = list;
@@ -124,17 +124,17 @@ public class LinkedList<T> {
 		System.out.println();
 		return super.toString();
 	}
-	//�ڵ����Ϣ
+	//节点的信息
 	class Node {
 		T data;
 		Node next;
-		
+
 		public Node(T data,Node node) {
 			this.data = data;
 			this.next = node;
 		}
 	}
-	
+
 
 	public static void main(String[] args) {
 		LinkedList<Integer> list = new LinkedList<>();

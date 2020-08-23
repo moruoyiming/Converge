@@ -1,19 +1,19 @@
 package com.example.basics.algorithm;
 
 public class LruLinkedList<T> extends LinkedList<T> {
-	
-	int memory_size; // �����޶��ڴ�ռ��С��Ҳ���ǻ���Ĵ�С
+
+	int memory_size; // 用于限定内存空间大小，也就是缓存的大小
 	static final int DEFAULT_CAP = 5;
-	
+
 	public LruLinkedList() {
 		this(DEFAULT_CAP);
 	}
-	
+
 	public LruLinkedList(int default_memory_size) {
 		memory_size = default_memory_size;
 	}
-	
-	//LRU��ӽڵ�
+
+	//LRU添加节点
 	public void lruPut(T data) {
 		if (size >= memory_size) {
 			removeLast();
@@ -22,13 +22,13 @@ public class LruLinkedList<T> extends LinkedList<T> {
 			put(data);
 		}
 	}
-	
-	//LRUɾ��
+
+	//LRU删除
 	public T lruRemove(){
 		return removeLast();
 	}
-	
-	//LRU����
+
+	//LRU访问
 	public T lruGet(int index) {
 		checkPositionIndex(index);
 		Node node = list;
@@ -38,7 +38,7 @@ public class LruLinkedList<T> extends LinkedList<T> {
 			node = node.next;
 		}
 		T resultData = node.data;
-		//�����ʵĽڵ��Ƶ���ͷ
+		//将访问的节点移到表头
 		pre.next = node.next;
 		Node head = list;
 		node.next = head;
@@ -57,7 +57,7 @@ public class LruLinkedList<T> extends LinkedList<T> {
 		lruLinkedList.toString();
 		lruLinkedList.lruPut(20);
 		lruLinkedList.toString();
-		
+
 		lruLinkedList.lruPut(18);
 		lruLinkedList.toString();
 
