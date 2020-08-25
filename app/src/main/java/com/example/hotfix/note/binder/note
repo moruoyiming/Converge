@@ -1,0 +1,85 @@
+binder是什么?
+    进程间通信机制
+    是一个驱动
+    Binder.java -> 实现Ibinder --跨进程能力
+优点
+ 内存
+ 风险隔离
+
+Binder
+ 数据拷贝一次
+
+linux 进程间通讯
+ 管道、信号量、socket、共享内存等
+
+身份识别 PID多少 不靠谱
+系统分配 UID  安全
+
+系统服务 -- 实名 -- getsystemservice
+         -- 匿名
+
+Binder如何做到一次拷贝的？
+内存进程间隔离
+
+内核空间 共享
+用户空间 隔离
+
+传统IPC机制 拷贝两次  A用户空间拷贝数据到内核空间，内核空间拷贝数据到B用户空间
+Ibinder机制 拷贝一次  A用户空间拷贝数据到内核空间，物理空间与其有映射关系，接受方用户空间和内核空间共享一个物理内存
+通过MMAP技术实现
+
+虚拟内存   物理内存
+
+两块虚拟内存地址  映射了同一个物理内存
+
+MMAP的原理？
+linux通过将一个虚拟内存区域与一个磁盘的对象关联起来，以初始化这个虚拟内存区域的内容，这个过程称为内存映射(memory-mapping)
+
+用户空间不能操作文件 需两次拷贝。
+
+mmap --能够让虚拟内存和指定物理内存直接联系起来
+
+共享内存实现无需拷贝？
+三块虚拟内存指向同一块物理内存
+
+驱动具体实现？
+
+binder驱动设备 如何启动？
+
+
+binder一切皆文件
+
+misc设备 --- 没有硬件 --- 内存 --- 注册简单
+
+binder.init()
+    1.分配内存
+    2.初始化设备
+    3.放入链表binder_devices
+binder.open()
+    1.创建binder_proc对象，
+    2.当前进程信息保存proc
+    3.filp->private_data=proc
+    4.添加到binder——procs链表中
+binder.mmap()
+    1.通过用户空间虚拟内存大小--分配一块内核的虚拟内存
+    2.分配物理内存 ---4KB
+    3.把物理内存分别映射到用户空间虚拟内存和内核的虚拟内存
+binder.ioctl()//文件读写操作 --- BINDER_WRITE_READ -- ioctl(BINDER_WRITE_READ)
+   copy数据头
+   有效数据不是在此copy
+
+
+tf_oneway 异步
+
+
+
+zygote  - > app_main.cpp 的main方法
+
+binder 的 jni 注册
+目的：java和native能够互相调用
+
+
+
+
+
+
