@@ -80,6 +80,35 @@ binder 的 jni 注册
 
 
 
+sm 管理系统服务 binder
+sm分配内存大小 128k
+普通服务大小   1M-8k    8k两个保护页  增加 linux 页的交换效率
+
+
+service_manager.c
+main 方法中
+1.打开驱动，内存映射
+2.binder_become_context_manager()设置SM为大管家
+3.binder_loop() 循环监听
+
+
+binder_become_context_manager
+ 1.创建binder_node结构体对象
+ 2.proc --> binder_node
+ 3.创建两个队列work 和 todu
+
+binder_loop 轮询处理数据
+binder_write
+
+sm获取   --- native层 ---   ----java层----
+    获取sm情况？
+    1.注册服务到sm
+    2.通过sm获取服务
+
+
+
+
+
 
 
 
