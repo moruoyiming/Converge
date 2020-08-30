@@ -17,6 +17,8 @@ import com.example.hotfix.R;
 import com.example.hotfix.activity.NetworkActivity;
 import com.example.hotfix.activity.PermissionActivity;
 import com.example.hotfix.databinding.FragmentCategoryBinding;
+import com.example.hotfix.note.binder.MMAPActivity;
+import com.example.hotfix.note.binder.demo.client.ClientActivity;
 import com.example.hotfix.note.class01.DemoActivity;
 import com.example.hotfix.note.class02.InjectActivity;
 import com.example.hotfix.note.class02.User;
@@ -62,6 +64,8 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.recyclerview.setOnClickListener(this);
         mBinding.recyclerview2.setOnClickListener(this);
         mBinding.viewpager.setOnClickListener(this);
+        mBinding.mmap.setOnClickListener(this);
+        mBinding.aidl.setOnClickListener(this);
     }
 
     @Override
@@ -143,6 +147,14 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.viewpager:
                 Intent viewpager = new Intent(getActivity(), ViewPagerLazyActivity.class);
                 startActivity(viewpager);
+                break;
+            case R.id.mmap:
+                Intent mmap = new Intent(getActivity(), MMAPActivity.class);
+                startActivity(mmap);
+                break;
+            case R.id.aidl:
+                Intent aidl = new Intent(getActivity(), ClientActivity.class);
+                startActivity(aidl);
                 break;
         }
     }

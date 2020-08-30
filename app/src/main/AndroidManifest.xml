@@ -125,6 +125,21 @@
         <activity android:name=".note.class21.Main2Activity">
 
         </activity>
+        <activity android:name=".note.binder.MMAPActivity">
+
+        </activity>
+        <activity android:name=".note.binder.demo.client.ClientActivity">
+
+        </activity>
+        <service
+            android:name=".note.binder.demo.server.RemoteService"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.enjoy.binder" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
