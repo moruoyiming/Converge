@@ -3458,7 +3458,7 @@ static int binder_open(struct inode *nodp, struct file *filp)
 
 	binder_debug(BINDER_DEBUG_OPEN_CLOSE, "binder_open: %d:%d\n",
 		     current->group_leader->pid, current->pid);
-
+	//1.初始化结构体，保存信息
 	proc = kzalloc(sizeof(*proc), GFP_KERNEL);
 	if (proc == NULL)
 		return -ENOMEM;
@@ -4187,11 +4187,11 @@ static int __init init_binder_device(const char *name)
 {
 	int ret;
 	struct binder_device *binder_device;
-
+//    1.为binder设备分配虚拟内存
 	binder_device = kzalloc(sizeof(*binder_device), GFP_KERNEL);
 	if (!binder_device)
 		return -ENOMEM;
-
+//    2.对binder进行初始化
 	binder_device->miscdev.fops = &binder_fops;
 	binder_device->miscdev.minor = MISC_DYNAMIC_MINOR;
 	binder_device->miscdev.name = name;
@@ -4204,7 +4204,7 @@ static int __init init_binder_device(const char *name)
 		kfree(binder_device);
 		return ret;
 	}
-
+//  3.将binder_device放入binder_devices链表
 	hlist_add_head(&binder_device->hlist, &binder_devices);
 
 	return ret;
@@ -4216,7 +4216,7 @@ static int __init binder_init(void)
 	char *device_name, *device_names;
 	struct binder_device *device;
 	struct hlist_node *tmp;
-
+    //1.创建一个名为binder的单线程工作队列
 	binder_deferred_workqueue = create_singlethread_workqueue("binder");
 	if (!binder_deferred_workqueue)
 		return -ENOMEM;
@@ -4262,11 +4262,11 @@ static int __init binder_init(void)
 	if (!device_names) {
 		ret = -ENOMEM;
 		goto err_alloc_device_names_failed;
-	}
+	}//2.从配置文件读取 binder_devices_param copy到 device_names
 	strcpy(device_names, binder_devices_param);
 
 	while ((device_name = strsep(&device_names, ","))) {
-		ret = init_binder_device(device_name);
+		ret = init_binder_device(device_name);//3.对binder设备进行初始化
 		if (ret)
 			goto err_init_binder_device_failed;
 	}
