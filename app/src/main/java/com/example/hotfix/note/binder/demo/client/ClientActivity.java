@@ -30,7 +30,7 @@ public class ClientActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_aidl);
 
         Intent intent = new Intent(this, RemoteService.class);
         intent.setAction("com.enjoy.binder");

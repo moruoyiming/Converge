@@ -1,0 +1,109 @@
+2节：
+源码epoll，设计思路，设计模式， 异步消息和同步消息，消息屏障/ handlerThread IntentServer
+
+源于生活高于生活
+Choreographer，艺术，舞蹈者，跳舞 节奏
+屏幕的点击。
+handler： 地下 - 地上《 消息管理机制：消息-》事物
+子线程（bean）  -》 主线程（显示）
+ActivityThread: AMS
+zero
+1节课： 20页
+ActivityThread： handler
+
+java main（）jvm
+功能机：FATAL error，所有的代码，都是handler
+lancher （app）：zygote -》 jvm -》 ActvityThread.main
+
+子线程
+handler-》sendMessage   -> messasgeQueue.enqueueMessage   //消息队列队列的插入节点 
+                                 
+looper.loop()->  messasgeQueue.next（）-》handler.dispatchMessage()->handler.handleMessage（）
+
+主线程
+Message,在动的过程，内存
+new Messaage() obtain()
+
+数据结构： 有单链表实现的优先级队列，
+Messge-》next-》Message -》Next（Message）
+排序算法？插入
+先后顺序，时间，怎么排序的 ，队列？
+
+先进，先出
+
+基本内容懂了
+
+looper 源码？ 核心： 构造函数， loop，  ThreadLocal
+初始化？
+
+
+new looper()
+ThreadLocal, 多线程，线程上下文的存储变量
+
+线程 - Looper 不能改的？
+
+key value
+<key, value>< set(key1, value1); set(key1, value2);
+
+
+
+线程 -》ThreadLocalMap-》<唯一的ThreadLocal, valuse> looper -> MessageQueue
+final MessageQueue mQueue; 
+
+
+static :
+
+内部类持有外部类的对象：学习，群，Java编程思想 2~7章
+
+recycleVIew  adpater  ViweHolder》一定？ 生命周期的问题。
+
+enqueueMessage{
+      msg.target = this;
+}
+GC：JVM 可达性算法
+
+很多通信，quit
+
+消息睡眠和唤醒机制
+
+生产者-消费者设计模式：
+多线程： 10个事件，11
+两个方面的阻塞？
+1） message 不到时间 ，自动唤醒
+2）  messageQueue为空，无限等待
+
+quit： 唤醒线程-》 messagequeue -》null -》 退出loop
+
+
+messagequeue，对象里面的所有的函数，代码块，都会受限
+锁：面试，锁
+类 对象
+ MessageQueue 111= new messagequeue（）；
+ 111. enqueueMessage
+ 
+ MessageQueue 222= new messagequeue（）；
+ 222.enqueueMessage
+ 222.next
+ 
+ 1个线程只有一个可以操作MessageQueue 的地方
+ 
+ 
+ 
+synchronized（）{
+}
+
+CAS 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,22 +1,33 @@
 binder是什么?
     进程间通信机制
     是一个驱动
-    Binder.java -> 实现Ibinder --跨进程能力
-优点
- 内存
- 风险隔离
+    Binder.java --> 实现Ibinder,实现跨进程能力
 
-Binder
- 数据拷贝一次
+优点
+ 内存  --- 一个app  ，6G，8G，16G
+ 风险隔离 --- 每一个进程，单独的一个app
+
 
 linux 进程间通讯
- 管道、信号量、socket、共享内存等
+ 管道、信号、信号量、socket、共享内存、消息队列等
 
-身份识别 PID多少 不靠谱
-系统分配 UID  安全
+ 各种通信方式的比较和优缺点
+ 1.管道：速度慢，容量有限，只有父子进程能通讯
+ 2.FIFO：任何进程间都能通讯，但速度慢
+ 3.消息队列：容量受到系统限制，且要注意第一次读的时候，要考虑上一次没有读完数据的问题
+ 4.信号量：不能传递复杂消息，只能用来同步
+ 5.共享内存区：能够很容易控制容量，速度快，但要保持同步，比如一个进程在写的时候，另一个进程要注意读写的问题，
+   相当于线程中的线程安全，当然，共享内存区同样可以用作线程间通讯，不过没这个必要，线程间本来就已经共享了
+   同一进程内的一块内存
 
-系统服务 -- 实名 -- getsystemservice
-         -- 匿名
+Binder
+数据拷贝一次。binder性能小于共享内存，优于其他IPC 进程间通信
+
+身份识别：系统认证需要知道PID是多少，由app主动提供。不靠谱。类似公交站台，只需要知道站台就可以访问。
+系统分配：系统为每个APP分配UID，支持实名，匿名访问系统服务。安全
+
+系统服务-- 实名 -- getsystemservice(context)获取系统服务。
+系统服务-- 匿名 -- 自己启动的服务就是匿名服务
 
 Binder如何做到一次拷贝的？
 内存进程间隔离
@@ -34,6 +45,9 @@ Ibinder机制 拷贝一次  A用户空间拷贝数据到内核空间，物理空
 
 MMAP的原理？
 linux通过将一个虚拟内存区域与一个磁盘的对象关联起来，以初始化这个虚拟内存区域的内容，这个过程称为内存映射(memory-mapping)
+
+mmap  驱动里面具体怎么实现?
+
 
 用户空间不能操作文件 需两次拷贝。
 
@@ -59,18 +73,31 @@ binder.open()
     1.创建binder_proc对象，
     2.当前进程信息保存proc
     3.filp->private_data=proc
-    4.添加到binder——procs链表中
+    4.添加到binder_procs链表中
 binder.mmap()
     1.通过用户空间虚拟内存大小--分配一块内核的虚拟内存
     2.分配物理内存 ---4KB
     3.把物理内存分别映射到用户空间虚拟内存和内核的虚拟内存
+    1M-8k --- intent  异步  同步
 binder.ioctl()//文件读写操作 --- BINDER_WRITE_READ -- ioctl(BINDER_WRITE_READ)
    copy数据头
    有效数据不是在此copy
 
+binder_mmap
+struct vm_struct *area; --- 内核的虚拟内存
 
-tf_oneway 异步
+vma --- 进程的虚拟内存  --- 4M 驱动定的，1M-8k --- intent  异步  同步
+虚拟内存  放入一个东西
+用户空间  = 虚拟内存地址 + 偏移值
+分配4kb的物理内存 --- 内核的虚拟空间
 
+跨进程 默认 同步
+
+tf_oneway
+
+
+binder_ioctl
+读写操作 --- BINDER_WRITE_READ  --- ioctl(BINDER_WRITE_READ)
 
 
 zygote  - > app_main.cpp 的main方法
@@ -78,32 +105,34 @@ zygote  - > app_main.cpp 的main方法
 binder 的 jni 注册
 目的：java和native能够互相调用
 
-
-
 sm 管理系统服务 binder
-sm分配内存大小 128k
-普通服务大小   1M-8k    8k两个保护页  增加 linux 页的交换效率
+
+    sm分配内存大小 128k
+    普通服务大小   1M-8k    8k两个保护页  增加 linux 页的交换效率
+
+    service_manager.c
+    main 方法中
+    1.打开驱动，内存映射
+    2.binder_become_context_manager()设置SM为大管家
+    3.binder_loop() 循环监听
 
 
-service_manager.c
-main 方法中
-1.打开驱动，内存映射
-2.binder_become_context_manager()设置SM为大管家
-3.binder_loop() 循环监听
+    binder_become_context_manager
+     1.创建binder_node结构体对象
+     2.proc --> binder_node
+     3.创建两个队列work 和 todu
+
+    binder_loop 轮询处理数据
+    binder_write
+
+    sm获取   --- native层 ---   ----java层----
+        获取sm情况？
+        1.注册服务到sm
+        2.通过sm获取服务
 
 
-binder_become_context_manager
- 1.创建binder_node结构体对象
- 2.proc --> binder_node
- 3.创建两个队列work 和 todu
 
-binder_loop 轮询处理数据
-binder_write
-
-sm获取   --- native层 ---   ----java层----
-    获取sm情况？
-    1.注册服务到sm
-    2.通过sm获取服务
+AIDL
 
 
 
