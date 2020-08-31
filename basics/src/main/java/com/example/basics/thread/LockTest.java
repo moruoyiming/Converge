@@ -12,21 +12,21 @@ package com.example.basics.thread;
 //        (4)循环等待资源：涉及的线程必须在等待别的线程持有的资源,而这些线程又反过来在等待第一个线程所持有的资源,即若干线程之间形成一种头尾相接的循环等待资源关系.
 //        这些条件是死锁产生的必要条件而非充分条件,这就是说只要产生了死锁,那么上面这些条件一定同时成立,但是上述条件即使同时成立,也不一定就能产生死锁.
 
-public class Lock implements Runnable {
+public class LockTest implements Runnable {
 
     private Object object1 = new Object();
     private Object object2 = new Object();
     private int count = 0;//起一个标志作用
 
     public static void main(String[] args) throws InterruptedException {
-        Lock lock = new Lock();
-        lock.count = 0;
-        new Thread(lock).start();
+        LockTest lockTest = new LockTest();
+        lockTest.count = 0;
+        new Thread(lockTest).start();
         // 让当前线程睡眠
         Thread.sleep(500);
         // 修改value的值
-        lock.count = 1;
-        new Thread(lock).start();
+        lockTest.count = 1;
+        new Thread(lockTest).start();
     }
 
     @Override

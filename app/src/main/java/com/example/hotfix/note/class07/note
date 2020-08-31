@@ -13,6 +13,14 @@
 •	LinkedBlockingDeque：由链表结构组成的双向阻塞队列。
 
 
+Queue 继承自 Collection接口，增加接口方法 add、offer、poll、peek
+
+add: 向队列插入数据，当容量满时抛出异常。
+offer: 向队列插入数据，返回结果true/false。
+poll:返回次队列的头数据，并删除数据。如果队列为空时返回null。
+peek:返回次队列的头数据，不删除数据。如果队列为空时返回null。
+
+
 ArrayBlockingQueue
 用数组实现的有界阻塞队列。此队列按照先进先出（FIFO）的原则对元素进行排序。默认情况下不保证访问者公平的访问队列，所谓公平访问队列是指阻塞的所有生产者线程或消费者线程，当队列可用时，可以按照阻塞的先后顺序访问队列，即先阻塞的生产者线程，可以先往队列里插入元素，先阻塞的消费者线程，可以先从队列里获取元素。通常情况下为了保证公平性会降低吞吐量。我们可以使用以下代码创建一个公平的阻塞队列：
 ArrayBlockingQueue fairQueue = new  ArrayBlockingQueue(1000,true);
@@ -56,7 +64,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     int putIndex;
     /** Number of elements in the queue */
     int count;
-    final ReentrantLock lock;
+    final ReentrantLock lockTest;
     /** Condition for waiting takes */
     private final Condition notEmpty;
     /** Condition for waiting puts */
@@ -66,23 +74,23 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
 从上面代码可以看出ArrayBlockingQueue是维护一个Object类型的数组，takeIndex和putIndex分别表示队首元素和队尾元素的下标，count表示队列中元素的个数，lock则是一个可重入锁，notEmpty和notFull是等待条件。接下来我们看看关键方法put：
     public void put(E e) throws InterruptedException {
         if (e == null) throw new NullPointerException();
-        final ReentrantLock lock = this.lock;
-        lock.lockInterruptibly();
+        final ReentrantLock lockTest = this.lockTest;
+        lockTest.lockInterruptibly();
         try {
             while (count == items.length)
                 notFull.await();
             enqueue(e);
         } finally {
-            lock.unlock();
+            lockTest.unlock();
         }
     }
 从put方法的实现可以看出，它先获取了锁，并且获取的是可中断锁，然后判断当前元素个数是否等于数组的长度，如果相等，则调用notFull.await()进行等待，当被其他线程唤醒时，通过enqueue(e)方法插入元素，最后解锁。
    /**
      * Inserts element at current put position, advances, and signals.
-     * Call only when holding lock.
+     * Call only when holding lockTest.
      */
     private void enqueue(E x) {
-        // assert lock.getHoldCount() == 1;
+        // assert lockTest.getHoldCount() == 1;
         // assert items[putIndex] == null;
         final Object[] items = this.items;
         items[putIndex] = x;
@@ -92,19 +100,19 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 插入成功后，通过notEmpty唤醒正在等待取元素的线程。再来看看take方法：
    public E take() throws InterruptedException {
-        final ReentrantLock lock = this.lock;
-        lock.lockInterruptibly();
+        final ReentrantLock lockTest = this.lockTest;
+        lockTest.lockInterruptibly();
         try {
             while (count == 0)
                 notEmpty.await();
             return dequeue();
         } finally {
-            lock.unlock();
+            lockTest.unlock();
         }
     }
 跟put方法实现类似，put方法等待的是notFull信号，而take方法等待的是notEmpty信号。在take方法中，如果可以取元素，则通过dequeue方法取得元素，下面是dequeue方法的实现：
  private E dequeue() {
-        // assert lock.getHoldCount() == 1;
+        // assert lockTest.getHoldCount() == 1;
         // assert items[takeIndex] != null;
         final Object[] items = this.items;
         @SuppressWarnings("unchecked")
