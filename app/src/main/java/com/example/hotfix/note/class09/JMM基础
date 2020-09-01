@@ -28,7 +28,7 @@ ARM架构 三级流水线
 volatile + cas操作 替代 Synchronized关键字
 
 volatile的实现原理
-volatile关键字修饰的变量会存在一个“lock:”的前缀。
+volatile关键字修饰的变量会存在一个“lockTest:”的前缀。
 Lock前缀，Lock不是一种内存屏障，但是它能完成类似内存屏障的功能。Lock会对CPU总线和高速缓存加锁，可以理解为CPU指令级的一种锁。
 同时该指令会将当前处理器缓存行的数据直接写回到系统内存中，且这个写回内存的操作会使在其他CPU里缓存了该地址的数据无效。
 
