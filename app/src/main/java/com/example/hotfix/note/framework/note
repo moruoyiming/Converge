@@ -1,0 +1,45 @@
+framework
+ handler
+ binder机制
+ android系统启动流程
+ AMS
+ PKMS
+ WMS
+
+ 用户态
+        SysCall
+ 内核态
+
+ init.cpp
+
+ main函数流程
+
+ LoadBootScripts(am,sm) 解析init.rc
+
+ init.rc大量服务进程
+
+
+Boot --> BootLoad --> kernel --> init --> zygote --> systemserver --> launcher
+
+init 做了什么工作？
+    1.
+    2.解析器
+    3.
+    init.main由kernel拉起。init初始化环境
+
+
+    linux 下 进程和线程都是一个Thread task结构体
+    线程共享
+
+    fork创建一个子进程
+
+
+    zygote进程启动时 binder还未加载成功。需要使用socket。
+     servicemanager没起来，binder用不起来
+
+
+zygote
+
+
+
+   runtime.cc中init函数 main线程初始化
