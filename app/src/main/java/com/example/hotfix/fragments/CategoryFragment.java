@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.cocos.base.autoservice.XiangxueServiceLoader;
 import com.cocos.basewebview.WebViewActivity;
 import com.example.common.autoservice.IWebViewService;
+import com.example.dexdiff.DexdiffActivity;
 import com.example.hotfix.R;
 import com.example.hotfix.activity.NetworkActivity;
 import com.example.hotfix.activity.PermissionActivity;
@@ -66,6 +67,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.viewpager.setOnClickListener(this);
         mBinding.mmap.setOnClickListener(this);
         mBinding.aidl.setOnClickListener(this);
+        mBinding.dexdiff.setOnClickListener(this);
     }
 
     @Override
@@ -155,6 +157,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.aidl:
                 Intent aidl = new Intent(getActivity(), ClientActivity.class);
                 startActivity(aidl);
+                break;
+            case R.id.dexdiff:
+                Intent dexdiff = new Intent(getActivity(), DexdiffActivity.class);
+                startActivity(dexdiff);
                 break;
         }
     }
