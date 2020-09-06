@@ -135,6 +135,16 @@ sm 管理系统服务 binder
 AIDL
 
 
+boot -> boot -> kernel -> init进程 -> init.cpp -> main() -> LoadBootScript() -> 解析init.rc
+-> start-zygote() -> 解析init.zygote64.rc -> app_main.cpp -> main() ->
+-> server.cpp -> server.start() -> fork() -> zygote/SystemServer进程 -> AppRuntime.start()
+-> ZygoteInit/RuntimeInit
+
+
+Zygote进程 -socket-> SystemServer进程(AMS)
+
+
+
 
 
 
