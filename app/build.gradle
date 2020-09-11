@@ -15,15 +15,20 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags ""
+                abiFilters 'x86','armeabi-v7a'
             }
         }
+
+        ndk{
+            abiFilters  'x86','armeabi-v7a'
+        }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    buildFeatures{
+    buildFeatures {
         dataBinding true
     }
     buildTypes {
@@ -42,6 +47,7 @@ android {
 }
 //Aspect如果在appModule中使用必须有如下声明。在构建工程时，执行编织
 import org.aspectj.tools.ajc.Main
+
 project.android.applicationVariants.all { variant ->
     JavaCompile javaCompile = variant.javaCompile
     //在编译后 增加行为
@@ -75,6 +81,7 @@ dependencies {
     api project(':aop')
     api project(':inject')
     api project(':skin')
+    api project(':dexdiff')
     //引入自定义注解处理程序
 //    annotationProcessor project(':compiler')
     androidTestImplementation 'junit:junit:4.12'
