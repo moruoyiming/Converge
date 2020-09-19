@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import com.cocos.aop.activity.PermissionRequestActivity;
+import com.cocos.aop.annotation.PermissionCancel;
 import com.cocos.aop.annotation.PermissionDenied;
-import com.cocos.aop.annotation.PermissionDeniedForever;
-import com.cocos.aop.annotation.PermissionNeed;
+import com.cocos.aop.annotation.Permission;
 import com.cocos.aop.interfaces.IPermissionCallback;
 import com.cocos.aop.util.ApplicationUtil;
 import com.cocos.aop.util.PermissionUtil;
@@ -14,22 +14,28 @@ import com.cocos.aop.util.PermissionUtil;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 
 
 @Aspect
 public class PermissionAspect {
+    public static String TAG = "Permission";
 
-    @Around("execution(@com.cocos.aop.annotation.PermissionNeed * *(..)) && @annotation(permissionNeed)")
-    public void doPermission(final ProceedingJoinPoint joinPoint, PermissionNeed permissionNeed) {
+    @Pointcut("execution(@com.cocos.aop.annotation.PermissionNeed * *(..)) && @annotation(permission)")
+    public void doPermission(Permission permission) {
+        Log.e(TAG, "doPermission");
+    }
 
-
-        PermissionRequestActivity.startPermissionRequest(getContext(joinPoint), permissionNeed.permissions(),
-                permissionNeed.requestCode(), new IPermissionCallback() {
+    @Around("doPermission(permission)")
+    public void proceedingJoinPoint(final ProceedingJoinPoint point, Permission permission) {
+        Log.e(TAG, "dowhat");
+        PermissionRequestActivity.startPermissionRequest(getContext(point), permission.permissions(),
+                permission.requestCode(), new IPermissionCallback() {
                     @Override
                     public void granted(int requestCode) {
                         // 如果授予，那么执行joinPoint原方法体
                         try {
-                            joinPoint.proceed();
+                            point.proceed();
                         } catch (Throwable throwable) {
                             throwable.printStackTrace();
                         }
@@ -37,12 +43,12 @@ public class PermissionAspect {
 
                     @Override
                     public void denied(int requestCode) {
-                        PermissionUtil.invokeAnnotation(joinPoint.getThis(), PermissionDenied.class, requestCode);
+                        PermissionUtil.invokeAnnotation(point.getThis(), PermissionCancel.class, requestCode);
                     }
 
                     @Override
                     public void deniedForever(int requestCode) {
-                        PermissionUtil.invokeAnnotation(joinPoint.getThis(), PermissionDeniedForever.class, requestCode);
+                        PermissionUtil.invokeAnnotation(point.getThis(), PermissionDenied.class, requestCode);
                     }
                 });
     }

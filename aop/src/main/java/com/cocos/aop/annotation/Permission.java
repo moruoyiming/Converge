@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PermissionNeed {
+public @interface Permission {
 
     //需要申请的权限，支持多个，需要传入String数组
     String[] permissions();

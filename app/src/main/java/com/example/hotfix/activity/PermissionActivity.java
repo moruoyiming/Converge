@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cocos.aop.annotation.PermissionCancel;
 import com.cocos.aop.annotation.PermissionDenied;
-import com.cocos.aop.annotation.PermissionDeniedForever;
-import com.cocos.aop.annotation.PermissionNeed;
+import com.cocos.aop.annotation.Permission;
 import com.example.hotfix.R;
 
 /**
@@ -39,7 +39,7 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.banner:
-                requestLocation();
+                what();
                 break;
             case R.id.interstitial:
                 requestLocation2();
@@ -47,27 +47,31 @@ public class PermissionActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    public void what(){
+        requestLocation();
+    }
+
     /**
      * 这里写的要特别注意，denied方法，必须是带有一个int参数的方法，下面的也一样
      *
      * @param requestCode
      */
-    @PermissionDenied
+    @PermissionCancel
     public void denied(int requestCode) {
         Log.e(TAG, "权限请求拒绝");
     }
 
-    @PermissionDeniedForever
+    @PermissionDenied
     public void deniedForever(int requestCode) {
         Log.e(TAG, "权限请求拒绝，用户永久拒绝");
     }
 
-    @PermissionNeed(permissions = Manifest.permission.WRITE_EXTERNAL_STORAGE, requestCode = 1)
+    @Permission(permissions = Manifest.permission.READ_EXTERNAL_STORAGE, requestCode = 1)
     public void requestLocation() {
         Log.i("Permission", "权限请求成功");
     }
 
-    @PermissionNeed(permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, requestCode = 2)
+    @Permission(permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, requestCode = 2)
     public void requestLocation2() {
         Log.i("Permission", "权限请求成功");
     }
