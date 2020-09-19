@@ -113,6 +113,7 @@
                 android:padding="15dp"
                 android:text="绘制渐变字"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/fish"
                 android:layout_width="wrap_content"
@@ -122,6 +123,7 @@
                 android:padding="15dp"
                 android:text="咸鱼"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/recyclerview"
                 android:layout_width="wrap_content"
@@ -131,6 +133,7 @@
                 android:padding="15dp"
                 android:text="recyclerview吸顶"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/recyclerview2"
                 android:layout_width="wrap_content"
@@ -160,6 +163,7 @@
                 android:padding="15dp"
                 android:text="binder"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/aidl"
                 android:layout_width="wrap_content"
@@ -169,6 +173,7 @@
                 android:padding="15dp"
                 android:text="AIDL原理"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/dexdiff"
                 android:layout_width="wrap_content"
@@ -178,6 +183,17 @@
                 android:padding="15dp"
                 android:text="dexdiff"
                 android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/socket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="socket"
+                android:textColor="#ffffff" />
+
         </com.example.hotfix.widget.FlowLayout>
     </RelativeLayout>
 </layout>

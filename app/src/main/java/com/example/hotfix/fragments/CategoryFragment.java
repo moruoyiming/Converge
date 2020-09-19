@@ -17,6 +17,7 @@ import com.example.dexdiff.DexdiffActivity;
 import com.example.hotfix.R;
 import com.example.hotfix.activity.NetworkActivity;
 import com.example.hotfix.activity.PermissionActivity;
+import com.example.hotfix.activity.socket.SimpleDemoActivity;
 import com.example.hotfix.databinding.FragmentCategoryBinding;
 import com.example.hotfix.note.binder.MMAPActivity;
 import com.example.hotfix.note.binder.demo.client.ClientActivity;
@@ -68,6 +69,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.mmap.setOnClickListener(this);
         mBinding.aidl.setOnClickListener(this);
         mBinding.dexdiff.setOnClickListener(this);
+        mBinding.socket.setOnClickListener(this);
     }
 
     @Override
@@ -161,6 +163,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.dexdiff:
                 Intent dexdiff = new Intent(getActivity(), DexdiffActivity.class);
                 startActivity(dexdiff);
+                break;
+            case R.id.socket:
+                Intent socket = new Intent(getActivity(), com.example.hotfix.activity.socket.DemoActivity.class);
+                startActivity(socket);
                 break;
         }
     }
