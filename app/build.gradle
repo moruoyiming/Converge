@@ -82,6 +82,7 @@ dependencies {
     api project(':inject')
     api project(':skin')
     api project(':dexdiff')
+    api project(':socket')
     //引入自定义注解处理程序
 //    annotationProcessor project(':compiler')
     androidTestImplementation 'junit:junit:4.12'

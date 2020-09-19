@@ -1,3 +1,4 @@
+include ':socket'
 include ':dexdiff'
 include ':compiler'
 include ':common'

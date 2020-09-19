@@ -131,6 +131,22 @@
         <activity android:name=".note.binder.demo.client.ClientActivity">
 
         </activity>
+
+        <activity android:name=".activity.socket.ComplexDemoActivity">
+
+        </activity>
+
+        <activity android:name=".activity.socket.DemoActivity">
+
+        </activity>
+
+        <activity android:name=".activity.socket.SimpleDemoActivity">
+
+        </activity>
+
+        <activity android:name=".activity.socket.ServerAdminActivity">
+
+        </activity>
         <service
             android:name=".note.binder.demo.server.RemoteService"
             android:exported="true"
