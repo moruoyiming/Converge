@@ -24,40 +24,55 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-////在构建工程时，执行编织
-//import org.aspectj.tools.ajc.Main
-////在library中必须使用 libraryVariants
-//project.android.libraryVariants.all { variant ->
-//    JavaCompile javaCompile = variant.javaCompile
-//    //在编译后 增加行为
-//    javaCompile.doLast {
-//        println "执行AspectJ编译器......"
-//        String[] args = [
-//                "-1.7",
-//                //aspectJ 处理的源文件
-//                "-inpath", javaCompile.destinationDir.toString(),
-//                //输出目录，aspectJ处理完成后的输出目录
-//                "-d", javaCompile.destinationDir.toString(),
-//                //aspectJ 编译器的classpath aspectjtools
-//                "-aspectpath", javaCompile.classpath.asPath,
-//                //java的类查找路径
-//                "-classpath", javaCompile.classpath.asPath,
-//                //覆盖引导类的位置  android中使用android.jar 而不是jdk
-//                "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
-//        new Main().runMain(args, false)
-//    }
-//}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //aop中的 aspectj框架
     implementation 'org.aspectj:aspectjrt:1.9.2'
-//    implementation 'org.aspectj:aspectjrt:1.8.13'
 }
 
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+final def log = project.logger
+
+project.android.libraryVariants.all{ variant ->
+    if (!variant.buildType.isDebuggable()) {
+        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
+        return
+    }
+
+    JavaCompile javaCompile = variant.javaCompiler
+    javaCompile.doLast {
+        String[] args = ["-showWeaveInfo",
+                         "-1.8",
+                         "-inpath", javaCompile.destinationDir.toString(),
+                         "-aspectpath", javaCompile.classpath.asPath,
+                         "-d", javaCompile.destinationDir.toString(),
+                         "-classpath", javaCompile.classpath.asPath,
+                         "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
+        log.debug "ajc args: " + Arrays.toString(args)
+
+        MessageHandler handler = new MessageHandler(true)
+        new Main().run(args, handler)
+        for (IMessage message : handler.getMessages(null, true)) {
+            switch (message.getKind()) {
+                case IMessage.ABORT:
+                case IMessage.ERROR:
+                case IMessage.FAIL:
+                    log.error message.message, message.thrown
+                    break
+                case IMessage.WARNING:
+                    log.warn message.message, message.thrown
+                    break
+                case IMessage.INFO:
+                    log.info message.message, message.thrown
+                    break
+                case IMessage.DEBUG:
+                    log.debug message.message, message.thrown
+                    break
+            }
+        }
+    }
 }

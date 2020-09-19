@@ -21,7 +21,7 @@ import org.aspectj.lang.annotation.Pointcut;
 public class PermissionAspect {
     public static String TAG = "Permission";
 
-    @Pointcut("execution(@com.cocos.aop.annotation.PermissionNeed * *(..)) && @annotation(permission)")
+    @Pointcut("execution(@com.cocos.aop.annotation.Permission * *(..)) && @annotation(permission)")
     public void doPermission(Permission permission) {
         Log.e(TAG, "doPermission");
     }
