@@ -1,4 +1,4 @@
-package com.example.common.views.picturetitleview;
+package com.example.news.headlinenews.views.picturetitleview;
 
 
 import com.cocos.base.customview.BaseCustomViewModel;

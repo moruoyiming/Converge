@@ -1,11 +1,12 @@
-package com.example.common.views.titleview;
+package com.example.news.headlinenews.views.titleview;
 
 import android.content.Context;
 import android.view.View;
 
 import com.cocos.base.customview.BaseCustomView;
-import com.example.common.R;
-import com.example.common.databinding.TitleViewBinding;
+import com.cocos.basewebview.WebViewActivity;
+import com.example.news.R;
+import com.example.news.databinding.TitleViewBinding;
 
 
 public class TitleView extends BaseCustomView<TitleViewBinding, TitleViewViewModel> {
@@ -25,6 +26,6 @@ public class TitleView extends BaseCustomView<TitleViewBinding, TitleViewViewMod
 
     @Override
     public void onRootClick(View view) {
-//        WebviewActivity.startCommonWeb(view.getContext(), "", getViewModel().jumpUri);
+        WebViewActivity.startCommonWeb(view.getContext(), "", getViewModel().jumpUri);
     }
 }

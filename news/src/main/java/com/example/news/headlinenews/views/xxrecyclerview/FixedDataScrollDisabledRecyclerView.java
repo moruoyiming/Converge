@@ -1,4 +1,4 @@
-package com.example.common.views.xxrecyclerview;
+package com.example.news.headlinenews.views.xxrecyclerview;
 
 /**
  * Created by webull on 17/5/3.

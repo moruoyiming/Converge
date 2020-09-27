@@ -34,6 +34,5 @@ android {
 dependencies {
 
     api project(':base')
-//    api project(":basewebview")
 
 }

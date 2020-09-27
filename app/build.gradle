@@ -53,8 +53,8 @@ dependencies {
     api "androidx.constraintlayout:constraintlayout:$rootProject.constraint_version"
     api 'q.rorbin:badgeview:1.1.3'
     api 'com.android.support:appcompat-v7:28.0.0'
-    api project(':webview')
-    api project(':network')
+//    api project(':webview')
+//    api project(':network')
     api project(':news')
     api project(':aop')
     api project(':inject')

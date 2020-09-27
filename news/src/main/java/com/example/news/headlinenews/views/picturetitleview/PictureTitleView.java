@@ -1,12 +1,12 @@
-package com.example.common.views.picturetitleview;
+package com.example.news.headlinenews.views.picturetitleview;
 
 import android.content.Context;
 import android.view.View;
 
 import com.cocos.base.customview.BaseCustomView;
-import com.example.common.R;
-import com.example.common.databinding.PictureTitleViewBinding;
-
+import com.cocos.basewebview.WebViewActivity;
+import com.example.news.R;
+import com.example.news.databinding.PictureTitleViewBinding;
 
 public class PictureTitleView extends BaseCustomView<PictureTitleViewBinding, PictureTitleViewViewModel> {
     public PictureTitleView(Context context) {
@@ -25,6 +25,6 @@ public class PictureTitleView extends BaseCustomView<PictureTitleViewBinding, Pi
 
     @Override
     public void onRootClick(View view) {
-//        WebviewActivity.startCommonWeb(view.getContext(), "", getViewModel().jumpUri);
+        WebViewActivity.startCommonWeb(view.getContext(), "", getViewModel().jumpUri);
     }
 }
