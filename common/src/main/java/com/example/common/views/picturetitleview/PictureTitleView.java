@@ -1,26 +1,25 @@
-package com.example.news.headlinenews.views.titleview;
+package com.example.common.views.picturetitleview;
 
 import android.content.Context;
 import android.view.View;
 
 import com.cocos.base.customview.BaseCustomView;
 import com.cocos.basewebview.WebViewActivity;
-import com.example.news.R;
-import com.example.news.databinding.TitleViewBinding;
+import com.example.common.R;
+import com.example.common.databinding.PictureTitleViewBinding;
 
-
-public class TitleView extends BaseCustomView<TitleViewBinding, TitleViewViewModel> {
-    public TitleView(Context context) {
+public class PictureTitleView extends BaseCustomView<PictureTitleViewBinding, PictureTitleViewViewModel> {
+    public PictureTitleView(Context context) {
         super(context);
     }
 
     @Override
     public int setViewLayoutId() {
-        return R.layout.title_view;
+        return R.layout.picture_title_view;
     }
 
     @Override
-    public void setDataToView(TitleViewViewModel data) {
+    public void setDataToView(PictureTitleViewViewModel data) {
         getDataBinding().setViewModel(data);
     }
 

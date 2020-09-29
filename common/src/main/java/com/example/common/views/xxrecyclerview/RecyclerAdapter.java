@@ -1,4 +1,4 @@
-package com.example.news.headlinenews.views.xxrecyclerview;
+package com.example.common.views.xxrecyclerview;
 
 import android.view.ViewGroup;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cocos.base.recyclerview.BaseViewHolder;
-import com.example.news.headlinenews.views.titleview.TitleView;
-import com.example.news.headlinenews.views.titleview.TitleViewViewModel;
+import com.example.common.views.titleview.TitleView;
+import com.example.common.views.titleview.TitleViewViewModel;
 
 import java.util.List;
 

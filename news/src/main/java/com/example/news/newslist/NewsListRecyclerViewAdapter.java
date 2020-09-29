@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cocos.base.customview.BaseCustomViewModel;
 import com.cocos.base.recyclerview.BaseViewHolder;
-import com.example.news.headlinenews.views.picturetitleview.PictureTitleView;
-import com.example.news.headlinenews.views.picturetitleview.PictureTitleViewViewModel;
-import com.example.news.headlinenews.views.titleview.TitleView;
-import com.example.news.headlinenews.views.titleview.TitleViewViewModel;
+import com.example.common.views.picturetitleview.PictureTitleView;
+import com.example.common.views.picturetitleview.PictureTitleViewViewModel;
+import com.example.common.views.titleview.TitleView;
+import com.example.common.views.titleview.TitleViewViewModel;
 
 
 public class NewsListRecyclerViewAdapter extends RecyclerView.Adapter<BaseViewHolder> {

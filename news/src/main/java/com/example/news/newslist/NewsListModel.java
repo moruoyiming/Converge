@@ -5,8 +5,8 @@ import com.cocos.base.customview.BaseCustomViewModel;
 import com.cocos.base.model.MvvmBaseModel;
 import com.cocos.network.TecentNetworkApi;
 import com.cocos.network.observer.BaseObserver;
-import com.example.news.headlinenews.views.picturetitleview.PictureTitleViewViewModel;
-import com.example.news.headlinenews.views.titleview.TitleViewViewModel;
+import com.example.common.views.picturetitleview.PictureTitleViewViewModel;
+import com.example.common.views.titleview.TitleViewViewModel;
 import com.example.news.api.NewsApiInterface;
 import com.example.news.api.NewsListBean;
 

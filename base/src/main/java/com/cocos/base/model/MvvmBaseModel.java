@@ -186,7 +186,7 @@ public abstract class MvvmBaseModel<F, T extends ArrayList> implements MvvmNetwo
                     IBaseModelListener listenerItem = weakListener.get();
                     if (listenerItem != null) {
                         if (isPaging()) {
-                            listenerItem.onLoadFinish(this, data,
+                            listenerItem.onLoadSuccess(this, data,
                                     isFromCache? new PagingResult(false, true, true) :
                                             new PagingResult(data.isEmpty(), isRefresh, data.size() > 0));
                             if(mCachedPreferenceKey != null && isRefresh && !isFromCache) {
@@ -196,7 +196,7 @@ public abstract class MvvmBaseModel<F, T extends ArrayList> implements MvvmNetwo
                                 pageNumber ++;
                             }
                         } else {
-                            listenerItem.onLoadFinish(this, data);
+                            listenerItem.onLoadSuccess(this, data);
                             if(mCachedPreferenceKey != null) {
                                 saveDataToPreference(networkResonseBean);
                             }

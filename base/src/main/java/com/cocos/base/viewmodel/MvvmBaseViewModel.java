@@ -40,7 +40,7 @@ public abstract class MvvmBaseViewModel<M extends MvvmBaseModel, D> extends View
     }
 
     @Override
-    public void onLoadFinish(MvvmBaseModel model, List<D> data, PagingResult... pagingResult) {
+    public void onLoadSuccess(MvvmBaseModel model, List<D> data, PagingResult... pagingResult) {
         if (model == this.model) {
             if (model.isPaging()) {
                 if (pagingResult[0].isFirstPage) {

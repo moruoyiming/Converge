@@ -34,9 +34,9 @@ android {
 }
 
 dependencies {
-    api project(":common")
     api project(":network")
     api project(":webview")
+    implementation project(":common")
     api 'com.alibaba:arouter-api:1.4.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }
