@@ -34,5 +34,5 @@ android {
 dependencies {
 
     api project(':base')
-    implementation project(':webview')
+    api project(':webview')
 }

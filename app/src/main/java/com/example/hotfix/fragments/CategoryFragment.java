@@ -12,12 +12,11 @@ import androidx.fragment.app.Fragment;
 
 import com.cocos.base.autoservice.XiangxueServiceLoader;
 import com.cocos.basewebview.WebViewActivity;
-import com.example.common.autoservice.IWebViewService;
+import com.cocos.base.autoservice.IWebViewService;
 import com.example.dexdiff.DexdiffActivity;
 import com.example.hotfix.R;
 import com.example.hotfix.activity.NetworkActivity;
 import com.example.hotfix.activity.PermissionActivity;
-import com.example.hotfix.activity.socket.SimpleDemoActivity;
 import com.example.hotfix.databinding.FragmentCategoryBinding;
 import com.example.hotfix.note.binder.MMAPActivity;
 import com.example.hotfix.note.binder.demo.client.ClientActivity;

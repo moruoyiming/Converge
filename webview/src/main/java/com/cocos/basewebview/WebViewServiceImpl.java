@@ -6,8 +6,8 @@ import android.content.Intent;
 
 import androidx.fragment.app.Fragment;
 
+import com.cocos.base.autoservice.IWebViewService;
 import com.cocos.basewebview.utils.WebConstants;
-import com.example.common.autoservice.IWebViewService;
 import com.google.auto.service.AutoService;
 
 import java.util.HashMap;

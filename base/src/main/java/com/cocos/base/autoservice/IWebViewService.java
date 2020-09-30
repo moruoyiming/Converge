@@ -1,4 +1,4 @@
-package com.example.common.autoservice;
+package com.cocos.base.autoservice;
 
 import android.content.Context;
 
