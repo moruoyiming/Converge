@@ -90,6 +90,7 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseView
                 return true;
             }
         });
+
         viewDataBinding.bottomView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, mHomeFragment, mHomeFragment.getClass().getSimpleName());
