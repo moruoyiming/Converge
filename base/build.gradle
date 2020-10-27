@@ -59,6 +59,7 @@ dependencies {
     api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     api 'com.youth.banner:banner:1.4.10'  //最新版本
     api 'com.alibaba:arouter-api:1.4.1'
+    api 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 }
 
