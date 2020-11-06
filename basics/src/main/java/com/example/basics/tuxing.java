@@ -1,8 +1,8 @@
-package com.example.hotfix.activity;
+package com.example.basics;
 
 import java.util.Scanner;
 
-public class what {
+public class tuxing {
     public static void main(String[] args) {
         chengfabiao();
         System.out.println();
