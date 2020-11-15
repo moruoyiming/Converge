@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.structures;
 
 /**
  * 二叉平衡树，AVL树

@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.structures;
 
 /**
  * 红黑树

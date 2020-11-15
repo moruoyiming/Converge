@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.structures;
 
 public class LruLinkedList<T> extends LinkedList<T> {
 

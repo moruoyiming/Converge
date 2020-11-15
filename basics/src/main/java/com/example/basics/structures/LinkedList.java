@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.structures;
 
 //单链表
 public class LinkedList<T> {

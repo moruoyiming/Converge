@@ -52,12 +52,6 @@ dependencies {
     api project(':news')
     api project(':aop')
     api project(':inject')
-    //引入自定义注解处理程序
-//    annotationProcessor project(':compiler')
-    androidTestImplementation 'junit:junit:4.12'
-//    implementation "androidx.core:core-ktx:+"
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'org.aspectj:aspectjrt:1.9.2'
 }
 tasks.withType(JavaCompile) {
