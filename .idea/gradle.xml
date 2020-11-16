@@ -7,12 +7,15 @@
         <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../develop/gradle-6.4.1" />
+        <option name="gradleHome" value="$USER_HOME$/develop/gradle-6.4.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/aop" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/arouter-annotations" />
+            <option value="$PROJECT_DIR$/arouter-api" />
+            <option value="$PROJECT_DIR$/arouter-compiler" />
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/basics" />
             <option value="$PROJECT_DIR$/common" />

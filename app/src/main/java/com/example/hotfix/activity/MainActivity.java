@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.cocos.base.activity.MvvmActivity;
 import com.cocos.base.viewmodel.MvvmBaseViewModel;
+import com.example.annotations.ARouter;
 import com.example.common.arouter.RouteServiceManager;
 import com.example.common.arouter.news.INewsService;
 import com.example.hotfix.R;
@@ -32,6 +33,7 @@ import java.lang.reflect.Field;
 
 import q.rorbin.badgeview.QBadgeView;
 
+@ARouter(path = "MainActivity.class")
 public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseViewModel> {
 
     private INewsService iNewsService;
@@ -39,12 +41,13 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseView
     private CategoryFragment mCategoryFragment = new CategoryFragment();
     private ServiceFragment mServiceFragment = new ServiceFragment();
     private AccountFragment mAccountFragment = new AccountFragment();
+
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         iNewsService = RouteServiceManager.provide(INewsService.class, INewsService.NEWS_SERVICE);
-        if(iNewsService != null) {
+        if (iNewsService != null) {
             mHomeFragment = iNewsService.getHeadlineNewsFragment();
         }
         fromFragment = mHomeFragment;

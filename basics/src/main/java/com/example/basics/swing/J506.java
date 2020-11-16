@@ -6,7 +6,7 @@ import javax.swing.*;
 
 import java.awt.*;
 
-class MyWindow extends JFrame {
+class MyWindow extends JFrames {
     public MyWindow(int w, int h) {
         setTitle("滚动面板实例");
         Container con = getContentPane();

@@ -20,7 +20,7 @@ public class Example5_2 {
     }
 }
 
-class MyWindowDemo extends JFrame {
+class MyWindowDemo extends JFrames {
     public MyWindowDemo(String name, JButton button, Color c, int w, int h) {
         super();
         setTitle(name);

@@ -7,7 +7,7 @@ import java.awt.*;
 public class J505 {
     public static void main(String[] args) {
         JLabel label1, label2, label3, label4, label5;
-        JFrame mw = new JFrame("我是一个窗口");//创建一个窗口容器对象
+        JFrames mw = new JFrames("我是一个窗口");//创建一个窗口容器对象
         mw.setSize(250, 200);
         Container con = mw.getContentPane();
         con.setLayout(new BorderLayout());

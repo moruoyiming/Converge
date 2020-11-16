@@ -1,3 +1,6 @@
+include ':arouter-api'
+include ':arouter-compiler'
+include ':arouter-annotations'
 include ':socket'
 include ':dexdiff'
 include ':compiler'
