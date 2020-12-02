@@ -147,6 +147,10 @@
         <activity android:name=".activity.socket.ServerAdminActivity">
 
         </activity>
+
+        <activity android:name=".note.plugin.PluginActivity">
+
+        </activity>
         <service
             android:name=".note.binder.demo.server.RemoteService"
             android:exported="true"

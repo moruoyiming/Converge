@@ -8,8 +8,14 @@
         android:id="@+id/dianwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点击事件">
+        android:text="获取Plugin中class">
 
     </Button>
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动Plugin中Activity">
 
+    </Button>
 </LinearLayout>

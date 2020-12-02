@@ -9,6 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotfix.R;
+import com.example.hotfix.utils.LoadUtils;
+
+import java.lang.reflect.Method;
 
 public class PluginActivity extends AppCompatActivity {
 
@@ -25,9 +28,24 @@ public class PluginActivity extends AppCompatActivity {
                 invokeMethod();
             }
         });
+        findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+        LoadUtils.loadClass(this);
     }
 
-    public void invokeMethod(){
+    public void invokeMethod() {
+        try {
+            Class<?> clazz = Class.forName("com.example.plugin.Test");
+            Method method = clazz.getMethod("print");
+            method.invoke(null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -38,8 +56,8 @@ public class PluginActivity extends AppCompatActivity {
             classLoader = classLoader.getParent();
         }
         // PathClassLoader 和 BootClassLoader 分别加载什么类？
-        Log.i(TAG, "Activity的classLoader: "+ Activity.class.getClassLoader());
+        Log.i(TAG, "Activity的classLoader: " + Activity.class.getClassLoader());
 
-        Log.i(TAG, "AppCompatActivity的classLoader: "+ AppCompatActivity.class.getClassLoader());
+        Log.i(TAG, "AppCompatActivity的classLoader: " + AppCompatActivity.class.getClassLoader());
     }
 }

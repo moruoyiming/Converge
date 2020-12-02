@@ -20,21 +20,7 @@
     <bytecodeTargetLevel target="1.7">
       <module name="basics" target="1.7" />
       <module name="compiler" target="1.7" />
-      <module name="Hotfix.aop" target="1.8" />
-      <module name="Hotfix.app" target="1.8" />
-      <module name="Hotfix.base" target="1.8" />
       <module name="Hotfix.basewebview" target="1.8" />
-      <module name="Hotfix.basics" target="1.8" />
-      <module name="Hotfix.common" target="1.8" />
-      <module name="Hotfix.compiler" target="1.8" />
-      <module name="Hotfix.dexdiff" target="1.8" />
-      <module name="Hotfix.inject" target="1.8" />
-      <module name="Hotfix.network" target="1.8" />
-      <module name="Hotfix.news" target="1.8" />
-      <module name="Hotfix.skin" target="1.8" />
-      <module name="Hotfix.skins" target="1.8" />
-      <module name="Hotfix.socket" target="1.8" />
-      <module name="Hotfix.webview" target="1.8" />
       <module name="Hotfix.webviewcommon" target="1.8" />
     </bytecodeTargetLevel>
   </component>

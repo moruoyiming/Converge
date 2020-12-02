@@ -1,9 +1,12 @@
 package com.example.hotfix.utils;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import dalvik.system.DexClassLoader;
 
@@ -61,5 +64,21 @@ public class LoadUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static Resources loadResource(Context context) {
+        try {
+            Class<?> assetManagerClass = AssetManager.class;
+            AssetManager assetManager = (AssetManager) assetManagerClass.newInstance();
+            Method addAssetPathMethod = assetManagerClass.getDeclaredMethod("addAssetPath", String.class);
+            addAssetPathMethod.setAccessible(true);
+            addAssetPathMethod.invoke(assetManager, apkPath);
+            Resources resources = context.getResources();
+            return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
