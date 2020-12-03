@@ -30,7 +30,7 @@ import com.example.hotfix.note.class18.FishActivity;
 import com.example.hotfix.note.class19.RecyclerViewActivity;
 import com.example.hotfix.note.class20.SlideCardActivity;
 import com.example.hotfix.note.class21.ViewPagerLazyActivity;
-import com.example.hotfix.note.plugin.PluginActivity;
+import com.example.hotfix.note.plugin.PluginTestActivity;
 import com.example.skin.SkinManager;
 
 import java.io.Serializable;
@@ -170,7 +170,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 startActivity(socket);
                 break;
             case R.id.plugin:
-                Intent plugin=new Intent(getActivity(), PluginActivity.class);
+                Intent plugin=new Intent(getActivity(), PluginTestActivity.class);
                 startActivity(plugin);
                 break;
         }

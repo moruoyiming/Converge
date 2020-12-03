@@ -1,6 +1,8 @@
 package com.example.hotfix.note.plugin;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,7 +15,7 @@ import com.example.hotfix.utils.LoadUtils;
 
 import java.lang.reflect.Method;
 
-public class PluginActivity extends AppCompatActivity {
+public class PluginTestActivity extends AppCompatActivity {
 
     private static final String TAG = "Plugin";
 
@@ -31,8 +33,10 @@ public class PluginActivity extends AppCompatActivity {
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+//                startActivity(new Intent(PluginActivity.this, ProxyActivity.class));
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.example.plugin","com.example.plugin.PluginActivity"));
+                startActivity(intent);
             }
         });
         LoadUtils.loadClass(this);

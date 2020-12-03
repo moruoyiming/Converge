@@ -11,11 +11,15 @@ public class HookUtils {
 
     public static void hookAMS() {
         try {
+            //获取hook点 singleton对象
             Class<?> clazz = Class.forName("android.app.ActivityManager");
             Field singletonField = clazz.getDeclaredField("IActivityManagerSingleton");
             singletonField.setAccessible(true);
             Object singleton = singletonField.get(null);
+            //获取IActivityManager对象
             Class<?> iActivityManager = Class.forName("android.app.IActivityManager");
+            Field mInstanceField = iActivityManager.getDeclaredField("mInstance");
+            mInstanceField.setAccessible(true);
             Object proxyInstance = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
                     new Class[]{iActivityManager}, new InvocationHandler() {
                         @Override
@@ -39,6 +43,10 @@ public class HookUtils {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void hookHandler(){
+
     }
 
 }

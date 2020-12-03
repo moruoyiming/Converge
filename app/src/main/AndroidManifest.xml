@@ -148,7 +148,11 @@
 
         </activity>
 
-        <activity android:name=".note.plugin.PluginActivity">
+        <activity android:name=".note.plugin.PluginTestActivity">
+
+        </activity>
+
+        <activity android:name=".note.plugin.ProxyActivity">
 
         </activity>
         <service
