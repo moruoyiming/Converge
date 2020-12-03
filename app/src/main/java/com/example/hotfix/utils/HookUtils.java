@@ -11,16 +11,18 @@ public class HookUtils {
 
     public static void hookAMS() {
         try {
-            //获取hook点 singleton对象
+            //获取hook点singleton对象
             Class<?> clazz = Class.forName("android.app.ActivityManager");
             Field singletonField = clazz.getDeclaredField("IActivityManagerSingleton");
             singletonField.setAccessible(true);
             Object singleton = singletonField.get(null);
+
+            //获取mInstance对象，method.invoke(mInstance, args) 保证原有流程
             Class<?> singletonClass = Class.forName("android.util.Singleton");
             Field mInstanceField = singletonClass.getDeclaredField("mInstance");
             mInstanceField.setAccessible(true);
-            //获取原有对象 method.invoke(mInstance, args) 保证原有流程
             final Object mInstance = mInstanceField.get(singleton);
+
             //获取IActivityManager对象
             Class<?> iActivityManager = Class.forName("android.app.IActivityManager");
             Object proxyInstance = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
@@ -43,7 +45,7 @@ public class HookUtils {
                             return method.invoke(mInstance, args);
                         }
                     });
-            //ActivityManager.getService() 替换系统mInstance对象
+            //ActivityManager.getService() 替换系统mInstance对象为代理对象
             mInstanceField.set(singleton, proxyInstance);
         } catch (Exception e) {
             e.printStackTrace();
