@@ -10,6 +10,6 @@ public class PluginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plugin);
-        Log.i("ProxyActivity", "DemoActivity onCreate: "+getResources().getString(R.string.name));
+        Log.i("ProxyActivity", "PluginActivity onCreate: "+getResources().getString(R.string.name));
     }
 }
