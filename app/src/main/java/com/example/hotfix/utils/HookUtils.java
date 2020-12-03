@@ -16,10 +16,13 @@ public class HookUtils {
             Field singletonField = clazz.getDeclaredField("IActivityManagerSingleton");
             singletonField.setAccessible(true);
             Object singleton = singletonField.get(null);
+            Class<?> singletonClass = Class.forName("android.util.Singleton");
+            Field mInstanceField = singletonClass.getDeclaredField("mInstance");
+            mInstanceField.setAccessible(true);
+            //获取原有对象 method.invoke(mInstance, args) 保证原有流程
+            final Object mInstance = mInstanceField.get(singleton);
             //获取IActivityManager对象
             Class<?> iActivityManager = Class.forName("android.app.IActivityManager");
-            Field mInstanceField = iActivityManager.getDeclaredField("mInstance");
-            mInstanceField.setAccessible(true);
             Object proxyInstance = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
                     new Class[]{iActivityManager}, new InvocationHandler() {
                         @Override
@@ -36,16 +39,19 @@ public class HookUtils {
                                 //得到原始的Intent 对象 插件的Intent
                                 Intent intent = (Intent) args[index];
                             }
-
-                            return method.invoke(singleton, args);
+                            //保证原有执行流程
+                            return method.invoke(mInstance, args);
                         }
                     });
+            //ActivityManager.getService() 替换系统mInstance对象
+            mInstanceField.set(singleton, proxyInstance);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
-    public static void hookHandler(){
+    public static void hookHandler() {
 
     }
 
