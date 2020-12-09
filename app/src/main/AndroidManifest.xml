@@ -148,7 +148,8 @@
 
         </activity>
 
-        <activity android:name=".note.plugin.PluginTestActivity">
+        <activity android:name=".note.plugin.PluginTestActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
         </activity>
 

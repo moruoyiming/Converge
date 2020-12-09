@@ -5,8 +5,10 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true"
-         >
-        <activity android:name=".PluginActivity">
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".PluginActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

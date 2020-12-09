@@ -27,8 +27,12 @@ public class PluginTestActivity extends AppCompatActivity {
         findViewById(R.id.dianwo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LoadUtils.loadClass(PluginTestActivity.this);
+                HookUtils.hookAMS();
+                HookUtils.hookHandler();
                 printCLassLoader();
                 invokeMethod();
+
             }
         });
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
@@ -40,9 +44,7 @@ public class PluginTestActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        LoadUtils.loadClass(this);
-        HookUtils.hookAMS();
-        HookUtils.hookHandler();
+
     }
 
     public void invokeMethod() {

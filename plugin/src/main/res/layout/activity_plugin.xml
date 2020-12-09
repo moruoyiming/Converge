@@ -6,11 +6,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <Button
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name">
+        android:text="我是PLUGINActivity">
 
-    </TextView>
-
+    </Button>
 </LinearLayout>

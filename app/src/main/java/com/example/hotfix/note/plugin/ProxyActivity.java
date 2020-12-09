@@ -12,6 +12,7 @@ public class ProxyActivity extends Activity {
     @Override
     protected void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_proxy);
         Log.i("ProxyActivity", "ProxyActivity onCreate: "+getResources());
     }
 }

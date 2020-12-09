@@ -33,7 +33,7 @@ public class HookUtils {
             mInstanceField.setAccessible(true);
             final Object mInstance = mInstanceField.get(singleton);
 
-            //获取IActivityManager对象
+            //获取IActivityManager对象  动态代理替换的对象系统的IActivityManager
             Class<?> iActivityManager = Class.forName("android.app.IActivityManager");
             Object proxyInstance = Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
                     new Class[]{iActivityManager}, new InvocationHandler() {
@@ -116,7 +116,7 @@ public class HookUtils {
                                 e.printStackTrace();
                             }
                             break;
-                        case 159:
+                        case 159://9.0适配  EXECUTE_TRANSACTION
                             //获取 mActivityCallbacks对象
                             try {
                                 Field mActivityCallbacksField = msg.obj.getClass().getDeclaredField("mActivityCallbacks");

@@ -13,14 +13,9 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //TODO scheme 拦截  统一入口
         if(getIntent().getData()!=null&&!TextUtils.isEmpty(getIntent().getData().getScheme())){
-
             return ;
         }
-//        else if(){
-//            return
-//        }
         startActivity(new Intent(this, MainActivity.class));
         overridePendingTransition(0,0);
     }

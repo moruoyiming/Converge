@@ -51,11 +51,6 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseView
             mHomeFragment = iNewsService.getHeadlineNewsFragment();
         }
         fromFragment = mHomeFragment;
-        //Set Toolbar
-        setSupportActionBar(viewDataBinding.toolbar);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(getString(R.string.menu_home));
         /**
          * Disable shift method require for to prevent shifting icon.
          * When you select any icon then remain all icon shift
