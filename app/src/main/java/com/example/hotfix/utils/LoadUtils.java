@@ -1,5 +1,6 @@
 package com.example.hotfix.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
@@ -66,15 +67,27 @@ public class LoadUtils {
         }
     }
 
-
+    /**
+     *
+     * performLaunchActivity->createBaseContextForActivity->ContextImpl.createActivityContext
+     * -> context.setResources->createResources->createResourcesImpl->createAssetManager
+     *
+     * 1.宿主资源+插件资源方案容易引起资源冲突
+     * 2.反射替换Resources方案
+     * @param context
+     * @return
+     */
     public static Resources loadResource(Context context) {
         try {
+            //asset.addAssetPath(key.mResDir)
             Class<?> assetManagerClass = AssetManager.class;
             AssetManager assetManager = (AssetManager) assetManagerClass.newInstance();
+            //让这个AssetManager对象加载的资源为插件资源
             Method addAssetPathMethod = assetManagerClass.getDeclaredMethod("addAssetPath", String.class);
             addAssetPathMethod.setAccessible(true);
             addAssetPathMethod.invoke(assetManager, apkPath);
             Resources resources = context.getResources();
+            //加载插件的资源的resources
             return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
         } catch (Exception e) {
             e.printStackTrace();

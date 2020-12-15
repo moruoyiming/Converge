@@ -22,8 +22,8 @@ import com.kingja.loadsir.core.LoadSir;
 
 public class MyApplication extends BaseApplication {
 
-    //插件化代码
-    private Resources resources;
+//    插件化代码
+//    private Resources resources;
 
     @Override
     public void onCreate() {
@@ -48,13 +48,13 @@ public class MyApplication extends BaseApplication {
                 .commit();
 
         //获取新建 的resource资源
-        resources = LoadUtils.loadResource(this);
+//        resources = LoadUtils.loadResource(this);
     }
 
 
-    //重写该方法，当resources为空时，相当于没有重写，不为空时，返回新建的resources对象
-    @Override
-    public Resources getResources() {
-        return resources == null ? super.getResources() : resources;
-    }
+//    //重写该方法，当resources为空时，相当于没有重写，不为空时，返回新建的resources对象
+//    @Override
+//    public Resources getResources() {
+//        return resources == null ? super.getResources() : resources;
+//    }
 }

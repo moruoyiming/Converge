@@ -15,7 +15,8 @@ public abstract class BaseActivity extends Activity {
 
 
     protected Context mContext;
-
+//    1.会影响宿主，使用宿主的PathClassLoader
+//    2.宿主和插件的Application是一个，
 //    @Override
 //    public Resources getResources() {
 //        if (getApplication() != null && getApplication().getResources() != null) {
