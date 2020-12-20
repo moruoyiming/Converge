@@ -31,8 +31,11 @@ import com.example.hotfix.note.class19.RecyclerViewActivity;
 import com.example.hotfix.note.class20.SlideCardActivity;
 import com.example.hotfix.note.class21.ViewPagerLazyActivity;
 import com.example.hotfix.note.plugin.PluginTestActivity;
+import com.example.hotfix.utils.Hotfix;
+import com.example.hotfix.utils.Utils;
 import com.example.skin.SkinManager;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +74,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.dexdiff.setOnClickListener(this);
         mBinding.socket.setOnClickListener(this);
         mBinding.plugin.setOnClickListener(this);
+        mBinding.hotfix.setOnClickListener(this);
     }
 
     @Override
@@ -172,6 +176,9 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.plugin:
                 Intent plugin=new Intent(getActivity(), PluginTestActivity.class);
                 startActivity(plugin);
+                break;
+            case R.id.hotfix:
+                Utils.what();
                 break;
         }
     }

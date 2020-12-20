@@ -38,10 +38,10 @@ import org.aspectj.tools.ajc.Main
 final def log = project.logger
 
 project.android.libraryVariants.all{ variant ->
-    if (!variant.buildType.isDebuggable()) {
-        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
-        return
-    }
+//    if (!variant.buildType.isDebuggable()) {
+//        log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
+//        return
+//    }
 
     JavaCompile javaCompile = variant.javaCompiler
     javaCompile.doLast {

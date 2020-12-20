@@ -1,5 +1,7 @@
 package com.example.hotfix.utils;
 
+import android.util.Log;
+
 public class Utils {
     private static String TAG = Utils.class.getName();
 

@@ -4,7 +4,7 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="testRunner" value="PLATFORM" />
+        <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$USER_HOME$/gradle-6.6" />
@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/compiler" />
             <option value="$PROJECT_DIR$/dexdiff" />
+            <option value="$PROJECT_DIR$/hack" />
             <option value="$PROJECT_DIR$/inject" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/news" />
@@ -32,7 +33,6 @@
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
