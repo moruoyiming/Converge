@@ -257,7 +257,7 @@ static void processClass(String dirName, File file) {
         e.printStackTrace();
     }
 }
-
+HotFix.test();
 
 static void processJar(File file) {
     try {
