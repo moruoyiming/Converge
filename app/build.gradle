@@ -150,24 +150,26 @@ variants.all { variant ->
 }
 
 //gradle执行会解析build.gradle文件，afterEvaluate表示在解析完成之后再执行我们的代码
-afterEvaluate({
-    android.getApplicationVariants().all {
-        variant ->
-            //获得: debug/release
-            String variantName = variant.name
-            //首字母大写 Debug/Release
-            String capitalizeName = variantName.capitalize()
-
-            //这就是打包时，把jar和class打包成dex的任务
-            Task dexTask =
-                    project.getTasks().findByName("transformClassesWithDexBuilderFor" + capitalizeName);
-
-            //在他打包之前执行插桩
+//afterEvaluate({
+//    android.getApplicationVariants().all {
+//        variant ->
+//            //获得: debug/release
+//            String variantName = variant.name
+//            //首字母大写 Debug/Release
+//            String capitalizeName = variantName.capitalize()
+//            for (Task task : project.getTasks()) {
+//                System.out.println("dexTask  : " + task.getName())
+//            }
+//            //这就是打包时，把jar和class打包成dex的任务
+//            Task dexTask =
+//                    project.getTasks().findByName("transformClassesWithDexBuilderFor" + capitalizeName);
+//            //在他打包之前执行插桩
 //            dexTask.doFirst {
 //                //任务的输入，dex打包任务要输入什么？ 自然是所有的class与jar包了！
 //                FileCollection files = dexTask.getInputs().getFiles()
 //
 //                for (File file : files) {
+//                    System.out.println("file  : " + file + "  name " + file.getName())
 //                    //.jar ->解压-》插桩->压缩回去替换掉插桩前的class
 //                    // .class -> 插桩
 //                    String filePath = file.getAbsolutePath();
@@ -181,8 +183,8 @@ afterEvaluate({
 //                    }
 //                }
 //            }
-    }
-})
+//    }
+//})
 
 
 static boolean isAndroidClass(String filePath) {
@@ -211,7 +213,7 @@ static byte[] referHackWhenInit(InputStream inputStream) throws IOException {
                     if ("<init>".equals(name) && opcode == Opcodes.RETURN) {
                         //引用类型
                         //基本数据类型 : I J Z
-                        super.visitLdcInsn(Type.getType("Lcom/enjoy/patch/hack/AntilazyLoad;"));
+                        super.visitLdcInsn(Type.getType("Lcom/com/example/hack/AntilazyLoad;"));
                     }
                     super.visitInsn(opcode);
                 }
