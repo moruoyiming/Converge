@@ -1,5 +1,6 @@
 package com.example.patch;
 
+import com.android.build.gradle.AppExtension;
 import com.android.build.gradle.AppPlugin;
 
 import org.gradle.api.Action;
@@ -20,14 +21,22 @@ public class PatchPlugin implements Plugin<Project> {
         if (!project.getPlugins().hasPlugin(AppPlugin.class)) {
             throw new GradleException("PatchPlugin 必需结合android application插件使用热修复插件！");
         }
-
-        PatchExt patchExt = project.getExtensions().create("patch",PatchExt.class);
+        project.getExtensions().create("patch", PatchExt.class);
+        //配置阶段，解析玩build.gradle回调此函数
         project.afterEvaluate(new Action<Project>() {
             @Override
             public void execute(Project project) {
                 System.out.println("======== Gradle Plugin build finish =======");
+                PatchExt patchExt = project.getExtensions().findByType(PatchExt.class);
+                assert patchExt != null;
+                System.out.println("patchExt debugOn=" + patchExt.isDebugOn());
+                System.out.println("patchExt appName=" + patchExt.getApplicationName());
+                //获取Android扩展
+                AppExtension android = project.getExtensions().getByType(AppExtension.class);
+                System.out.println(android.getApplicationVariants());
+                System.out.println("======== Gradle Plugin End =======");
             }
         });
-        System.out.println("======== Gradle Plugin End =======");
+
     }
 }
