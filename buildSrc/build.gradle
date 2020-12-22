@@ -1,5 +1,7 @@
 apply plugin: 'java-library'
 
+tasks.withType(JavaCompile) { options.encoding = "UTF-8" }
+
 repositories {
     jcenter()
     google()
@@ -7,6 +9,7 @@ repositories {
 
 dependencies {
     implementation 'com.android.tools.build:gradle:4.1.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8

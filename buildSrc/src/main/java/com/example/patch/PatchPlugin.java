@@ -26,7 +26,7 @@ public class PatchPlugin implements Plugin<Project> {
         project.afterEvaluate(new Action<Project>() {
             @Override
             public void execute(Project project) {
-                System.out.println("======== Gradle Plugin build finish =======");
+                System.out.println("======== Gradle Plugin build finish 插件=======");
                 PatchExt patchExt = project.getExtensions().findByType(PatchExt.class);
                 assert patchExt != null;
                 System.out.println("patchExt debugOn=" + patchExt.isDebugOn());
