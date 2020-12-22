@@ -1,9 +1,7 @@
-import com.android.build.gradle.api.ApplicationVariant
-import org.apache.commons.compress.utils.IOUtils
+import org.apache.commons.io.IOUtils
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.ClassWriter
-import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -13,8 +11,20 @@ import java.util.jar.JarFile
 import java.util.jar.JarOutputStream
 
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
 apply plugin: 'com.alibaba.arouter'
+// 引入自定义Gradle 插件方式
+// 第一种方式 直接引入
+//apply plugin:com.example.patch.PatchPlugin
+// 第二种方式 带''，在buildSrc的main中创建resource/META-INF/gradle-plugins
+apply plugin: 'com.example.patch'
+//热修复代码
+//patch {
+//    debugOn true
+//    applicationName 'com.example.hotfix.MyApplication'
+//    output 'com.example.hotfix.MyApplication'
+//}
+
+
 android {
 
     compileSdkVersion rootProject.compileSdkVersion
@@ -29,12 +39,12 @@ android {
 
         externalNativeBuild {
             cmake {
-                abiFilters 'x86','armeabi-v7a'
+                abiFilters 'x86', 'armeabi-v7a'
             }
         }
 
-        ndk{
-            abiFilters  'x86','armeabi-v7a'
+        ndk {
+            abiFilters 'x86', 'armeabi-v7a'
         }
 
     }
@@ -257,7 +267,7 @@ static void processClass(String dirName, File file) {
         e.printStackTrace();
     }
 }
-HotFix.test();
+//HotFix.test();
 
 static void processJar(File file) {
     try {
