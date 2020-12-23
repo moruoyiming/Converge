@@ -21,8 +21,7 @@
       <module name="basics" target="1.7" />
       <module name="compiler" target="1.7" />
       <module name="Hotfix.basewebview" target="1.8" />
-      <module name="Hotfix.patch-hack" target="1.8" />
-      <module name="Hotfix.patch-lib" target="1.8" />
+      <module name="Hotfix.hack" target="1.8" />
       <module name="Hotfix.webviewcommon" target="1.8" />
     </bytecodeTargetLevel>
   </component>
