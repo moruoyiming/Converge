@@ -67,7 +67,7 @@ public class EnjoyFix {
         File dexOptDir = application.getCacheDir();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {
-                com.enjoy.patch.ClassLoaderInjector.inject(application, classLoader, files);
+                ClassLoaderInjector.inject(application, classLoader, files);
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }

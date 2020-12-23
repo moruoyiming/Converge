@@ -7,10 +7,10 @@ com/example/patch/ClassUtils.java
  com.example.patch.ClassUtils
  com.example.patch.ClassUtils$1
  com.example.patch.ClassUtils$1$1
-com/example/patch/PatchExtension.java
- com.example.patch.PatchExtension
 HotFix.java
  HotFix
+com/example/patch/PatchExtension.java
+ com.example.patch.PatchExtension
 com/example/patch/PatchExt.java
  com.example.patch.PatchExt
 com/example/patch/PatchPlugin.java

@@ -32,7 +32,7 @@ public class ClassUtils {
                     public void visitInsn(int opcode) {
                         //在构造方法中插入AntilazyLoad引用
                         if ("<init>".equals(name) && opcode == Opcodes.RETURN) {
-                            super.visitLdcInsn(Type.getType("Lcom/enjoy/patch/hack/AntilazyLoad;"));
+                            super.visitLdcInsn(Type.getType("Lcom/example/hack/AntilazyLoad;"));
                         }
                         super.visitInsn(opcode);
                     }
