@@ -18,14 +18,29 @@ apply plugin: 'com.alibaba.arouter'
 // 第二种方式 带''，在buildSrc的main中创建resource/META-INF/gradle-plugins
 apply plugin: 'com.example.patch'
 //热修复代码
-//patch {
-//    debugOn true
-//    applicationName 'com.example.hotfix.MyApplication'
-//    output 'com.example.hotfix.MyApplication'
-//}
+patch {
+    debugOn true
+    applicationName 'com.example.hotfix.MyApplication'
+    output 'com.example.hotfix.MyApplication'
+}
 
 
 android {
+
+    signingConfigs {
+        debug {
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            storeFile file(RELEASE_STOREFILE)
+            storePassword RELEASE_STORE_PASSWORD
+        }
+        release {
+            keyAlias RELEASE_KEY_ALIAS
+            keyPassword RELEASE_KEY_PASSWORD
+            storeFile file(RELEASE_STOREFILE)
+            storePassword RELEASE_STORE_PASSWORD
+        }
+    }
 
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
@@ -36,6 +51,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // Enabling multidex support.
+        multiDexEnabled true
 
         externalNativeBuild {
             cmake {
@@ -52,13 +69,28 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
         dataBinding true
     }
+
     buildTypes {
-        release {
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            zipAlignEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     externalNativeBuild {
@@ -66,6 +98,10 @@ android {
             path "src/main/cpp/CMakeLists.txt"
             version "3.10.2"
         }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 
 }
@@ -160,20 +196,19 @@ variants.all { variant ->
 }
 
 //gradle执行会解析build.gradle文件，afterEvaluate表示在解析完成之后再执行我们的代码
-//afterEvaluate({
-//    android.getApplicationVariants().all {
-//        variant ->
-//            //获得: debug/release
-//            String variantName = variant.name
-//            //首字母大写 Debug/Release
-//            String capitalizeName = variantName.capitalize()
-//            for (Task task : project.getTasks()) {
-//                System.out.println("dexTask  : " + task.getName())
-//            }
-//            //这就是打包时，把jar和class打包成dex的任务
-//            Task dexTask =
-//                    project.getTasks().findByName("transformClassesWithDexBuilderFor" + capitalizeName);
-//            //在他打包之前执行插桩
+afterEvaluate({
+    android.getApplicationVariants().all {
+        variant ->
+            //获得: debug/release
+            String variantName = variant.name
+            //首字母大写 Debug/Release
+            String capitalizeName = variantName.capitalize()
+            for (Task task : project.getTasks()) {
+                System.out.println("dexTask  : " + task.getName())
+            }
+            //这就是打包时，把jar和class打包成dex的任务
+            Task dexTask =project.getTasks().findByName("transformClassesWithCom.alibaba.arouterForDebug" );
+            //在他打包之前执行插桩
 //            dexTask.doFirst {
 //                //任务的输入，dex打包任务要输入什么？ 自然是所有的class与jar包了！
 //                FileCollection files = dexTask.getInputs().getFiles()
@@ -193,8 +228,8 @@ variants.all { variant ->
 //                    }
 //                }
 //            }
-//    }
-//})
+    }
+})
 
 
 static boolean isAndroidClass(String filePath) {

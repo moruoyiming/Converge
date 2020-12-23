@@ -46,54 +46,59 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        iNewsService = RouteServiceManager.provide(INewsService.class, INewsService.NEWS_SERVICE);
-        if (iNewsService != null) {
-            mHomeFragment = iNewsService.getHeadlineNewsFragment();
-        }
-        fromFragment = mHomeFragment;
-        /**
-         * Disable shift method require for to prevent shifting icon.
-         * When you select any icon then remain all icon shift
-         * @param view
-         */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            disableShiftMode(viewDataBinding.bottomView);
-        }
-        viewDataBinding.bottomView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment fragCategory = null;
-                // init corresponding fragment
-                switch (item.getItemId()) {
-                    case R.id.menu_home:
-                        fragCategory = mHomeFragment;
-                        break;
-                    case R.id.menu_categories:
-                        fragCategory = mCategoryFragment;
-                        break;
-                    case R.id.menu_services:
-                        fragCategory = mServiceFragment;
-                        break;
-                    case R.id.menu_account:
-                        fragCategory = mAccountFragment;
-                        break;
-                }
-                //Set bottom menu selected item text in toolbar
-                ActionBar actionBar = getSupportActionBar();
-                if (actionBar != null) {
-                    actionBar.setTitle(item.getTitle());
-                }
-                switchFragment(fromFragment, fragCategory);
-                fromFragment = fragCategory;
-                return true;
+        try {
+            iNewsService = RouteServiceManager.provide(INewsService.class, INewsService.NEWS_SERVICE);
+            if (iNewsService != null) {
+                mHomeFragment = iNewsService.getHeadlineNewsFragment();
             }
-        });
+            fromFragment = mHomeFragment;
+            /**
+             * Disable shift method require for to prevent shifting icon.
+             * When you select any icon then remain all icon shift
+             * @param view
+             */
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                disableShiftMode(viewDataBinding.bottomView);
+            }
+            viewDataBinding.bottomView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment fragCategory = null;
+                    // init corresponding fragment
+                    switch (item.getItemId()) {
+                        case R.id.menu_home:
+                            fragCategory = mHomeFragment;
+                            break;
+                        case R.id.menu_categories:
+                            fragCategory = mCategoryFragment;
+                            break;
+                        case R.id.menu_services:
+                            fragCategory = mServiceFragment;
+                            break;
+                        case R.id.menu_account:
+                            fragCategory = mAccountFragment;
+                            break;
+                    }
+                    //Set bottom menu selected item text in toolbar
+                    ActionBar actionBar = getSupportActionBar();
+                    if (actionBar != null) {
+                        actionBar.setTitle(item.getTitle());
+                    }
+                    switchFragment(fromFragment, fragCategory);
+                    fromFragment = fragCategory;
+                    return true;
+                }
+            });
 
-        viewDataBinding.bottomView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.container, mHomeFragment, mHomeFragment.getClass().getSimpleName());
-        transaction.commit();
-        showBadgeView(3, 5);
+            viewDataBinding.bottomView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, mHomeFragment, mHomeFragment.getClass().getSimpleName());
+            transaction.commit();
+            showBadgeView(3, 5);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
     }
 
     @Override
@@ -137,7 +142,6 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseView
                 if (to != null) {
                     transaction.show(to).commit();
                 }
-
             }
         }
     }
