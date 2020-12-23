@@ -22,10 +22,11 @@
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/compiler" />
             <option value="$PROJECT_DIR$/dexdiff" />
-            <option value="$PROJECT_DIR$/hack" />
             <option value="$PROJECT_DIR$/inject" />
             <option value="$PROJECT_DIR$/network" />
             <option value="$PROJECT_DIR$/news" />
+            <option value="$PROJECT_DIR$/patch-hack" />
+            <option value="$PROJECT_DIR$/patch-lib" />
             <option value="$PROJECT_DIR$/plugin" />
             <option value="$PROJECT_DIR$/skin" />
             <option value="$PROJECT_DIR$/skins" />
