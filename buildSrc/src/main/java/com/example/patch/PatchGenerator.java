@@ -72,6 +72,10 @@ public class PatchGenerator {
         return jarOutputStream;
     }
 
+    /**
+     * 获取 Properties 文件
+     * @throws Exception
+     */
     public void generate() throws Exception {
         if (!jarFile.exists()) {
             return;
