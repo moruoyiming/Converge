@@ -27,3 +27,4 @@ captures/
 # Keystore files
 *.jks
 *.idea
+*.cxx
