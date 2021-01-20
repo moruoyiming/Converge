@@ -156,6 +156,14 @@
         <activity android:name=".note.plugin.ProxyActivity">
 
         </activity>
+        <activity android:name=".note.dagger2.FirstActivity">
+
+        </activity>
+
+        <activity android:name=".note.dagger2.SecondActivity">
+
+        </activity>
+
         <service
             android:name=".note.binder.demo.server.RemoteService"
             android:exported="true"

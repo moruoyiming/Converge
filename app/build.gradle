@@ -108,7 +108,8 @@ android {
 
 
 dependencies {
-
+    implementation 'com.google.dagger:dagger:2.28.3'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
     api project(':news')
     api project(':aop')
     api project(':inject')

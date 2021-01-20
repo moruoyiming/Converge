@@ -30,6 +30,7 @@ import com.example.hotfix.note.class18.FishActivity;
 import com.example.hotfix.note.class19.RecyclerViewActivity;
 import com.example.hotfix.note.class20.SlideCardActivity;
 import com.example.hotfix.note.class21.ViewPagerLazyActivity;
+import com.example.hotfix.note.dagger2.FirstActivity;
 import com.example.hotfix.note.plugin.PluginTestActivity;
 import com.example.hotfix.utils.Hotfix;
 import com.example.hotfix.utils.Utils;
@@ -75,6 +76,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.socket.setOnClickListener(this);
         mBinding.plugin.setOnClickListener(this);
         mBinding.hotfix.setOnClickListener(this);
+        mBinding.dagger2.setOnClickListener(this);
     }
 
     @Override
@@ -179,6 +181,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.hotfix:
                 Utils.what();
+                break;
+            case R.id.dagger2:
+                Intent dagger2 = new Intent(getActivity(), FirstActivity.class);
+                startActivity(dagger2);
                 break;
         }
     }
