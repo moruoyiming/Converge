@@ -19,6 +19,8 @@ buildscript {
         // in the individual module build.gradle files
         classpath 'org.aspectj:aspectjtools:1.9.2'
         classpath 'org.aspectj:aspectjweaver:1.9.2'
+
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
     }
 }
 
