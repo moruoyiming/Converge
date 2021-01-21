@@ -164,6 +164,10 @@
 
         </activity>
 
+        <activity android:name=".note.dagger3.DaggerActivity">
+
+        </activity>
+
         <service
             android:name=".note.binder.demo.server.RemoteService"
             android:exported="true"
