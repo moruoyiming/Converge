@@ -12,7 +12,7 @@ import java.util.jar.JarOutputStream
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.alibaba.arouter'
-apply plugin: 'dagger.hilt.android.plugin'
+//apply plugin: 'dagger.hilt.android.plugin'
 // 引入自定义Gradle 插件方式
 // 第一种方式 直接引入
 //apply plugin:com.example.patch.PatchPlugin
@@ -117,13 +117,13 @@ dependencies {
     implementation project(':arouter-annotations')
     implementation 'org.aspectj:aspectjrt:1.9.2'
     //hilt
-    implementation "com.google.dagger:hilt-android:2.28-alpha"
-    annotationProcessor "com.google.dagger:hilt-android-compiler:2.28-alpha"
+//    implementation "com.google.dagger:hilt-android:2.28-alpha"
+//    annotationProcessor "com.google.dagger:hilt-android-compiler:2.28-alpha"
 
     //net
     implementation 'com.android.volley:volley:1.1.0'
-    implementation 'com.google.code.gson:gson:2.2.4'
-    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'org.xutils:xutils:3.3.36'
 }
 tasks.withType(JavaCompile) {

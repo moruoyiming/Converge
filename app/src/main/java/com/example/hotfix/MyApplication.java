@@ -11,13 +11,22 @@ import com.cocos.base.loadsir.TimeoutCallback;
 import com.cocos.base.preference.PreferencesUtil;
 import com.cocos.base.utils.ToastUtil;
 import com.cocos.network.base.NetworkApi;
+import com.example.hotfix.note.hilt.annotation.BindXUtils;
+import com.example.hotfix.note.hilt.httpprocessor.IHttpProcessor;
 import com.example.hotfix.utils.Hotfix;
 import com.example.hotfix.utils.NetworkRequestInfo;
 import com.kingja.loadsir.core.LoadSir;
 
 import java.io.File;
 
+import javax.inject.Inject;
+
+//import dagger.hilt.InstallIn;
+//import dagger.hilt.android.HiltAndroidApp;
+//import dagger.hilt.android.components.ApplicationComponent;
+//@HiltAndroidApp
 public class MyApplication extends BaseApplication {
+
 
     @Override
     public void onCreate() {
@@ -39,5 +48,15 @@ public class MyApplication extends BaseApplication {
                 .setDefaultCallback(LoadingCallback.class)//设置默认状态页
                 .commit();
 
+    }
+
+
+    @BindXUtils
+    @Inject
+    IHttpProcessor iHttpProcessor;
+
+
+    public IHttpProcessor getiHttpProcessor(){
+        return iHttpProcessor;
     }
 }
