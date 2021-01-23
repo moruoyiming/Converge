@@ -32,6 +32,8 @@ import com.example.hotfix.note.class20.SlideCardActivity;
 import com.example.hotfix.note.class21.ViewPagerLazyActivity;
 import com.example.hotfix.note.dagger2.FirstActivity;
 import com.example.hotfix.note.dagger3.DaggerActivity;
+import com.example.hotfix.note.jetpack.lifecycle.LifeCycleActivity;
+import com.example.hotfix.note.jetpack.livedata.LiveDataActivity;
 import com.example.hotfix.note.plugin.PluginTestActivity;
 import com.example.hotfix.utils.Hotfix;
 import com.example.hotfix.utils.Utils;
@@ -79,6 +81,8 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.hotfix.setOnClickListener(this);
         mBinding.dagger2.setOnClickListener(this);
         mBinding.dagger3.setOnClickListener(this);
+        mBinding.lifecycle.setOnClickListener(this);
+        mBinding.livedata.setOnClickListener(this);
     }
 
     @Override
@@ -87,8 +91,8 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.openWeb1:
 //                WebviewActivity.startCommonWeb(getActivity(), "腾讯网", "https://xw.qq.com/?f=qqcom");
                 IWebViewService webviewService = XiangxueServiceLoader.load(IWebViewService.class);
-                if(webviewService != null) {
-                    webviewService.startWebViewActivity(getActivity(), "https://www.baidu.com", "百度",false);
+                if (webviewService != null) {
+                    webviewService.startWebViewActivity(getActivity(), "https://www.baidu.com", "百度", false);
                 }
                 break;
             case R.id.openWeb2:
@@ -178,7 +182,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 startActivity(socket);
                 break;
             case R.id.plugin:
-                Intent plugin=new Intent(getActivity(), PluginTestActivity.class);
+                Intent plugin = new Intent(getActivity(), PluginTestActivity.class);
                 startActivity(plugin);
                 break;
             case R.id.hotfix:
@@ -191,6 +195,14 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.dagger3:
                 Intent dagger3 = new Intent(getActivity(), DaggerActivity.class);
                 startActivity(dagger3);
+                break;
+            case R.id.lifecycle:
+                Intent lifecycle = new Intent(getActivity(), LifeCycleActivity.class);
+                startActivity(lifecycle);
+                break;
+            case R.id.livedata:
+                Intent livedata = new Intent(getActivity(), LiveDataActivity.class);
+                startActivity(livedata);
                 break;
         }
     }

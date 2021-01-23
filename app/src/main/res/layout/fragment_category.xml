@@ -229,6 +229,25 @@
                 android:padding="15dp"
                 android:text="dagger3"
                 android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/lifecycle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="lifecycle"
+                android:textColor="#ffffff" />
+            <TextView
+                android:id="@+id/livedata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="livedata"
+                android:textColor="#ffffff" />
         </com.example.hotfix.widget.FlowLayout>
     </RelativeLayout>
 </layout>

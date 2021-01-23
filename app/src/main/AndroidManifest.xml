@@ -27,146 +27,53 @@
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:name=".note.class01.DemoActivity">
-
-        </activity>
-        <activity android:name=".activity.NetworkActivity">
-
-        </activity>
-        <activity android:name=".note.class02.retrofitdemo.RetrofitActivity">
-
-        </activity>
+        <activity android:name=".note.class01.DemoActivity"/>
+        <activity android:name=".activity.NetworkActivity"/>
+        <activity android:name=".note.class02.retrofitdemo.RetrofitActivity"/>
         <activity
             android:name=".note.class01.AActivity"
-            android:launchMode="singleTask">
-
-        </activity>
-        <activity android:name=".note.class01.BActivity">
-
-        </activity>
-        <activity android:name=".note.class01.CActivity">
-
-        </activity>
-        <activity android:name=".activity.PermissionActivity">
-
-        </activity>
-        <activity android:name=".note.class02.InjectActivity">
-
-        </activity>
-        <activity android:name=".note.class15.ScrollActivity">
-
-        </activity>
-        <activity android:name=".note.class15.nestedscroll.a_scrollview_recyclerview.NestedViewPagerActivityTest1">
-
-        </activity>
-
-        <activity android:name=".note.class15.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2">
-
-        </activity>
-        <activity android:name=".note.class15.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3">
-
-        </activity>
-        <activity android:name=".note.class15.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity">
-
-        </activity>
-        <activity android:name=".note.class15.nestedscroll.d_nestedscroll_log.NestedViewPagerActivityTest4">
-
-        </activity>
-
-        <activity android:name=".note.class16.inner.InnerInterceptActivity">
-
-        </activity>
-
-        <activity android:name=".note.class16.outer.OuterInterceptActivity">
-
-        </activity>
-
-        <activity android:name=".note.class17.activity.DrawTextActivity">
-
-        </activity>
-
-        <activity android:name=".note.class17.activity.OtherActivity">
-
-        </activity>
-
-        <activity android:name=".note.class17.activity.OverDrawActivity">
-
-        </activity>
-
-        <activity android:name=".note.class17.activity.SimpleActivity">
-
-        </activity>
-
-        <activity android:name=".note.class17.activity.TextMeasureActivity">
-
-        </activity>
-        <activity android:name=".note.class17.activity.ViewPagerActivity">
-
-        </activity>
-        <activity android:name=".note.class17.MainActivity">
-
-        </activity>
-        <activity android:name=".note.class18.FishActivity">
-
-        </activity>
-
-        <activity android:name=".note.class19.RecyclerViewActivity">
-
-        </activity>
-
-        <activity android:name=".note.class20.SlideCardActivity">
-
-        </activity>
-
-        <activity android:name=".note.class21.ViewPagerLazyActivity">
-
-        </activity>
-
-        <activity android:name=".note.class21.Main2Activity">
-
-        </activity>
-        <activity android:name=".note.binder.MMAPActivity">
-
-        </activity>
-        <activity android:name=".note.binder.demo.client.ClientActivity">
-
-        </activity>
-
-        <activity android:name=".activity.socket.ComplexDemoActivity">
-
-        </activity>
-
-        <activity android:name=".activity.socket.DemoActivity">
-
-        </activity>
-
-        <activity android:name=".activity.socket.SimpleDemoActivity">
-
-        </activity>
-
-        <activity android:name=".activity.socket.ServerAdminActivity">
-
-        </activity>
-
-        <activity android:name=".note.plugin.PluginTestActivity"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-
-        </activity>
-
-        <activity android:name=".note.plugin.ProxyActivity">
-
-        </activity>
-        <activity android:name=".note.dagger2.FirstActivity">
-
-        </activity>
-
-        <activity android:name=".note.dagger2.SecondActivity">
-
-        </activity>
-
-        <activity android:name=".note.dagger3.DaggerActivity">
-
-        </activity>
+            android:launchMode="singleTask"/>
+        <activity android:name=".note.class01.BActivity"/>
+        <activity android:name=".note.class01.CActivity"/>
+        <activity android:name=".activity.PermissionActivity"/>
+        <activity android:name=".note.class02.InjectActivity"/>
+        <activity android:name=".note.class15.ScrollActivity"/>
+        <activity android:name=".note.class15.nestedscroll.a_scrollview_recyclerview.NestedViewPagerActivityTest1"/>
+        <activity android:name=".note.class15.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2"/>
+        <activity android:name=".note.class15.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3"/>
+        <activity android:name=".note.class15.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity"/>
+        <activity android:name=".note.class15.nestedscroll.d_nestedscroll_log.NestedViewPagerActivityTest4"/>
+        <activity android:name=".note.class16.inner.InnerInterceptActivity"/>
+        <activity android:name=".note.class16.outer.OuterInterceptActivity"/>
+        <activity android:name=".note.class17.activity.DrawTextActivity"/>
+        <activity android:name=".note.class17.activity.OtherActivity"/>
+        <activity android:name=".note.class17.activity.OverDrawActivity"/>
+        <activity android:name=".note.class17.activity.SimpleActivity"/>
+        <activity android:name=".note.class17.activity.TextMeasureActivity"/>
+        <activity android:name=".note.class17.activity.ViewPagerActivity"/>
+        <activity android:name=".note.class17.MainActivity"/>
+        <activity android:name=".note.class18.FishActivity"/>
+        <activity android:name=".note.class19.RecyclerViewActivity"/>
+        <activity android:name=".note.class20.SlideCardActivity"/>
+        <activity android:name=".note.class21.ViewPagerLazyActivity"/>
+        <activity android:name=".note.class21.Main2Activity"/>
+        <activity android:name=".note.binder.MMAPActivity"/>
+        <activity android:name=".note.binder.demo.client.ClientActivity"/>
+        <activity android:name=".activity.socket.ComplexDemoActivity"/>
+        <activity android:name=".activity.socket.DemoActivity"/>
+        <activity android:name=".activity.socket.SimpleDemoActivity"/>
+        <activity android:name=".activity.socket.ServerAdminActivity"/>
+        <activity
+            android:name=".note.plugin.PluginTestActivity"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
+        <activity android:name=".note.plugin.ProxyActivity"/>
+        <activity android:name=".note.dagger2.FirstActivity"/>
+        <activity android:name=".note.dagger2.SecondActivity"/>
+        <activity android:name=".note.dagger3.DaggerActivity"/>
+        <activity android:name=".note.jetpack.lifecycle.LifeCycleActivity"/>
+        <activity android:name=".note.jetpack.livedata.LiveDataActivity"/>
+        <activity android:name=".note.jetpack.livedata.NameActivity" />
+        <activity android:name=".note.jetpack.livedata.TestLiveDataBusActivity"/>
 
         <service
             android:name=".note.binder.demo.server.RemoteService"
