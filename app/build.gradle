@@ -125,6 +125,20 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'org.xutils:xutils:3.3.36'
+
+
+    def room_version = "2.0.0-beta01"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version" // use kapt for Kotlin
+    // optional - RxJava support for Room
+    implementation "androidx.room:room-rxjava2:$room_version"
+    // optional - Guava support for Room, including Optional and ListenableFuture
+    implementation "androidx.room:room-guava:$room_version"
+    // Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
