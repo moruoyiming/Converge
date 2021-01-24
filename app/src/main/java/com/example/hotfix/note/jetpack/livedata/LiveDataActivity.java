@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hotfix.R;
 import com.example.hotfix.note.jetpack.livedata.databus.LiveDataBus;
+import com.example.hotfix.note.jetpack.livedata.databus.LiveDataBusX;
 
 
 public class LiveDataActivity extends AppCompatActivity {
@@ -31,21 +32,15 @@ public class LiveDataActivity extends AppCompatActivity {
                 public void run() {
                     for (int i = 0; i < 10; i++) {
                         //发送消息
-                        LiveDataBus.getInstance().with("data", String.class).postValue("jett");
+                        LiveDataBusX.getInstance().with("data", String.class).postValue("jett"+i);
                         try {
                             Thread.sleep(5000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-
-
                     }
                 }
             }.start();
-
-
         }
     }
-
-
 }

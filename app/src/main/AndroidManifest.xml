@@ -74,7 +74,7 @@
         <activity android:name=".note.jetpack.livedata.LiveDataActivity"/>
         <activity android:name=".note.jetpack.livedata.NameActivity" />
         <activity android:name=".note.jetpack.livedata.TestLiveDataBusActivity"/>
-
+        <activity android:name=".note.jetpack.databinding.DataBindingActivity"/>
         <service
             android:name=".note.binder.demo.server.RemoteService"
             android:exported="true"

@@ -248,6 +248,16 @@
                 android:padding="15dp"
                 android:text="livedata"
                 android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/databinding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="databinding"
+                android:textColor="#ffffff" />
         </com.example.hotfix.widget.FlowLayout>
     </RelativeLayout>
 </layout>
