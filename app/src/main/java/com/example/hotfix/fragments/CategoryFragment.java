@@ -36,6 +36,7 @@ import com.example.hotfix.note.jetpack.databinding.DataBindingActivity;
 import com.example.hotfix.note.jetpack.lifecycle.LifeCycleActivity;
 import com.example.hotfix.note.jetpack.livedata.LiveDataActivity;
 import com.example.hotfix.note.jetpack.room.RoomActivity;
+import com.example.hotfix.note.jetpack.room.ViewModelActivity;
 import com.example.hotfix.note.plugin.PluginTestActivity;
 import com.example.hotfix.utils.Hotfix;
 import com.example.hotfix.utils.Utils;
@@ -87,6 +88,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.livedata.setOnClickListener(this);
         mBinding.databinding.setOnClickListener(this);
         mBinding.room.setOnClickListener(this);
+        mBinding.viewmodel.setOnClickListener(this);
     }
 
     @Override
@@ -215,6 +217,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.room:
                 Intent room = new Intent(getActivity(), RoomActivity.class);
                 startActivity(room);
+                break;
+            case R.id.viewmodel:
+                Intent viewmodel = new Intent(getActivity(), ViewModelActivity.class);
+                startActivity(viewmodel);
                 break;
         }
     }

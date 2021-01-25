@@ -1,11 +1,12 @@
 package com.example.hotfix.note.jetpack.room;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
-import androidx.room.Index;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
 
 import java.util.List;
 
@@ -34,6 +35,9 @@ public interface StudentDao {
     public List<StudentTuple> getRecord();
 
 //    @Query("select x,x,x from where student.x==address.x")
+
+    @Query("select * from Student order by uid")
+    LiveData<List<Student>> getAllLiveDataStudent();
 
 }
 
