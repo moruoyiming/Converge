@@ -77,6 +77,7 @@
         <activity android:name=".note.jetpack.databinding.DataBindingActivity"/>
         <activity android:name=".note.jetpack.room.RoomActivity"/>
         <activity android:name=".note.jetpack.room.ViewModelActivity"/>
+        <activity android:name=".note.jetpack.navigation.NavigationActivity"/>
         <service
             android:name=".note.binder.demo.server.RemoteService"
             android:exported="true"

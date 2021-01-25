@@ -109,8 +109,6 @@ android {
 
 
 dependencies {
-    implementation 'com.google.dagger:dagger:2.28.3'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.16'
     api project(':news')
     api project(':aop')
     api project(':inject')
@@ -126,7 +124,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'org.xutils:xutils:3.3.36'
 
-
+    implementation 'com.google.dagger:dagger:2.28.3'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.28'
     def room_version = "2.0.0-beta01"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version" // use kapt for Kotlin
@@ -136,9 +135,13 @@ dependencies {
     implementation "androidx.room:room-guava:$room_version"
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
-
     //ViewModel
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    //Navigation
+    def nav_version = "2.3.2"
+    // Java language implementation
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
@@ -18,10 +19,13 @@ public class DaggerActivity extends Activity {
     ObjectForMainModule objectForMainModule;
     @Inject
     ObjectForTestSubModule objectForTestSubModule;
+    TextView textView;
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dagger);
+        textView = findViewById(R.id.tv_dagger3);
         DaggerMainComponent
                 .create()
                 .getTestSubComponent()
@@ -30,9 +34,9 @@ public class DaggerActivity extends Activity {
 //                .builder()
 //                .mainModule(new MainModule())
 //                .build();
+        textView.setText("hashCode()"+objectForMainModule.hashCode()+"  "+objectForTestSubModule.hashCode());
         Log.i("Dagge2", "onCreate: "+objectForMainModule.hashCode());
         Log.i("Dagge2", "onCreate: "+objectForTestSubModule.hashCode());
-
-
     }
+
 }

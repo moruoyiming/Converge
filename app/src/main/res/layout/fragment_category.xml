@@ -42,6 +42,15 @@
                 android:text="网络请求"
                 android:textColor="#ffffff" />
 
+            <TextView
+                android:id="@+id/skin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="换肤"
+                android:textColor="#ffffff" />
 
             <TextView
                 android:id="@+id/annotions"
@@ -73,15 +82,6 @@
                 android:text="aop动态权限申请"
                 android:textColor="#ffffff" />
 
-            <TextView
-                android:id="@+id/skin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/shape_button_circular"
-                android:padding="15dp"
-                android:text="换肤"
-                android:textColor="#ffffff" />
 
             <TextView
                 android:id="@+id/views"
@@ -131,9 +131,8 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
-                android:text="recyclerview吸顶"
+                android:text="rv吸顶"
                 android:textColor="#ffffff" />
-
             <TextView
                 android:id="@+id/recyclerview2"
                 android:layout_width="wrap_content"
@@ -141,7 +140,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
-                android:text="recyclerview回收复用"
+                android:text="rv回收复用"
                 android:textColor="#ffffff" />
 
             <TextView
@@ -193,6 +192,7 @@
                 android:padding="15dp"
                 android:text="socket"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/plugin"
                 android:layout_width="wrap_content"
@@ -202,6 +202,7 @@
                 android:padding="15dp"
                 android:text="插件化"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/hotfix"
                 android:layout_width="wrap_content"
@@ -211,6 +212,7 @@
                 android:padding="15dp"
                 android:text="热修复"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/dagger2"
                 android:layout_width="wrap_content"
@@ -220,6 +222,7 @@
                 android:padding="15dp"
                 android:text="dagger2"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/dagger3"
                 android:layout_width="wrap_content"
@@ -239,6 +242,7 @@
                 android:padding="15dp"
                 android:text="lifecycle"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/livedata"
                 android:layout_width="wrap_content"
@@ -277,6 +281,16 @@
                 android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
                 android:text="viewmodel"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/navigation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="navigation"
                 android:textColor="#ffffff" />
         </com.example.hotfix.widget.FlowLayout>
     </RelativeLayout>

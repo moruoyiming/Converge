@@ -44,7 +44,7 @@ public class ViewModelActivity extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    studentViewModel.update(new Student(6,"jett"+i,"123",i));
+//                    studentViewModel.update(new Student(6,"jett"+i,"123",i));
                 }
             }
         }.start();

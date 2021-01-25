@@ -19,7 +19,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (appdatabase == null) {
             appdatabase = Room.databaseBuilder(context
                     , AppDatabase.class
-                    , "jettDB")
+                    , "jettDB2")
                     // 可以强制在主线程运行数据库操作
                     .allowMainThreadQueries()
                     //强制升级 数据库数据丢失

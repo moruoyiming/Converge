@@ -3,9 +3,10 @@ package com.example.hotfix.note.jetpack.room;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-
-@Entity(foreignKeys = @ForeignKey(entity = Address.class, parentColumns = "addressId", childColumns = "addressId"))
+//(foreignKeys = @ForeignKey(entity = Address.class, parentColumns = "addressId", childColumns = "addressId"))
+@Entity
 public class Student {
     @PrimaryKey(autoGenerate = true)
     private int uid;
@@ -25,7 +26,7 @@ public class Student {
     @ColumnInfo(name = "addressId")
     private int addressId;
     //数据库升级 增加字段
-    @ColumnInfo(name ="flag")
+    @ColumnInfo(name = "flag")
     private boolean flag;
 
     @Override
@@ -77,6 +78,7 @@ public class Student {
         this.addressId = addressId;
     }
 
+    @Ignore
     public Student(int uid, String name, String password, int addressId) {
         this.uid = uid;
         this.name = name;

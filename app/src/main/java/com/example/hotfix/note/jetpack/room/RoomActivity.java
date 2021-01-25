@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.hotfix.R;
 
@@ -12,11 +13,13 @@ import java.util.List;
 
 public class RoomActivity extends AppCompatActivity {
 
+    TextView tvRoom;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room);
-
+        tvRoom = findViewById(R.id.tv_room);
         //数据库的操作应该是在子线程
         DbTest t=new DbTest();
         t.start();
@@ -45,6 +48,8 @@ public class RoomActivity extends AppCompatActivity {
 
             List<StudentTuple> record=dao.getRecord();
             Log.i("jett",record.toString());
+
+            tvRoom.setText(list.toString());
         }
     }
 
