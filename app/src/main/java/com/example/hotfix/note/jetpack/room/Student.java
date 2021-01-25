@@ -24,6 +24,9 @@ public class Student {
     private String password;
     @ColumnInfo(name = "addressId")
     private int addressId;
+    //数据库升级 增加字段
+    @ColumnInfo(name ="flag")
+    private boolean flag;
 
     @Override
     public String toString() {
@@ -58,6 +61,14 @@ public class Student {
 
     public void setAddressId(int addressId) {
         this.addressId = addressId;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 
     public Student(String name, String password, int addressId) {

@@ -9,7 +9,7 @@ public class Person {
     @PrimaryKey
     private int name;
 
-    @Embedded
+    @Embedded//描述对象类型
     private Address address;
 
     public Person(int name, Address address) {

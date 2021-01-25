@@ -29,7 +29,7 @@ public class RoomActivity extends AppCompatActivity {
             AppDatabase jettDB= Room.databaseBuilder(getApplicationContext()
                             ,AppDatabase.class
                             ,"jettDB").build();
-            StudentDao dao=jettDB.userDao();
+            StudentDao dao=jettDB.studentDao();
             dao.insert(new Student("jett","123",1));
             dao.insert(new Student("jett1","123",2));
             dao.insert(new Student("jett2","123",3));

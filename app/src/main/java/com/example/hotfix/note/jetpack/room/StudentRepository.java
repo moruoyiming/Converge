@@ -12,7 +12,7 @@ public class StudentRepository {
 
     public StudentRepository(Context context) {
         AppDatabase database = AppDatabase.getInstance(context);
-        studentDao = database.userDao();
+        studentDao = database.studentDao();
         if (liveDataAllStudent == null) {
             liveDataAllStudent = studentDao.getAllLiveDataStudent();
         }

@@ -2,7 +2,6 @@ package com.example.hotfix.note.jetpack.room;
 
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.widget.ListView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
