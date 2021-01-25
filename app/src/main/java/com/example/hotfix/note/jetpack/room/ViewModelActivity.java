@@ -20,8 +20,8 @@ public class ViewModelActivity extends AppCompatActivity {
     private ActivityViewmodelBinding binding;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_viewmodel);
         studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);
         studentViewModel.getLiveDataAllStudent().observe(this, new Observer<List<Student>>() {
@@ -44,12 +44,10 @@ public class ViewModelActivity extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-//                    studentViewModel.update(new Student(6,"jett"+i,"123",i));
+                    studentViewModel.update(new Student(6, "jett" + i, "123", i));
                 }
             }
         }.start();
-
     }
-
 
 }
