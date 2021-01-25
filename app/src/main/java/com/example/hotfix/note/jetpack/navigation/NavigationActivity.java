@@ -23,7 +23,7 @@ public class NavigationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_navigation);
         findViewById(R.id.action_page1);
         bottomNavigationView=findViewById(R.id.nav_view);
-        //        NavController controller=Navigation.findNavController(this,R.id.my_nav_host_fragment);
+//      NavController controller=Navigation.findNavController(this,R.id.my_nav_host_fragment);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.my_nav_host_fragment);
         NavController controller = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(bottomNavigationView, controller);
