@@ -60,7 +60,7 @@ public class HookUtils {
                                 Intent intent = (Intent) args[index];
 
                                 Intent proxyIntent = new Intent();
-                                proxyIntent.setComponent(new ComponentName("com.example.hotfix", "com.example.hotfix.note.plugin.ProxyActivity"));
+                                proxyIntent.setComponent(new ComponentName("com.example.hotfix", "com.example.hotfix.note.androidbasics.plugin.ProxyActivity"));
                                 proxyIntent.putExtra(TARGET_INTENT, intent);
                                 args[index] = proxyIntent;
                             }

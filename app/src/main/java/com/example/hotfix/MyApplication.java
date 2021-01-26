@@ -11,13 +11,10 @@ import com.cocos.base.loadsir.TimeoutCallback;
 import com.cocos.base.preference.PreferencesUtil;
 import com.cocos.base.utils.ToastUtil;
 import com.cocos.network.base.NetworkApi;
-import com.example.hotfix.note.hilt.annotation.BindXUtils;
-import com.example.hotfix.note.hilt.httpprocessor.IHttpProcessor;
-import com.example.hotfix.utils.Hotfix;
+import com.example.hotfix.note.frame.hilt.annotation.BindXUtils;
+import com.example.hotfix.note.frame.hilt.httpprocessor.IHttpProcessor;
 import com.example.hotfix.utils.NetworkRequestInfo;
 import com.kingja.loadsir.core.LoadSir;
-
-import java.io.File;
 
 import javax.inject.Inject;
 
