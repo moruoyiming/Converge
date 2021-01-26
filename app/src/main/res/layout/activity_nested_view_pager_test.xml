@@ -6,7 +6,7 @@
         android:id="@+id/swipe_refresh_layout"
         android:layout_height="match_parent">
 
-        <com.example.hotfix.note.class15.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedScrollLayoutTest
+        <com.example.hotfix.note.nestedscroll.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedScrollLayoutTest
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -16,7 +16,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.example.hotfix.note.class15.common.views.xxrecyclerview.FixedDataScrollDisabledRecyclerView
+                <com.example.hotfix.note.nestedscroll.common.views.xxrecyclerview.FixedDataScrollDisabledRecyclerView
                     android:id="@+id/combo_top_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -37,7 +37,7 @@
                         android:layout_height="match_parent" />
                 </LinearLayout>
             </LinearLayout>
-        </com.example.hotfix.note.class15.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedScrollLayoutTest>
+        </com.example.hotfix.note.nestedscroll.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedScrollLayoutTest>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>

@@ -16,7 +16,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.example.hotfix.note.class15.common.views.xxrecyclerview.FixedDataScrollDisabledRecyclerView
+                <com.example.hotfix.note.nestedscroll.common.views.xxrecyclerview.FixedDataScrollDisabledRecyclerView
                     android:id="@+id/combo_top_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />

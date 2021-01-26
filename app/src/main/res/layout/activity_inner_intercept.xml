@@ -6,16 +6,16 @@
     android:orientation="vertical"
   >
 
-    <com.example.hotfix.note.class16.inner.InnerInterceptSwipeRefreshLayout
+    <com.example.hotfix.note.dispatch.inner.InnerInterceptSwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.hotfix.note.class16.inner.InnerInterceptViewPager
+        <com.example.hotfix.note.dispatch.inner.InnerInterceptViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </com.example.hotfix.note.class16.inner.InnerInterceptSwipeRefreshLayout>
+    </com.example.hotfix.note.dispatch.inner.InnerInterceptSwipeRefreshLayout>
 
 </LinearLayout>

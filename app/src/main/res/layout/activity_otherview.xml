@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".activity.OtherActivity">
 
-    <com.example.hotfix.note.class17.view.OtherView
+    <com.example.hotfix.note.drawtext.view.OtherView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
