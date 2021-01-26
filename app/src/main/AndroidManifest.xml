@@ -79,6 +79,7 @@
         <activity android:name=".note.jetpack.room.ViewModelActivity"/>
         <activity android:name=".note.jetpack.navigation.NavigationActivity"/>
         <activity android:name=".note.jetpack.paging.PagingActivity"/>
+        <activity android:name=".note.jetpack.workmanager.WorkManagerActivity"/>
         <service
             android:name=".note.binder.demo.server.RemoteService"
             android:exported="true"

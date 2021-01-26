@@ -8,6 +8,9 @@ public class PersonDataSourceFactory extends DataSource.Factory<Integer, Person>
     @NonNull
     @Override
     public DataSource<Integer, Person> create() {
-        return new CustomItemDataSource(new DataRepository());
+        CustomPageDataSource pageDataSource = new CustomPageDataSource(new DataRepository());
+        PersonDataSource personDataSource = new PersonDataSource();
+        CustomItemDataSource customItemDataSource = new CustomItemDataSource(new DataRepository());
+        return pageDataSource;
     }
 }

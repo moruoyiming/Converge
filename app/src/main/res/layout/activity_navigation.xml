@@ -27,6 +27,7 @@
         android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
         app:itemTextColor="#ff0000"
         app:menu="@menu/menu"/>
 

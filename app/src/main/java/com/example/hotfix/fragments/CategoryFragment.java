@@ -39,6 +39,7 @@ import com.example.hotfix.note.jetpack.navigation.NavigationActivity;
 import com.example.hotfix.note.jetpack.paging.PagingActivity;
 import com.example.hotfix.note.jetpack.room.RoomActivity;
 import com.example.hotfix.note.jetpack.room.ViewModelActivity;
+import com.example.hotfix.note.jetpack.workmanager.WorkManagerActivity;
 import com.example.hotfix.note.plugin.PluginTestActivity;
 import com.example.hotfix.utils.Hotfix;
 import com.example.hotfix.utils.Utils;
@@ -93,6 +94,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.viewmodel.setOnClickListener(this);
         mBinding.navigation.setOnClickListener(this);
         mBinding.paging.setOnClickListener(this);
+        mBinding.workmanager.setOnClickListener(this);
     }
 
     @Override
@@ -233,6 +235,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
             case R.id.paging:
                 Intent paging = new Intent(getActivity(), PagingActivity.class);
                 startActivity(paging);
+                break;
+            case R.id.workmanager:
+                Intent workmanager = new Intent(getActivity(), WorkManagerActivity.class);
+                startActivity(workmanager);
                 break;
         }
     }
