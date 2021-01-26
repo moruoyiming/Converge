@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <com.example.hotfix.note.ui.drawtext.view.ColorChangeTextView1
+        <com.example.converge.note.ui.drawtext.view.ColorChangeTextView1
             android:id="@+id/id_tab_01"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -24,7 +24,7 @@
             app:text_color_change="#ffff0000"
             app:text_size="18sp" />
 
-        <com.example.hotfix.note.ui.drawtext.view.ColorChangeTextView1
+        <com.example.converge.note.ui.drawtext.view.ColorChangeTextView1
             android:id="@+id/id_tab_02"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -34,7 +34,7 @@
             app:text_color_change="#ffff0000"
             app:text_size="18sp" />
 
-        <com.example.hotfix.note.ui.drawtext.view.ColorChangeTextView1
+        <com.example.converge.note.ui.drawtext.view.ColorChangeTextView1
             android:id="@+id/id_tab_03"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -44,7 +44,7 @@
             app:text_color_change="#ffff0000"
             app:text_size="18sp" />
 
-        <com.example.hotfix.note.ui.drawtext.view.ColorChangeTextView1
+        <com.example.converge.note.ui.drawtext.view.ColorChangeTextView1
             android:id="@+id/id_tab_04"
             android:layout_width="0dp"
             android:layout_height="match_parent"

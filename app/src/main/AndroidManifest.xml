@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.hotfix">
+    package="com.example.converge">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name=".MyApplication"
+        android:name="com.example.converge.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.example.converge.activity.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,63 +25,63 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.example.converge.activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:name=".note.androidbasics.activitylifecycle.DemoActivity"/>
-        <activity android:name=".activity.NetworkActivity"/>
-        <activity android:name=".note.javabasics.inject.retrofitdemo.RetrofitActivity"/>
+        <activity android:name="com.example.converge.note.androidbasics.activitylifecycle.DemoActivity"/>
+        <activity android:name="com.example.converge.activity.NetworkActivity"/>
+        <activity android:name="com.example.converge.note.javabasics.inject.retrofitdemo.RetrofitActivity"/>
         <activity
-            android:name=".note.androidbasics.activitylifecycle.AActivity"
+            android:name="com.example.converge.note.androidbasics.activitylifecycle.AActivity"
             android:launchMode="singleTask"/>
-        <activity android:name=".note.androidbasics.activitylifecycle.BActivity"/>
-        <activity android:name=".note.androidbasics.activitylifecycle.CActivity"/>
-        <activity android:name=".activity.PermissionActivity"/>
-        <activity android:name=".note.javabasics.inject.InjectActivity"/>
-        <activity android:name=".note.ui.nestedscroll.ScrollActivity"/>
-        <activity android:name=".note.ui.nestedscroll.nestedscroll.a_scrollview_recyclerview.NestedViewPagerActivityTest1"/>
-        <activity android:name=".note.ui.nestedscroll.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2"/>
-        <activity android:name=".note.ui.nestedscroll.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3"/>
-        <activity android:name=".note.ui.nestedscroll.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity"/>
-        <activity android:name=".note.ui.nestedscroll.nestedscroll.d_nestedscroll_log.NestedViewPagerActivityTest4"/>
-        <activity android:name=".note.androidbasics.dispatch.inner.InnerInterceptActivity"/>
-        <activity android:name=".note.androidbasics.dispatch.outer.OuterInterceptActivity"/>
-        <activity android:name=".note.ui.drawtext.activity.DrawTextActivity"/>
-        <activity android:name=".note.ui.drawtext.activity.OtherActivity"/>
-        <activity android:name=".note.ui.drawtext.activity.OverDrawActivity"/>
-        <activity android:name=".note.ui.drawtext.activity.SimpleActivity"/>
-        <activity android:name=".note.ui.drawtext.activity.TextMeasureActivity"/>
-        <activity android:name=".note.ui.drawtext.activity.ViewPagerActivity"/>
-        <activity android:name=".note.ui.drawtext.MainActivity"/>
-        <activity android:name=".note.ui.fish.FishActivity"/>
-        <activity android:name=".note.ui.recyclerview.RecyclerViewActivity"/>
-        <activity android:name=".note.ui.slideview.SlideCardActivity"/>
-        <activity android:name=".note.ui.viewpager.ViewPagerLazyActivity"/>
-        <activity android:name=".note.ui.viewpager.Main2Activity"/>
-        <activity android:name=".note.framework.binder.MMAPActivity"/>
-        <activity android:name=".note.framework.binder.demo.client.ClientActivity"/>
-        <activity android:name=".activity.socket.ComplexDemoActivity"/>
-        <activity android:name=".activity.socket.DemoActivity"/>
-        <activity android:name=".activity.socket.SimpleDemoActivity"/>
-        <activity android:name=".activity.socket.ServerAdminActivity"/>
+        <activity android:name="com.example.converge.note.androidbasics.activitylifecycle.BActivity"/>
+        <activity android:name="com.example.converge.note.androidbasics.activitylifecycle.CActivity"/>
+        <activity android:name="com.example.converge.activity.PermissionActivity"/>
+        <activity android:name="com.example.converge.note.javabasics.inject.InjectActivity"/>
+        <activity android:name="com.example.converge.note.ui.nestedscroll.ScrollActivity"/>
+        <activity android:name="com.example.converge.note.ui.nestedscroll.nestedscroll.a_scrollview_recyclerview.NestedViewPagerActivityTest1"/>
+        <activity android:name="com.example.converge.note.ui.nestedscroll.nestedscroll.b_nestedscrollview_recyclerview.NestedViewPagerActivityTest2"/>
+        <activity android:name="com.example.converge.note.ui.nestedscroll.nestedscroll.c_fixedheight_viewpager_nestedscrollview_recyclerview.NestedViewPagerActivityTest3"/>
+        <activity android:name="com.example.converge.note.ui.nestedscroll.nestedscroll.e_perfect_nestedscroll.NestedViewPagerActivity"/>
+        <activity android:name="com.example.converge.note.ui.nestedscroll.nestedscroll.d_nestedscroll_log.NestedViewPagerActivityTest4"/>
+        <activity android:name="com.example.converge.note.androidbasics.dispatch.inner.InnerInterceptActivity"/>
+        <activity android:name="com.example.converge.note.androidbasics.dispatch.outer.OuterInterceptActivity"/>
+        <activity android:name="com.example.converge.note.ui.drawtext.activity.DrawTextActivity"/>
+        <activity android:name="com.example.converge.note.ui.drawtext.activity.OtherActivity"/>
+        <activity android:name="com.example.converge.note.ui.drawtext.activity.OverDrawActivity"/>
+        <activity android:name="com.example.converge.note.ui.drawtext.activity.SimpleActivity"/>
+        <activity android:name="com.example.converge.note.ui.drawtext.activity.TextMeasureActivity"/>
+        <activity android:name="com.example.converge.note.ui.drawtext.activity.ViewPagerActivity"/>
+        <activity android:name="com.example.converge.note.ui.drawtext.MainActivity"/>
+        <activity android:name="com.example.converge.note.ui.fish.FishActivity"/>
+        <activity android:name="com.example.converge.note.ui.recyclerview.RecyclerViewActivity"/>
+        <activity android:name="com.example.converge.note.ui.slideview.SlideCardActivity"/>
+        <activity android:name="com.example.converge.note.ui.viewpager.ViewPagerLazyActivity"/>
+        <activity android:name="com.example.converge.note.ui.viewpager.Main2Activity"/>
+        <activity android:name="com.example.converge.note.framework.binder.MMAPActivity"/>
+        <activity android:name="com.example.converge.note.framework.binder.demo.client.ClientActivity"/>
+        <activity android:name="com.example.converge.activity.socket.ComplexDemoActivity"/>
+        <activity android:name="com.example.converge.activity.socket.DemoActivity"/>
+        <activity android:name="com.example.converge.activity.socket.SimpleDemoActivity"/>
+        <activity android:name="com.example.converge.activity.socket.ServerAdminActivity"/>
         <activity
-            android:name=".note.androidbasics.plugin.PluginTestActivity"
+            android:name="com.example.converge.note.androidbasics.plugin.PluginTestActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
-        <activity android:name=".note.androidbasics.plugin.ProxyActivity"/>
-        <activity android:name=".note.frame.dagger2.FirstActivity"/>
-        <activity android:name=".note.frame.dagger2.SecondActivity"/>
-        <activity android:name=".note.frame.dagger3.DaggerActivity"/>
-        <activity android:name=".note.jetpack.lifecycle.LifeCycleActivity"/>
-        <activity android:name=".note.jetpack.livedata.LiveDataActivity"/>
-        <activity android:name=".note.jetpack.livedata.NameActivity" />
-        <activity android:name=".note.jetpack.livedata.TestLiveDataBusActivity"/>
-        <activity android:name=".note.jetpack.databinding.DataBindingActivity"/>
-        <activity android:name=".note.jetpack.room.RoomActivity"/>
-        <activity android:name=".note.jetpack.room.ViewModelActivity"/>
-        <activity android:name=".note.jetpack.navigation.NavigationActivity"/>
-        <activity android:name=".note.jetpack.paging.PagingActivity"/>
-        <activity android:name=".note.jetpack.workmanager.WorkManagerActivity"/>
+        <activity android:name="com.example.converge.note.androidbasics.plugin.ProxyActivity"/>
+        <activity android:name="com.example.converge.note.frame.dagger2.FirstActivity"/>
+        <activity android:name="com.example.converge.note.frame.dagger2.SecondActivity"/>
+        <activity android:name="com.example.converge.note.frame.dagger3.DaggerActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.lifecycle.LifeCycleActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.livedata.LiveDataActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.livedata.NameActivity" />
+        <activity android:name="com.example.converge.note.jetpack.livedata.TestLiveDataBusActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.databinding.DataBindingActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.room.RoomActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.room.ViewModelActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.navigation.NavigationActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.paging.PagingActivity"/>
+        <activity android:name="com.example.converge.note.jetpack.workmanager.WorkManagerActivity"/>
         <service
-            android:name=".note.framework.binder.demo.server.RemoteService"
+            android:name="com.example.converge.note.framework.binder.demo.server.RemoteService"
             android:exported="true"
             android:process=":remote">
             <intent-filter>

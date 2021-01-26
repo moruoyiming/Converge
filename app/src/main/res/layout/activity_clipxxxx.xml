@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".activity.OverDrawActivity">
 
-    <com.example.hotfix.note.ui.drawtext.view.OverdrawView
+    <com.example.converge.note.ui.drawtext.view.OverdrawView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

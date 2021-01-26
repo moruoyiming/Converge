@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.hotfix.note.ui.fish.FishRelativeLayout
+    <com.example.converge.note.ui.fish.FishRelativeLayout
         android:id="@+id/iv_fish"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true">
 
-    </com.example.hotfix.note.ui.fish.FishRelativeLayout>
+    </com.example.converge.note.ui.fish.FishRelativeLayout>
 
 </RelativeLayout>

@@ -7,7 +7,7 @@
         android:orientation="vertical">
 
 
-        <com.example.hotfix.widget.FlowLayout
+        <com.example.converge.widget.FlowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -310,6 +310,6 @@
                 android:padding="15dp"
                 android:text="workmanager"
                 android:textColor="#ffffff" />
-        </com.example.hotfix.widget.FlowLayout>
+        </com.example.converge.widget.FlowLayout>
     </RelativeLayout>
 </layout>

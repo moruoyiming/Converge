@@ -21,8 +21,8 @@ apply plugin: 'com.example.patch'
 //热修复代码
 patch {
     debugOn true
-    applicationName 'com.example.hotfix.MyApplication'
-    output 'com.example.hotfix.MyApplication'
+    applicationName 'com.example.converge.MyApplication'
+    output 'com.example.converge.MyApplication'
 }
 
 
@@ -46,7 +46,7 @@ android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion
     defaultConfig {
-        applicationId "com.example.hotfix"
+        applicationId "com.example.converge"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
@@ -315,7 +315,7 @@ static void processClass(String dirName, File file) {
     //注意这里的filePath包含了目录+包名+类名，所以去掉目录
     String className = filePath.split(dirName)[1].substring(1);
     //application或者android support我们不管
-    if (className.startsWith("com\\example\\hotfix\\MyApplication") || isAndroidClass(className)) {
+    if (className.startsWith("com\\example\\converge\\MyApplication") || isAndroidClass(className)) {
         return
     }
 

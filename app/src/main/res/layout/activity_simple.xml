@@ -16,7 +16,7 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"/>-->
 
-    <com.example.hotfix.note.ui.drawtext.view.SimpleColorChangeTextView
+    <com.example.converge.note.ui.drawtext.view.SimpleColorChangeTextView
         android:id="@+id/color_change_textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
