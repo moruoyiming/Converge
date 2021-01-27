@@ -5,7 +5,7 @@ package com.example.basics.algorithm;
  * 鸡翁一，值钱五，鸡母一，值钱三，鸡雏三，值一文。百钱买百鸡，问鸡翁，鸡母，鸡雏各几何？
  * 内层循环 21*34 =714 次
  */
-public class Chicken {
+public class 百钱买百鸡 {
 
     public static void main(String[] args) {
         int x, y, z;
