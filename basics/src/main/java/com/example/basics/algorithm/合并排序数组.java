@@ -24,7 +24,6 @@ public class 合并排序数组 {
      * @return: A new sorted integer array
      */
     public static int[] mergeSortedArray(int[] A, int[] B) {
-        // write your code here
         int size = 0;
         int[] list = new int[A.length + B.length];
         int i = 0, j = 0;

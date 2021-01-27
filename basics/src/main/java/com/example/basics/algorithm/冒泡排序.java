@@ -1,9 +1,9 @@
-package com.example.basics.sort;
+package com.example.basics.algorithm;
 
 /**
  * 冒泡排序
  */
-public class BubbleSort {
+public class 冒泡排序 {
 
     public static void main(String[] args) {
 

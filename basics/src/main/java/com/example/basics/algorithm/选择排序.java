@@ -1,6 +1,6 @@
-package com.example.basics.sort;
+package com.example.basics.algorithm;
 
-public class SelectSort {
+public class 选择排序 {
 
     public static void selectSort(int[] arr) {
         if (arr == null || arr.length == 0)
