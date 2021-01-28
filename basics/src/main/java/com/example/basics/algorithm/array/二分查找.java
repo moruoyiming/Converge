@@ -1,19 +1,51 @@
-package com.example.basics.search;
+package com.example.basics.algorithm.array;
 
-/**
- * 二分查找
- * 　二分查找是一个基础的算法，也是面试中常考的一个知识点。二分查找就是将查找的键和子数组的中间键作比较，
- * 如果被查找的键小于中间键，就在左子数组继续查找；如果大于中间键，就在右子数组中查找，否则中间键就是要找的元素。
- */
-public class BinarySearch {
+public class 二分查找 {
 
     public static void main(String[] args) {
-        int[] what = {2, 3, 6, 8, 20, 23};
-        int position = binarySearch(what, 6);
-        System.out.println("key position is " + position);
-        int position2 = findFirstEqual(what, 8);
-        System.out.println("key position is " + position2);
+        //[1,4,4,5,7,7,8,9,9,10]，1
+        int[] array = {3, 4, 5, 8, 8, 8, 8, 10, 13, 14};
+        int x = binarySearch(array, 8);
+        System.out.println(" binarySearch " + x);
+
+//        int[] what = {2, 3, 6, 8, 20, 23};
+//        int position = binarySearch(what, 6);
+//        System.out.println("key position is " + position);
+//        int position2 = findFirstEqual(what, 8);
+//        System.out.println("key position is " + position2);
     }
+
+    /**
+     * @param nums:  The integer array.
+     * @param target: Target to find.
+     * @return: The first position of target. Position starts from 0.
+     */
+    public static int binarySearch(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left <= right) {
+            int middle = left + ((right - left) >> 1);
+            System.out.println("middle" + middle + " left " + left + " (right - left) >> 1)  " + (((right - left) >> 1)));
+            if (nums[middle] > target) {
+                right = middle - 1;
+            } else if (nums[middle] < target) {
+                left = middle + 1;
+            } else {//当有重复数据时
+                while (middle >= 0) {
+                    if (nums[middle] != target) {
+                        break;
+                    }
+                    middle--;
+                }
+                if (middle <= -1) {
+                    return 0;
+                }
+                return middle + 1;
+            }
+        }
+        return -1;
+    }
+
 
     /**
      * 二分查找，找到该值在数组中的下标，否则为-1
@@ -22,7 +54,7 @@ public class BinarySearch {
      * 注意：代码中的判断条件必须是while (left <= right)，否则的话判断条件不完整，比如：array[3] = {1, 3, 5};待查找的键为5，
      * 此时在(low < high)条件下就会找不到，因为low和high相等时，指向元素5，但是此时条件不成立，没有进入while()中。
      */
-    public static int binarySearch(int[] array, int key) {
+    public static int binarySearch2(int[] array, int key) {
         int left = 0;
         int right = array.length - 1;
         while (left <= right) {

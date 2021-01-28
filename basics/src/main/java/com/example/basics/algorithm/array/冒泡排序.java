@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.algorithm.array;
 
 /**
  * 冒泡排序

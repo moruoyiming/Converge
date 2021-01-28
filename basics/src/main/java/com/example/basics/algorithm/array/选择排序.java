@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.algorithm.array;
 
 public class 选择排序 {
 

@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.algorithm.array;
 
 /**
  * 百钱买百鸡

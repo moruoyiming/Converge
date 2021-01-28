@@ -1,6 +1,6 @@
-package com.example.basics.array;
+package com.example.basics.algorithm.array;
 
-public class shuzu {
+public class 多维数组 {
 
     public static void main(String[] args) {
         method1();

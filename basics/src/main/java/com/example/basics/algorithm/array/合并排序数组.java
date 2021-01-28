@@ -1,4 +1,4 @@
-package com.example.basics.algorithm;
+package com.example.basics.algorithm.array;
 
 /**
  * 算法复杂度：
@@ -30,20 +30,17 @@ public class 合并排序数组 {
         while (i < A.length && j < B.length) {
             if (A[i] < B[j]) {
                 list[size++] = A[i++];
-                log(list);
             } else {
                 list[size++] = B[j++];
-                log(list);
             }
-        }
 
+        }
         while (i < A.length) {
             list[size++] = A[i++];
-            log(list);
         }
+
         while (j < B.length) {
             list[size++] = B[j++];
-            log(list);
         }
         return list;
     }

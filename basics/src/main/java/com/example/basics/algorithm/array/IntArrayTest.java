@@ -1,4 +1,4 @@
-package com.example.basics.array;
+package com.example.basics.algorithm.array;
 
 public class IntArrayTest {
     public static void main(String args[]) {
