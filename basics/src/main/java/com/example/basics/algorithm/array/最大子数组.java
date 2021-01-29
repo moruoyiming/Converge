@@ -36,4 +36,30 @@ public class 最大子数组 {
         return greatsetsum;
 
     }
+
+    public static int FindGreatestSumOfSubArray(int[] array) {
+        int len = array.length;
+        if (len == 0){
+            return 0;
+        }
+        int[] currentsum = new int[len];
+        currentsum[0] = array[0];
+        int greatsetsum = array[0];
+        System.out.println("第1步：累加子数组和："+currentsum[0]+"，最大子数组和："+greatsetsum);
+        for(int i=1;i<array.length;i++){
+            //下面是动态规划的状态转移方程
+            if(currentsum[i-1]>0){
+                currentsum[i] = currentsum[i-1] + array[i];
+            }else{
+                currentsum[i] = array[i];
+            }
+            //根据currentsum的值更新greatsetsum的值
+            if(currentsum[i] > greatsetsum){
+                greatsetsum  = currentsum[i];
+            }
+            System.out.println("第"+(i+1)+"步：累加子数组和："+currentsum[i]+"，最大子数组和："+greatsetsum);
+        }
+        return greatsetsum;
+    }
+
 }
