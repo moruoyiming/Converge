@@ -35,16 +35,16 @@ public class 两数之和 {
     }
 
 
-    public static int[] twoSum2(int[] nums, int target) {
+    public static int[] twoSum2(int[] numbers, int target) {
         int indexArrayMax = 2047;
         int[] indexArrays = new int[indexArrayMax + 1];
         int diff = 0;
-        for (int i = 0; i < nums.length; i++) {
-            diff = target - nums[i];
+        for (int i = 0; i < numbers.length; i++) {
+            diff = target - numbers[i];
             if (indexArrays[diff & indexArrayMax] != 0) {
                 return new int[]{indexArrays[diff & indexArrayMax] - 1, i};
             }
-            indexArrays[nums[i] & indexArrayMax] = i + 1;
+            indexArrays[numbers[i] & indexArrayMax] = i + 1;
         }
         throw new IllegalArgumentException("No two sum value");
      }
