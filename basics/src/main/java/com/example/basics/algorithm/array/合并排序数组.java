@@ -1,6 +1,7 @@
 package com.example.basics.algorithm.array;
 
 import static com.example.basics.algorithm.LogUtils.log;
+import static com.example.basics.algorithm.LogUtils.log2;
 
 /**
  * 合并排序数组
@@ -25,23 +26,39 @@ import static com.example.basics.algorithm.LogUtils.log;
 public class 合并排序数组 {
 
     public static void main(String[] args) {
-        int[] a = {1, 3, 5, 7};
-        int[] b = {2, 4, 6, 8};
-        int[] size = mergeSortedArray(a, 4, b, 4);
+//        int[] a = {1, 2, 3};
+//        int[] b = {4,5};
+        int[] a = {2, 5, 8};
+        int[] b = {3,6};
+        int[] size = mergeSortedArray(a, 3, b, 2);
         System.out.println("\n排序:");
         log(size);
     }
 
 
     public static int[] mergeSortedArray(int[] nums1, int m, int[] nums2, int n) {
-        int temp[] = new int[m + n];
+//        int temp[] = new int[m + n];
+//        int i = 0, j = 0, k = 0;
+//        while (k < m + n) {
+//            if (i >= m || j < n && nums1[i] > nums2[j]) {
+//                temp[k] = nums2[j];
+//                j++;
+//            } else if (j >= n || i < m && nums1[i] <= nums2[j]) {
+//                temp[k] = nums1[i];
+//                i++;
+//            }
+//            k++;
+//        }
+        int[] temp = new int[m + n];
         int i = 0, j = 0, k = 0;
         while (k < m + n) {
             if (i >= m || j < n && nums1[i] > nums2[j]) {
                 temp[k] = nums2[j];
+                log(temp);
                 j++;
             } else if (j >= n || i < m && nums1[i] <= nums2[j]) {
                 temp[k] = nums1[i];
+                log2(temp);
                 i++;
             }
             k++;
