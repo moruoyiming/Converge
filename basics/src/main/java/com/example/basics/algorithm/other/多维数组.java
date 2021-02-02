@@ -1,4 +1,4 @@
-package com.example.basics.algorithm.array;
+package com.example.basics.algorithm.other;
 
 public class 多维数组 {
 

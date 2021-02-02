@@ -1,4 +1,4 @@
-package com.example.basics.algorithm.array;
+package com.example.basics.algorithm.other;
 
 /**
  * 编写用数组实现大整数的类，提供大整数的加、减、乘等运算。
