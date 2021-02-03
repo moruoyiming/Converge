@@ -33,17 +33,15 @@ public class 删除排序数组中的重复数字 {
      */
     public static int removeDuplicates(int[] nums) {
         // write your code here
-        int i = 0, j;
-        int temp = nums[0];
-        for (j = 1; j < nums.length; j++) {
-            if (temp != nums[j]) {
-                nums[i] = nums[j];
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[i] != nums[j]) {
                 i++;
+                nums[i] = nums[j];
             }
-            j++;
         }
         log(nums);
-        return nums.length;
+        return i + 1;
 
     }
 
