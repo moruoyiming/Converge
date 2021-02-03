@@ -27,7 +27,10 @@ package com.example.basics.algorithm.array;
  */
 public class 不同的路径2 {
     public static void main(String[] args) {
-
+        int m = 3;
+        int n = 3;
+        int what = uniquePaths(m, n);
+        System.out.println("what " + what);
     }
 
     /**
@@ -37,6 +40,7 @@ public class 不同的路径2 {
      */
     public static int uniquePaths(int m, int n) {
         // write your code here
+        return 0;
     }
 
 }
