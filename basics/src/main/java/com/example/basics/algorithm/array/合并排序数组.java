@@ -26,10 +26,10 @@ import static com.example.basics.algorithm.LogUtils.log2;
 public class 合并排序数组 {
 
     public static void main(String[] args) {
-//        int[] a = {1, 2, 3};
-//        int[] b = {4,5};
-        int[] a = {2, 5, 8};
-        int[] b = {3,6};
+        int[] a = {1, 2, 3};
+        int[] b = {4,5};
+//        int[] a = {2, 5, 8};
+//        int[] b = {3,6};
         int[] size = mergeSortedArray(a, 3, b, 2);
         System.out.println("\n排序:");
         log(size);
