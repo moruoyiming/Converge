@@ -23,8 +23,8 @@ public class 删除排序数组中的重复数字 {
 
     public static void main(String[] args) {
         int[] nums = {1, 1, 2};
-        int x = removeDuplicates(nums);
-        System.out.println("xxxx  "+x);
+        int x = method(nums);
+        System.out.println("xxxx  " + x);
     }
 
     /*
@@ -43,6 +43,17 @@ public class 删除排序数组中的重复数字 {
         log(nums);
         return i + 1;
 
+    }
+
+    public static int method(int[] nums) {
+        int i = 0;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[i] != nums[j]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i + 1;
     }
 
 }

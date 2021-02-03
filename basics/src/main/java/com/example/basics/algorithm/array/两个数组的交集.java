@@ -9,9 +9,9 @@ public class 两个数组的交集 {
 //        int[] a = {1, 2, 2, 1};
 //        int[] b = {2, 2};
 
-        int[] a = {4,9,5};
-        int[] b = {9,4,9,8,4};
-        method(a, b);
+        int[] a = {4, 9, 5};
+        int[] b = {9, 4, 9, 8, 4};
+        method2(a, b);
 
     }
 
@@ -30,8 +30,27 @@ public class 两个数组的交集 {
         for (int n : set) {
             nums[i] = n;
             i++;
-            System.out.println("    "+n);
+            System.out.println("    " + n);
         }
+    }
+
+    public static void method2(int[] a, int[] b) {
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                if (a[i] == b[j]) {
+                    set.add(a[i]);
+                }
+            }
+        }
+        int[] nums = new int[set.size()];
+        int i = 0;
+        for (int n : set) {
+            nums[i] = n;
+            i++;
+            System.out.println("   " + n);
+        }
+
     }
 
 

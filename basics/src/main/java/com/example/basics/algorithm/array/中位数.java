@@ -1,5 +1,8 @@
 package com.example.basics.algorithm.array;
 
+import static com.example.basics.algorithm.LogUtils.log;
+import static com.example.basics.algorithm.LogUtils.log2;
+
 /**
  * 80.中位数
  * 给定一个未排序的整数数组，找到其中位数。
@@ -29,7 +32,7 @@ public class 中位数 {
     public static void main(String[] args) {
         int[] array = {4, 5, 1, 2, 3};
         int[] array2 = {7, 9, 4, 5};
-        int median = median(array2);
+        int median = median2(array2);
         System.out.println("median = " + median);
 
     }
@@ -62,6 +65,30 @@ public class 中位数 {
         }
         return nums[nums.length / 2];
 
+    }
+
+    public static int median2(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int pos = 0;
+        int temp = 0;
+        for (int i = 1; i < nums.length; i++) {
+            pos = i - 1;
+            temp = nums[i];
+            while (pos >= 0 && temp < nums[pos]) {
+                nums[pos + 1] = nums[pos];
+                log(nums);
+                pos--;
+            }
+            nums[pos + 1] = temp;
+            log2(nums);
+        }
+        if (nums.length % 2 == 0) {
+            return nums[nums.length / 2 - 1];
+        }
+        System.out.println("  " + (nums.length / 2) + "   " + nums[nums.length / 2]);
+        return nums[nums.length / 2];
     }
 
 }
