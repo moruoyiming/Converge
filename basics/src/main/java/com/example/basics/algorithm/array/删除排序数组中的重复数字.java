@@ -33,6 +33,9 @@ public class 删除排序数组中的重复数字 {
      */
     public static int removeDuplicates(int[] nums) {
         // write your code here
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
         int i = 0;
         for (int j = 1; j < nums.length; j++) {
             if (nums[i] != nums[j]) {
@@ -46,6 +49,9 @@ public class 删除排序数组中的重复数字 {
     }
 
     public static int method(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
         int i = 0;
         for (int j = 1; j < nums.length; j++) {
             if (nums[i] != nums[j]) {
