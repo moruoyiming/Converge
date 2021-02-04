@@ -23,15 +23,18 @@ import java.util.List;
 public class 合并区间 {
 
     public static void main(String[] args) {
-        Interval interval = new Interval(1, 3);
-        Interval interval2 = new Interval(2, 6);
-        Interval interval3 = new Interval(8, 10);
-        Interval interval4 = new Interval(15, 18);
+//        Interval interval = new Interval(1, 3);
+//        Interval interval2 = new Interval(2, 6);
+//        Interval interval3 = new Interval(8, 10);
+//        Interval interval4 = new Interval(15, 18);
+        Interval interval = new Interval(1, 4);
+        Interval interval2 = new Interval(0, 2);
+        Interval interval3 = new Interval(3, 5);
         List<Interval> intervals = new ArrayList<>();
         intervals.add(interval);
         intervals.add(interval2);
         intervals.add(interval3);
-        intervals.add(interval4);
+//        intervals.add(interval4);
         merge(intervals);
     }
 
@@ -55,11 +58,17 @@ public class 合并区间 {
                 return t1.start - t2.start;
             }
         });
+        for (int i = 0; i < intervals.size(); i++) {
+            System.out.println("     " + intervals.get(i).start + "  "+intervals.get(i).end);
+        }
         List<Interval> temp = new ArrayList<>();
         Interval last = null;
         for (Interval item : intervals) {
             if (last == null || last.end < item.start) {
                 temp.add(item);
+                for (int i = 0; i < temp.size(); i++) {
+                    System.out.println("     " + temp.get(i).start + "  "+temp.get(i).end);
+                }
                 last = item;
             } else {
                 last.end = Math.max(last.end, item.end);
