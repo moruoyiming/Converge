@@ -19,17 +19,17 @@ import static com.example.basics.algorithm.LogUtils.log;
  * 输入：[9,9,9]
  * 输出：[1,0,0,0]
  * 如果数组末位（个位）小于 9 ，直接个位加 1 返回即可
- * 如果数组末位（个位）等于 9，将该位（个位）设置为 0 ，并且产生了进位，接下来观察前一位（十位）
- * – 如果前一位（十位）小于 9 ，直接十位加 1 返回即可
- * 如果前一位（十位）等于 9，将该位（十位）设置为 0 ，并且产生了进位，接下来观察前一位（百位）
+ * 如果数组末位（个位）等于 9 ，将该位（个位）设置为 0 ，并且产生了进位，接下来观察前一位（十位）
+ * 如果前一位（十位）小于 9 ，直接十位加 1 返回即可
+ * 如果前一位（十位）等于 9 ，将该位（十位）设置为 0 ，并且产生了进位，接下来观察前一位（百位）
  */
 public class 加一 {
 
     public static void main(String[] args) {
 //        int[] nums = {1, 2, 3};
         int[] nums = {9, 9, 9};
-       int [] values= plusOne(nums);
-       log(values);
+        int[] values = plusOne(nums);
+        log(values);
     }
 
     /**
