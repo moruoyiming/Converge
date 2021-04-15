@@ -81,6 +81,7 @@
         <activity android:name="com.example.converge.note.jetpack.paging.PagingActivity"/>
         <activity android:name="com.example.converge.note.jetpack.workmanager.WorkManagerActivity"/>
         <activity android:name="com.example.converge.note.opengl.OpenGLActivity"/>
+        <activity android:name="com.example.converge.note.ndk.NdkActivity"/>
         <service
             android:name="com.example.converge.note.framework.binder.demo.server.RemoteService"
             android:exported="true"
