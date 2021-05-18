@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.text.format.Formatter;
 import android.util.Log;
 
 
@@ -24,6 +27,7 @@ import static android.Manifest.permission.ACCESS_WIFI_STATE;
 import static android.Manifest.permission.CHANGE_WIFI_STATE;
 import static android.Manifest.permission.INTERNET;
 import static android.Manifest.permission.MODIFY_PHONE_STATE;
+import static android.content.Context.WIFI_SERVICE;
 
 public final class NetworkUtils {
 
@@ -182,7 +186,7 @@ public final class NetworkUtils {
     @RequiresPermission(ACCESS_WIFI_STATE)
     public static boolean getWifiEnabled() {
         @SuppressLint("WifiManagerLeak")
-        WifiManager manager = (WifiManager) Utils.getApp().getSystemService(Context.WIFI_SERVICE);
+        WifiManager manager = (WifiManager) Utils.getApp().getSystemService(WIFI_SERVICE);
         return manager != null && manager.isWifiEnabled();
     }
 
@@ -196,7 +200,7 @@ public final class NetworkUtils {
     @RequiresPermission(CHANGE_WIFI_STATE)
     public static void setWifiEnabled(final boolean enabled) {
         @SuppressLint("WifiManagerLeak")
-        WifiManager manager = (WifiManager) Utils.getApp().getSystemService(Context.WIFI_SERVICE);
+        WifiManager manager = (WifiManager) Utils.getApp().getSystemService(WIFI_SERVICE);
         if (manager == null) return;
         if (enabled) {
             if (!manager.isWifiEnabled()) {
@@ -390,4 +394,79 @@ public final class NetworkUtils {
             return "";
         }
     }
+
+    /**
+     * Return the ip address by wifi.
+     *
+     * @return the ip address by wifi
+     */
+    @RequiresPermission(ACCESS_WIFI_STATE)
+    public static String getIpAddressByWifi() {
+        @SuppressLint("WifiManagerLeak")
+        WifiManager wm = (WifiManager) Utils.getApp().getSystemService(WIFI_SERVICE);
+        if (wm == null) return "";
+        return Formatter.formatIpAddress(wm.getDhcpInfo().ipAddress);
+    }
+
+    /**
+     * Return the gate way by wifi.
+     *
+     * @return the gate way by wifi
+     */
+    @RequiresPermission(ACCESS_WIFI_STATE)
+    public static String getGatewayByWifi() {
+        @SuppressLint("WifiManagerLeak")
+        WifiManager wm = (WifiManager) Utils.getApp().getSystemService(WIFI_SERVICE);
+        if (wm == null) return "";
+        return Formatter.formatIpAddress(wm.getDhcpInfo().gateway);
+    }
+
+    /**
+     * Return the net mask by wifi.
+     *
+     * @return the net mask by wifi
+     */
+    @RequiresPermission(ACCESS_WIFI_STATE)
+    public static String getNetMaskByWifi() {
+        @SuppressLint("WifiManagerLeak")
+        WifiManager wm = (WifiManager) Utils.getApp().getSystemService(WIFI_SERVICE);
+        if (wm == null) return "";
+        return Formatter.formatIpAddress(wm.getDhcpInfo().netmask);
+    }
+
+    /**
+     * Return the server address by wifi.
+     *
+     * @return the server address by wifi
+     */
+    @RequiresPermission(ACCESS_WIFI_STATE)
+    public static String getServerAddressByWifi() {
+        @SuppressLint("WifiManagerLeak")
+        WifiManager wm = (WifiManager) Utils.getApp().getSystemService(WIFI_SERVICE);
+        if (wm == null) return "";
+        return Formatter.formatIpAddress(wm.getDhcpInfo().serverAddress);
+    }
+
+    /**
+     * Return the ssid.
+     *
+     * @return the ssid.
+     */
+    @RequiresPermission(ACCESS_WIFI_STATE)
+    public static String getSSID() {
+        WifiManager wm = (WifiManager) Utils.getApp().getApplicationContext().getSystemService(WIFI_SERVICE);
+        if (wm == null) return "";
+        WifiInfo wi = wm.getConnectionInfo();
+        if (wi == null) return "";
+        String ssid = wi.getSSID();
+        if (TextUtils.isEmpty(ssid)) {
+            return "";
+        }
+        if (ssid.length() > 2 && ssid.charAt(0) == '"' && ssid.charAt(ssid.length() - 1) == '"') {
+            return ssid.substring(1, ssid.length() - 1);
+        }
+        return ssid;
+    }
+
+
 }
