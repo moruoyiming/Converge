@@ -36,6 +36,16 @@ public class DouyinActivity extends AppCompatActivity {
         initListener();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     @SuppressLint("WrongConstant")
     private void initView() {
         mRecyclerView = findViewById(R.id.recycler);

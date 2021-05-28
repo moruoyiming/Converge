@@ -1,6 +1,11 @@
 package com.example.converge;
 
 
+import android.os.Looper;
+import android.util.Log;
+import android.util.Printer;
+import android.view.Choreographer;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.cocos.base.BaseApplication;
 import com.cocos.base.loadsir.CustomCallback;
@@ -25,6 +30,8 @@ import javax.inject.Inject;
 public class MyApplication extends BaseApplication {
 
 
+    private static final String TAG = "Choreographer_test";
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -44,6 +51,25 @@ public class MyApplication extends BaseApplication {
                 .addCallback(new CustomCallback())
                 .setDefaultCallback(LoadingCallback.class)//设置默认状态页
                 .commit();
+        Looper.getMainLooper().setMessageLogging(new Printer() {
+            private static final String START = ">>>>> Dispatching";
+            private static final String END = "<<<<< Finished";
+
+            @Override
+            public void println(String x) {
+                if (x.startsWith(START)) {
+                    //从这里开启一个定时任务来打印方法的堆栈信息
+                    LooperLog.getInstance().startPrintLog();
+                }
+                if (x.startsWith(END)) {
+                    //从这里取消定时任务
+                    LooperLog.getInstance().canclePrintLog();
+                }
+            }
+        });
+        final long starTime=System.nanoTime();
+        Choreographer.getInstance().postFrameCallback(new FPSFrameCallback(System.nanoTime()));
+
 
     }
 

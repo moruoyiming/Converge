@@ -253,6 +253,11 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 startActivity(ndk);
                 break;
             case R.id.douyin:
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Intent douyin = new Intent(getActivity(), DouyinActivity.class);
                 startActivity(douyin);
                 break;
