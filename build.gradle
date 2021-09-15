@@ -6,7 +6,7 @@ buildscript {
     repositories {
 //        maven { url "http://jcenter.bintray.com/" }
 //        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
-//        maven { url "https://jitpack.io" }
+        maven { url "https://jitpack.io" }
         jcenter()
         google()
     }
@@ -28,7 +28,7 @@ allprojects {
     repositories {
 //        maven { url "http://jcenter.bintray.com/" }
 //        maven { url "https://dl.bintray.com/thelasterstar/maven/" }
-//        maven { url "https://jitpack.io" }
+        maven { url "https://jitpack.io" }
         google()
         jcenter()
 
