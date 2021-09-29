@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".note.ndk.NdkActivity">
 
     <TextView
@@ -17,10 +18,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@id/sample_text">
 
         <Button
@@ -60,4 +61,50 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_gravity="center"
+        android:layout_height="80dp">
+        <TextView
+            android:layout_width="30dp"
+            android:text="dfasdfads"
+            android:layout_gravity="center"
+            android:background="#653323"
+            android:layout_height="30dp"></TextView>
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_gravity="center"
+            android:layout_height="60dp">
+            <FrameLayout
+                android:layout_width="40dp"
+                android:layout_gravity="center"
+                android:layout_height="40dp">
+
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="80dp"
+        android:layout_gravity="center"
+        android:layout_height="80dp">
+
+        <FrameLayout
+            android:layout_width="80dp"
+            android:layout_gravity="center"
+            android:layout_height="80dp">
+            <FrameLayout
+                android:layout_width="80dp"
+                android:layout_gravity="center"
+                android:layout_height="80dp">
+                <TextView
+                    android:layout_width="50dp"
+                    android:text="dfasdfads"
+                    android:layout_gravity="center"
+                    android:background="#653323"
+                    android:layout_height="50dp"></TextView>
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+</LinearLayout>
