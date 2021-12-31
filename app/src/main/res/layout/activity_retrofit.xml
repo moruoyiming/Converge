@@ -54,5 +54,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
+    <com.example.converge.widget.CircleView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:circle_color="@color/colorAccent"
+        tools:ignore="MissingClass,MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

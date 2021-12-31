@@ -145,7 +145,9 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     // Paging库依赖
     implementation 'androidx.paging:paging-runtime:2.1.0'
+    implementation 'com.youth.banner:banner:1.4.10'  //最新版本
 
+    implementation 'com.github.SheHuan:NiceImageView:1.0.5'
     //WorkManager
     def work_version = "2.4.0"
     implementation "androidx.work:work-runtime:$work_version"
