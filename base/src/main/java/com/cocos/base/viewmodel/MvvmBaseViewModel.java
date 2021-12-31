@@ -79,7 +79,7 @@ public abstract class MvvmBaseViewModel<M extends MvvmBaseModel, D> extends View
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    private void onResume() {
+    public void onResume() {
         dataList.postValue(dataList.getValue());
         viewStatusLiveData.postValue(viewStatusLiveData.getValue());
     }
