@@ -89,6 +89,7 @@ dependencies {
 
     api project(':aop')
     api project(':network')
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'org.aspectj:aspectjrt:1.9.2'
     //Admob广告
     implementation 'com.google.android.gms:play-services-ads:20.5.0'
