@@ -1,5 +1,6 @@
-package com.jzyc.instock;
+package com.jzyc.instock.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;

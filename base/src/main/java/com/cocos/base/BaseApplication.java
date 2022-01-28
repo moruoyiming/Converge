@@ -1,6 +1,7 @@
 package com.cocos.base;
 
 import android.app.Application;
+import android.content.Context;
 
 public class BaseApplication extends Application {
 
@@ -10,5 +11,9 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         mApplication = this;
+    }
+
+    public static Context getAppContext(){
+        return mApplication;
     }
 }

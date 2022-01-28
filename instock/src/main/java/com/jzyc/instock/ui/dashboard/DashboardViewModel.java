@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.cocos.network.base.NetworkApi;
+
 public class DashboardViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;

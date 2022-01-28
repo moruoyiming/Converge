@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.jzyc.instock.MainActivity;
 import com.jzyc.instock.R;
 
 
