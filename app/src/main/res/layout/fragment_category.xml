@@ -348,7 +348,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_button_circular"
                 android:padding="15dp"
-                android:text="shenmin"
+                android:text="生命周期"
                 android:textColor="#ffffff" />
 
         </com.example.converge.widget.FlowLayout>

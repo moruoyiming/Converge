@@ -1,9 +1,13 @@
 package com.example.converge.activity;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +42,7 @@ import com.example.converge.R;
 public class AActivity extends Activity {
 
     Handler handler;
+    ServiceConnection serviceConnection;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +50,35 @@ public class AActivity extends Activity {
         findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(AActivity.this,BActivity.class);
-//                startActivity(intent);
-                methdo();
+                Intent intent = new Intent(AActivity.this,BActivity.class);
+                startActivity(intent);
+//                methdo();
             }
         });
+        findViewById(R.id.start).setOnClickListener(v -> {
+            Intent ser= new Intent(AActivity.this,DemoService.class);
+            startService(ser);
+        });
+        findViewById(R.id.stop).setOnClickListener(v -> {
+            Intent ser= new Intent(AActivity.this,DemoService.class);
+            stopService(ser);
+        });
+        serviceConnection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                Log.i("DemoService","ServiceConnection onServiceConnected");
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                Log.i("DemoService","ServiceConnection onServiceDisconnected");
+            }
+        };
+        findViewById(R.id.bind).setOnClickListener(v -> {
+            Intent ser= new Intent(AActivity.this,DemoService.class);
+            bindService(ser,serviceConnection, Context.BIND_AUTO_CREATE);
+        });
+
         Log.i("TESTS","Activity onCreate");
 
     }

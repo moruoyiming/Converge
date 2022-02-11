@@ -92,6 +92,10 @@
 
         </activity>
 
+        <service android:name=".activity.DemoService">
+
+        </service>
+
         <service
             android:name="com.example.converge.note.framework.binder.demo.server.RemoteService"
             android:exported="true"
