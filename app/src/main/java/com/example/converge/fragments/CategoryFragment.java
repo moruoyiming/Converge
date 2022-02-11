@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.cocos.base.autoservice.XiangxueServiceLoader;
 import com.cocos.basewebview.WebViewActivity;
 import com.cocos.base.autoservice.IWebViewService;
+import com.example.converge.activity.AActivity;
 import com.example.converge.activity.douyin.DouyinActivity;
 import com.example.converge.note.ndk.NdkActivity;
 import com.example.converge.note.opengl.OpenGLActivity;
@@ -99,6 +100,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
         mBinding.opengl.setOnClickListener(this);
         mBinding.ndk.setOnClickListener(this);
         mBinding.douyin.setOnClickListener(this);
+        mBinding.shenmin.setOnClickListener(this);
     }
 
     @Override
@@ -260,6 +262,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 }
                 Intent douyin = new Intent(getActivity(), DouyinActivity.class);
                 startActivity(douyin);
+                break;
+            case R.id.shenmin:
+                Intent aIntent = new Intent(getActivity(), AActivity.class);
+                startActivity(aIntent);
                 break;
         }
     }
