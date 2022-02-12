@@ -1,4 +1,4 @@
-package com.example.converge.activity.socket.data;
+package com.example.converge.activity.androidbase.socket.data;
 
 
 import com.cocos.socket.core.iocore.interfaces.IPulseSendable;

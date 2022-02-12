@@ -1,4 +1,4 @@
-package com.example.converge.activity.socket;
+package com.example.converge.activity.androidbase.socket;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,11 +20,11 @@ import com.google.gson.JsonParser;
 import com.cocos.socket.core.iocore.interfaces.IPulseSendable;
 import com.cocos.socket.core.iocore.interfaces.ISendable;
 import com.cocos.socket.core.pojo.OriginalData;
-import com.example.converge.activity.socket.adapter.LogAdapter;
-import com.example.converge.activity.socket.data.DefaultSendBean;
-import com.example.converge.activity.socket.data.HandShakeBean;
-import com.example.converge.activity.socket.data.LogBean;
-import com.example.converge.activity.socket.data.PulseBean;
+import com.example.converge.activity.androidbase.socket.adapter.LogAdapter;
+import com.example.converge.activity.androidbase.socket.data.DefaultSendBean;
+import com.example.converge.activity.androidbase.socket.data.HandShakeBean;
+import com.example.converge.activity.androidbase.socket.data.LogBean;
+import com.example.converge.activity.androidbase.socket.data.PulseBean;
 import com.cocos.socket.client.impl.client.action.ActionDispatcher;
 import com.cocos.socket.client.sdk.OkSocket;
 import com.cocos.socket.client.sdk.client.ConnectionInfo;

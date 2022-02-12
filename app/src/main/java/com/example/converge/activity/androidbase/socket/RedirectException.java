@@ -1,4 +1,4 @@
-package com.example.converge.activity.socket;
+package com.example.converge.activity.androidbase.socket;
 
 
 import com.cocos.socket.client.sdk.client.ConnectionInfo;

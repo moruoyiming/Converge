@@ -1,4 +1,4 @@
-package com.example.converge.activity.socket.adapter;
+package com.example.converge.activity.androidbase.socket.adapter;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.converge.R;
-import com.example.converge.activity.socket.data.LogBean;
+import com.example.converge.activity.androidbase.socket.data.LogBean;
 
 import java.util.ArrayList;
 import java.util.List;

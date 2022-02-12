@@ -14,6 +14,42 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/javabase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="Java基础"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/javaheight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="Java进阶"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/androidbase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="Android基础"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/androidheight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button_circular"
+                android:padding="15dp"
+                android:text="Android进阶"
+                android:textColor="#ffffff" />
+
+            <TextView
                 android:id="@+id/openWeb1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -133,6 +169,7 @@
                 android:padding="15dp"
                 android:text="rv吸顶"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/recyclerview2"
                 android:layout_width="wrap_content"
@@ -292,6 +329,7 @@
                 android:padding="15dp"
                 android:text="navigation"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/paging"
                 android:layout_width="wrap_content"
@@ -301,6 +339,7 @@
                 android:padding="15dp"
                 android:text="paging"
                 android:textColor="#ffffff" />
+
             <TextView
                 android:id="@+id/workmanager"
                 android:layout_width="wrap_content"

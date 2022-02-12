@@ -1,4 +1,4 @@
-package com.example.converge.activity.socket;
+package com.example.converge.activity.androidbase.socket;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -24,11 +24,11 @@ import com.cocos.socket.client.sdk.client.action.SocketActionAdapter;
 import com.cocos.socket.client.sdk.client.connection.IConnectionManager;
 import com.cocos.socket.core.pojo.OriginalData;
 import com.example.converge.R;
-import com.example.converge.activity.socket.adapter.LogAdapter;
-import com.example.converge.activity.socket.data.AdminHandShakeBean;
-import com.example.converge.activity.socket.data.AdminKickOfflineBean;
-import com.example.converge.activity.socket.data.LogBean;
-import com.example.converge.activity.socket.data.RestartBean;
+import com.example.converge.activity.androidbase.socket.adapter.LogAdapter;
+import com.example.converge.activity.androidbase.socket.data.AdminHandShakeBean;
+import com.example.converge.activity.androidbase.socket.data.AdminKickOfflineBean;
+import com.example.converge.activity.androidbase.socket.data.LogBean;
+import com.example.converge.activity.androidbase.socket.data.RestartBean;
 
 import java.nio.charset.Charset;
 

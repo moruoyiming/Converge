@@ -13,8 +13,10 @@ import androidx.fragment.app.Fragment;
 import com.cocos.base.autoservice.XiangxueServiceLoader;
 import com.cocos.basewebview.WebViewActivity;
 import com.cocos.base.autoservice.IWebViewService;
-import com.example.converge.activity.AActivity;
-import com.example.converge.activity.douyin.DouyinActivity;
+import com.example.converge.activity.androidbase.AActivity;
+import com.example.converge.activity.androidheight.douyin.DouyinActivity;
+import com.example.converge.activity.javabase.JavaBaseActivity;
+import com.example.converge.activity.javaheight.JavaHeightActivity;
 import com.example.converge.note.ndk.NdkActivity;
 import com.example.converge.note.opengl.OpenGLActivity;
 import com.example.dexdiff.DexdiffActivity;
@@ -67,6 +69,10 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mBinding.javabase.setOnClickListener(this);
+        mBinding.javaheight.setOnClickListener(this);
+        mBinding.androidbase.setOnClickListener(this);
+        mBinding.androidheight.setOnClickListener(this);
         mBinding.openWeb1.setOnClickListener(this);
         mBinding.openWeb2.setOnClickListener(this);
         mBinding.network.setOnClickListener(this);
@@ -106,6 +112,22 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.javabase:
+                Intent javabase = new Intent(getActivity(), JavaBaseActivity.class);
+                startActivity(javabase);
+                break;
+            case R.id.javaheight:
+                Intent javaheight = new Intent(getActivity(), JavaHeightActivity.class);
+                startActivity(javaheight);
+                break;
+            case R.id.androidbase:
+                Intent androidbase = new Intent(getActivity(), JavaBaseActivity.class);
+                startActivity(androidbase);
+                break;
+            case R.id.androidheight:
+                Intent androidheight = new Intent(getActivity(), JavaBaseActivity.class);
+                startActivity(androidheight);
+                break;
             case R.id.openWeb1:
 //                WebviewActivity.startCommonWeb(getActivity(), "腾讯网", "https://xw.qq.com/?f=qqcom");
                 IWebViewService webviewService = XiangxueServiceLoader.load(IWebViewService.class);
@@ -196,7 +218,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 startActivity(dexdiff);
                 break;
             case R.id.socket:
-                Intent socket = new Intent(getActivity(), com.example.converge.activity.socket.DemoActivity.class);
+                Intent socket = new Intent(getActivity(), com.example.converge.activity.androidbase.socket.DemoActivity.class);
                 startActivity(socket);
                 break;
             case R.id.plugin:

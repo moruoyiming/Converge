@@ -1,16 +1,16 @@
-package com.example.converge.activity.socket.data;
+package com.example.converge.activity.androidbase.socket.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class AdminKickOfflineBean extends DefaultSendBean {
+public class AdminHandShakeBean extends DefaultSendBean {
 
 
-    public AdminKickOfflineBean(String who) {
+    public AdminHandShakeBean(String pass) {
         JSONObject jsonObject = new JSONObject();
         try {
-            jsonObject.put("cmd", 912);
-            jsonObject.put("who", who);
+            jsonObject.put("cmd", 54);
+            jsonObject.put("handshake", pass);
             content = jsonObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

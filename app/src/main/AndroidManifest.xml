@@ -59,10 +59,10 @@
         <activity android:name="com.example.converge.note.ui.viewpager.Main2Activity"/>
         <activity android:name="com.example.converge.note.framework.binder.MMAPActivity"/>
         <activity android:name="com.example.converge.note.framework.binder.demo.client.ClientActivity"/>
-        <activity android:name="com.example.converge.activity.socket.ComplexDemoActivity"/>
-        <activity android:name="com.example.converge.activity.socket.DemoActivity"/>
-        <activity android:name="com.example.converge.activity.socket.SimpleDemoActivity"/>
-        <activity android:name="com.example.converge.activity.socket.ServerAdminActivity"/>
+        <activity android:name=".activity.androidbase.socket.ComplexDemoActivity"/>
+        <activity android:name=".activity.androidbase.socket.DemoActivity"/>
+        <activity android:name=".activity.androidbase.socket.SimpleDemoActivity"/>
+        <activity android:name=".activity.androidbase.socket.ServerAdminActivity"/>
         <activity
             android:name="com.example.converge.note.androidbasics.plugin.PluginTestActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"/>
@@ -82,13 +82,20 @@
         <activity android:name="com.example.converge.note.jetpack.workmanager.WorkManagerActivity"/>
         <activity android:name="com.example.converge.note.opengl.OpenGLActivity"/>
         <activity android:name="com.example.converge.note.ndk.NdkActivity"/>
-        <activity android:name="com.example.converge.activity.douyin.DouyinActivity"/>
+        <activity android:name="com.example.converge.activity.androidheight.douyin.DouyinActivity"/>
 
-        <activity android:name=".activity.AActivity" android:launchMode="singleTask">
+        <activity android:name=".activity.androidbase.AActivity" android:launchMode="singleTask">
 
         </activity>
 
-        <activity android:name=".activity.BActivity" android:launchMode="standard">
+        <activity android:name=".activity.androidbase.BActivity" android:launchMode="standard">
+
+        </activity>
+
+        <activity android:name=".activity.javabase.JavaBaseActivity">
+
+        </activity>
+        <activity android:name=".activity.javaheight.JavaHeightActivity">
 
         </activity>
 

@@ -1,4 +1,4 @@
-package com.example.converge.activity.douyin;
+package com.example.converge.activity.androidheight.douyin;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

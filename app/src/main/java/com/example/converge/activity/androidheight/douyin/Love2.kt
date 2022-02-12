@@ -1,4 +1,4 @@
-package com.example.converge.activity.douyin
+package com.example.converge.activity.androidheight.douyin
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter

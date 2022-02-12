@@ -1,4 +1,4 @@
-package com.example.converge.activity.socket;
+package com.example.converge.activity.androidbase.socket;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,10 +26,10 @@ import com.cocos.socket.core.iocore.interfaces.IPulseSendable;
 import com.cocos.socket.core.iocore.interfaces.ISendable;
 import com.cocos.socket.core.pojo.OriginalData;
 import com.example.converge.R;
-import com.example.converge.activity.socket.adapter.LogAdapter;
-import com.example.converge.activity.socket.data.HandShakeBean;
-import com.example.converge.activity.socket.data.LogBean;
-import com.example.converge.activity.socket.data.MsgDataBean;
+import com.example.converge.activity.androidbase.socket.adapter.LogAdapter;
+import com.example.converge.activity.androidbase.socket.data.HandShakeBean;
+import com.example.converge.activity.androidbase.socket.data.LogBean;
+import com.example.converge.activity.androidbase.socket.data.MsgDataBean;
 
 import java.nio.charset.Charset;
 

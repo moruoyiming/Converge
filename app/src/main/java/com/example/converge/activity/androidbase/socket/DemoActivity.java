@@ -1,4 +1,4 @@
-package com.example.converge.activity.socket;
+package com.example.converge.activity.androidbase.socket;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -33,7 +33,7 @@ import com.cocos.socket.core.utils.SLog;
 import com.cocos.socket.server.action.ServerActionAdapter;
 import com.cocos.socket.server.impl.OkServerOptions;
 import com.example.converge.R;
-import com.example.converge.activity.socket.data.MsgDataBean;
+import com.example.converge.activity.androidbase.socket.data.MsgDataBean;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 

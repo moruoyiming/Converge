@@ -1,4 +1,4 @@
-package com.example.converge.activity.douyin;
+package com.example.converge.activity.androidheight.douyin;
 
 
 import android.animation.Animator;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 

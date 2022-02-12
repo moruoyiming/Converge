@@ -1,4 +1,4 @@
-package com.example.converge.activity.douyin;
+package com.example.converge.activity.androidheight.douyin;
 
 public interface OnViewPagerListener {
     /*初始化完成*/

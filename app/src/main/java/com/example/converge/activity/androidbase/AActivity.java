@@ -1,4 +1,4 @@
-package com.example.converge.activity;
+package com.example.converge.activity.androidbase;
 
 import android.app.Activity;
 import android.content.Intent;
