@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".note.ndk.NdkActivity">
+    tools:context=".note.androidheight.ndk.NdkActivity">
 
     <TextView
         android:id="@+id/sample_text"

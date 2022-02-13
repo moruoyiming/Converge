@@ -2,7 +2,6 @@ package com.example.converge;
 
 
 import android.os.Looper;
-import android.util.Log;
 import android.util.Printer;
 import android.view.Choreographer;
 
@@ -16,8 +15,8 @@ import com.cocos.base.loadsir.TimeoutCallback;
 import com.cocos.base.preference.PreferencesUtil;
 import com.cocos.base.utils.ToastUtil;
 import com.cocos.network.base.NetworkApi;
-import com.example.converge.note.frame.hilt.annotation.BindXUtils;
-import com.example.converge.note.frame.hilt.httpprocessor.IHttpProcessor;
+import com.example.converge.note.androidheight.frame.hilt.annotation.BindXUtils;
+import com.example.converge.note.androidheight.frame.hilt.httpprocessor.IHttpProcessor;
 import com.example.converge.utils.NetworkRequestInfo;
 import com.kingja.loadsir.core.LoadSir;
 
