@@ -1,6 +1,7 @@
 package com.example.converge.note.androidadvanced;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.view.View;
 
 import com.cocos.base.activity.MvvmActivity;
@@ -89,7 +90,7 @@ public class AndroidAdvancedActivity extends MvvmActivity<ActivityAndroidadvance
             case R.id.skin:
                 if (!change) {
                     change = true;
-                    SkinManager.getInstance().loadSkin("/data/data/com.example.hotfix/skin/skins-debug.apk");
+                    SkinManager.getInstance().loadSkin("/data/data/com.example.converge/skin/skins-debug.apk");
                 } else {
                     change = false;
                     SkinManager.getInstance().loadSkin(null);

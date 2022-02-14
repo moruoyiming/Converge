@@ -49,6 +49,32 @@
                 android:text="Android进阶"
                 android:textColor="#ffffff" />
 
+            <TextView
+                android:id="@+id/algorithm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button_circular"
+                android:padding="10dp"
+                android:text="algorithm"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/design"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button_circular"
+                android:padding="10dp"
+                android:text="design"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/network"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button_circular"
+                android:padding="10dp"
+                android:text="network"
+                android:textColor="#ffffff" />
 
         </com.example.converge.widget.FlowLayout>
     </RelativeLayout>

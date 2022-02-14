@@ -58,6 +58,18 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 Intent androidheight = new Intent(getActivity(), AndroidAdvancedActivity.class);
                 startActivity(androidheight);
                 break;
+            case R.id.algorithm:
+                Intent algorithm = new Intent(getActivity(), AndroidAdvancedActivity.class);
+                startActivity(algorithm);
+                break;
+            case R.id.design:
+                Intent design = new Intent(getActivity(), AndroidAdvancedActivity.class);
+                startActivity(design);
+                break;
+            case R.id.network:
+                Intent network = new Intent(getActivity(), AndroidAdvancedActivity.class);
+                startActivity(network);
+                break;
         }
     }
 

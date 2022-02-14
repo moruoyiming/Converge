@@ -43,8 +43,6 @@ public class TestHandlerActivity extends Activity {
         findViewById(R.id.jump).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(BActivity.this,AActivity.class);
-//                startActivity(intent);
                 Message message = new Message();
                 message.what = 1;
                 Student student = new Student();
