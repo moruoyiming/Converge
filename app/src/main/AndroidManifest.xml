@@ -60,7 +60,7 @@
         <activity android:name="com.example.converge.note.androidadvanced.framework.binder.MMAPActivity"/>
         <activity android:name="com.example.converge.note.androidadvanced.framework.binder.demo.client.ClientActivity"/>
         <activity android:name=".note.androidbasics.socket.ComplexDemoActivity"/>
-        <activity android:name=".note.androidbasics.socket.DemoActivity"/>
+        <activity android:name=".note.androidbasics.socket.SocketDemoActivity"/>
         <activity android:name=".note.androidbasics.socket.SimpleDemoActivity"/>
         <activity android:name=".note.androidbasics.socket.ServerAdminActivity"/>
         <activity
@@ -80,7 +80,7 @@
         <activity android:name=".note.androidadvanced.jetpack.navigation.NavigationActivity"/>
         <activity android:name=".note.androidadvanced.jetpack.paging.PagingActivity"/>
         <activity android:name=".note.androidadvanced.jetpack.workmanager.WorkManagerActivity"/>
-        <activity android:name=".note.androidbasics.opengl.OpenGLActivity"/>
+        <activity android:name=".note.androidadvanced.opengl.OpenGLActivity"/>
         <activity android:name=".note.androidadvanced.ndk.NdkActivity"/>
         <activity android:name="com.example.converge.note.androidbasics.douyin.DouyinActivity"/>
 
@@ -100,6 +100,10 @@
         </activity>
 
         <activity android:name=".note.androidbasics.AndroidbasicsActivity">
+
+        </activity>
+
+        <activity android:name=".note.androidadvanced.AndroidAdvancedActivity">
 
         </activity>
 

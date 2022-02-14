@@ -8,161 +8,205 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/activitylifecycle"
+            android:id="@+id/skin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="activity"
-            android:textColor="#ffffff" />
-        <TextView
-            android:id="@+id/testService"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_button_circular"
-            android:padding="10dp"
-            android:text="service"
-            android:textColor="#ffffff" />
-        <TextView
-            android:id="@+id/testHandler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_button_circular"
-            android:padding="10dp"
-            android:text="handler"
-            android:textColor="#ffffff" />
-        <TextView
-            android:id="@+id/openWeb1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/shape_button_circular"
-            android:padding="10dp"
-            android:text="打开网页"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/openWeb2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_button_circular"
-            android:padding="10dp"
-            android:text="打开定制网页"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/network"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_button_circular"
-            android:padding="10dp"
-            android:text="网络请求"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/annotions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_button_circular"
-            android:padding="10dp"
-            android:text="自定义注解"
-            android:textColor="#ffffff" />
-
-        <TextView
-            android:id="@+id/lf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/shape_button_circular"
-            android:padding="10dp"
-            android:text="RetrofitDemo"
+            android:text="换肤"
             android:textColor="#ffffff" />
 
 
         <TextView
-            android:id="@+id/views"
+            android:id="@+id/permission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="自定义View"
+            android:text="aop动态权限申请"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/fish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="咸鱼"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/mmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="binder"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/aidl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="AIDL原理"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/dexdiff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="dexdiff"
             android:textColor="#ffffff" />
 
 
         <TextView
-            android:id="@+id/scroll"
+            android:id="@+id/plugin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="滑动冲突"
+            android:text="插件化"
             android:textColor="#ffffff" />
 
         <TextView
-            android:id="@+id/drawtext"
+            android:id="@+id/hotfix"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="绘制渐变字"
+            android:text="热修复"
             android:textColor="#ffffff" />
 
         <TextView
-            android:id="@+id/recyclerview"
+            android:id="@+id/dagger2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="rv吸顶"
+            android:text="dagger2"
             android:textColor="#ffffff" />
 
         <TextView
-            android:id="@+id/recyclerview2"
+            android:id="@+id/dagger3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="rv回收复用"
+            android:text="dagger3"
             android:textColor="#ffffff" />
 
         <TextView
-            android:id="@+id/viewpager"
+            android:id="@+id/lifecycle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="viewpager懒加载"
+            android:text="lifecycle"
             android:textColor="#ffffff" />
 
         <TextView
-            android:id="@+id/socket"
+            android:id="@+id/livedata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="socket"
+            android:text="livedata"
             android:textColor="#ffffff" />
 
         <TextView
-            android:id="@+id/douyin"
+            android:id="@+id/databinding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:background="@drawable/shape_button_circular"
             android:padding="10dp"
-            android:text="douyin"
+            android:text="databinding"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="room"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/viewmodel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="viewmodel"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="navigation"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/paging"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="paging"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/workmanager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="workmanager"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/opengl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="OpenGL"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/ndk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shape_button_circular"
+            android:padding="10dp"
+            android:text="NDK"
             android:textColor="#ffffff" />
 
 

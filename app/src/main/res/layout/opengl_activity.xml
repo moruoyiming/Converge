@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.example.converge.note.androidbasics.opengl.MyGLSurfaceView
+    <com.example.converge.note.androidadvanced.opengl.MyGLSurfaceView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.example.converge.note.androidbasics.opengl.MyGLSurfaceView>
+    </com.example.converge.note.androidadvanced.opengl.MyGLSurfaceView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

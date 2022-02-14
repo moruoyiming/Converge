@@ -49,7 +49,7 @@ import java.util.Enumeration;
  * Created by didi on 2018/4/20.
  */
 
-public class DemoActivity extends AppCompatActivity implements IClientIOCallback {
+public class SocketDemoActivity extends AppCompatActivity implements IClientIOCallback {
 
     private Button mSimpleBtn;
 
@@ -83,14 +83,14 @@ public class DemoActivity extends AppCompatActivity implements IClientIOCallback
         mSimpleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DemoActivity.this, SimpleDemoActivity.class);
+                Intent intent = new Intent(SocketDemoActivity.this, SimpleDemoActivity.class);
                 startActivity(intent);
             }
         });
         mComplexBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DemoActivity.this, ComplexDemoActivity.class);
+                Intent intent = new Intent(SocketDemoActivity.this, ComplexDemoActivity.class);
                 startActivity(intent);
             }
         });
@@ -98,7 +98,7 @@ public class DemoActivity extends AppCompatActivity implements IClientIOCallback
         mAdminBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DemoActivity.this, ServerAdminActivity.class);
+                Intent intent = new Intent(SocketDemoActivity.this, ServerAdminActivity.class);
                 startActivity(intent);
             }
         });
@@ -113,13 +113,13 @@ public class DemoActivity extends AppCompatActivity implements IClientIOCallback
             @Override
             public void onClientConnected(IClient client, int serverPort, IClientPool clientPool) {
                 Log.i("ServerCallback", Thread.currentThread().getName() + " onClientConnected,serverPort:" + serverPort + "--ClientNums:" + clientPool.size() + "--ClientTag:" + client.getUniqueTag());
-                client.addIOCallback(DemoActivity.this);
+                client.addIOCallback(SocketDemoActivity.this);
             }
 
             @Override
             public void onClientDisconnected(IClient client, int serverPort, IClientPool clientPool) {
                 Log.i("ServerCallback", Thread.currentThread().getName() + " onClientDisconnected,serverPort:" + serverPort + "--ClientNums:" + clientPool.size() + "--ClientTag:" + client.getUniqueTag());
-                client.removeIOCallback(DemoActivity.this);
+                client.removeIOCallback(SocketDemoActivity.this);
             }
 
             @Override
@@ -142,7 +142,7 @@ public class DemoActivity extends AppCompatActivity implements IClientIOCallback
                 ClipboardManager myClipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
                 ClipData myClip = ClipData.newPlainText("ip", mIPTv.getText().toString().substring(5));
                 myClipboard.setPrimaryClip(myClip);
-                Toast.makeText(DemoActivity.this, "复制到剪切板", Toast.LENGTH_LONG).show();
+                Toast.makeText(SocketDemoActivity.this, "复制到剪切板", Toast.LENGTH_LONG).show();
             }
         });
 

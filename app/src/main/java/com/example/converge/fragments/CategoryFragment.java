@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.example.converge.note.androidadvanced.AndroidAdvancedActivity;
 import com.example.converge.note.androidbasics.AndroidbasicsActivity;
 import com.example.converge.note.javabasics.JavaBaseActivity;
 import com.example.converge.note.javaadvanced.JavaAdvancedActivity;
@@ -54,7 +55,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 startActivity(androidbase);
                 break;
             case R.id.androidheight:
-                Intent androidheight = new Intent(getActivity(), JavaBaseActivity.class);
+                Intent androidheight = new Intent(getActivity(), AndroidAdvancedActivity.class);
                 startActivity(androidheight);
                 break;
         }

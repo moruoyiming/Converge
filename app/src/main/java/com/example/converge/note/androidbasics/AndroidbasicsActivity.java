@@ -9,6 +9,7 @@ import com.cocos.base.autoservice.IWebViewService;
 import com.cocos.base.autoservice.XiangxueServiceLoader;
 import com.cocos.base.viewmodel.MvvmBaseViewModel;
 import com.cocos.basewebview.WebViewActivity;
+import com.cocos.socket.client.sdk.client.action.ISocketActionListener;
 import com.example.converge.R;
 import com.example.converge.activity.PermissionActivity;
 import com.example.converge.databinding.ActivityAndroidbaseBinding;
@@ -16,33 +17,15 @@ import com.example.converge.note.androidadvanced.AndroidAdvancedActivity;
 import com.example.converge.note.androidbasics.activitylifecycle.AActivity;
 import com.example.converge.note.androidbasics.activitylifecycle.DemoActivity;
 import com.example.converge.note.androidbasics.douyin.DouyinActivity;
-import com.example.converge.note.androidbasics.opengl.OpenGLActivity;
+import com.example.converge.note.androidbasics.socket.SocketDemoActivity;
 import com.example.converge.note.androidbasics.ui.drawtext.MainActivity;
-import com.example.converge.note.androidbasics.ui.fish.FishActivity;
+import com.example.converge.note.androidbasics.inject.InjectActivity;
+import com.example.converge.note.androidbasics.inject.User;
+import com.example.converge.note.androidbasics.inject.retrofitdemo.RetrofitActivity;
 import com.example.converge.note.androidbasics.ui.nestedscroll.ScrollActivity;
 import com.example.converge.note.androidbasics.ui.recyclerview.RecyclerViewActivity;
 import com.example.converge.note.androidbasics.ui.slideview.SlideCardActivity;
 import com.example.converge.note.androidbasics.ui.viewpager.ViewPagerLazyActivity;
-import com.example.converge.note.androidadvanced.frame.dagger2.FirstActivity;
-import com.example.converge.note.androidadvanced.frame.dagger3.DaggerActivity;
-import com.example.converge.note.androidadvanced.framework.binder.MMAPActivity;
-import com.example.converge.note.androidadvanced.framework.binder.demo.client.ClientActivity;
-import com.example.converge.note.androidadvanced.jetpack.databinding.DataBindingActivity;
-import com.example.converge.note.androidadvanced.jetpack.lifecycle.LifeCycleActivity;
-import com.example.converge.note.androidadvanced.jetpack.livedata.LiveDataActivity;
-import com.example.converge.note.androidadvanced.jetpack.navigation.NavigationActivity;
-import com.example.converge.note.androidadvanced.jetpack.paging.PagingActivity;
-import com.example.converge.note.androidadvanced.jetpack.room.RoomActivity;
-import com.example.converge.note.androidadvanced.jetpack.room.ViewModelActivity;
-import com.example.converge.note.androidadvanced.jetpack.workmanager.WorkManagerActivity;
-import com.example.converge.note.androidadvanced.ndk.NdkActivity;
-import com.example.converge.note.androidadvanced.plugin.PluginTestActivity;
-import com.example.converge.note.androidbasics.inject.InjectActivity;
-import com.example.converge.note.androidbasics.inject.User;
-import com.example.converge.note.androidbasics.inject.retrofitdemo.RetrofitActivity;
-import com.example.converge.utils.Utils;
-import com.example.dexdiff.DexdiffActivity;
-import com.example.skin.SkinManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -64,7 +47,19 @@ public class AndroidbasicsActivity extends MvvmActivity<ActivityAndroidbaseBindi
         viewDataBinding.activitylifecycle.setOnClickListener(this);
         viewDataBinding.testService.setOnClickListener(this);
         viewDataBinding.testHandler.setOnClickListener(this);
-        viewDataBinding.opengl.setOnClickListener(this);
+        viewDataBinding.openWeb1.setOnClickListener(this);
+        viewDataBinding.openWeb2.setOnClickListener(this);
+        viewDataBinding.network.setOnClickListener(this);
+        viewDataBinding.recyclerview.setOnClickListener(this);
+        viewDataBinding.recyclerview2.setOnClickListener(this);
+        viewDataBinding.viewpager.setOnClickListener(this);
+        viewDataBinding.scroll.setOnClickListener(this);
+        viewDataBinding.lf.setOnClickListener(this);
+        viewDataBinding.annotions.setOnClickListener(this);
+        viewDataBinding.views.setOnClickListener(this);
+        viewDataBinding.drawtext.setOnClickListener(this);
+        viewDataBinding.socket.setOnClickListener(this);
+        viewDataBinding.douyin.setOnClickListener(this);
         return 0;
     }
 
@@ -84,6 +79,7 @@ public class AndroidbasicsActivity extends MvvmActivity<ActivityAndroidbaseBindi
             case R.id.testService:
                 Intent sIntent = new Intent(AndroidbasicsActivity.this, TestServiceActivity.class);
                 startActivity(sIntent);
+                break;
             case R.id.testHandler:
                 Intent hIntent = new Intent(AndroidbasicsActivity.this, TestHandlerActivity.class);
                 startActivity(hIntent);
@@ -106,10 +102,7 @@ public class AndroidbasicsActivity extends MvvmActivity<ActivityAndroidbaseBindi
                 Intent intent2 = new Intent(AndroidbasicsActivity.this, RetrofitActivity.class);
                 startActivity(intent2);
                 break;
-            case R.id.permission:
-                Intent per = new Intent(AndroidbasicsActivity.this, PermissionActivity.class);
-                startActivity(per);
-                break;
+
             case R.id.annotions:
                 List<User> users = new ArrayList<>();
                 for (int i = 0; i < 10; i++) {
@@ -126,32 +119,10 @@ public class AndroidbasicsActivity extends MvvmActivity<ActivityAndroidbaseBindi
                 intent1.putExtras(bundle);
                 startActivity(intent1);
                 break;
-            case R.id.views:
-                Intent view = new Intent(AndroidbasicsActivity.this, DemoActivity.class);
-                startActivity(view);
-                break;
-            case R.id.skin:
-                if (!change) {
-                    change = true;
-                    SkinManager.getInstance().loadSkin("/data/data/com.example.hotfix/skin/skins-debug.apk");
-                } else {
-                    change = false;
-                    SkinManager.getInstance().loadSkin(null);
-                }
-                break;
             case R.id.scroll:
                 Intent scroll = new Intent(AndroidbasicsActivity.this, ScrollActivity.class);
                 startActivity(scroll);
                 break;
-            case R.id.drawtext:
-                Intent dispatch = new Intent(AndroidbasicsActivity.this, MainActivity.class);
-                startActivity(dispatch);
-                break;
-            case R.id.fish:
-                Intent fish = new Intent(AndroidbasicsActivity.this, FishActivity.class);
-                startActivity(fish);
-                break;
-
             case R.id.recyclerview:
                 Intent recyclerview = new Intent(AndroidbasicsActivity.this, RecyclerViewActivity.class);
                 startActivity(recyclerview);
@@ -161,87 +132,23 @@ public class AndroidbasicsActivity extends MvvmActivity<ActivityAndroidbaseBindi
                 Intent recyclerview2 = new Intent(AndroidbasicsActivity.this, SlideCardActivity.class);
                 startActivity(recyclerview2);
                 break;
+            case R.id.views:
+                Intent view = new Intent(AndroidbasicsActivity.this, DemoActivity.class);
+                startActivity(view);
+                break;
             case R.id.viewpager:
                 Intent viewpager = new Intent(AndroidbasicsActivity.this, ViewPagerLazyActivity.class);
                 startActivity(viewpager);
                 break;
-            case R.id.mmap:
-                Intent mmap = new Intent(AndroidbasicsActivity.this, MMAPActivity.class);
-                startActivity(mmap);
-                break;
-            case R.id.aidl:
-                Intent aidl = new Intent(AndroidbasicsActivity.this, ClientActivity.class);
-                startActivity(aidl);
-                break;
-            case R.id.dexdiff:
-                Intent dexdiff = new Intent(AndroidbasicsActivity.this, DexdiffActivity.class);
-                startActivity(dexdiff);
-                break;
             case R.id.socket:
-                Intent socket = new Intent(AndroidbasicsActivity.this, com.example.converge.note.androidbasics.socket.DemoActivity.class);
+                Intent socket = new Intent(AndroidbasicsActivity.this, SocketDemoActivity.class);
                 startActivity(socket);
                 break;
-            case R.id.plugin:
-                Intent plugin = new Intent(AndroidbasicsActivity.this, PluginTestActivity.class);
-                startActivity(plugin);
-                break;
-            case R.id.hotfix:
-                Utils.what();
-                break;
-            case R.id.dagger2:
-                Intent dagger2 = new Intent(AndroidbasicsActivity.this, FirstActivity.class);
-                startActivity(dagger2);
-                break;
-            case R.id.dagger3:
-                Intent dagger3 = new Intent(AndroidbasicsActivity.this, DaggerActivity.class);
-                startActivity(dagger3);
-                break;
-            case R.id.lifecycle:
-                Intent lifecycle = new Intent(AndroidbasicsActivity.this, LifeCycleActivity.class);
-                startActivity(lifecycle);
-                break;
-            case R.id.livedata:
-                Intent livedata = new Intent(AndroidbasicsActivity.this, LiveDataActivity.class);
-                startActivity(livedata);
-                break;
-            case R.id.databinding:
-                Intent databinding = new Intent(AndroidbasicsActivity.this, DataBindingActivity.class);
-                startActivity(databinding);
-                break;
-            case R.id.room:
-                Intent room = new Intent(AndroidbasicsActivity.this, RoomActivity.class);
-                startActivity(room);
-                break;
-            case R.id.viewmodel:
-                Intent viewmodel = new Intent(AndroidbasicsActivity.this, ViewModelActivity.class);
-                startActivity(viewmodel);
-                break;
-            case R.id.navigation:
-                Intent navigation = new Intent(AndroidbasicsActivity.this, NavigationActivity.class);
-                startActivity(navigation);
-                break;
-            case R.id.paging:
-                Intent paging = new Intent(AndroidbasicsActivity.this, PagingActivity.class);
-                startActivity(paging);
-                break;
-            case R.id.workmanager:
-                Intent workmanager = new Intent(AndroidbasicsActivity.this, WorkManagerActivity.class);
-                startActivity(workmanager);
-                break;
-            case R.id.opengl:
-                Intent opengl = new Intent(AndroidbasicsActivity.this, OpenGLActivity.class);
-                startActivity(opengl);
-                break;
-            case R.id.ndk:
-                Intent ndk = new Intent(AndroidbasicsActivity.this, NdkActivity.class);
-                startActivity(ndk);
+            case R.id.drawtext:
+                Intent dispatch = new Intent(AndroidbasicsActivity.this, MainActivity.class);
+                startActivity(dispatch);
                 break;
             case R.id.douyin:
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 Intent douyin = new Intent(AndroidbasicsActivity.this, DouyinActivity.class);
                 startActivity(douyin);
                 break;

@@ -1,4 +1,4 @@
-package com.example.converge.note.androidbasics.opengl;
+package com.example.converge.note.androidadvanced.opengl;
 
 import android.opengl.GLES20;
 import android.util.Log;
