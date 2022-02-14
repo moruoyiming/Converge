@@ -11,7 +11,9 @@ import com.cocos.base.viewmodel.MvvmBaseViewModel;
 import com.cocos.basewebview.WebViewActivity;
 import com.example.converge.R;
 import com.example.converge.activity.PermissionActivity;
-import com.example.converge.note.NetworkActivity;
+import com.example.converge.databinding.ActivityAndroidbaseBinding;
+import com.example.converge.note.androidadvanced.AndroidAdvancedActivity;
+import com.example.converge.note.androidbasics.activitylifecycle.AActivity;
 import com.example.converge.note.androidbasics.activitylifecycle.DemoActivity;
 import com.example.converge.note.androidbasics.douyin.DouyinActivity;
 import com.example.converge.note.androidbasics.opengl.OpenGLActivity;
@@ -21,25 +23,23 @@ import com.example.converge.note.androidbasics.ui.nestedscroll.ScrollActivity;
 import com.example.converge.note.androidbasics.ui.recyclerview.RecyclerViewActivity;
 import com.example.converge.note.androidbasics.ui.slideview.SlideCardActivity;
 import com.example.converge.note.androidbasics.ui.viewpager.ViewPagerLazyActivity;
-import com.example.converge.note.androidheight.frame.dagger2.FirstActivity;
-import com.example.converge.note.androidheight.frame.dagger3.DaggerActivity;
-import com.example.converge.note.androidheight.framework.binder.MMAPActivity;
-import com.example.converge.note.androidheight.framework.binder.demo.client.ClientActivity;
-import com.example.converge.note.androidheight.jetpack.databinding.DataBindingActivity;
-import com.example.converge.note.androidheight.jetpack.lifecycle.LifeCycleActivity;
-import com.example.converge.note.androidheight.jetpack.livedata.LiveDataActivity;
-import com.example.converge.note.androidheight.jetpack.navigation.NavigationActivity;
-import com.example.converge.note.androidheight.jetpack.paging.PagingActivity;
-import com.example.converge.note.androidheight.jetpack.room.RoomActivity;
-import com.example.converge.note.androidheight.jetpack.room.ViewModelActivity;
-import com.example.converge.note.androidheight.jetpack.workmanager.WorkManagerActivity;
-import com.example.converge.note.androidheight.ndk.NdkActivity;
-import com.example.converge.note.androidheight.plugin.PluginTestActivity;
-import com.example.converge.note.javabasics.JavaBaseActivity;
-import com.example.converge.note.javabasics.inject.InjectActivity;
-import com.example.converge.note.javabasics.inject.User;
-import com.example.converge.note.javabasics.inject.retrofitdemo.RetrofitActivity;
-import com.example.converge.note.javaheight.JavaHeightActivity;
+import com.example.converge.note.androidadvanced.frame.dagger2.FirstActivity;
+import com.example.converge.note.androidadvanced.frame.dagger3.DaggerActivity;
+import com.example.converge.note.androidadvanced.framework.binder.MMAPActivity;
+import com.example.converge.note.androidadvanced.framework.binder.demo.client.ClientActivity;
+import com.example.converge.note.androidadvanced.jetpack.databinding.DataBindingActivity;
+import com.example.converge.note.androidadvanced.jetpack.lifecycle.LifeCycleActivity;
+import com.example.converge.note.androidadvanced.jetpack.livedata.LiveDataActivity;
+import com.example.converge.note.androidadvanced.jetpack.navigation.NavigationActivity;
+import com.example.converge.note.androidadvanced.jetpack.paging.PagingActivity;
+import com.example.converge.note.androidadvanced.jetpack.room.RoomActivity;
+import com.example.converge.note.androidadvanced.jetpack.room.ViewModelActivity;
+import com.example.converge.note.androidadvanced.jetpack.workmanager.WorkManagerActivity;
+import com.example.converge.note.androidadvanced.ndk.NdkActivity;
+import com.example.converge.note.androidadvanced.plugin.PluginTestActivity;
+import com.example.converge.note.androidbasics.inject.InjectActivity;
+import com.example.converge.note.androidbasics.inject.User;
+import com.example.converge.note.androidbasics.inject.retrofitdemo.RetrofitActivity;
 import com.example.converge.utils.Utils;
 import com.example.dexdiff.DexdiffActivity;
 import com.example.skin.SkinManager;
@@ -48,7 +48,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AndroidbasicsActivity extends MvvmActivity implements View.OnClickListener {
+public class AndroidbasicsActivity extends MvvmActivity<ActivityAndroidbaseBinding,MvvmBaseViewModel> implements View.OnClickListener {
     @Override
     protected void onRetryBtnClick() {
 
@@ -61,6 +61,10 @@ public class AndroidbasicsActivity extends MvvmActivity implements View.OnClickL
 
     @Override
     public int getBindingVariable() {
+        viewDataBinding.activitylifecycle.setOnClickListener(this);
+        viewDataBinding.testService.setOnClickListener(this);
+        viewDataBinding.testHandler.setOnClickListener(this);
+        viewDataBinding.opengl.setOnClickListener(this);
         return 0;
     }
 
@@ -73,6 +77,17 @@ public class AndroidbasicsActivity extends MvvmActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.activitylifecycle:
+                Intent aIntent = new Intent(AndroidbasicsActivity.this, AActivity.class);
+                startActivity(aIntent);
+                break;
+            case R.id.testService:
+                Intent sIntent = new Intent(AndroidbasicsActivity.this, TestServiceActivity.class);
+                startActivity(sIntent);
+            case R.id.testHandler:
+                Intent hIntent = new Intent(AndroidbasicsActivity.this, TestHandlerActivity.class);
+                startActivity(hIntent);
+                break;
             case R.id.openWeb1:
 //                WebviewActivity.startCommonWeb(getActivity(), "腾讯网", "https://xw.qq.com/?f=qqcom");
                 IWebViewService webviewService = XiangxueServiceLoader.load(IWebViewService.class);
@@ -230,10 +245,7 @@ public class AndroidbasicsActivity extends MvvmActivity implements View.OnClickL
                 Intent douyin = new Intent(AndroidbasicsActivity.this, DouyinActivity.class);
                 startActivity(douyin);
                 break;
-            case R.id.shenmin:
-                Intent aIntent = new Intent(AndroidbasicsActivity.this, AActivity.class);
-                startActivity(aIntent);
-                break;
+
         }
     }
 }

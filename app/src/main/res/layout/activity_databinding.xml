@@ -5,7 +5,7 @@
     <data><!--这里面就用来定义数据源-->
         <variable
             name="user"
-            type= "com.example.converge.note.androidheight.jetpack.databinding.User"/>
+            type= "com.example.converge.note.androidadvanced.jetpack.databinding.User"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"

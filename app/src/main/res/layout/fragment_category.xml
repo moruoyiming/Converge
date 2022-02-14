@@ -18,7 +18,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_button_circular"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:text="Java基础"
                 android:textColor="#ffffff" />
 
@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_button_circular"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:text="Java进阶"
                 android:textColor="#ffffff" />
 
@@ -36,7 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_button_circular"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:text="Android基础"
                 android:textColor="#ffffff" />
 
@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_button_circular"
-                android:padding="15dp"
+                android:padding="10dp"
                 android:text="Android进阶"
                 android:textColor="#ffffff" />
 

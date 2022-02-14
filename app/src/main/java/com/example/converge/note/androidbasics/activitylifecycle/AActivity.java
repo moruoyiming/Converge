@@ -27,13 +27,13 @@ public class AActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "A Activity onCreate");
         setContentView(R.layout.activity_a);
-        findViewById(R.id.title).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 = new Intent(AActivity.this, BActivity.class);
-                startActivity(intent2);
-            }
-        });
+//        findViewById(R.id.title).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent2 = new Intent(AActivity.this, BActivity.class);
+//                startActivity(intent2);
+//            }
+//        });
     }
 
     @Override
@@ -42,6 +42,11 @@ public class AActivity extends AppCompatActivity {
         Log.i(TAG, "A Activity onSaveInstanceState");
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.i(TAG, "A Activity onRestoreInstanceState");
+    }
 
     @Override
     protected void onStart() {
