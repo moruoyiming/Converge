@@ -6,7 +6,7 @@
     app:startDestination="@id/page1Fragment">
     <fragment
         android:id="@+id/page1Fragment"
-        android:name="com.example.converge.note.jetpack.navigation.MainPage1Fragment"
+        android:name="com.example.converge.note.androidheight.jetpack.navigation.MainPage1Fragment"
         android:label="fragment_page1"
         tools:layout="@layout/fragment_main_page1">
         <!--
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/page2Fragment"
-        android:name="com.example.converge.note.jetpack.navigation.MainPage2Fragment"
+        android:name="com.example.converge.note.androidheight.jetpack.navigation.MainPage2Fragment"
         android:label="fragment_page2"
         tools:layout="@layout/fragment_main_page2">
         <action
@@ -34,7 +34,7 @@
     <!--        app:startDestination="@id/page3Fragment">-->
     <fragment
         android:id="@+id/page3Fragment"
-        android:name="com.example.converge.note.jetpack.navigation.MainPage3Fragment"
+        android:name="com.example.converge.note.androidheight.jetpack.navigation.MainPage3Fragment"
         android:label="fragment_page3"
         tools:layout="@layout/fragment_main_page3"
         >

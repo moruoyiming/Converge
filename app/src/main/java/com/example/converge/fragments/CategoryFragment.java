@@ -13,38 +13,40 @@ import androidx.fragment.app.Fragment;
 import com.cocos.base.autoservice.XiangxueServiceLoader;
 import com.cocos.basewebview.WebViewActivity;
 import com.cocos.base.autoservice.IWebViewService;
-import com.example.converge.activity.AActivity;
-import com.example.converge.activity.douyin.DouyinActivity;
-import com.example.converge.note.ndk.NdkActivity;
-import com.example.converge.note.opengl.OpenGLActivity;
+import com.example.converge.note.androidbasics.AActivity;
+import com.example.converge.note.androidbasics.douyin.DouyinActivity;
+import com.example.converge.note.javabasics.JavaBaseActivity;
+import com.example.converge.note.javaheight.JavaHeightActivity;
+import com.example.converge.note.androidheight.ndk.NdkActivity;
+import com.example.converge.note.androidbasics.opengl.OpenGLActivity;
 import com.example.dexdiff.DexdiffActivity;
 import com.example.converge.R;
-import com.example.converge.activity.NetworkActivity;
+import com.example.converge.note.NetworkActivity;
 import com.example.converge.activity.PermissionActivity;
 import com.example.converge.databinding.FragmentCategoryBinding;
-import com.example.converge.note.framework.binder.MMAPActivity;
-import com.example.converge.note.framework.binder.demo.client.ClientActivity;
+import com.example.converge.note.androidheight.framework.binder.MMAPActivity;
+import com.example.converge.note.androidheight.framework.binder.demo.client.ClientActivity;
 import com.example.converge.note.androidbasics.activitylifecycle.DemoActivity;
 import com.example.converge.note.javabasics.inject.InjectActivity;
 import com.example.converge.note.javabasics.inject.User;
 import com.example.converge.note.javabasics.inject.retrofitdemo.RetrofitActivity;
-import com.example.converge.note.ui.nestedscroll.ScrollActivity;
-import com.example.converge.note.ui.drawtext.MainActivity;
-import com.example.converge.note.ui.fish.FishActivity;
-import com.example.converge.note.ui.recyclerview.RecyclerViewActivity;
-import com.example.converge.note.ui.slideview.SlideCardActivity;
-import com.example.converge.note.ui.viewpager.ViewPagerLazyActivity;
-import com.example.converge.note.frame.dagger2.FirstActivity;
-import com.example.converge.note.frame.dagger3.DaggerActivity;
-import com.example.converge.note.jetpack.databinding.DataBindingActivity;
-import com.example.converge.note.jetpack.lifecycle.LifeCycleActivity;
-import com.example.converge.note.jetpack.livedata.LiveDataActivity;
-import com.example.converge.note.jetpack.navigation.NavigationActivity;
-import com.example.converge.note.jetpack.paging.PagingActivity;
-import com.example.converge.note.jetpack.room.RoomActivity;
-import com.example.converge.note.jetpack.room.ViewModelActivity;
-import com.example.converge.note.jetpack.workmanager.WorkManagerActivity;
-import com.example.converge.note.androidbasics.plugin.PluginTestActivity;
+import com.example.converge.note.androidbasics.ui.nestedscroll.ScrollActivity;
+import com.example.converge.note.androidbasics.ui.drawtext.MainActivity;
+import com.example.converge.note.androidbasics.ui.fish.FishActivity;
+import com.example.converge.note.androidbasics.ui.recyclerview.RecyclerViewActivity;
+import com.example.converge.note.androidbasics.ui.slideview.SlideCardActivity;
+import com.example.converge.note.androidbasics.ui.viewpager.ViewPagerLazyActivity;
+import com.example.converge.note.androidheight.frame.dagger2.FirstActivity;
+import com.example.converge.note.androidheight.frame.dagger3.DaggerActivity;
+import com.example.converge.note.androidheight.jetpack.databinding.DataBindingActivity;
+import com.example.converge.note.androidheight.jetpack.lifecycle.LifeCycleActivity;
+import com.example.converge.note.androidheight.jetpack.livedata.LiveDataActivity;
+import com.example.converge.note.androidheight.jetpack.navigation.NavigationActivity;
+import com.example.converge.note.androidheight.jetpack.paging.PagingActivity;
+import com.example.converge.note.androidheight.jetpack.room.RoomActivity;
+import com.example.converge.note.androidheight.jetpack.room.ViewModelActivity;
+import com.example.converge.note.androidheight.jetpack.workmanager.WorkManagerActivity;
+import com.example.converge.note.androidheight.plugin.PluginTestActivity;
 import com.example.converge.utils.Utils;
 import com.example.skin.SkinManager;
 
@@ -67,45 +69,32 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mBinding.openWeb1.setOnClickListener(this);
-        mBinding.openWeb2.setOnClickListener(this);
-        mBinding.network.setOnClickListener(this);
-        mBinding.lf.setOnClickListener(this);
-        mBinding.permission.setOnClickListener(this);
-        mBinding.annotions.setOnClickListener(this);
-        mBinding.views.setOnClickListener(this);
-        mBinding.skin.setOnClickListener(this);
-        mBinding.scroll.setOnClickListener(this);
-        mBinding.drawtext.setOnClickListener(this);
-        mBinding.fish.setOnClickListener(this);
-        mBinding.recyclerview.setOnClickListener(this);
-        mBinding.recyclerview2.setOnClickListener(this);
-        mBinding.viewpager.setOnClickListener(this);
-        mBinding.mmap.setOnClickListener(this);
-        mBinding.aidl.setOnClickListener(this);
-        mBinding.dexdiff.setOnClickListener(this);
-        mBinding.socket.setOnClickListener(this);
-        mBinding.plugin.setOnClickListener(this);
-        mBinding.hotfix.setOnClickListener(this);
-        mBinding.dagger2.setOnClickListener(this);
-        mBinding.dagger3.setOnClickListener(this);
-        mBinding.lifecycle.setOnClickListener(this);
-        mBinding.livedata.setOnClickListener(this);
-        mBinding.databinding.setOnClickListener(this);
-        mBinding.room.setOnClickListener(this);
-        mBinding.viewmodel.setOnClickListener(this);
-        mBinding.navigation.setOnClickListener(this);
-        mBinding.paging.setOnClickListener(this);
-        mBinding.workmanager.setOnClickListener(this);
-        mBinding.opengl.setOnClickListener(this);
-        mBinding.ndk.setOnClickListener(this);
-        mBinding.douyin.setOnClickListener(this);
-        mBinding.shenmin.setOnClickListener(this);
+        mBinding.javabase.setOnClickListener(this);
+        mBinding.javaheight.setOnClickListener(this);
+        mBinding.androidbase.setOnClickListener(this);
+        mBinding.androidheight.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.javabase:
+                Intent javabase = new Intent(getActivity(), JavaBaseActivity.class);
+                startActivity(javabase);
+                break;
+            case R.id.javaheight:
+                Intent javaheight = new Intent(getActivity(), JavaHeightActivity.class);
+                startActivity(javaheight);
+                break;
+            case R.id.androidbase:
+                Intent androidbase = new Intent(getActivity(), JavaBaseActivity.class);
+                startActivity(androidbase);
+                break;
+            case R.id.androidheight:
+                Intent androidheight = new Intent(getActivity(), JavaBaseActivity.class);
+                startActivity(androidheight);
+                break;
             case R.id.openWeb1:
 //                WebviewActivity.startCommonWeb(getActivity(), "腾讯网", "https://xw.qq.com/?f=qqcom");
                 IWebViewService webviewService = XiangxueServiceLoader.load(IWebViewService.class);
@@ -196,7 +185,7 @@ public class CategoryFragment extends Fragment implements View.OnClickListener {
                 startActivity(dexdiff);
                 break;
             case R.id.socket:
-                Intent socket = new Intent(getActivity(), com.example.converge.activity.socket.DemoActivity.class);
+                Intent socket = new Intent(getActivity(), com.example.converge.note.androidbasics.socket.DemoActivity.class);
                 startActivity(socket);
                 break;
             case R.id.plugin:

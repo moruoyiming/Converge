@@ -16,7 +16,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.example.converge.note.ui.nestedscroll.xxrecyclerview.FixedDataScrollDisabledRecyclerView
+                <com.example.converge.note.androidbasics.ui.nestedscroll.xxrecyclerview.FixedDataScrollDisabledRecyclerView
                     android:id="@+id/combo_top_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
