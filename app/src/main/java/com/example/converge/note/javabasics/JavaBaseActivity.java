@@ -41,6 +41,8 @@ public class JavaBaseActivity extends MvvmActivity<ActivityJavabaseBinding, Mvvm
         viewDataBinding.A1B2C3.setOnClickListener(this);
         viewDataBinding.ABCABC.setOnClickListener(this);
         viewDataBinding.T12A34B56C.setOnClickListener(this);
+        viewDataBinding.producerconsumer.setOnClickListener(this);
+        viewDataBinding.az.setOnClickListener(this);
 
         return 0;
     }
@@ -125,6 +127,12 @@ public class JavaBaseActivity extends MvvmActivity<ActivityJavabaseBinding, Mvvm
                 break;
             case R.id.T12A34B56C:
                 viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/ThreadTest.java"));
+                break;
+            case R.id.producerconsumer:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/ProducerConsumerTest.java"));
+                break;
+            case R.id.az:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/顺序打印字母A到Z.java"));
                 break;
         }
     }

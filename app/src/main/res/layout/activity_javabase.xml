@@ -6,8 +6,9 @@
         android:layout_height="match_parent">
 
         <ScrollView
+            android:id="@+id/top"
             android:layout_width="match_parent"
-            android:layout_height="300dp">
+            android:layout_height="240dp">
 
             <com.example.converge.widget.FlowLayout
                 android:layout_width="match_parent"
@@ -78,14 +79,7 @@
                     android:text="threadLocal"
                     android:textColor="#ffffff" />
 
-                <TextView
-                    android:id="@+id/executor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/shape_button_circular"
-                    android:padding="10dp"
-                    android:text="executor"
-                    android:textColor="#ffffff" />
+
 
                 <TextView
                     android:id="@+id/ticketseller"
@@ -104,7 +98,14 @@
                     android:padding="10dp"
                     android:text="cyclicbarrier"
                     android:textColor="#ffffff" />
-
+                <TextView
+                    android:id="@+id/executor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="executor"
+                    android:textColor="#ffffff" />
                 <TextView
                     android:id="@+id/countdownlatch"
                     android:layout_width="wrap_content"
@@ -141,14 +142,31 @@
                     android:text="12A34B56C"
                     android:textColor="#ffffff" />
 
+                <TextView
+                    android:id="@+id/producerconsumer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="ProducerConsumer"
+                    android:textColor="#ffffff" />
 
+                <TextView
+                    android:id="@+id/az"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="打印A-Z"
+                    android:textColor="#ffffff" />
             </com.example.converge.widget.FlowLayout>
         </ScrollView>
 
 
         <ScrollView
+            android:layout_below="@id/top"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true">
 
             <TextView
