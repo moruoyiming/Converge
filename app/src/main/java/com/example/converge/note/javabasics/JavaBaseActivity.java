@@ -29,10 +29,19 @@ public class JavaBaseActivity extends MvvmActivity<ActivityJavabaseBinding, Mvvm
     public int getBindingVariable() {
         viewDataBinding.javageneric.setOnClickListener(this);
         viewDataBinding.javageneric2.setOnClickListener(this);
+        viewDataBinding.callable.setOnClickListener(this);
         viewDataBinding.join.setOnClickListener(this);
         viewDataBinding.deadlock.setOnClickListener(this);
         viewDataBinding.lock.setOnClickListener(this);
         viewDataBinding.threadLocal.setOnClickListener(this);
+        viewDataBinding.executor.setOnClickListener(this);
+        viewDataBinding.ticketseller.setOnClickListener(this);
+        viewDataBinding.cyclicbarrier.setOnClickListener(this);
+        viewDataBinding.countdownlatch.setOnClickListener(this);
+        viewDataBinding.A1B2C3.setOnClickListener(this);
+        viewDataBinding.ABCABC.setOnClickListener(this);
+        viewDataBinding.T12A34B56C.setOnClickListener(this);
+
         return 0;
     }
 
@@ -81,6 +90,9 @@ public class JavaBaseActivity extends MvvmActivity<ActivityJavabaseBinding, Mvvm
                         "\n" +
                         "}\n");
                 break;
+            case R.id.callable:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/CallableTest.java"));
+                break;
             case R.id.join:
                 viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/JoinTest.java"));
                 break;
@@ -92,6 +104,27 @@ public class JavaBaseActivity extends MvvmActivity<ActivityJavabaseBinding, Mvvm
                 break;
             case R.id.threadLocal:
                 viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/ThreadLocalTest.java"));
+                break;
+            case R.id.executor:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/ExecutorsTest.java"));
+                break;
+            case R.id.ticketseller:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/TicketSeller.java"));
+                break;
+            case R.id.cyclicbarrier:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/CyclicBarrierTest.java"));
+                break;
+            case R.id.countdownlatch:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/CountDownLatchTest.java"));
+                break;
+            case R.id.A1B2C3:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/A1B2C3.java"));
+                break;
+            case R.id.ABCABC:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/ABCABC.java"));
+                break;
+            case R.id.T12A34B56C:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/ThreadTest.java"));
                 break;
         }
     }

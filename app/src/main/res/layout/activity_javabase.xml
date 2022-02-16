@@ -34,6 +34,15 @@
                     android:textColor="#ffffff" />
 
                 <TextView
+                    android:id="@+id/callable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="callable"
+                    android:textColor="#ffffff" />
+
+                <TextView
                     android:id="@+id/join"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,6 +59,7 @@
                     android:padding="10dp"
                     android:text="lock"
                     android:textColor="#ffffff" />
+
                 <TextView
                     android:id="@+id/deadlock"
                     android:layout_width="wrap_content"
@@ -58,6 +68,7 @@
                     android:padding="10dp"
                     android:text="deadlock"
                     android:textColor="#ffffff" />
+
                 <TextView
                     android:id="@+id/threadLocal"
                     android:layout_width="wrap_content"
@@ -66,6 +77,70 @@
                     android:padding="10dp"
                     android:text="threadLocal"
                     android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/executor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="executor"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/ticketseller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="ticketseller"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/cyclicbarrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="cyclicbarrier"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/countdownlatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="countdownlatch"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/A1B2C3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="A1B2C3"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/ABCABC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="ABCABC"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:id="@+id/T12A34B56C"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="12A34B56C"
+                    android:textColor="#ffffff" />
+
 
             </com.example.converge.widget.FlowLayout>
         </ScrollView>
