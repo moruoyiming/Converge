@@ -43,6 +43,7 @@ public class JavaBaseActivity extends MvvmActivity<ActivityJavabaseBinding, Mvvm
         viewDataBinding.T12A34B56C.setOnClickListener(this);
         viewDataBinding.producerconsumer.setOnClickListener(this);
         viewDataBinding.az.setOnClickListener(this);
+        viewDataBinding.max.setOnClickListener(this);
 
         return 0;
     }
@@ -133,6 +134,9 @@ public class JavaBaseActivity extends MvvmActivity<ActivityJavabaseBinding, Mvvm
                 break;
             case R.id.az:
                 viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/顺序打印字母A到Z.java"));
+                break;
+            case R.id.max:
+                viewDataBinding.tvContext.setText(ResourceUtils.readAssets2String("aligorithm/thread/顺序打印数字1到无穷大.java"));
                 break;
         }
     }

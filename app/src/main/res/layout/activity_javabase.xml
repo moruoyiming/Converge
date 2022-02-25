@@ -159,6 +159,14 @@
                     android:padding="10dp"
                     android:text="打印A-Z"
                     android:textColor="#ffffff" />
+                <TextView
+                    android:id="@+id/max"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button_circular"
+                    android:padding="10dp"
+                    android:text="打印1-无穷大"
+                    android:textColor="#ffffff" />
             </com.example.converge.widget.FlowLayout>
         </ScrollView>
 
