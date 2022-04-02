@@ -36,12 +36,6 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        binding.textHome2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.i("sdsdsdsds","click 点击事件出发" );
-            }
-        });
         return root;
     }
 

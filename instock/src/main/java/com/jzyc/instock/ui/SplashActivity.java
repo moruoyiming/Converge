@@ -22,7 +22,7 @@ import com.jzyc.instock.R;
  */
 public class SplashActivity extends AppCompatActivity {
 
-    private static final long COUNTER_TIME = 5;
+    private static final long COUNTER_TIME = 3;
     private long secondsRemaining;
 
     @Override
