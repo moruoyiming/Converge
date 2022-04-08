@@ -1,9 +1,13 @@
 package com.example.compiler;
 
+import javax.lang.model.util.Types;
+
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
+import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
+import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.lang.model.element.Element;
@@ -16,12 +20,32 @@ import javax.tools.Diagnostic;
  * resources/META-INF.services/javax.annotation.processing.Processor
  * 注解处理器
  */
-@SupportedAnnotationTypes("com.example.converge.utils.Jian")
+@SupportedAnnotationTypes("com.example.converge.note.javabasics.annotation.Jian")
 public class MyProcessor extends AbstractProcessor {
+
+    /**
+     * 用来处理TypeMirror的工具类
+     */
+    private Types mTypeUtils;
+    /**
+     * 用于创建文件
+     */
+    private Filer mFiler;
+    /**
+     * 用于打印信息
+     */
+    private Messager messager;
+    @Override
+    public synchronized void init(ProcessingEnvironment processingEnv) {
+        super.init(processingEnv);
+        mTypeUtils = processingEnv.getTypeUtils();
+        mFiler = processingEnv.getFiler();
+        messager = processingEnv.getMessager();
+    }
+
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         // 日志打印
-        Messager messager = processingEnv.getMessager();
         messager.printMessage(Diagnostic.Kind.NOTE, "jianruilin processingEnv" );
         for (TypeElement typeElement : annotations) {
             //获取需要处理的注解对象(编译的程序中使用的注解)

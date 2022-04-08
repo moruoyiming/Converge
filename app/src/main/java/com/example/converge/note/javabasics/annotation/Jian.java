@@ -1,4 +1,4 @@
-package com.example.converge.utils;
+package com.example.converge.note.javabasics.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

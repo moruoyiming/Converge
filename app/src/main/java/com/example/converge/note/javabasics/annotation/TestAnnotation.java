@@ -5,11 +5,11 @@ package com.example.converge.note.javabasics.annotation;
  * @Time: 11:00
  * @Author: Jian
  */
-@Lance("params")
+@Jian("params")
 public class TestAnnotation {
 
     //    @Lance("params") 编译出错，Lance注解只能作用在类上
-    @LanceMethod(value = "canshu",name = "jianruilin")
+//    @LanceMethod(value = "canshu",name = "jianruilin")
     public void method() {
 
     }

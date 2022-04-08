@@ -24,6 +24,7 @@ import com.example.converge.databinding.ActivityMainBinding;
 import com.example.converge.fragments.AccountFragment;
 import com.example.converge.fragments.CategoryFragment;
 import com.example.converge.fragments.ServiceFragment;
+import com.example.converge.note.javabasics.annotation.Jian;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -34,6 +35,7 @@ import java.lang.reflect.Field;
 import q.rorbin.badgeview.QBadgeView;
 
 @ARouter(path = "MainActivity.class")
+@Jian("Sdfasd")
 public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseViewModel> {
 
     private INewsService iNewsService;

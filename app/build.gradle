@@ -112,7 +112,7 @@ dependencies {
     api project(':news')
     api project(':aop')
     api project(':inject')
-    annotationProcessor project(':compiler')
+    api project(':compiler')
     implementation project(':arouter-annotations')
     implementation 'org.aspectj:aspectjrt:1.9.2'
     //hilt

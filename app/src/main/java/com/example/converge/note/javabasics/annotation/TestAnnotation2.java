@@ -1,4 +1,4 @@
-package com.example.converge.note.androidbasics.inject;
+package com.example.converge.note.javabasics.annotation;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntDef;
@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 /**
  * 注解
  */
-public class TestAnnotation {
+public class TestAnnotation2 {
 
     private static WeekDay weekDay;
 
