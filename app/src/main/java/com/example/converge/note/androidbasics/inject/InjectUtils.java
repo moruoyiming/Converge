@@ -17,7 +17,7 @@ public class InjectUtils {
         //获得当前类所有成员
         Field[] fields = clz.getDeclaredFields();
         for (Field field : fields) {
-            //判断属性是否被InjectView 注解
+            //判断属性是否被InjectView 注解声明
             if (field.isAnnotationPresent(InjectView.class)) {
                 InjectView injectView = field.getAnnotation(InjectView.class);
                 //获得注解中设置的id
