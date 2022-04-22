@@ -29,7 +29,7 @@ public class InjectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inject);
 //        textView = findViewById(R.id.openWeb1);
         InjectUtils.injectView(this);
-        InjectUtils.JumpActivity(this);
+        InjectUtils.InjectExtras(this);
         textView2.setText(name + "    " + pwd);
         textView.setText(user.toString());
     }

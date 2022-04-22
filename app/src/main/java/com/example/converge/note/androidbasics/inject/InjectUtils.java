@@ -10,8 +10,16 @@ import android.view.View;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
+/**
+ * 注解&反射
+ */
 public class InjectUtils {
 
+    /**
+     * 注解反射动态完成findViewById操作
+     *
+     * @param activity
+     */
     public static void injectView(Activity activity) {
         Class<? extends Activity> clz = activity.getClass();
         //获得当前类所有成员
@@ -34,7 +42,12 @@ public class InjectUtils {
         }
     }
 
-    public static void JumpActivity(Activity activity) {
+    /**
+     * 注解反射动态完成获取Intent参数获取参数操作
+     *
+     * @param activity
+     */
+    public static void InjectExtras(Activity activity) {
         Class<? extends Activity> clz = activity.getClass();
         Intent intent = activity.getIntent();
         Bundle bundle = intent.getExtras();

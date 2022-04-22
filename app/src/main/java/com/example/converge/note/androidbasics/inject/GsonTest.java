@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
  * @Time: 16:40
  * @Author: Jian
  */
-public class Test {
+public class GsonTest {
 
     static class Response<T> {
         T data;
@@ -74,7 +74,10 @@ public class Test {
 //        {}表示为内部类
         Type type = new TypeToken<Response<Data>>() {
         }.getType();
-        //加{}表示成匿名内部类，不加{}会报错，TypeRefrence<>会有泛型擦出操作，导致字节码中找不到Response相关签名信息。
+        //加{}表示成匿名内部类，不加{}表示的是对象。
+        //不加{}会报错，TypeRefrence<>会有泛型擦出操作，导致字节码中找不到Response相关签名信息。
+        //加{} 字节码中会创建匿名内部类
+        //不加{} 字节码中会创建对象
         //Exception in thread "main" java.lang.ClassCastException: java.lang.Class cannot be cast to java.lang.reflect.ParameterizedType
         //	at com.example.converge.note.androidbasics.inject.Test$TypeRefrence.<init>(Test.java:43)
         //	at com.example.converge.note.androidbasics.inject.Test.main(Test.java:75)
