@@ -6,6 +6,14 @@ public class User implements Serializable {
     private String name;
     private String sex;
 
+    public User() {
+    }
+
+    public User(String name, String sex) {
+        this.name = name;
+        this.sex = sex;
+    }
+
     public String getName() {
         return name;
     }

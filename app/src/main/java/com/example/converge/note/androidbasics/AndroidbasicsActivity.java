@@ -116,6 +116,7 @@ public class AndroidbasicsActivity extends MvvmActivity<ActivityAndroidbaseBindi
                 bundle.putString("name", "jianruilin");
                 bundle.putString("pwd", "123456");
                 intent1.putExtra("user", (Serializable) users);
+                intent1.putExtra("users", (Serializable) new User[]{ new User("刘老师","女")});
                 intent1.putExtras(bundle);
                 startActivity(intent1);
                 break;

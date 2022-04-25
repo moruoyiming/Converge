@@ -18,11 +18,16 @@ public class InjectActivity extends AppCompatActivity {
     String pwd;
     @Autowired("")
     List<User> user;
+    @Autowired("users")
+    User[] users;
 
     @InjectView(R.id.inject_tv)
     TextView textView;
     @InjectView(R.id.inject_tv2)
     TextView textView2;
+    @InjectView(R.id.inject_tv3)
+    TextView textView3;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +35,9 @@ public class InjectActivity extends AppCompatActivity {
 //        textView = findViewById(R.id.openWeb1);
         InjectUtils.injectView(this);
         InjectUtils.InjectExtras(this);
-        textView2.setText(name + "    " + pwd);
-        textView.setText(user.toString());
+
+        textView.setText(name + " " + pwd);
+        textView2.setText(user.toString());
+        textView3.setText(users[0].toString());
     }
 }
