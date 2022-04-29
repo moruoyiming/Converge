@@ -33,6 +33,8 @@ public class InjectUtils {
                 View view = activity.findViewById(id);
                 //反射设置属性的值  需要设置访问权限setAccessible 允许操作private的属性
                 field.setAccessible(true);
+                //判断字段是否为 static 修饰符修饰
+                field.getModifiers();
                 try {
                     field.set(activity, view);
                 } catch (IllegalAccessException e) {
@@ -65,9 +67,13 @@ public class InjectUtils {
                     // todo Parcelable数组类型不能直接设置，其他的都可以.
                     //获得数组单个元素类型
                     Class<?> componentType = field.getType().getComponentType();
+                    //field.getType().isArray()  判断是否为数组
+                    //判断字段是否实现接口
                     if (field.getType().isArray() && Parcelable.class.isAssignableFrom(componentType)) {
+                        //如果命中则说明是 Parcelable 数组
                         Object[] objects = (Object[]) obj;
                         //创建对应类型的数组并由objects拷贝
+                        //(Class<? extends Object[]>) field.getType() 为 Parcelable[].class
                         Object[] objs = Arrays.copyOf(objects, objects.length, (Class<? extends Object[]>) field.getType());
                         obj = objs;
                     }

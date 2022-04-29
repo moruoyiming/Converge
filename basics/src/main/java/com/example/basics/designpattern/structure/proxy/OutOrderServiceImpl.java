@@ -1,6 +1,6 @@
-package com.example.basics.designpattern.service.impl;
+package com.example.basics.designpattern.structure.proxy;
 
-import com.example.basics.designpattern.service.OrderService;
+import com.example.basics.designpattern.structure.proxy.OrderService;
 
 /**
  * 海外订单

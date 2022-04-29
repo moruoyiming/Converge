@@ -1,8 +1,8 @@
 package com.example.basics.designpattern.action.template;
 
 import com.example.basics.designpattern.entity.Fruit;
-import com.example.basics.designpattern.service.OrderService;
-import com.example.basics.designpattern.service.impl.OrderServiceImpl;
+import com.example.basics.designpattern.structure.proxy.OrderService;
+import com.example.basics.designpattern.structure.proxy.OrderServiceImpl;
 
 import java.util.List;
 

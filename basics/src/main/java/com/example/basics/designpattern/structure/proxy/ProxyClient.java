@@ -1,7 +1,5 @@
 package com.example.basics.designpattern.structure.proxy;
 
-import com.example.basics.designpattern.service.OrderService;
-
 /**
  * 代理模式
  * 代售进口水果
