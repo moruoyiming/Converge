@@ -1,8 +1,11 @@
 package com.example.basics.designpattern.my.proxy;
 
+import java.io.FileOutputStream;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+
+import sun.misc.ProxyGenerator;
 
 public class ProxyTest {
     public static void main(String[] args) {
@@ -46,5 +49,22 @@ public class ProxyTest {
 
         Sale sale = (Sale) proxyObject;
         sale.sell(100);
+
+
+        try{
+            //输出代理内存中的class类到class.文件
+            proxy();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public static void proxy() throws Exception{
+        String name = Purchase.class.getName() + "$Proxy0";
+//        生成代理指定接口的Class数据
+        byte[] bytes = ProxyGenerator.generateProxyClass(name,new Class[]{Purchase.class});
+        FileOutputStream outputStream = new FileOutputStream("basics/"+name+".class");
+        outputStream.write(bytes);
+        outputStream.close();
     }
 }
