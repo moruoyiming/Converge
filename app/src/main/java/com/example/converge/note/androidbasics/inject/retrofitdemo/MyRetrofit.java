@@ -46,6 +46,7 @@ public class MyRetrofit {
         return (T) Proxy.newProxyInstance(service.getClassLoader(), new Class[]{service}, new InvocationHandler() {
             @Override  //args就是Api中的接口方法 形参
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                //解析method方法上的所有注解信息。
                 //当有代理对象的方法调用时，执行invoke 方法
                 ServiceMethod serviceMethod = loadServiceMethod(method);
                 return serviceMethod.invoke(args);

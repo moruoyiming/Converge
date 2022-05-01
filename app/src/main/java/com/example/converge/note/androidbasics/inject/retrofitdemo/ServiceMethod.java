@@ -150,7 +150,9 @@ public class ServiceMethod {
             int length = parameterAnnotations.length;
             parameterHandlers = new ParameterHandler[length];
             for (int i = 0; i < length; i++) {
+                //一个参数上的所有注解
                 Annotation[] annotations = parameterAnnotations[i];
+                //处理参数上的注解
                 for (Annotation parameter : annotations) {
                     if (parameter instanceof Field) {
                         //判断 get/post post中才会使用field字段

@@ -12,8 +12,10 @@ import com.example.converge.note.androidbasics.inject.retrofitdemo.api.MyWeather
 import com.example.converge.note.androidbasics.inject.retrofitdemo.api.WeatherApi;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 
+import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,15 +33,23 @@ public class RetrofitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://restapi.amap.com")
-               .build();
+        //构建者 定制Retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://restapi.amap.com")
+                .client(new OkHttpClient.Builder()
+                        .callTimeout(2, TimeUnit.SECONDS)
+                        .build())
+//                .addConverterFactory()
+//                .addCallAdapterFactory()
+                .build();
 
         weatherApi = retrofit.create(WeatherApi.class);
 
-        MyRetrofit myRetrofit = new MyRetrofit.Builder().baseUrl("https://restapi.amap.com").build();
+        MyRetrofit myRetrofit = new MyRetrofit.Builder()
+                .baseUrl("https://restapi.amap.com")
+                .build();
         myWeatherApi = myRetrofit.create(MyWeatherApi.class);
     }
-
 
 
     public void get(View view) {
@@ -47,7 +57,7 @@ public class RetrofitActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()){
+                if (response.isSuccessful()) {
                     ResponseBody body = response.body();
                     try {
                         String string = body.string();
