@@ -10,18 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:text="搜索历史"
             android:textColor="@android:color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
+
         <com.example.converge.widget.FlowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:layout_margin="8dp">
+            android:layout_margin="8dp"
+            android:paddingLeft="10dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,10 +101,12 @@
             android:text="搜索发现"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
+
         <com.example.converge.widget.FlowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -194,6 +199,16 @@
                 android:background="@drawable/shape_button_circular"
                 android:text="笔记本电脑" />
         </com.example.converge.widget.FlowLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="跳转B">
+
+        </TextView>
     </LinearLayout>
+
 
 </ScrollView>
