@@ -27,8 +27,8 @@ public class SplashActivity extends AppCompatActivity {
         list.add(2);
 //        list.add(3);
 //        list.add(4);
-        List<Integer> list2 =list.subList(0, 3);
-        Log.i("Sdfas",list2.size()+" ");
+//        List<Integer> list2 =list.subList(0, 3);
+//        Log.i("Sdfas",list2.size()+" ");
     }
 
     @Override

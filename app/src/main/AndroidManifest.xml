@@ -95,6 +95,7 @@
         <activity android:name=".note.javabasics.JavaBaseActivity">
 
         </activity>
+        <activity android:name=".activity.LauchActivity"/>
         <activity android:name=".note.javaadvanced.JavaAdvancedActivity">
 
         </activity>
