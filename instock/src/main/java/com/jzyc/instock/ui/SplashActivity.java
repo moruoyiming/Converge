@@ -48,23 +48,23 @@ public class SplashActivity extends AppCompatActivity {
             }
         }
         setContentView(R.layout.activity_splash);
-        createTimer(COUNTER_TIME);
+        createTimer();
     }
 
-    private void createTimer(long seconds) {
+    private void createTimer() {
         TextView counterTextView = findViewById(R.id.timer);
         CountDownTimer countDownTimer =
-                new CountDownTimer(seconds * 1000, 1000) {
+                new CountDownTimer(SplashActivity.COUNTER_TIME * 1000, 1000) {
                     @Override
                     public void onTick(long millisUntilFinished) {
                         secondsRemaining = ((millisUntilFinished / 1000) + 1);
-                        counterTextView.setText("App is done loading in: " + secondsRemaining);
+                        counterTextView.setText(secondsRemaining+ "s");//"App is done loading in: " +
                     }
 
                     @Override
                     public void onFinish() {
                         secondsRemaining = 0;
-                        counterTextView.setText("Done.");
+//                        counterTextView.setText("Done.");
                         startMainActivity();
                         finish();
                     }
