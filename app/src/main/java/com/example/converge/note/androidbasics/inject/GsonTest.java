@@ -35,10 +35,10 @@ public class GsonTest {
         }
     }
 
-    static class TypeRefrence<T> {
+    static class TypeReference<T> {
         Type type;
 
-        public TypeRefrence() {
+        public TypeReference() {
             //获得泛型类型
             Type genericSuperclass = getClass().getGenericSuperclass();
             ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
@@ -81,7 +81,7 @@ public class GsonTest {
         //Exception in thread "main" java.lang.ClassCastException: java.lang.Class cannot be cast to java.lang.reflect.ParameterizedType
         //	at com.example.converge.note.androidbasics.inject.Test$TypeRefrence.<init>(Test.java:43)
         //	at com.example.converge.note.androidbasics.inject.Test.main(Test.java:75)
-        Type type2 = new TypeRefrence<Response<Data>>(){}.getType();
+        Type type2 = new TypeReference<Response<Data>>(){}.getType();
         System.out.println("type "+type);
         System.out.println("type2 "+type2);
         Response<Data> response1 = gson.fromJson(json, type);
