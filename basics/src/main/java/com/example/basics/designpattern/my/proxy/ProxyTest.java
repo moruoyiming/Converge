@@ -44,6 +44,7 @@ public class ProxyTest {
                 });// Object o 为生成的代理对象
         // 当调用代理对象的函数时，会回调InvocationHandler内部类中的invoke函数，并最终回调代理对象所代理的真实对象函数、
         // 在invoke函数中，实现代理逻辑。
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
         Purchase purchase = (Purchase) proxyObject;
         purchase.buy(100);
 
