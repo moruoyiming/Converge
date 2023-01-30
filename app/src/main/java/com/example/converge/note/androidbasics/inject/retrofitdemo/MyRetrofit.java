@@ -82,7 +82,7 @@ public class MyRetrofit {
      */
     public static final class Builder {
         private HttpUrl baseUrl;
-        //Okhttp->OkhttClient
+        //Okhttp->OkHttpClient
         private okhttp3.Call.Factory callFactory;  //null
 
 

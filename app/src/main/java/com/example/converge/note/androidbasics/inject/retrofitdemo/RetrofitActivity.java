@@ -34,20 +34,14 @@ public class RetrofitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_retrofit);
 
         //构建者 定制Retrofit
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://restapi.amap.com")
-                .client(new OkHttpClient.Builder()
-                        .callTimeout(2, TimeUnit.SECONDS)
-                        .build())
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://restapi.amap.com").client(new OkHttpClient.Builder().callTimeout(2, TimeUnit.SECONDS).build())
 //                .addConverterFactory()
 //                .addCallAdapterFactory()
                 .build();
 
         weatherApi = retrofit.create(WeatherApi.class);
 
-        MyRetrofit myRetrofit = new MyRetrofit.Builder()
-                .baseUrl("https://restapi.amap.com")
-                .build();
+        MyRetrofit myRetrofit = new MyRetrofit.Builder().baseUrl("https://restapi.amap.com").callFactory(new OkHttpClient().newBuilder().callTimeout(2, TimeUnit.SECONDS).build()).build();
         myWeatherApi = myRetrofit.create(MyWeatherApi.class);
     }
 

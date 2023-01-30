@@ -19,7 +19,6 @@ import okhttp3.Request;
  * 记录请求类型、参数、完整地址
  */
 public class ServiceMethod {
-
     HttpUrl baseUrl;
     Call.Factory callFactory;
     String httpMethod;
@@ -49,12 +48,11 @@ public class ServiceMethod {
      * @return
      */
     public Object invoke(Object[] args) {
-//        1. 处理请求地址及参数
+//      1. 处理请求地址及参数
         for (int i = 0; i < parameterHandlers.length; i++) {
             //ParameterHandler 已经保存了key 现在将value 传递
             ParameterHandler parameterHandler = parameterHandlers[i];
             parameterHandler.apply(this, args[i].toString());
-
         }
         //获取最终的请求地址
         HttpUrl httpUrl;
@@ -62,7 +60,6 @@ public class ServiceMethod {
             urlBuilder = baseUrl.newBuilder(relativeUrl);
         }
         httpUrl = urlBuilder.build();
-
         //请求体
         FormBody formBody = null;
         if (formBuilder != null) {
@@ -99,7 +96,6 @@ public class ServiceMethod {
     }
 
     public static class Builder {
-
         private static final String TAG = "ServiceMethod";
         private final MyRetrofit mRetrofit;
         private final Annotation[] methodAnnotations;
@@ -108,7 +104,6 @@ public class ServiceMethod {
         private String relativeUrl;
         private boolean hasBody;
         private ParameterHandler[] parameterHandlers;
-
         //通过反射method，获取method上的注解信息
         public Builder(MyRetrofit retrofit, Method method) {
             this.mRetrofit = retrofit;
@@ -116,7 +111,6 @@ public class ServiceMethod {
             methodAnnotations = method.getAnnotations();
             //获取方法参数的所有注解(一个参数可以有多个注解，一个方法会有多个参数)
             parameterAnnotations = method.getParameterAnnotations();
-
         }
 
         /**
@@ -126,10 +120,11 @@ public class ServiceMethod {
          * @return
          */
         public ServiceMethod build() {
-
-            //解析方法上的注解
+            /**
+             * 1.解析方法上的注解
+             */
             for (Annotation annotation : methodAnnotations) {
-                System.out.println("  xxxxxx   "+annotation.toString());
+                System.out.println("  xxxxxx   " + annotation.toString());
                 if (annotation instanceof GET) {
                     //记录当前请求方式
                     this.httpMethod = "GET";
@@ -143,12 +138,12 @@ public class ServiceMethod {
                     this.hasBody = true;
                 }
             }
-
             /**
              * 2.解析方法参数的注解
              */
             int length = parameterAnnotations.length;
             parameterHandlers = new ParameterHandler[length];
+            //遍历所有参数
             for (int i = 0; i < length; i++) {
                 //一个参数上的所有注解
                 Annotation[] annotations = parameterAnnotations[i];
@@ -177,8 +172,5 @@ public class ServiceMethod {
             }
             return new ServiceMethod(this);
         }
-
     }
-
-
 }
