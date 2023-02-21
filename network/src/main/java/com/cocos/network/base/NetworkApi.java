@@ -1,7 +1,6 @@
 package com.cocos.network.base;
 
 import com.cocos.network.commoninterceptor.CommonRequestInterceptor;
-import com.cocos.network.commoninterceptor.CommonResponseInterceptor;
 import com.cocos.network.environment.EnvironmentActivity;
 import com.cocos.network.environment.IEnvironment;
 import com.cocos.network.errorhandler.HttpErrorHandler;
@@ -23,6 +22,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import com.cocos.network.base.LogInterceptor;
 
 public abstract class NetworkApi implements IEnvironment {
     private static INetworkRequiredInfo iNetworkRequiredInfo;
@@ -69,7 +69,7 @@ public abstract class NetworkApi implements IEnvironment {
             okHttpClientBuilder.writeTimeout(30,TimeUnit.SECONDS);
             okHttpClientBuilder.cache(new Cache(iNetworkRequiredInfo.getApplicationContext().getCacheDir(), cacheSize));
             okHttpClientBuilder.addInterceptor(new CommonRequestInterceptor(iNetworkRequiredInfo));
-            okHttpClientBuilder.addInterceptor(new CommonResponseInterceptor());
+            okHttpClientBuilder.addInterceptor(new LogInterceptor());
             if (iNetworkRequiredInfo != null &&(iNetworkRequiredInfo.isDebug())) {
                 HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
                 httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

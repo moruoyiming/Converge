@@ -56,13 +56,13 @@ public class ServiceMethod {
         }
         //获取最终的请求地址
         HttpUrl httpUrl;
-        if (urlBuilder != null) {
+        if (urlBuilder == null) {
             urlBuilder = baseUrl.newBuilder(relativeUrl);
         }
         httpUrl = urlBuilder.build();
         //请求体
         FormBody formBody = null;
-        if (formBuilder != null) {
+        if (formBuilder == null) {
             formBody = formBuilder.build();
         }
         Request request = new Request.Builder().url(httpUrl).method(httpMethod, formBody).build();

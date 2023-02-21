@@ -12,8 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.jzyc.instock.R;
 import com.jzyc.instock.databinding.FragmentNotificationsBinding;
+import com.jzyc.instock.network.MNetworkApi;
+import com.jzyc.instock.network.MnApiInterface;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class NotificationsFragment extends Fragment {
 
@@ -22,12 +27,9 @@ public class NotificationsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
-
+        notificationsViewModel = new ViewModelProvider(this).get(NotificationsViewModel.class);
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         final TextView textView = binding.textNotifications;
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
@@ -35,6 +37,7 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });
+        testNetWorkApi();
         return root;
     }
 
@@ -42,5 +45,33 @@ public class NotificationsFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    public void testNetWorkApi() {
+        MNetworkApi.getService(MnApiInterface.class)
+                .getNewsList("", 1, 30, "", "")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new io.reactivex.Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String baseResponse) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }
