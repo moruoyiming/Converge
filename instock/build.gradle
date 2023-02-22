@@ -61,6 +61,8 @@ android {
     buildFeatures {
         viewBinding true
     }
+    //兼容okhttp4.1版本
+    useLibrary 'org.apache.http.legacy'
 
     android.applicationVariants.all { variant ->
         variant.outputs.all { output ->
