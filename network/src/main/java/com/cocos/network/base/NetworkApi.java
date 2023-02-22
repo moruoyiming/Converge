@@ -43,9 +43,9 @@ public abstract class NetworkApi implements IEnvironment {
         mIsFormal = EnvironmentActivity.isOfficialEnvironment(networkRequiredInfo.getApplicationContext());
     }
 
-    protected Retrofit getRetrofit(Class service) {
-        if (retrofitHashMap.get(mBaseUrl + service.getName()) != null) {
-            return retrofitHashMap.get(mBaseUrl + service.getName());
+    protected Retrofit getRetrofit(Class service) {// + service.getName()
+        if (retrofitHashMap.get(mBaseUrl) != null) {
+            return retrofitHashMap.get(mBaseUrl);// + service.getName()
         }
         Retrofit.Builder retrofitBuilder = new Retrofit.Builder();
         retrofitBuilder.baseUrl(mBaseUrl);
@@ -53,7 +53,7 @@ public abstract class NetworkApi implements IEnvironment {
         retrofitBuilder.addConverterFactory(GsonConverterFactory.create());
         retrofitBuilder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
         Retrofit retrofit = retrofitBuilder.build();
-        retrofitHashMap.put(mBaseUrl + service.getName(), retrofit);
+        retrofitHashMap.put(mBaseUrl, retrofit);// + service.getName()
         return retrofit;
     }
 
@@ -70,6 +70,7 @@ public abstract class NetworkApi implements IEnvironment {
             okHttpClientBuilder.cache(new Cache(iNetworkRequiredInfo.getApplicationContext().getCacheDir(), cacheSize));
             okHttpClientBuilder.addInterceptor(new CommonRequestInterceptor(iNetworkRequiredInfo));
             okHttpClientBuilder.addInterceptor(new LogInterceptor());
+
             if (iNetworkRequiredInfo != null &&(iNetworkRequiredInfo.isDebug())) {
                 HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
                 httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

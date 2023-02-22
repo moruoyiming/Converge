@@ -113,8 +113,8 @@ dependencies {
     api project(':aop')
     api project(':inject')
     api project(':compiler')
-    implementation project(':arouter-annotations')
-    implementation 'org.aspectj:aspectjrt:1.9.2'
+    api project(':arouter-annotations')
+    api 'org.aspectj:aspectjrt:1.9.2'
     //hilt
 //    implementation "com.google.dagger:hilt-android:2.28-alpha"
 //    annotationProcessor "com.google.dagger:hilt-android-compiler:2.28-alpha"
@@ -150,8 +150,8 @@ dependencies {
 
     implementation 'com.github.SheHuan:NiceImageView:1.0.5'
     //WorkManager
-    def work_version = "2.4.0"
-    implementation "androidx.work:work-runtime:$work_version"
+//    def work_version = "2.4.0"
+//    implementation "androidx.work:work-runtime:$work_version"
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
@@ -342,39 +342,39 @@ static void processClass(String dirName, File file) {
 }
 //HotFix.test();
 
-static void processJar(File file) {
-    try {
-        //  无论是windows还是linux jar包都是 /
-        File bakJar = new File(file.getParent(), file.getName() + ".bak");
-        JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream(bakJar));
-
-        JarFile jarFile = new JarFile(file);
-        Enumeration<JarEntry> entries = jarFile.entries();
-        while (entries.hasMoreElements()) {
-            JarEntry jarEntry = entries.nextElement();
-
-            // 读jar包中的一个文件 ：class
-            jarOutputStream.putNextEntry(new JarEntry(jarEntry.getName()));
-            InputStream is = jarFile.getInputStream(jarEntry);
-
-            String className = jarEntry.getName();
-            if (className.endsWith(".class") && !className.startsWith
-                    ("com/example/hotfix/MyApplication")
-                    && !isAndroidClass(className) && !className.startsWith("com/example" +
-                    "/patch")) {
-                byte[] byteCode = referHackWhenInit(is);
-                jarOutputStream.write(byteCode);
-            } else {
-                //输出到临时文件
-                jarOutputStream.write(IOUtils.toByteArray(is));
-            }
-            jarOutputStream.closeEntry();
-        }
-        jarOutputStream.close();
-        jarFile.close();
-        file.delete();
-        bakJar.renameTo(file);
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-}
+//static void processJar(File file) {
+//    try {
+//        //  无论是windows还是linux jar包都是 /
+//        File bakJar = new File(file.getParent(), file.getName() + ".bak");
+//        JarOutputStream jarOutputStream = new JarOutputStream(new FileOutputStream(bakJar));
+//
+//        JarFile jarFile = new JarFile(file);
+//        Enumeration<JarEntry> entries = jarFile.entries();
+//        while (entries.hasMoreElements()) {
+//            JarEntry jarEntry = entries.nextElement();
+//
+//            // 读jar包中的一个文件 ：class
+//            jarOutputStream.putNextEntry(new JarEntry(jarEntry.getName()));
+//            InputStream is = jarFile.getInputStream(jarEntry);
+//
+//            String className = jarEntry.getName();
+//            if (className.endsWith(".class") && !className.startsWith
+//                    ("com/example/hotfix/MyApplication")
+//                    && !isAndroidClass(className) && !className.startsWith("com/example" +
+//                    "/patch")) {
+//                byte[] byteCode = referHackWhenInit(is);
+//                jarOutputStream.write(byteCode);
+//            } else {
+//                //输出到临时文件
+//                jarOutputStream.write(IOUtils.toByteArray(is));
+//            }
+//            jarOutputStream.closeEntry();
+//        }
+//        jarOutputStream.close();
+//        jarFile.close();
+//        file.delete();
+//        bakJar.renameTo(file);
+//    } catch (IOException e) {
+//        e.printStackTrace();
+//    }
+//}

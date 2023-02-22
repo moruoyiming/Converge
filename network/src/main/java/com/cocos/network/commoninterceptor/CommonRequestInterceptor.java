@@ -21,6 +21,7 @@ public class CommonRequestInterceptor implements Interceptor {
         //builder.cacheControl(CacheControl.FORCE_CACHE);
         builder.addHeader("os", "android");
         builder.addHeader("appVersion", this.requiredInfo.getAppVersionCode());
+        builder.addHeader("Content-Type", "application/x-www-form-urlencoded");
         return chain.proceed(builder.build());
     }
 }

@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 
 public interface MnApiInterface {
 
-    @GET("release/news")//type=&page=&page_size=&is_filter=&key=b8dff355******49555f54
+    @GET("index")//type=&page=&page_size=&is_filter=&key=b8dff355******49555f54
     Observable<String> getNewsList(@Query("type") String type,
                                           @Query("page") int page,
                                           @Query("page_size") int page_size,

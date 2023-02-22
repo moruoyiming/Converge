@@ -1,4 +1,4 @@
-package com.jzyc.instock;
+package com.jzyc.instock.widget.button;
 
 import android.content.Context;
 import android.util.AttributeSet;

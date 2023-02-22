@@ -1,4 +1,4 @@
-package com.jzyc.instock;
+package com.jzyc.instock.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.util.Log;
  * @Time: 1:56 下午
  * @Author: Jian
  */
-public class TestReciver extends BroadcastReceiver {
+public class TestReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i("thanlon","收到自定义广播");

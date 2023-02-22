@@ -8,15 +8,12 @@ package com.cocos.basewebview;
 public class CoreConstant {
 
     public static final int MAX_NEWS_NUM = 99;
-
     // 是否需要处理账户退出事件
     private static boolean sShouldHandleLogout = false;
-
     //是否 打印 retrfit 拦截器log
     public static final boolean OPENLOGINTERCEPTION = true;
     //是否 打印 加密 解密log
     public static final boolean OPENINTERCEPTION = true;
-
     public static final int TARGET_OFTEN_GAME = 1;
     public static final int SET_OFTEN_GAME = 2;
     //好友操作-1未申请 ,0申请，1同意，2拒绝，3删除
@@ -25,28 +22,22 @@ public class CoreConstant {
     public static final int FRENDS_STATE_ADD_OK = 1;
     public static final int FRENDS_STATE_ADD_REFUSE = 2;
     public static final int FRENDS_STATE_DELETE = 3;
-
     //性别，1代表男，2代表女
     public static final String BOY = "m";
     public static final String GIRL = "f";
     public static final String SECRET = "x";
-
     //    //true，测试vivo的sdk，false，联运的sdk
     public static final boolean IS_VIVO_TEST = false;
     //是否开启检测内存泄漏
     public static final boolean OPEN_LEAKCANARY = false;
     //0 vivo联运sdk  1 帐户sdk
     public static final int SDK_STATUS = 0;
-
     //是否 开启 gamezip 包秘钥验证
     public static final boolean VERIFY_GAMEZIP = false;
-
     //聊天历史消息每页拉取条数
     public static final int HISTORY_MESSAGE_PAGE_NUM = 20;
-
     //好友列表每页数据个数
     public static final int FRIEND_LIST_PAGE_NUM = 20;
-
     //启动游戏界面REQUESTCODE
     public static final int REQUEST_CODE_NORMAL = 0;
 

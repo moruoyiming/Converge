@@ -63,11 +63,11 @@ public class MNetworkApi extends NetworkApi {
 
     @Override
     public String getFormal() {
-        return "http://v.juhe.cn/toutiao/index/";
+        return "http://v.juhe.cn/toutiao/";
     }
 
     @Override
     public String getTest() {
-        return "http://v.juhe.cn/toutiao/index/";
+        return "http://v.juhe.cn/toutiao/";
     }
 }
