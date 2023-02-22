@@ -184,7 +184,6 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding, MvvmBaseView
                 finish();
                 break;
             }
-            // case blocks for other MenuItems (if any)
         }
         return true;
     }

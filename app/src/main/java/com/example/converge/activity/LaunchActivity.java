@@ -2,22 +2,15 @@ package com.example.converge.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.converge.R;
-import android.content.ComponentName;
-import android.content.Context;
+
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.RemoteException;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-import android.content.Intent;
 import android.net.Uri;
 import java.io.File;
 import android.content.pm.PackageManager;
 
-public class LauchActivity extends AppCompatActivity {
+public class LaunchActivity extends AppCompatActivity {
 
     //---京东和淘宝的商铺及商品ID
     private String TaoBaoShopId = "131259851";   //--耐凡眼镜店
@@ -62,12 +55,12 @@ public class LauchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //---jd
                 if (isInstallByread(mJDMall)) {
-                    Toast.makeText(LauchActivity.this, "京东已经安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "京东已经安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(jdAppStr_shop));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LauchActivity.this, "京东没有安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "京东没有安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(jdWebStr_shop));
                     startActivity(intent);
 //                    loadApp(mJDMall);
@@ -80,12 +73,12 @@ public class LauchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //---taobao
                 if (isInstallByread(mTaoBao)) {
-                    Toast.makeText(LauchActivity.this, "淘宝已经安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "淘宝已经安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(taobaoAppStr_shop));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LauchActivity.this, "淘宝没有安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "淘宝没有安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(taobaoWebStr_shop));
                     startActivity(intent);
 //                    loadApp(mTaoBao);
@@ -98,12 +91,12 @@ public class LauchActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //---jd
                 if (isInstallByread(mJDMall)) {
-                    Toast.makeText(LauchActivity.this, "京东已经安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "京东已经安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(jdAppStr_goods));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LauchActivity.this, "京东没有安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "京东没有安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(jdWebStr_goods));
                     startActivity(intent);
 //                    loadApp(mJDMall);
@@ -116,12 +109,12 @@ public class LauchActivity extends AppCompatActivity {
             public void onClick(View v) {
 //---taobao
                 if (isInstallByread(mTaoBao)) {
-                    Toast.makeText(LauchActivity.this, "淘宝已经安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "淘宝已经安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(taobaoAppStr_goods));
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LauchActivity.this, "淘宝没有安装", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LaunchActivity.this, "淘宝没有安装", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(taobaoWebStr_goods));
                     startActivity(intent);
 //                    loadApp(mTaoBao);
