@@ -1,7 +1,7 @@
 package com.jzyc.instock.bean
 
-public class BaseResponses {
+public open class BaseResponses<T> {
     var reason = ""
-    var result = ""
     var error_code = 0
+    var result: T? = null
 }
