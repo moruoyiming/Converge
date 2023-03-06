@@ -80,7 +80,7 @@ public class ExecutorsTest {
 //        shutdownNow()：立即终止线程池，并尝试打断正在执行的任务，并且清空任务缓存队列，返回尚未执行的任务
 //        ex.shutdownNow();
 
-//        ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(12);
+        ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(12);
 //        ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();
 //        ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();
 //        ExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(12);
